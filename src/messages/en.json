@@ -42,5 +42,24 @@
   "GalleryPage": {
     "title": "Gallery",
     "description": "Take a look at the photos and videos from the Istanbul University Computer Science Club! Here you'll find a collection of images and videos from our events, activities, and more. Browse through our gallery to get a glimpse of what our club is all about!"
+  },
+
+  "AboutPage": {
+    "title": "About",
+    "description": "Istanbul University Computer Science Club is a student organization operating under Faculty of Science at Istanbul University. Our club aims to bring together students interested in computer sciences, facilitate the sharing of knowledge and experiences, organize events, and develop projects. We invite all students interested in the field of computer science to join our club!",
+    "aboutUsTitle": "About Us",
+    "aboutUsText": "Established in 2023 under Faculty of Science at Istanbul University, Computer Science Club welcomes all students who are interested in computer technologies and wish to learn and grow in this field. As a club, we conduct activities aimed at developing both theoretical knowledge and practical skills in computer sciences. We offer a rich environment with training programs, seminars, hackathons, project work, and social events. Our goal is not only to support the individual development of students but also to build a community that contributes to technological advancements.\nWith activities suitable for participants at all levels, we aim to foster knowledge sharing and create a community where new friendships can flourish.",
+    "missionTitle": "Mission",
+    "missionText": "Our mission at Istanbul University Faculty of Science Computer Science Club is to bring together individuals interested in computer sciences and technologies, providing a platform for knowledge and experience sharing. We aim to contribute to the academic, personal, and professional development of our members by supporting the learning process through trainings, events, and projects. Ensuring equal opportunities for accessing and sharing knowledge is at the core of our mission.",
+    "visionTitle": "Vision",
+    "visionText": "To be a pioneering student community in the field of computer sciences, equipping our members with the knowledge, skills, and experiences required by modern times. By creating impactful projects in technology and innovation, we aim to make a difference not only within the university but also in society. We embrace the vision of becoming a role model community in the technology world, built on the solidarity we foster under the roof of Istanbul University.",
+    "valuesTitle": "Values",
+    "valuesText": "Knowledge sharing, collaboration, equality, innovation, and social responsibility are our core values. Through knowledge sharing and collaboration, we aim to enhance the collective knowledge of our community and contribute to the personal development of our members. With the principle of equality, we strive to create an environment where everyone can freely express their ideas. Guided by innovation and a sense of social responsibility, we aim to develop projects that benefit society and uphold social responsibility as one of the fundamental values of our community.",
+    "teamTitle": "Our Team",
+    "teamText": "Our club is managed by students of Istanbul University. Our management and supervisory boards are responsible for planning, organizing, and implementing the club's activities. Each member works in alignment with the mission and vision of our club, contributing to achieving the goals of our community. Our team consists of students from various disciplines. Each member is dedicated, experienced, and takes steps towards specialization in their field with a strong sense of responsibility. The success of our club relies heavily on teamwork, harmonious collaboration, and a shared commitment to common goals.",
+    "goToTeamPage": "Go to Team Page",
+    "joinOurJourneyTitle": "Join Our Journey",
+    "joinOurJourneyText": "Join our community of students passionate about computer sciences and technology. Whether you're a beginner or an expert, there's a place for you in our club. Take part in our events, projects, and activities to expand your knowledge, develop your skills, and build lasting friendships. Join us in shaping the future of technology and innovation!",
+    "joinUs": "Join Us"
   }
 }
