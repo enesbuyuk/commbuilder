@@ -25,5 +25,10 @@
   "AnnouncementsPage": {
     "title": "Duyurular",
     "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü'nden en son haberler ve güncellemelerden haberdar olun! Burada yaklaşan etkinlikler, kulüp faaliyetleri, üyelik fırsatları ve daha fazlasıyla ilgili önemli duyuruları bulabilirsiniz. Hiçbir önemli bilgiyi kaçırmayın—bu sayfa, kulübümüzden gelen tüm resmi güncellemeler ve duyurular için başvuracağınız yer. Güncel kalmak için sık sık kontrol edin!"
+  },
+
+  "EventsPage": {
+    "title": "Etkinlikler",
+    "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü'nün düzenlediği etkinlikler hakkında bilgi edinin! Burada kulübümüzün düzenlediği etkinliklerin tarihlerini, saatlerini, konumlarını ve daha fazlasını bulabilirsiniz. Etkinliklerimiz hakkında daha fazla bilgi edinmek ve katılmak için bu sayfayı ziyaret edin!"
   }
 }

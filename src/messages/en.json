@@ -25,5 +25,10 @@
   "AnnouncementsPage": {
     "title": "Announcements",
     "description" : "Stay updated with the latest news and updates from the Istanbul University Computer Science Club! Here you'll find important announcements about upcoming events, club activities, membership opportunities, and more. Don’t miss out on any crucial information—this is your go-to hub for all official updates and communications from our club. Check back often to stay in the loop!"
+  },
+
+  "EventsPage": {
+    "title": "Events",
+    "description": "Learn about the events organized by the Istanbul University Computer Science Club! Here you'll find information about the dates, times, locations, and more for the events hosted by our club. Visit this page to find out more about our events and how you can participate!"
   }
 }
