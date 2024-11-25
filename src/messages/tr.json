@@ -22,8 +22,8 @@
     "welcomeMessage": "İstanbul Üniversitesi Fen Fakültesi, Bilgisayar Bilimleri Kulübü'ne Hoşgeldiniz!"
   },
 
-  "announcementsPage": {
+  "AnnouncementsPage": {
     "title": "Duyurular",
-    "last": ""
+    "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü'nden en son haberler ve güncellemelerden haberdar olun! Burada yaklaşan etkinlikler, kulüp faaliyetleri, üyelik fırsatları ve daha fazlasıyla ilgili önemli duyuruları bulabilirsiniz. Hiçbir önemli bilgiyi kaçırmayın—bu sayfa, kulübümüzden gelen tüm resmi güncellemeler ve duyurular için başvuracağınız yer. Güncel kalmak için sık sık kontrol edin!"
   }
 }
