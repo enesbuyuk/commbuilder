@@ -1,13 +1,19 @@
-import type { Metadata } from "next";
 import {useTranslations} from "next-intl";
+import {getTranslations, setRequestLocale} from "next-intl/server";
+import React from "react";
+export async function generateMetadata() {
+    const t = await getTranslations({ namespace: 'AnnouncementsPage'});
+    const generalT = await getTranslations({ namespace: 'General'});
 
-// const generalT = useTranslations("general");
-// const pageT = useTranslations("announcementsPage");
-// export const metadata: Metadata = {
-//     title: pageT("title") + generalT("titleSuffix"),
-//     description: "Stay up-to-date with the latest news and announcements from the Istanbul University Computer Science Club."
-// };
-export default function Page() {
+    return {
+        title: t('title') + generalT("titleSuffix"),
+        description: t('description')
+    };
+}
+
+export default function Page({params}) {
+    const { locale } = Promise.resolve(params)
+    setRequestLocale(locale);
     const pageT = useTranslations("AnnouncementsPage");
     return (
         <main>

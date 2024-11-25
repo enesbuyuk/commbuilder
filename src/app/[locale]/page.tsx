@@ -1,14 +1,3 @@
-// export const getServerSideProps = async (context) => {
-//     const { locale } = context;
-//     const res = await fetch(`/languages/${locale}.json`);
-//     const data = await res.json();
-//
-//     return {
-//         props: {
-//             data,
-//         },
-//     };
-// };
 import {useTranslations} from "next-intl";
 import {setRequestLocale} from "next-intl/server";
 
@@ -16,7 +5,8 @@ type Props = {
     params: {locale: string};
 };
 
-export default function Home({params: {locale}}: Props) {
+export default function Home({params}: Props) {
+    const {locale} =  Promise.resolve(params);
     setRequestLocale(locale);
     const t = useTranslations("indexPage");
     const generalT = useTranslations("General");
