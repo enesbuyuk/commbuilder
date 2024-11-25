@@ -34,7 +34,7 @@ export default function AboutPage() {
                     <div className="text-gray-900">
                         <h2 className="text-2xl font-bold mb-4 text-secondaryDark">{pageT("teamTitle")}</h2>
                         <p className="leading-relaxed text-base">{pageT("teamText")}</p>
-                        <Link href={"/team"} title={pageT("teamTitle")} className={"inline-flex m-8 bg-primary hover:bg-secondaryDark text-white px-3 py-2 rounded-lg duration-300"}>{pageT("goToTeamPage")}</Link>
+                        <Link href={"/about/team"} title={pageT("teamTitle")} className={"inline-flex m-8 bg-primary hover:bg-secondaryDark text-white px-3 py-2 rounded-lg duration-300"}>{pageT("goToTeamPage")}</Link>
                     </div>
                     <div className="bg-primary text-white p-6 rounded-lg text-center">
                         <h2 className="text-2xl font-bold mb-4">{pageT("joinOurJourneyTitle")}</h2>
