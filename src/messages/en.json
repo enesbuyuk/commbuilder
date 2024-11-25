@@ -37,5 +37,10 @@
     "title": "Useful Links",
     "description": "Explore useful links related to computer science, technology, and more! Here you'll find a collection of resources that can help you expand your knowledge and stay informed about the latest trends in the tech industry. Whether you're a student, professional, or enthusiast, these links are sure to provide valuable insights and information.",
     "goToLink": "Go to Link"
+  },
+
+  "GalleryPage": {
+    "title": "Gallery",
+    "description": "Take a look at the photos and videos from the Istanbul University Computer Science Club! Here you'll find a collection of images and videos from our events, activities, and more. Browse through our gallery to get a glimpse of what our club is all about!"
   }
 }
