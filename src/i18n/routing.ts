@@ -2,14 +2,50 @@ import {createNavigation} from 'next-intl/navigation';
 import {defineRouting} from 'next-intl/routing';
 
 export const routing = defineRouting({
-    locales: ['en', 'tr'],
+    locales: ['en', 'tr'] as const,
     defaultLocale: 'en',
     pathnames: {
         '/': '/',
         '/announcements': {
             en: '/announcements',
             tr: '/duyurular'
-        }
+        },
+        '/events':{
+            en: '/events',
+            tr: '/etkinlikler'
+        },
+        '/links':{
+            en: '/links',
+            tr: '/linkler'
+        },
+        '/gallery':{
+            en: '/gallery',
+            tr: '/galeri'
+        },
+        '/about': {
+            en: '/about',
+            tr: '/hakkinda'
+        },
+        '/mission': {
+            en: '/mission',
+            tr: '/misyon'
+        },
+        '/vision': {
+            en: '/vision',
+            tr: '/vizyon'
+        },
+        '/takim':{
+            en: '/team',
+            tr: '/takim'
+        },
+        '/contact': {
+            en: '/contact',
+            tr: '/iletisim'
+        },
+        '/join-the-club': {
+            en: '/join-the-club',
+            tr: '/kulube-katil',
+        },
     }
 });
 
