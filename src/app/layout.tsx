@@ -1,37 +1,10 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
-import {Header} from "@/components/Header";
+import {ReactNode} from 'react';
+import './globals.css';
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
-export const metadata: Metadata = {
-  title: "Computer Science Club | Istanbul University CSC",
-  description: "A dynamic student club fostering innovation, collaboration, and growth in computer science at Istanbul University.",
+type Props = {
+    children: ReactNode;
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-      <Header/>
-        {children}
-      </body>
-    </html>
-  );
+export default function RootLayout({children}: Props) {
+    return children;
 }

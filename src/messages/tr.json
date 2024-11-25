@@ -1,0 +1,29 @@
+{
+  "General": {
+    "title": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü",
+    "universityName": "İstanbul Üniversitesi",
+    "studentClubName": "Bilgisayar Bilimleri Kulübü",
+    "joinTheClub": "Kulübe Katıl",
+    "titleSuffix": " | İstanbul Üniversitesi CSC"
+  },
+
+  "Header": {
+    "index": "Anasayfa",
+    "announcements": "Duyurular",
+    "events": "Etkinlikler",
+    "links": "Linkler",
+    "gallery": "Galeri",
+    "about": "Hakkında",
+    "contact": "İletişim",
+    "joinTheClub": "Kulübe Katıl"
+  },
+
+  "indexPage": {
+    "welcomeMessage": "İstanbul Üniversitesi Fen Fakültesi, Bilgisayar Bilimleri Kulübü'ne Hoşgeldiniz!"
+  },
+
+  "announcementsPage": {
+    "title": "Duyurular",
+    "last": ""
+  }
+}

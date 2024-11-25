@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
-export const metadata: Metadata = {
-    title: "Announcements"+ " | Istanbul University CSC",
-    description: "Stay up-to-date with the latest news and announcements from the Istanbul University Computer Science Club."
-};
-export default async function Page() {
+import {useTranslations} from "next-intl";
+
+// const generalT = useTranslations("general");
+// const pageT = useTranslations("announcementsPage");
+// export const metadata: Metadata = {
+//     title: pageT("title") + generalT("titleSuffix"),
+//     description: "Stay up-to-date with the latest news and announcements from the Istanbul University Computer Science Club."
+// };
+export default function Page() {
+    const pageT = useTranslations("announcementsPage");
     return (
         <main>
             <section className="text-gray-600 body-font overflow-hidden">
+                <h1>{pageT("title")}</h1>
                 <div className="container px-5 py-24 mx-auto">
                     <div className="-my-8 divide-y-2 divide-gray-100">
                         <div className="py-8 flex flex-wrap md:flex-nowrap">

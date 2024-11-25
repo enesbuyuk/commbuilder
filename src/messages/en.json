@@ -1,0 +1,29 @@
+{
+  "General": {
+    "title" : "Istanbul University Computer Science Club",
+    "universityName": "Istanbul University",
+    "studentClubName": "Computer Science Club",
+    "joinTheClub": "Join the Club",
+    "titleSuffix": " | Istanbul University CSC"
+  },
+
+  "Header": {
+    "index": "Home",
+    "announcements" : "Announcements",
+    "events": "Events",
+    "links" : "Links",
+    "gallery": "Gallery",
+    "about": "About",
+    "contact": "Contact",
+    "joinTheClub": "Join the Club"
+  },
+
+  "indexPage": {
+    "welcomeMessage" : "Welcome to Istanbul University Faculty of Science, Computer Science Club!"
+  },
+
+  "announcementsPage": {
+    "title": "Announcements",
+    "last" : ""
+  }
+}
