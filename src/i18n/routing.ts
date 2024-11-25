@@ -26,17 +26,9 @@ export const routing = defineRouting({
             en: '/about',
             tr: '/hakkinda'
         },
-        '/mission': {
-            en: '/mission',
-            tr: '/misyon'
-        },
-        '/vision': {
-            en: '/vision',
-            tr: '/vizyon'
-        },
-        '/takim':{
-            en: '/team',
-            tr: '/takim'
+        '/about/team':{
+            en: '/about/team',
+            tr: '/hakkinda/takim'
         },
         '/contact': {
             en: '/contact',
