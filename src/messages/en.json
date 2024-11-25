@@ -12,7 +12,7 @@
     "index": "Home",
     "announcements" : "Announcements",
     "events": "Events",
-    "links" : "Links",
+    "links" : "Useful Links",
     "gallery": "Gallery",
     "about": "About",
     "contact": "Contact",
@@ -31,5 +31,11 @@
   "EventsPage": {
     "title": "Events",
     "description": "Learn about the events organized by the Istanbul University Computer Science Club! Here you'll find information about the dates, times, locations, and more for the events hosted by our club. Visit this page to find out more about our events and how you can participate!"
+  },
+
+  "UsefulLinksPage": {
+    "title": "Useful Links",
+    "description": "Explore useful links related to computer science, technology, and more! Here you'll find a collection of resources that can help you expand your knowledge and stay informed about the latest trends in the tech industry. Whether you're a student, professional, or enthusiast, these links are sure to provide valuable insights and information.",
+    "goToLink": "Go to Link"
   }
 }

@@ -25,7 +25,7 @@ export function Header () {
                   <Link className="mr-5 text-black hover:text-primary font-bold text-lg"
                         href={"/events"}>{tPage("events")}</Link>
                   <Link className="mr-5 text-black hover:text-primary font-bold text-lg"
-                        href={"/links"}>{tPage("links")}</Link>
+                        href={"/useful-links"}>{tPage("links")}</Link>
                   <Link className="mr-5 text-black hover:text-primary font-bold text-lg"
                         href={"/gallery"}>{tPage("gallery")}</Link>
                   <Link className="mr-5 text-black hover:text-primary font-bold text-lg"
