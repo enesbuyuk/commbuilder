@@ -16,7 +16,7 @@ export const routing = defineRouting({
         },
         '/useful-links':{
             en: '/useful-links',
-            tr: '/yararli-linkler'
+            tr: '/faydali-linkler'
         },
         '/gallery':{
             en: '/gallery',
