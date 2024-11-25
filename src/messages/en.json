@@ -4,7 +4,8 @@
     "universityName": "Istanbul University",
     "studentClubName": "Computer Science Club",
     "joinTheClub": "Join the Club",
-    "titleSuffix": " | Istanbul University CSC"
+    "titleSuffix": " | Istanbul University CSC",
+    "learnMore": "Learn More"
   },
 
   "Header": {
