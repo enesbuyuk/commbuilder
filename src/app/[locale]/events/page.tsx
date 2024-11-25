@@ -22,7 +22,7 @@ export default function Page({params}) {
                     <h1 className="text-3xl font-bold title-font mb-4 text-white tracking-widest">{pageT("title")}</h1>
                     <p className="lg:w-2/3 mx-auto leading-relaxed text-base">{pageT("description")}</p>
                 </div>
-                <div className="container px-5 py-24 items-center mx-auto p-6 flex flex-col space-y-6">
+                <div className="container px-5 py-12 items-center mx-auto p-6 flex flex-col space-y-6">
                     <div className="-my-8 divide-y-2 divide-gray-100">
                         <div className="py-8 flex flex-wrap md:flex-nowrap">
                             <div className="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
