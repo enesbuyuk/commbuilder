@@ -31,8 +31,7 @@ const LanguageSwitcher = () => {
                 className={`py-1  ${
                     locale === "en" ? "text-white font-bold" : "text-secondary"
                 }`}
-            >
-        ENG
+            >EN
       </span>
         </button>
     );
