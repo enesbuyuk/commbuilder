@@ -61,5 +61,10 @@
     "joinOurJourneyTitle": "Join Our Journey",
     "joinOurJourneyText": "Join our community of students passionate about computer sciences and technology. Whether you're a beginner or an expert, there's a place for you in our club. Take part in our events, projects, and activities to expand your knowledge, develop your skills, and build lasting friendships. Join us in shaping the future of technology and innovation!",
     "joinUs": "Join Us"
+  },
+
+  "TeamPage": {
+    "title": "Our Team",
+    "description": "Our club team consists of two main groups. The first group is composed of members responsible for the overall direction, development, and strategic management of our club. These members undertake long-term planning and coordination to ensure the club achieves its goals. The second group includes members who directly contribute to projects, actively participate in practical applications, and provide direct support to the club. This dynamic structure enables our club to establish a solid foundation while achieving quick and effective results in projects."
   }
 }

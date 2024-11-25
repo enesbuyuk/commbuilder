@@ -61,5 +61,10 @@
     "joinOurJourneyTitle": "Yolculuğumuza Katılın",
     "joinOurJourneyText": "Bilgisayar bilimleri ve teknolojiye tutku duyan öğrencilerden oluşan topluluğumuza katılın. İster bir başlangıç seviyesinde olun, ister bir uzman, kulübümüzde size uygun bir yer mutlaka vardır. Etkinliklerimize, projelerimize ve aktivitelerimize katılarak bilginizi genişletin, becerilerinizi geliştirin ve kalıcı dostluklar kurun. Teknolojinin ve inovasyonun geleceğini şekillendirme yolculuğumuzda bize katılın!",
     "joinUs": "Bize Katılın"
+  },
+
+  "TeamPage": {
+    "title": "Takımımız",
+    "description": "Kulüp takımımız iki ana ekipten oluşmaktadır. İlk ekip kulübümüzün genel yönü, gelişimi ve stratejik yönetiminden sorumlu olan üyelerden oluşur. Bu üyeler kulübün hedeflerine ulaşması için uzun vadeli planlama ve koordinasyonu üstlenir. İkinci ekipte ise projelere birinci elden katkı sağlayan, pratik uygulamalarda aktif olarak görev alan ve kulübe doğrudan destek veren üyeler yer alır. Bu dinamik yapı hem kulübümüzün sağlam temellere oturmasını hem de projelerde hızlı ve etkili sonuçlar almamızı sağlar."
   }
 }
