@@ -2,6 +2,7 @@ import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
 import React, {ReactNode} from 'react';
 import {Header} from "@/components/Header";
+import Footer from "@/components/Footer";
 
 type Props = {
     children: ReactNode;
@@ -17,6 +18,7 @@ export default async function BaseLayout({children, locale}: Props) {
         <NextIntlClientProvider messages={messages} locale={locale}>
             <Header/>
             {children}
+            <Footer/>
         </NextIntlClientProvider>
         </body>
         </html>
