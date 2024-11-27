@@ -1,8 +1,9 @@
 import {useTranslations} from "next-intl";
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import React from "react";
+
 export async function generateMetadata() {
-    const t = await getTranslations({ namespace: 'EventsPage'});
+    const t = await getTranslations({ namespace: 'UsefulLinksPage'});
     const generalT = await getTranslations({ namespace: 'General'});
 
     return {
