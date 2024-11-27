@@ -21,6 +21,8 @@
   },
 
   "IndexPage": {
+    "title": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü",
+    "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü'ne hoş geldiniz! Kulübümüz, bilgisayar bilimleri, teknoloji ve inovasyona ilgi duyan öğrencileri bir araya getirmeyi amaçlamaktadır. Bilgi düzeyinizi genişletmenize, becerilerinizi geliştirmenize ve kalıcı dostluklar kurmanıza yardımcı olmak için geniş bir etkinlik, etkinlik ve kaynak yelpazesi sunuyoruz. Başlangıç seviyesinde olun veya uzman olun, kulübümüzde size uygun bir yer vardır. Bugün bize katılın ve teknoloji ve inovasyonun geleceğini şekillendirme yolculuğumuzun bir parçası olun!",
     "welcomeMessage": "İstanbul Üniversitesi Fen Fakültesi, Bilgisayar Bilimleri Kulübü'ne Hoşgeldiniz!",
     "ourMediumArticles": "Son Medium Makalelerimiz",
     "ourMediumArticlesDescription": "Bilgisayar bilimleri, teknoloji ve daha fazlası hakkında öğrenmek için Medium'daki makalelerimizi okuyun! Burada, üyeler"

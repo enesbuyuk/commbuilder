@@ -21,6 +21,8 @@
   },
 
   "IndexPage": {
+    "title": "Istanbul University Computer Science Club",
+    "description": "Welcome to the Istanbul University Computer Science Club! Our club is dedicated to bringing together students interested in computer sciences, technology, and innovation. We offer a wide range of activities, events, and resources to help you expand your knowledge, develop your skills, and build lasting friendships. Whether you're a beginner or an expert, there's a place for you in our club. Join us today and be a part of our journey towards shaping the future of technology and innovation!",
     "welcomeMessage" : "Welcome to Istanbul University Faculty of Science, Computer Science Club!",
     "ourMediumArticles": "Our Recent Medium Articles",
     "ourMediumArticlesDescription": "Read our articles on Medium to learn more about computer science, technology, and more! Here you'll find a collection of articles written by our members on various topics related to computer sciences. Explore our articles to expand your knowledge and stay informed about the latest trends in the tech industry."
