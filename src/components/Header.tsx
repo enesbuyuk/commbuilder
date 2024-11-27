@@ -19,7 +19,7 @@ export function Header () {
                   className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
                   <Link className="mr-5 text-black hover:text-primary font-semibold text-lg" href={"/"}>{tPage("index")}</Link>
                   <Link className="mr-5 text-black hover:text-primary font-semibold text-lg"
-                        href={"https://medium.iucs.net"}>Medium</Link>
+                        href={"https://medium.iucs.net"} target={"_blank"}>Medium</Link>
                   <Link className="mr-5 text-black hover:text-primary font-semibold text-lg"
                         href={"/announcements"}>{tPage("announcements")}</Link>
                   <Link className="mr-5 text-black hover:text-primary font-semibold text-lg"
