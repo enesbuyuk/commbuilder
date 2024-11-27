@@ -69,5 +69,10 @@
   "TeamPage": {
     "title": "Our Team",
     "description": "Our club team consists of two main groups. The first group is composed of members responsible for the overall direction, development, and strategic management of our club. These members undertake long-term planning and coordination to ensure the club achieves its goals. The second group includes members who directly contribute to projects, actively participate in practical applications, and provide direct support to the club. This dynamic structure enables our club to establish a solid foundation while achieving quick and effective results in projects."
+  },
+
+  "JoinTheClubPage": {
+    "title": "Join the Club",
+    "description": "Join the Istanbul University Computer Science Club to become part of a vibrant community of students passionate about computer sciences and technology. As a member of our club, you'll have access to a wide range of activities, events, and resources that can help you expand your knowledge, develop your skills, and build lasting friendships. Whether you're a beginner or an expert, there's a place for you in our club. Join us today and be a part of our journey towards shaping the future of technology and innovation!"
   }
 }

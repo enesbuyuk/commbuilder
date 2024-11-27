@@ -69,5 +69,10 @@
   "TeamPage": {
     "title": "Takımımız",
     "description": "Kulüp takımımız iki ana ekipten oluşmaktadır. İlk ekip kulübümüzün genel yönü, gelişimi ve stratejik yönetiminden sorumlu olan üyelerden oluşur. Bu üyeler kulübün hedeflerine ulaşması için uzun vadeli planlama ve koordinasyonu üstlenir. İkinci ekipte ise projelere birinci elden katkı sağlayan, pratik uygulamalarda aktif olarak görev alan ve kulübe doğrudan destek veren üyeler yer alır. Bu dinamik yapı hem kulübümüzün sağlam temellere oturmasını hem de projelerde hızlı ve etkili sonuçlar almamızı sağlar."
+  },
+
+  "JoinTheClubPage": {
+    "title": "Kulübe Katıl",
+    "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü'ne katılmak için aşağıdaki formu doldurun. Katılma süreci hakkında daha fazla bilgi almak için bize ulaşın."
   }
 }
