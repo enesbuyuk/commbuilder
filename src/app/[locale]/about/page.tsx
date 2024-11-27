@@ -1,10 +1,21 @@
 import {useTranslations} from "next-intl";
 import React from "react";
 import Link from "next/link";
+import {getTranslations, setRequestLocale} from "next-intl/server";
 
-export default function AboutPage() {
+export async function generateMetadata() {
+    const t = await getTranslations({ namespace: 'AboutPage'});
+    const generalT = await getTranslations({ namespace: 'General'});
+
+    return {
+        title: t('title') + generalT("titleSuffix"),
+        description: t('description')
+    };
+}
+export default function Page({params}) {
+    const { locale } = Promise.resolve(params)
+    setRequestLocale(locale);
     const pageT = useTranslations("AboutPage");
-
     return (
         <main>
             <section className="text-gray-600 body-font overflow-hidden">
