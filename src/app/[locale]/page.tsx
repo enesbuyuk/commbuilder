@@ -1,22 +1,26 @@
 import {useTranslations} from "next-intl";
 import {setRequestLocale} from "next-intl/server";
+import React from "react";
+import MediumArticles from "@/components/MediumArticles";
+import LastEvents from "@/components/LastEvents";
 
 type Props = {
-    params: {locale: string};
+    params: { locale: string };
 };
 
 export default function Home({params}: Props) {
-    const {locale} =  Promise.resolve(params);
+    const {locale} = Promise.resolve(params);
     setRequestLocale(locale);
-    const t = useTranslations("indexPage");
+    const pageT = useTranslations("IndexPage");
     const generalT = useTranslations("General");
 
     return (
         <main className={"flex flex-col items-center justify-center p-24 h-full"}>
             <section className="text-gray-600 body-font">
-                <div className="container px-5 py-24 mx-auto">
-                    <h1 className={"text-center text-primary uppercase tracking-widest font-extrabold py-8 text-5xl"}>{generalT("universityName")}<br/>{generalT("studentClubName")}</h1>
-                    <h2 className={"text-2xl text-black text-center mt-20"}>{t("welcomeMessage")}</h2>
+                <div className="container px-5 py-12 mx-auto">
+                    <h1 className={"text-center text-primary uppercase tracking-widest font-extrabold py-8 text-5xl"}>{generalT("universityName")}<br/>{generalT("studentClubName")}
+                    </h1>
+                    <h2 className={"text-2xl text-black text-center mt-20"}>{pageT("welcomeMessage")}</h2>
                     <div className="flex gap-4 items-center flex-col sm:flex-row justify-center">
                         <a
                             className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-primary text-background gap-2 hover:bg-secondaryDark text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 mt-10 duration-300"
@@ -41,6 +45,7 @@ export default function Home({params}: Props) {
                     className={"absolute inset-0 -z-10 h-full w-full object-cover"}
                 />
             </section>
+            <MediumArticles generalT={generalT} pageT={pageT}/>
         </main>
     )
 }

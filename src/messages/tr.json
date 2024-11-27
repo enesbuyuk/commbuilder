@@ -5,7 +5,8 @@
     "studentClubName": "Bilgisayar Bilimleri Kulübü",
     "joinTheClub": "Kulübe Katıl",
     "titleSuffix": " | İstanbul Üniversitesi CSC",
-    "learnMore": "Daha Fazla"
+    "learnMore": "Daha Fazla",
+    "readMore": "Daha Fazlasını Oku"
   },
 
   "Header": {
@@ -19,8 +20,10 @@
     "joinTheClub": "Kulübe Katıl"
   },
 
-  "indexPage": {
-    "welcomeMessage": "İstanbul Üniversitesi Fen Fakültesi, Bilgisayar Bilimleri Kulübü'ne Hoşgeldiniz!"
+  "IndexPage": {
+    "welcomeMessage": "İstanbul Üniversitesi Fen Fakültesi, Bilgisayar Bilimleri Kulübü'ne Hoşgeldiniz!",
+    "ourMediumArticles": "Son Medium Makalelerimiz",
+    "ourMediumArticlesDescription": "Bilgisayar bilimleri, teknoloji ve daha fazlası hakkında öğrenmek için Medium'daki makalelerimizi okuyun! Burada, üyeler"
   },
 
   "AnnouncementsPage": {

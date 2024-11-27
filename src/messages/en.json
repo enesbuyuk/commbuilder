@@ -5,7 +5,8 @@
     "studentClubName": "Computer Science Club",
     "joinTheClub": "Join the Club",
     "titleSuffix": " | Istanbul University CSC",
-    "learnMore": "Learn More"
+    "learnMore": "Learn More",
+    "readMore": "Read More"
   },
 
   "Header": {
@@ -19,8 +20,10 @@
     "joinTheClub": "Join the Club"
   },
 
-  "indexPage": {
-    "welcomeMessage" : "Welcome to Istanbul University Faculty of Science, Computer Science Club!"
+  "IndexPage": {
+    "welcomeMessage" : "Welcome to Istanbul University Faculty of Science, Computer Science Club!",
+    "ourMediumArticles": "Our Recent Medium Articles",
+    "ourMediumArticlesDescription": "Read our articles on Medium to learn more about computer science, technology, and more! Here you'll find a collection of articles written by our members on various topics related to computer sciences. Explore our articles to expand your knowledge and stay informed about the latest trends in the tech industry."
   },
 
   "AnnouncementsPage": {
