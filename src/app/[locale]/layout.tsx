@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
+import {getTranslations, setRequestLocale} from 'next-intl/server';
 import React, { ReactNode } from 'react';
 import BaseLayout from '@/components/BaseLayout';
 import { routing } from '@/i18n/routing';
@@ -13,12 +13,13 @@ export function generateStaticParams() {
     return routing.locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({ params }: Props ) {
+export async function generateMetadata({ params }) {
     const { locale } = await Promise.resolve(params);
-    const t = await getTranslations({ locale, namespace: 'General' });
+    const pageT = await getTranslations({ locale, namespace: 'IndexPage' });
 
     return {
-        title: t('title'),
+        title: pageT('title'),
+        description: pageT('description'),
     };
 }
 
