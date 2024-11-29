@@ -16,7 +16,7 @@ export default async function BaseLayout({children, locale}: Props) {
         <html lang={locale}>
         <body className="text-gray-900 bg-gray-100 font-sans antialiased">
         <NextIntlClientProvider messages={messages} locale={locale}>
-            <Header/>
+            <Header locale={locale}/>
             {children}
             <Footer/>
         </NextIntlClientProvider>
