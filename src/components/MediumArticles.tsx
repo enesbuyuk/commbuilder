@@ -1,5 +1,4 @@
 import Parser from 'rss-parser';
-import {mediumFeedUrl} from '@/config';
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
@@ -9,15 +8,13 @@ export default async function MediumArticles({generalT, pageT}) {
     let latestPosts = [];
 
     try {
-        const feed = await rssParser.parseURL(mediumFeedUrl);
-
+        const feed = await rssParser.parseURL(process.env.MEDIUM_RSS_URL);
         latestPosts = feed.items.slice(0, 10).map(item => {
             const rawDescription = item['content:encoded'] || item.description || 'No description available';
-
             const cleanDescription = rawDescription && typeof rawDescription === 'string'
-                ? rawDescription.replace(/(<([^>]+)>)/gi, '') // HTML etiketlerini temizle
-                    .substring(0, 300) // İlk 200 karakteri al
-                    .replace(/\s+\S*$/, ' ...') // Son kelimeyi tamamlarken kesip "..." ekle
+                ? rawDescription.replace(/(<([^>]+)>)/gi, '')
+                    .substring(0, 300)
+                    .replace(/\s+\S*$/, ' ...')
                 : 'No description available';
 
             return {
@@ -33,7 +30,7 @@ export default async function MediumArticles({generalT, pageT}) {
     }
     return (
         <section className="text-gray-600 body-font">
-            <div className="container px-5 py-12 mx-auto">
+            <div className="container px-5 pt-12 mx-auto">
                 <div className="flex flex-col w-full mt-12 mb-12 text-secondaryDark pt-20">
                     <h2 className="text-3xl font-bold title-font tracking-widest">{pageT("ourMediumArticles")}</h2>
                 </div>
@@ -104,6 +101,5 @@ export default async function MediumArticles({generalT, pageT}) {
                 </div>
             </div>
         </section>
-    )
-        ;
+    );
 }
