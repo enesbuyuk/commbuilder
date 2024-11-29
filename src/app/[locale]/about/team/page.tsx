@@ -2,7 +2,11 @@ import Image from 'next/image'
 import Link from "next/link";
 import React from "react";
 import {useTranslations} from "next-intl";
-export default function Page() {
+import {setRequestLocale} from "next-intl/server";
+
+export default function Page({params}) {
+    const {locale} = React.use(params)
+    setRequestLocale(locale);
     const pageT = useTranslations("TeamPage");
     return (
         <main>
