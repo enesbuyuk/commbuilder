@@ -17,6 +17,7 @@
     "gallery": "Gallery",
     "about": "About",
     "contact": "Contact",
+    "faq": "FAQ",
     "joinTheClub": "Join the Club"
   },
 
@@ -36,7 +37,8 @@
 
   "EventsPage": {
     "title": "Events",
-    "description": "Learn about the events organized by the Istanbul University Computer Science Club! Here you'll find information about the dates, times, locations, and more for the events hosted by our club. Visit this page to find out more about our events and how you can participate!"
+    "description": "Learn about the events organized by the Istanbul University Computer Science Club! Here you'll find information about the dates, times, locations, and more for the events hosted by our club. Visit this page to find out more about our events and how you can participate!",
+    "joinToEvent" : "Join to Event"
   },
 
   "UsefulLinksPage": {
@@ -77,5 +79,10 @@
   "JoinTheClubPage": {
     "title": "Join the Club",
     "description": "Join the Istanbul University Computer Science Club to become part of a vibrant community of students passionate about computer sciences and technology. As a member of our club, you'll have access to a wide range of activities, events, and resources that can help you expand your knowledge, develop your skills, and build lasting friendships. Whether you're a beginner or an expert, there's a place for you in our club. Join us today and be a part of our journey towards shaping the future of technology and innovation!"
+  },
+
+  "FaqPage": {
+    "title": "Frequently Asked Questions (FAQ)",
+    "description": "Frequently Asked Questions"
   }
 }

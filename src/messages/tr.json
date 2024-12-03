@@ -17,6 +17,7 @@
     "gallery": "Galeri",
     "about": "Hakkında",
     "contact": "İletişim",
+    "faq": "S.S.S.",
     "joinTheClub": "Kulübe Katıl"
   },
 
@@ -36,7 +37,8 @@
 
   "EventsPage": {
     "title": "Etkinlikler",
-    "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü'nün düzenlediği etkinlikler hakkında bilgi edinin! Burada kulübümüzün düzenlediği etkinliklerin tarihlerini, saatlerini, konumlarını ve daha fazlasını bulabilirsiniz. Etkinliklerimiz hakkında daha fazla bilgi edinmek ve katılmak için bu sayfayı ziyaret edin!"
+    "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü'nün düzenlediği etkinlikler hakkında bilgi edinin! Burada kulübümüzün düzenlediği etkinliklerin tarihlerini, saatlerini, konumlarını ve daha fazlasını bulabilirsiniz. Etkinliklerimiz hakkında daha fazla bilgi edinmek ve katılmak için bu sayfayı ziyaret edin!",
+    "joinToEvent" : "Etkinliğe Katıl"
   },
 
   "UsefulLinksPage": {
@@ -77,5 +79,10 @@
   "JoinTheClubPage": {
     "title": "Kulübe Katıl",
     "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü'ne katılmak için aşağıdaki formu doldurun. Katılma süreci hakkında daha fazla bilgi almak için bize ulaşın."
+  },
+
+  "FaqPage": {
+    "title": "Sıkça Sorulan Sorular (S.S.S.)",
+    "description": "Sıkça Sorulan Sorular"
   }
 }
