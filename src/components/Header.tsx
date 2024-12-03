@@ -35,6 +35,8 @@ export function Header({locale}) {
                           href={process.env.SITE_URL + "/" + locale + getPath('/about', locale)}>{tPage("about")}</Link>
                     <Link className="mr-5 text-black hover:text-primary font-semibold text-lg"
                           href={process.env.SITE_URL + "/" + locale + getPath('/contact', locale)}>{tPage("contact")}</Link>
+                    <Link className={"mr-5 text-black hover:text-primary font-semibold text-lg"}
+                          href={process.env.SITE_URL + "/" + locale + getPath('/faq', locale)}>{tPage("faq")}</Link>
                 </nav>
                 <LanguageSwitcher/>
                 <Link
