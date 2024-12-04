@@ -40,3 +40,6 @@ yarn-error.log*
 next-env.d.ts
 
 /.idea/
+
+# Ignore the public/uploads folder
+/public/uploads/*
