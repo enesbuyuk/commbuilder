@@ -54,9 +54,9 @@ export default function Faq({locale}) {
     };
 
     return (
-        <div className="container px-24 py-12 mx-auto space-y-4">
+        <>
             {faqs[locale].map((faq, index) => (
-                <div key={index} className="bg-white rounded shadow-md">
+                <div key={index} className="bg-white rounded shadow-md w-full">
                     <div
                         className="cursor-pointer p-4 flex justify-between items-center"
                         onClick={() => toggleFAQ(index)}
@@ -80,6 +80,6 @@ export default function Faq({locale}) {
                     )}
                 </div>
             ))}
-        </div>
+        </>
     )
 }

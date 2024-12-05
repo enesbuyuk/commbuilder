@@ -7,9 +7,7 @@ export default async function Events({pageT, locale}) {
     const events = await response.json()
 
     return (
-        <>
-            <div className = "container px-12 py-12 items-center mx-auto p-6 flex flex-col space-y-6" >
-                <div className = "flex flex-wrap -mx-4 -my-8" >
+            <div className = "flex flex-wrap -mx-4 -my-8" >
                     {events.map(event => {
                             const announcementDate = new Date(event.announcement_date);
                             const month = announcementDate.toLocaleString('en-US', {month: 'short'});
@@ -68,7 +66,5 @@ export default async function Events({pageT, locale}) {
                         })
                     }
                 </div>
-            </div>
-        </>
     )
 }
