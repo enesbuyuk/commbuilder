@@ -78,11 +78,17 @@
 
   "JoinTheClubPage": {
     "title": "Join the Club",
-    "description": "Join the Istanbul University Computer Science Club to become part of a vibrant community of students passionate about computer sciences and technology. As a member of our club, you'll have access to a wide range of activities, events, and resources that can help you expand your knowledge, develop your skills, and build lasting friendships. Whether you're a beginner or an expert, there's a place for you in our club. Join us today and be a part of our journey towards shaping the future of technology and innovation!"
+    "description": "Join the Istanbul University Computer Science Club to become part of a vibrant community of students passionate about computer sciences and technology. As a member of our club, you'll have access to a wide range of activities, events, and resources that can help you expand your knowledge, develop your skills, and build lasting friendships. Whether you're a beginner or an expert, there's a place for you in our club. Join us today and be a part of our journey towards shaping the future of technology and innovation!",
+    "send": "Send"
   },
 
   "FaqPage": {
     "title": "Frequently Asked Questions (FAQ)",
     "description": "Frequently Asked Questions"
+  },
+
+  "ContactPage": {
+    "title": "Contact",
+    "description": "Contact us for any questions, suggestions, or feedback you may have. We're here to help and provide you with the information you need. Feel free to reach out to us via email, phone, or social media. We look forward to hearing from you!"
   }
 }

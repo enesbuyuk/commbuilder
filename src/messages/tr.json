@@ -78,11 +78,17 @@
 
   "JoinTheClubPage": {
     "title": "Kulübe Katıl",
-    "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü'ne katılmak için aşağıdaki formu doldurun. Katılma süreci hakkında daha fazla bilgi almak için bize ulaşın."
+    "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü'ne katılmak için aşağıdaki formu doldurun. Katılma süreci hakkında daha fazla bilgi almak için bize ulaşın.",
+    "send": "Gönder"
   },
 
   "FaqPage": {
     "title": "Sıkça Sorulan Sorular (S.S.S.)",
     "description": "Sıkça Sorulan Sorular"
+  },
+
+  "ContactPage": {
+    "title": "İletişim",
+    "description": "Bize ulaşın ve sorularınızı, önerilerinizi veya geri bildirimlerinizi paylaşın. İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü hakkında daha fazla bilgi almak için bizimle iletişime geçin."
   }
 }
