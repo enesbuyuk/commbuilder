@@ -1,21 +1,22 @@
 import Link from "next/link";
 import Image from "next/image";
-import {useTranslations} from "next-intl";
-import React from "react";
+import {getTranslations} from "next-intl/server";
 
-export default function Footer() {
+export default async function Footer() {
     const year = (new Date()).getFullYear(); // I want to make a dynamic year because why not
-    const generalT = useTranslations("General");
+    const translations = {
+        generalTranslations: await getTranslations("General")
+    }
 
     return (
         <footer className="body-font bg-primary text-white">
             <div className="container px-8 py-8 mx-auto flex items-center sm:flex-row flex-col">
                 <Link
                     className="flex title-font font-medium items-center md:justify-start justify-center text-white mb-4 md:mb-0"
-                    href={process.env.SITE_URL}
-                    title={generalT("universityName") + " " + generalT("studentClubName")}>
+                    href={`${process.env.NEXT_PUBLIC_SITE_URL}`}
+                    title={translations.generalTranslations("universityName") + " " + translations.generalTranslations("studentClubName")}>
                     <Image src="/theme/logo_footer.png"
-                           alt={generalT("universityName") + " " + generalT("studentClubName") + " Logo"} width={60}
+                           alt={translations.generalTranslations("universityName") + " " + translations.generalTranslations("studentClubName") + " Logo"} width={60}
                            height={60}/>
                 </Link>
                 <p className="text-md text-white sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4 font-semibold">©
