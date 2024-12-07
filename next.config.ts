@@ -5,27 +5,11 @@ const withNextIntl = createNextIntlPlugin();
 
 
 const nextConfig: NextConfig = {
-  // /* config options here */
-  //   i18n: {
-  //       locales: ['default', 'en', 'tr'],
-  //       defaultLocale: 'default',
-  //       localeDetection: false,
-  //   },
-
     trailingSlash: false,
     images: {
         remotePatterns: [
             {
-                protocol: 'https',
-                hostname: 'dummyimage.com',
-                port: '',
-                pathname: '**',
-            },
-            {
-                protocol: 'http',
-                hostname: 'localhost',
-                port: '3000',
-                pathname: '**',
+                hostname: process.env.NEXT_PUBLIC_HOST_NAME,
             }
         ],
     }
