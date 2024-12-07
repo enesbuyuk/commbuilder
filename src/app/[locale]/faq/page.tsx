@@ -1,26 +1,28 @@
-import {useTranslations} from "next-intl";
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import Faq from "@/components/Faq";
-import React from "react";
 import PageLayout from "@/components/PageLayout";
 
 export async function generateMetadata() {
-    const t = await getTranslations({namespace: 'FaqPage'});
-    const generalT = await getTranslations({namespace: 'General'});
+    const translations = {
+        generalTranslations: await getTranslations("General"),
+        pageTranslations: await getTranslations("FaqPage")
+    }
 
     return {
-        title: t('title') + generalT("titleSuffix"),
-        description: t('description')
+        title: translations.pageTranslations('title') + translations.generalTranslations("titleSuffix"),
+        description: translations.pageTranslations('description')
     };
 }
-
-export default function Page({params}) {
-    const {locale} = React.use(params)
+export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
+    const {locale} = await params;
     setRequestLocale(locale);
-    const pageT = useTranslations("FaqPage");
+
+    const translations = {
+        pageTranslations: await getTranslations("FaqPage")
+    }
 
     return (
-        <PageLayout pageT={pageT} spaceY={"6"}>
+        <PageLayout title={translations.pageTranslations("title")} description={translations.pageTranslations("description")} spaceY={"6"}>
             <Faq locale={locale}/>
         </PageLayout>
     )

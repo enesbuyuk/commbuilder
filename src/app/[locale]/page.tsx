@@ -1,30 +1,43 @@
-import {useTranslations} from "next-intl";
-import {setRequestLocale} from "next-intl/server";
-import React from "react";
+import {getTranslations, setRequestLocale} from "next-intl/server";
 import MediumArticles from "@/components/MediumArticles";
 import LastEvents from "@/components/LastEvents";
 import Link from "next/link";
 import {getPath} from "@/i18n/routing";
+export const dynamic = 'force-dynamic'
 
-export default function Page({params}) {
-    const {locale} = React.use(params)
+export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
+    const {locale} = await params;
     setRequestLocale(locale);
 
-    const pageT = useTranslations("IndexPage");
-    const generalT = useTranslations("General");
+    const translations = {
+        generalTranslations: await getTranslations("General"),
+        pageTranslations: await getTranslations("IndexPage")
+    }
 
     return (
-        <main className={"flex flex-col items-center justify-center p-24 h-full"}>
+        <main className="flex flex-col items-center justify-center p-12 pb-36 h-full">
             <section className="text-gray-600 body-font">
-                <div className="container px-5 py-12 mx-auto">
-                    <h1 className={"text-center text-primary uppercase tracking-widest font-extrabold py-8 text-5xl"}>{generalT("universityName")}<br/>{generalT("studentClubName")}
+                <div className="container px-5 lg:py-12 py-6 mx-auto w-full">
+                    <h1
+                        className={
+                            "text-center text-primary uppercase tracking-widest font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl py-2 sm:py-6 md:py-8 lg:py-12"
+                        }
+                    >
+                        {translations.generalTranslations("universityName")}
+                        <br/>
+                        {translations.generalTranslations("studentClubName")}
                     </h1>
-                    <h2 className={"text-2xl text-black text-center mt-20"}>{pageT("welcomeMessage")}</h2>
+                    <h2
+                        className={
+                            "text-lg sm:text-xl md:text-2xl lg:text-3xl text-black text-center mt-8 sm:mt-12 md:mt-16 lg:mt-20"
+                        }
+                    >
+                        {translations.pageTranslations("welcomeMessage")}
+                    </h2>
                     <div className="flex gap-4 items-center flex-col sm:flex-row justify-center">
                         <Link
-                            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-primary text-background gap-2 hover:bg-secondaryDark text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 mt-10 duration-300"
-                            href={process.env.SITE_URL + "/" + locale + getPath('/join-the-club', locale)}
-                            target="_blank"
+                            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-primary text-white gap-2 hover:bg-secondaryDark text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 mt-10 duration-300"
+                            href={process.env.NEXT_PUBLIC_SITE_URL + "/" + locale + getPath('/join-the-club', locale)}
                             rel="noopener noreferrer"
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
@@ -32,7 +45,7 @@ export default function Page({params}) {
                                 <path
                                     d="M500-482q29-32 44.5-73t15.5-85q0-44-15.5-85T500-798q60 8 100 53t40 105q0 60-40 105t-100 53Zm220 322v-120q0-36-16-68.5T662-406q51 18 94.5 46.5T800-280v120h-80Zm80-280v-80h-80v-80h80v-80h80v80h80v80h-80v80h-80Zm-480-40q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM0-160v-112q0-34 17.5-62.5T64-378q62-31 126-46.5T320-440q66 0 130 15.5T576-378q29 15 46.5 43.5T640-272v112H0Zm320-400q33 0 56.5-23.5T400-640q0-33-23.5-56.5T320-720q-33 0-56.5 23.5T240-640q0 33 23.5 56.5T320-560ZM80-240h480v-32q0-11-5.5-20T540-306q-54-27-109-40.5T320-360q-56 0-111 13.5T100-306q-9 5-14.5 14T80-272v32Zm240-400Zm0 400Z"/>
                             </svg>
-                            {generalT("joinTheClub")}
+                            {translations.generalTranslations("joinTheClub")}
                         </Link>
                     </div>
                 </div>
@@ -44,8 +57,8 @@ export default function Page({params}) {
                     className={"absolute inset-0 -z-10 h-full w-full object-cover"}
                 />
             </section>
-            <MediumArticles generalT={generalT} pageT={pageT}/>
-            <LastEvents generalT={generalT} pageT={pageT} locale={locale}/>
+            <MediumArticles/>
+            <LastEvents locale={locale}/>
         </main>
     )
 }

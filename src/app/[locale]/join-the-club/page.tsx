@@ -1,25 +1,30 @@
 import {getTranslations, setRequestLocale} from "next-intl/server";
-import {useTranslations} from "next-intl";
 import PageLayout from "@/components/PageLayout";
 import React from "react";
 
+
 export async function generateMetadata() {
-    const t = await getTranslations({namespace: 'JoinTheClubPage'});
-    const generalT = await getTranslations({namespace: 'General'});
+    const translations = {
+        generalTranslations: await getTranslations("General"),
+        pageTranslations: await getTranslations("JoinTheClubPage")
+    }
 
     return {
-        title: t('title') + generalT("titleSuffix"),
-        description: t('description')
+        title: translations.pageTranslations('title') + translations.generalTranslations("titleSuffix"),
+        description: translations.pageTranslations('description')
     };
 }
 
-export default function Page({params}) {
-    const {locale} = React.use(params)
+export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
+    const {locale} = await params;
     setRequestLocale(locale);
-    const pageT = useTranslations("JoinTheClubPage");
+
+    const translations = {
+        pageTranslations: await getTranslations("JoinTheClubPage")
+    }
 
     return (
-        <PageLayout pageT={pageT}>
+        <PageLayout title={translations.pageTranslations("title")} description={translations.pageTranslations("description")}>
             <div className="bg-white shadow-md rounded-lg p-6 mb-8">
                 <h2 className="text-xl font-semibold text-gray-800 mb-4">WhatsApp Grubumuz</h2>
                 <p className="text-gray-600 mb-4">
@@ -82,7 +87,7 @@ export default function Page({params}) {
 
                     <button type="submit"
                             className="w-full bg-primary text-white font-medium py-2 px-4 rounded-lg shadow hover:bg-indigo-700 transition">
-                        {pageT("send")}
+                        {translations.pageTranslations("send")}
                     </button>
                 </form>
             </div>

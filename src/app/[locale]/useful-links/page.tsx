@@ -1,24 +1,29 @@
-import {useTranslations} from "next-intl";
 import {getTranslations, setRequestLocale} from "next-intl/server";
-import React from "react";
 import PageLayout from "@/components/PageLayout";
 
+
 export async function generateMetadata() {
-    const t = await getTranslations({namespace: 'UsefulLinksPage'});
-    const generalT = await getTranslations({namespace: 'General'});
+    const translations = {
+        generalTranslations: await getTranslations("General"),
+        pageTranslations: await getTranslations("UsefulLinksPage")
+    }
 
     return {
-        title: t('title') + generalT("titleSuffix"),
-        description: t('description')
+        title: translations.pageTranslations('title') + translations.generalTranslations("titleSuffix"),
+        description: translations.pageTranslations('description')
     };
 }
 
-export default function Page({params}) {
-    const {locale} = Promise.resolve(params)
+export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
+    const {locale} = await params;
     setRequestLocale(locale);
-    const pageT = useTranslations("UsefulLinksPage");
+
+    const translations = {
+        pageTranslations: await getTranslations("UsefulLinksPage")
+    }
+
     return (
-        <PageLayout pageT={pageT} bg={"white"}>
+        <PageLayout title={translations.pageTranslations("title")} description={translations.pageTranslations("description")} bg={"white"}>
             <div
                 className="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
                 <div
@@ -36,7 +41,7 @@ export default function Page({params}) {
                         challenging yet rewarding journey into coding and algorithms, wrapped in a modern,
                         quirky tech culture full of irony and creative flair.</p>
                     <a className="mt-3 text-indigo-500 inline-flex items-center"
-                       href={"https://cs50.harvard.edu/x/2024/"} target="_blank">{pageT("goToLink")}
+                       href={"https://cs50.harvard.edu/x/2024/"} target="_blank">{translations.pageTranslations("goToLink")}
                         <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"
                              strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7"></path>
@@ -53,7 +58,7 @@ export default function Page({params}) {
                         solve real-world analytical problems using Python 3.5.</p>
                     <a className="mt-3 text-indigo-500 inline-flex items-center"
                        href={"https://www.edx.org/learn/computer-science/massachusetts-institute-of-technology-introduction-to-computer-science-and-programming-using-python"}
-                       target="_blank">{pageT("goToLink")}
+                       target="_blank">{translations.pageTranslations("goToLink")}
                         <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"
                              strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7"></path>

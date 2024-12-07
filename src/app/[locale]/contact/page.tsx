@@ -1,22 +1,36 @@
-import React from "react";
-import {setRequestLocale} from "next-intl/server";
-import {useTranslations} from "next-intl";
+import {getTranslations, setRequestLocale} from "next-intl/server";
 import Link from "next/link";
 import PageLayout from "@/components/PageLayout";
 
-export default function Page({params}) {
-    const {locale} = React.use(params)
+
+export async function generateMetadata() {
+    const translations = {
+        generalTranslations: await getTranslations("General"),
+        pageTranslations: await getTranslations("ContactPage")
+    }
+
+    return {
+        title: translations.pageTranslations('title') + translations.generalTranslations("titleSuffix"),
+        description: translations.pageTranslations('description')
+    };
+}
+
+export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
+    const {locale} = await params;
     setRequestLocale(locale);
-    const pageT = useTranslations("ContactPage");
+
+    const translations = {
+        pageTranslations: await getTranslations("ContactPage")
+    }
 
     return (
-        <PageLayout pageT={pageT}>
+        <PageLayout title={translations.pageTranslations("title")} description={translations.pageTranslations("description")}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
                 <div className="w-full">
                     <iframe
                         className={"rounded-lg shadow-lg"}
                         src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d266.1054973692008!2d28.95958402053108!3d41.01125558151917!3m2!1i1024!2i768!4f13.1!2m1!1sistanbul%20%C3%BCversitesi%20fen%20fak%C3%BCltesi!5e0!3m2!1sen!2sde!4v1733314369887!5m2!1sen!2sde"
-                        width="100%" height="450" allowFullScreen="no" loading="lazy"
+                        width="100%" height="450" allowFullScreen={false} loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>

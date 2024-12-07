@@ -1,26 +1,30 @@
-import {useTranslations} from "next-intl";
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import Image from "next/image";
-import React from "react";
 import PageLayout from "@/components/PageLayout";
 
+
 export async function generateMetadata() {
-    const t = await getTranslations({namespace: 'EventsPage'});
-    const generalT = await getTranslations({namespace: 'General'});
+    const translations = {
+        generalTranslations: await getTranslations("General"),
+        pageTranslations: await getTranslations("GalleryPage")
+    }
 
     return {
-        title: t('title') + generalT("titleSuffix"),
-        description: t('description')
+        title: translations.pageTranslations('title') + translations.generalTranslations("titleSuffix"),
+        description: translations.pageTranslations('description')
     };
 }
 
-export default function Page({params}) {
-    const {locale} = React.use(params)
+export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
+    const {locale} = await params;
     setRequestLocale(locale);
-    const pageT = useTranslations("GalleryPage");
+
+    const translations = {
+        pageTranslations: await getTranslations("GalleryPage")
+    }
 
     return (
-        <PageLayout pageT={pageT}>
+        <PageLayout title={translations.pageTranslations("title")} description={translations.pageTranslations("description")}>
             <div className="-my-8 divide-y-2 divide-gray-100">
                 <div className="flex flex-wrap md:-m-2 -m-1">
                     <div className="flex flex-wrap w-1/2">
