@@ -34,6 +34,10 @@ export const routing = defineRouting({
             en: '/contact',
             tr: '/iletisim'
         },
+        '/faq': {
+            en: '/faq',
+            tr: '/sss'
+        },
         '/join-the-club': {
             en: '/join-the-club',
             tr: '/kulube-katil',
@@ -41,8 +45,20 @@ export const routing = defineRouting({
     }
 });
 
-export type Pathnames = keyof typeof routing.pathnames;
-export type Locale = (typeof routing.locales)[number];
+export type Pathnames = Extract<keyof typeof routing.pathnames, string>;
+export type locale = (typeof routing.locales)[number];
 
 export const {Link, getPathname, redirect, usePathname, useRouter} =
-    createNavigation(routing);
+    createNavigation(routing)
+
+export function getPath(pathname: Pathnames, locale: string): string {
+    const value = routing.pathnames[pathname];
+    if (typeof value === 'string') {
+        return value;
+    }
+    if (locale in value) {
+        return value[locale as keyof typeof value];
+    }
+
+    return value[routing.defaultLocale as keyof typeof value];
+}
