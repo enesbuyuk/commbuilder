@@ -1,20 +1,15 @@
 import { notFound } from 'next/navigation';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
-import React, { ReactNode } from 'react';
 import BaseLayout from '@/components/BaseLayout';
 import { routing } from '@/i18n/routing';
-
-type Props = {
-    children: ReactNode;
-    params: { locale: string };
-};
+import React from "react";
 
 export function generateStaticParams() {
     return routing.locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({ params }) {
-    const { locale } = await Promise.resolve(params);
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+    const { locale } = await params;
     const pageT = await getTranslations({ locale, namespace: 'IndexPage' });
 
     return {
@@ -23,13 +18,15 @@ export async function generateMetadata({ params }) {
     };
 }
 
-export default async function LocaleLayout({ children, params }: Props) {
-    const { locale } = await Promise.resolve(params);
+export default async function LocaleLayout({children, params}: {children: React.ReactNode; params: Promise<{locale:string}> }) {
+   const {locale} = await params;
 
-    if (!routing.locales.includes(locale)) {
+    // Ensure that the incoming `locale` is valid
+    if (!routing.locales.includes(locale as any)) {
         notFound();
     }
 
+    // Enable static rendering
     setRequestLocale(locale);
 
     return <BaseLayout locale={locale}>{children}</BaseLayout>;
