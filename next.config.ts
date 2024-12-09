@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
     images: {
         remotePatterns: [
             {
-                hostname: process.env.NEXT_PUBLIC_HOST_NAME,
+                hostname: process.env.NEXT_PUBLIC_HOST_NAME!,
             }
         ],
     }
