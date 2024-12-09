@@ -1,11 +1,20 @@
-export default async function PageLayout({children, pageT, bg, spaceY}) {
-    {/* for only text pages*/}
+import React from 'react';
+
+interface PageLayoutProps {
+    title: string;
+    description: string;
+    bg?: string;
+    spaceY?: string;
+    children: React.ReactNode;
+}
+
+const PageLayout: React.FC<PageLayoutProps> = ({title,description,bg = '',spaceY = '', children}) => {
     if (bg === "white") {
         bg = " bg-white"
     } else {
         bg = ""
     }
-    if (spaceY == undefined) {
+    if (spaceY == "") {
         spaceY = " space-y-12"
     } else {
         spaceY = " space-y-" + spaceY
@@ -13,15 +22,49 @@ export default async function PageLayout({children, pageT, bg, spaceY}) {
 
     return (
         <main>
-            <section className={"text-gray-600 body-font overflow-hidden" + bg}>
-                <div className="flex flex-col text-center w-full bg-primary p-12 pt-20 text-white">
-                    <h1 className="text-3xl font-bold title-font mb-4 text-white tracking-widest">{pageT("title")}</h1>
-                    <p className="lg:w-2/3 mx-auto leading-relaxed text-base">{pageT("description")}</p>
+            <section className={`text-gray-600 body-font overflow-hidden ${bg}`}>
+                <div className="flex flex-col text-center w-full bg-primary
+          p-4 sm:p-6 md:p-8 lg:p-12
+          pt-10 sm:pt-14 md:pt-16 lg:pt-20
+          text-white"
+                >
+                    <h1 className="
+            text-2xl sm:text-3xl md:text-3xl lg:text-3xl
+            font-bold title-font
+            mb-2 sm:mb-3 md:mb-4
+            text-white
+            tracking-widest"
+                    >
+                        {title}
+                    </h1>
+                    <p className="
+            w-full
+            sm:w-11/12
+            md:w-2/3
+            lg:w-2/3
+            mx-auto
+            leading-relaxed
+            text-sm sm:text-base
+            px-4 sm:px-0"
+                    >
+                        {description}
+                    </p>
                 </div>
-                <div className={"container px-24 py-36 items-center mx-auto flex flex-col" + spaceY}>
+
+                <div className={`
+          container 
+          px-4 sm:px-6 md:px-12 lg:px-24 
+          py-8 sm:py-12 md:py-24 lg:py-36 
+          items-center 
+          mx-auto 
+          flex flex-col 
+          ${spaceY}`}
+                >
                     {children}
                 </div>
             </section>
         </main>
-    )
-}
+    );
+};
+
+export default PageLayout;
