@@ -1,14 +1,27 @@
 import Parser from 'rss-parser';
 import Link from "next/link";
-import React from "react";
 import Image from "next/image";
+import {getTranslations} from "next-intl/server";
 
-export default async function MediumArticles({generalT, pageT}) {
+interface Post {
+    title: string;
+    link: string;
+    pubDate: string;
+    description: string;
+    author: string;
+}
+
+export default async function MediumArticles() {
     const rssParser = new Parser();
-    let latestPosts = [];
+    let latestPosts:Post[] = [];
+
+    const translations = {
+        generalTranslations: await getTranslations("General"),
+        pageTranslations: await getTranslations("IndexPage")
+    }
 
     try {
-        const feed = await rssParser.parseURL(process.env.MEDIUM_RSS_URL);
+        const feed = await rssParser.parseURL(`${process.env.NEXT_PUBLIC_MEDIUM_URL}/feed`);
         latestPosts = feed.items.slice(0, 10).map(item => {
             const rawDescription = item['content:encoded'] || item.description || 'No description available';
             const cleanDescription = rawDescription && typeof rawDescription === 'string'
@@ -32,12 +45,14 @@ export default async function MediumArticles({generalT, pageT}) {
         <section className="text-gray-600 body-font">
             <div className="container px-5 pt-12 mx-auto">
                 <div className="flex flex-col w-full mt-12 mb-12 text-secondaryDark pt-20">
-                    <h2 className="text-3xl font-bold title-font tracking-widest">{pageT("ourMediumArticles")}</h2>
+                    <h2 className="text-3xl font-bold title-font tracking-widest">{translations.pageTranslations("ourMediumArticles")}</h2>
                 </div>
-                <div className="flex flex-wrap -m-12">
+                <div className="flex flex-wrap -m-12 p-6 py-12 gap-y-12">
                     {latestPosts.map((post, index) => (
-                        <div key={index} className="p-12 md:w-1/2 flex flex-col items-start">
-                                <span
+                        <div key={index}  className={"lg:w-1/2 px-6 sm:pb-5"}>
+                            <div className="p-12 bg-white flex flex-col items-start shadow-lg rounded-lg overflow-hidden">
+                            {/*<div className="w-full bg-gray-100 flex justify-center items-center"bg-whitebg-whitebg-whitebg-white>*/}
+                            <span
                                     className="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">
                                     ARTICLE
                                 </span>
@@ -61,7 +76,7 @@ export default async function MediumArticles({generalT, pageT}) {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-indigo-500 inline-flex items-center"
-                                >{generalT("readMore")}
+                                >{translations.generalTranslations("readMore")}
                                     <svg
                                         className="w-4 h-4 ml-2"
                                         viewBox="0 0 24 24"
@@ -96,6 +111,7 @@ export default async function MediumArticles({generalT, pageT}) {
                                         </span>
                                     </span>
                             </a>
+                        </div>
                         </div>
                     ))}
                 </div>
