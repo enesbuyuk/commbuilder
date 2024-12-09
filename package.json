@@ -1,11 +1,11 @@
 {
   "name": "iucs.net",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 443",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 443",
     "lint": "next lint"
   },
   "dependencies": {
