@@ -1,0 +1,62 @@
+services:
+  site--university-student-club-website:
+    container_name: "site--university-student-club-website"
+    restart: unless-stopped
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    tty: true
+    volumes:
+      - ./:/app
+      - /app/node_modules
+      - /app/.next
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.site--university-student-club-website.rule=Host(`${NEXT_PUBLIC_HOST_NAME}`)"
+      - "traefik.http.routers.site--university-student-club-website.entrypoints=web"
+      - "traefik.http.services.site--university-student-club-website.loadbalancer.server.port=${NEXT_PUBLIC_HOST_PORT}"
+    depends_on:
+      - mongodb
+    networks:
+      - network--university-student-club-website
+
+  git-sync--university-student-club-website:
+    image: k8s.gcr.io/git-sync/git-sync:v4.0.0
+    restart: unless-stopped
+    environment:
+      GIT_SYNC_REPO: "git@github.com:enesbuyuk/university-student-club-website.git"
+      GIT_SYNC_BRANCH: "${GIT_SYNC_BRANCH:-main}"
+      GIT_SYNC_ONE_TIME: "true"
+      GIT_SYNC_PERIOD: "700s"
+      GIT_SYNC_ROOT: "/git"
+      GIT_SYNC_DEST: "repo"
+      GIT_SYNC_SSH: "true"
+    volumes:
+      - ./git-data:/git
+      - /home/enes/git-sync:/root/.ssh:ro
+    networks:
+      - network--university-student-club-website
+
+  mongodb:
+    image: mongo:7.0
+    restart: unless-stopped
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "${MONGO_INITDB_ROOT_USERNAME:-root}"
+      MONGO_INITDB_ROOT_PASSWORD: "${MONGO_INITDB_ROOT_PASSWORD:-example}"
+    ports:
+      - "27017:27017"
+    command: [ "mongod", "--bind_ip_all" ]
+    volumes:
+      - mongodb-data:/data/db
+    networks:
+      - network--university-student-club-website
+
+volumes:
+  mongodb-data:
+    driver: local
+
+networks:
+  network--university-student-club-website:
+    name: simple_network
+    external: true
