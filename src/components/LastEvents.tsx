@@ -1,19 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import {getTranslations} from "next-intl/server";
+import {Announcement} from "@/types/Announcement";
 
-export default async function LastEvents({pageT, locale}) {
-    const response = await fetch(`${process.env.SITE_URL}/en/api/events?limit=3`)
+export default async function LastEvents({locale}: {locale: string}) {
+    const translations = {
+        pageTranslations: await getTranslations("IndexPage")
+    }
+
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/events?limit=3`)
     const lastEvents = await response.json()
 
     return (
         <section className="text-gray-600 body-font">
             <div className="container px-5 mx-auto">
                 <div className="flex flex-col w-full mt-12 mb-12 text-secondaryDark pt-20">
-                    <h2 className="text-3xl font-bold title-font tracking-widest">{pageT("lastEvents")}</h2>
+                    <h2 className="text-3xl font-bold title-font tracking-widest">{translations.pageTranslations("lastEvents")}</h2>
                 </div>
                 <div className="flex flex-wrap -mx-4 -my-8">
-                    {lastEvents.map(event => {
+                    {lastEvents.map((event:Announcement) => {
                         const announcementDate = new Date(event.announcement_date);
                         const month = announcementDate.toLocaleString('en-US', {month: 'short'});
 
@@ -23,7 +29,7 @@ export default async function LastEvents({pageT, locale}) {
                                     className="h-full flex flex-col items-start bg-white shadow-lg rounded-lg overflow-hidden">
                                     <div className="w-full  bg-gray-100 flex justify-center items-center">
                                         <Image
-                                            src={process.env.SITE_URL + "/uploads/" + event._id + ".webp"}
+                                            src={process.env.NEXT_PUBLIC_SITE_URL + "/uploads/" + event._id + ".webp"}
                                             alt={locale === "tr" ? event.announcement_title_tr : event.announcement_title}
                                             className="object-cover w-full h-full"
                                             height={1200}
@@ -61,7 +67,7 @@ export default async function LastEvents({pageT, locale}) {
                                                 href={event.announcement_url}
                                                 target="_blank"
                                                 title={locale === "tr" ? event.announcement_title_tr : event.announcement_title}
-                                            >{pageT("joinToEvent")}</Link>
+                                            >{translations.pageTranslations("joinToEvent")}</Link>
                                         </div>
                                     </div>
                                 </div>
