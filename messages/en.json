@@ -90,5 +90,10 @@
   "ContactPage": {
     "title": "Contact",
     "description": "Contact us for any questions, suggestions, or feedback you may have. We're here to help and provide you with the information you need. Feel free to reach out to us via email, phone, or social media. We look forward to hearing from you!"
+  },
+
+  "NotFoundPage": {
+    "title": "404 Not Found",
+    "description": "The page you are looking for does not exist. Please check the URL or return to the homepage."
   }
 }

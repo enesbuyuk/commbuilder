@@ -90,5 +90,10 @@
   "ContactPage": {
     "title": "İletişim",
     "description": "Bize ulaşın ve sorularınızı, önerilerinizi veya geri bildirimlerinizi paylaşın. İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü hakkında daha fazla bilgi almak için bizimle iletişime geçin."
+  },
+
+  "NotFoundPage": {
+    "title": "404 Bulunamadı",
+    "description": "Aradığınız sayfa bulunamadı. Lütfen tekrar deneyin veya ana sayfaya dönün."
   }
 }
