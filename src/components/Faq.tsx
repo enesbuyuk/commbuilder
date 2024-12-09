@@ -1,8 +1,18 @@
 'use client';
 import React, {useState} from "react";
 
-export default function Faq({locale}) {
-    const faqs = {
+interface FAQ {
+    question: string;
+    answer: string;
+}
+
+// Define the type for the faqs object
+interface FAQs {
+    [key: string]: FAQ[];
+}
+
+export default function Faq({locale}: {locale: string}) {
+    const faqs: FAQs = {
         tr: [
             {
                 question: "Kulübe nasıl katılabilirim?",
@@ -48,8 +58,8 @@ export default function Faq({locale}) {
             }
         ]
     };
-    const [openIndex, setOpenIndex] = useState(null);
-    const toggleFAQ = (index) => {
+    const [openIndex, setOpenIndex] = useState<number | null>(null);
+    const toggleFAQ = (index: number) => {
         setOpenIndex(openIndex === index ? null : index);
     };
 
