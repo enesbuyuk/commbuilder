@@ -28,8 +28,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     }
 
     const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/events?limit=100`, {
-        cache: 'force-cache',
-        next: { revalidate: 3600 }
+        cache: 'force-cache'
     });
     const events:Announcement[] = await response.json();
 

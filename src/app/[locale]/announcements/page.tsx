@@ -28,8 +28,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     }
 
     const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/announcements`, {
-        cache: 'force-cache',
-        next: { revalidate: 3600 } // Optional: add revalidation
+        cache: 'force-cache'
     });
 
     const announcements: Announcement[] = await response.json();
