@@ -50,7 +50,7 @@ export default function Navbar({locale}: {locale: string}){
                 className="absolute top-12 right-12 z-50 lg:hidden"
                 onClick={toggleMenu}
             >
-                {isMenuOpen ? <X size={44}/> : <Menu size={44}/>}
+                {isMenuOpen ? <X size={52}/> : <Menu size={52}/>}
             </button>
 
             <nav className={`fixed inset-0 bg-white z-40 flex flex-col items-center justify-center 
