@@ -79,7 +79,23 @@
   "JoinTheClubPage": {
     "title": "Join the Club",
     "description": "Join the Istanbul University Computer Science Club to become part of a vibrant community of students passionate about computer sciences and technology. As a member of our club, you'll have access to a wide range of activities, events, and resources that can help you expand your knowledge, develop your skills, and build lasting friendships. Whether you're a beginner or an expert, there's a place for you in our club. Join us today and be a part of our journey towards shaping the future of technology and innovation!",
-    "send": "Send"
+    "send": "Send",
+    "joiningText": {
+      "title": "Our WhatsApp Group",
+      "description1": "There are a few easy steps you need to follow to join our club. First, you can join our WhatsApp group to stay informed about our club's events and communicate with other members.",
+      "description2": "Then, to become an official club member, you need to upload the required documents. Once you upload your documents, your registration will be complete, and you can start benefiting from all the rights and opportunities provided by our club.",
+      "buttonText": "Join WhatsApp Group",
+      "formTitle": "Official Club Membership",
+      "formDescription": "There are a few steps to become an official club member at Istanbul University: filling out the IU Club Membership Form, obtaining a student certificate via IU AKSİS, and obtaining your disciplinary record via IU AKSİS. It is sufficient to upload these documents in the fields below."
+    },
+    "form": {
+      "nameSurname": "Name & Surname",
+      "email": "E-Mail",
+      "membershipForm": "Istanbul University Club Membership Form",
+      "studentCertificate": "Istanbul University Student Certificate",
+      "disciplineReport": "Istanbul University Discipline Report"
+    },
+    "agreement": "I accept the terms of use and consent to data processing."
   },
 
   "FaqPage": {

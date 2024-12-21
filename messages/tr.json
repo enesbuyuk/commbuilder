@@ -79,7 +79,23 @@
   "JoinTheClubPage": {
     "title": "Kulübe Katıl",
     "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü'ne katılmak için aşağıdaki formu doldurun. Katılma süreci hakkında daha fazla bilgi almak için bize ulaşın.",
-    "send": "Gönder"
+    "send": "Gönder",
+    "joiningText": {
+      "title": "WhatsApp Grubumuz",
+      "description1": "Kulübümüze katılmak için izlemeniz gereken birkaç kolay adım bulunmaktadır. İlk olarak kulübümüzün etkinliklerinden haberdar olabilmeniz ve diğer üyelerle iletişimde kalabilmeniz için WhatsApp grubumuza katılabilirsiniz.",
+      "description2": "Ardından, resmî olarak kulüp üyesi olabilmeniz için gerekli belgelerinizi yüklemeniz gerekmektedir. Belgelerinizi yüklediğinizde, kaydınız tamamlanmış olacak ve kulübümüzün sağladığı tüm hak ve olanaklardan faydalanmaya başlayabileceksiniz.",
+      "buttonText": "WhatsApp Grubuna Katıl",
+      "formTitle": "Kulübe Resmî Üye Kaydı",
+      "formDescription": "İstanbul Üniversitesinin resmî kulüp üyeliği için yapılması gereken birkaç adım vardır; İÜ Kulüp Üyelik Formu'nun doldurulması, İÜ AKSİS üzerinden alınan öğrenci belgesi ve İÜ AKSİS üzerinden alınan disiplin belgeniz. Bu belgeleri aşağıdaki alanlara yüklemeniz yeterlidir."
+    },
+    "form": {
+      "nameSurname": "Ad & Soyad",
+      "email": "E-Posta",
+      "membershipForm": "İstanbul Üniversitesi Kulüp Üyelik Formu",
+      "studentCertificate": "İstanbul Üniversitesi Öğrenci Belgesi",
+      "disciplineReport": "İstanbul Üniversitesi Disiplin Belgesi"
+    },
+    "agreement": "Kullanım sözleşmesini ve veri işleme onayını kabul ediyorum."
   },
 
   "FaqPage": {
