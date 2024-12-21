@@ -1,8 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# University Student Club Website
+
+This project is the Istanbul University Computer Science Student Club website. It is designed to provide students with information about the club and facilitate participation in club activities.
+
+## Features
+
+- Information about the club
+- Membership registration
+- News and updates
+- Announcements
+- Medium articles
+- Gallery
+- Team page
+- Contact form
+
+## Technologies Used
+
+- TypeScript
+- JavaScript
+- React
+- Next.js
+- Tailwind CSS
+- npm
+- Docker
 
 ## Getting Started
 
-First, run the development server:
+First, rename the `default.env` file to `.env` and fill in the variables according to your setup.
+
+### Prerequisites
+
+Make sure you have Node.js and npm installed on your machine.
+
+### Installation
+
+#### Using Docker
+
+To start with Docker, use:
+
+```bash
+docker compose up
+```
+
+#### Manual Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/enesbuyuk/university-student-club-website.git
+```
+
+2. Navigate to the project directory:
+```bash
+cd university-student-club-website
+```
+
+3. Install the dependencies:
+```bash
+npm install
+```
+
+### Development Server
+
+Run the development server with one of these commands:
 
 ```bash
 npm run dev
@@ -14,23 +72,40 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Production Deployment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#### Building the Project
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Build the project with one of these commands:
 
-## Learn More
+```bash
+npm run build
+# or
+yarn build
+# or
+pnpm build
+# or
+bun build
+```
 
-To learn more about Next.js, take a look at the following resources:
+#### Starting the Production Server
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Start the production server with one of these commands:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run start
+# or
+yarn start
+# or
+pnpm start
+# or
+bun start
+```
 
-## Deploy on Vercel
+## Demo
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Visit the live demo at [iucs.net](https://iucs.net/)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contributing
+
+Contributions are welcome! Please feel free to submit a pull request.
