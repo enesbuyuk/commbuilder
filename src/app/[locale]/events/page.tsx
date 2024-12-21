@@ -47,7 +47,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                                 <div className="w-full  bg-gray-100 flex justify-center items-center">
                                     <Image
                                         src={process.env.NEXT_PUBLIC_SITE_URL + "/uploads/" + event._id + ".webp"}
-                                        alt={locale === "tr" ? event.announcement_title_tr : event.announcement_title}
+                                        alt={event.announcement_title[locale]}
                                         className="object-cover w-full h-full"
                                         height={1200}
                                         width={900}
@@ -61,13 +61,13 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                                                 <Link
                                                     href={event.announcement_url}
                                                     target="_blank"
-                                                    title={locale === "tr" ? event.announcement_title_tr : event.announcement_title}
-                                                >{locale === "tr" ? event.announcement_title_tr : event.announcement_title}</Link>
+                                                    title={event.announcement_title[locale]}
+                                                >{event.announcement_title[locale]}</Link>
                                             </h3>
                                         </div>
                                     </div>
                                     <p className="leading-relaxed text-sm text-gray-700 mb-4 indent-3.5">
-                                        {locale === "tr" ? event.announcement_description_tr : event.announcement_description}
+                                        {event.announcement_description[locale]}
                                     </p>
                                     <div
                                         className="flex-shrink-0 text-center border-r border-gray-200 pr-2 py-6">
@@ -84,7 +84,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                                             className="inline-flex items-center bg-primary hover:bg-secondaryDark text-white py-2 px-4 rounded-lg text-sm transition duration-300"
                                             href={event.announcement_url}
                                             target="_blank"
-                                            title={locale === "tr" ? event.announcement_title_tr : event.announcement_title}
+                                            title={event.announcement_title[locale]}
                                         >{translations.pageTranslations("joinToEvent")}</Link>
                                     </div>
                                 </div>

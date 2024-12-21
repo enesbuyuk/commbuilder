@@ -54,10 +54,10 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                         </div>
                         <div className="md:flex-grow">
                             <h2 className="text-2xl font-medium text-gray-900 title-font mb-2">
-                                {announcement.announcement_title}
+                                {announcement.announcement_title[locale]}
                             </h2>
                             <p className="leading-relaxed">
-                                {announcement.announcement_description}
+                                {announcement.announcement_description[locale]}
                             </p>
                             <a href="#" className="text-indigo-500 inline-flex items-center mt-4">
                                 {translations.generalTranslations("learnMore")}
