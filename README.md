@@ -109,3 +109,7 @@ Visit the live demo at [iucs.net](https://iucs.net/)
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a pull request.
+
+## License
+
+This project is licensed under GPL-3.0 License. See the [LICENSE](https://github.com/enesbuyuk/university-student-club-website/?tab=GPL-3.0-1-ov-file) file for details.
