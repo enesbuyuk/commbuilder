@@ -10,11 +10,17 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
-    const pageT = await getTranslations({ locale, namespace: 'IndexPage' });
+    const translations = {
+        generalTranslations: await getTranslations({ locale, namespace: 'General' }),
+        pageTranslations: await getTranslations({ locale, namespace: 'IndexPage' })
+    }
 
     return {
-        title: pageT('title'),
-        description: pageT('description'),
+        title: translations.pageTranslations('title'),
+        description: translations.pageTranslations('description'),
+        openGraph: {
+            siteName: translations.generalTranslations('title'),
+        }
     };
 }
 
