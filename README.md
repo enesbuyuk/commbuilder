@@ -1,3 +1,7 @@
+![img.png](img.png)
+
+
+
 # University Student Club Website
 
 This project is the Istanbul University Computer Science Student Club website. It is designed to provide students with information about the club and facilitate participation in club activities.
