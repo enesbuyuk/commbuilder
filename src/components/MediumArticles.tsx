@@ -94,7 +94,7 @@ export default async function MediumArticles() {
                                         {new Date(post.pubDate).toDateString()}
                                     </span>
                             </div>
-                            <a className="inline-flex items-center">
+                            <div className="inline-flex items-center">
                                 <Image
                                     alt="author"
                                     src={"/theme/default-profile-photo.png"}
@@ -110,7 +110,7 @@ export default async function MediumArticles() {
                                             ARTICLE AUTHOR
                                         </span>
                                     </span>
-                            </a>
+                            </div>
                         </div>
                         </div>
                     ))}
