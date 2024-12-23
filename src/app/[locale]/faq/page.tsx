@@ -22,7 +22,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     }
 
     return (
-        <PageLayout title={translations.pageTranslations("title")} description={translations.pageTranslations("description")} spaceY={"6"}>
+        <PageLayout locale={locale} title={translations.pageTranslations("title")} description={translations.pageTranslations("description")} spaceY={"6"}>
             <Faq locale={locale}/>
         </PageLayout>
     )

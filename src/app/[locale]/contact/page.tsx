@@ -2,7 +2,6 @@ import {getTranslations, setRequestLocale} from "next-intl/server";
 import Link from "next/link";
 import PageLayout from "@/components/PageLayout";
 
-
 export async function generateMetadata() {
     const translations = {
         generalTranslations: await getTranslations("General"),
@@ -24,7 +23,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     }
 
     return (
-        <PageLayout title={translations.pageTranslations("title")} description={translations.pageTranslations("description")}>
+        <PageLayout locale={locale} title={translations.pageTranslations("title")} description={translations.pageTranslations("description")}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
                 <div className="w-full">
                     <iframe

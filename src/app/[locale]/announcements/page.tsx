@@ -35,6 +35,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 
     return (
         <PageLayout
+            locale={locale}
             title={translations.pageTranslations("title")}
             description={translations.pageTranslations("description")}
         >

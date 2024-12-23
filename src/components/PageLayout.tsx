@@ -1,6 +1,8 @@
 import React from 'react';
+import Header from "@/components/Header";
 
 interface PageLayoutProps {
+    locale: string; // will be used to set the locale for the page
     title: string;
     description: string;
     bg?: string;
@@ -8,7 +10,7 @@ interface PageLayoutProps {
     children: React.ReactNode;
 }
 
-const PageLayout: React.FC<PageLayoutProps> = ({title,description,bg = '',spaceY = '', children}) => {
+const PageLayout: React.FC<PageLayoutProps> = ({locale='en', title,description,bg = '',spaceY = '', children}) => {
     if (bg === "white") {
         bg = " bg-white"
     } else {
@@ -21,23 +23,25 @@ const PageLayout: React.FC<PageLayoutProps> = ({title,description,bg = '',spaceY
     }
 
     return (
-        <main>
-            <section className={`text-gray-600 body-font overflow-hidden ${bg}`}>
-                <div className="flex flex-col text-center w-full bg-primary
+        <>
+            <Header locale={locale} indexHero={false}/>
+            <main>
+                <section className={`text-gray-600 body-font overflow-hidden ${bg}`}>
+                    <div className="flex flex-col text-center w-full bg-primary
           p-4 sm:p-6 md:p-8 lg:p-12
           pt-10 sm:pt-14 md:pt-16 lg:pt-20
           text-white"
-                >
-                    <h1 className="
+                    >
+                        <h1 className="
             text-2xl sm:text-3xl md:text-3xl lg:text-3xl
             font-bold title-font
             mb-2 sm:mb-3 md:mb-4
             text-white
             tracking-widest"
-                    >
-                        {title}
-                    </h1>
-                    <p className="
+                        >
+                            {title}
+                        </h1>
+                        <p className="
             w-full
             sm:w-11/12
             md:w-2/3
@@ -46,12 +50,12 @@ const PageLayout: React.FC<PageLayoutProps> = ({title,description,bg = '',spaceY
             leading-relaxed
             text-sm sm:text-base
             px-4 sm:px-0"
-                    >
-                        {description}
-                    </p>
-                </div>
+                        >
+                            {description}
+                        </p>
+                    </div>
 
-                <div className={`
+                    <div className={`
           container 
           px-4 sm:px-6 md:px-12 lg:px-24 
           py-8 sm:py-12 md:py-24 lg:py-36 
@@ -59,11 +63,13 @@ const PageLayout: React.FC<PageLayoutProps> = ({title,description,bg = '',spaceY
           mx-auto 
           flex flex-col 
           ${spaceY}`}
-                >
-                    {children}
-                </div>
-            </section>
-        </main>
+                    >
+                        {children}
+                    </div>
+                </section>
+            </main>
+        </>
+
     );
 };
 

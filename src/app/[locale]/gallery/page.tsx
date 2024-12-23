@@ -2,7 +2,6 @@ import {getTranslations, setRequestLocale} from "next-intl/server";
 import Image from "next/image";
 import PageLayout from "@/components/PageLayout";
 
-
 export async function generateMetadata() {
     const translations = {
         generalTranslations: await getTranslations("General"),
@@ -24,7 +23,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     }
 
     return (
-        <PageLayout title={translations.pageTranslations("title")} description={translations.pageTranslations("description")}>
+        <PageLayout locale={locale} title={translations.pageTranslations("title")} description={translations.pageTranslations("description")}>
             <div className="-my-8 divide-y-2 divide-gray-100">
                 <div className="flex flex-wrap md:-m-2 -m-1">
                     <div className="flex flex-wrap w-1/2">

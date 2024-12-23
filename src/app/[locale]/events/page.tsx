@@ -33,7 +33,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     const events:Announcement[] = await response.json();
 
     return (
-        <PageLayout title={translations.pageTranslations("title")} description={translations.pageTranslations("description")}>
+        <PageLayout locale={locale} title={translations.pageTranslations("title")} description={translations.pageTranslations("description")}>
             <div className="flex flex-wrap -mx-4 -my-8">
                 <Suspense fallback={<p>Loading feed...</p>}>
                 {events.map((event:Announcement) => {

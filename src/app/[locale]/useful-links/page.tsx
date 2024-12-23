@@ -23,7 +23,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     }
 
     return (
-        <PageLayout title={translations.pageTranslations("title")} description={translations.pageTranslations("description")} bg={"white"}>
+        <PageLayout locale={locale} title={translations.pageTranslations("title")} description={translations.pageTranslations("description")} bg={"white"}>
             <div
                 className="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
                 <div

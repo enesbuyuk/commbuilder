@@ -23,7 +23,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         pageTranslations: await getTranslations("TeamPage")
     }
     return (
-        <PageLayout title={translations.pageTranslations("title")} description={translations.pageTranslations("description")}>
+        <PageLayout locale={locale} title={translations.pageTranslations("title")} description={translations.pageTranslations("description")}>
             <div className="flex flex-wrap -m-2">
                 <div className="p-2 lg:w-1/3 md:w-1/2 w-full">
                     <div className="bg-white h-full flex items-center border-gray-200 border p-4 rounded-lg">
