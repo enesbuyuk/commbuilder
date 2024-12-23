@@ -39,7 +39,7 @@ export default function Navbar({locale}: {locale: string}){
                 title={`${translations.generalTranslations("universityName")} ${translations.generalTranslations("studentClubName")}`}
             >
                 <Image
-                    src="/theme/new_logo_no_bg.png"
+                    src="/theme/logo_no_bg.png"
                     alt={`${translations.generalTranslations("universityName")} ${translations.generalTranslations("studentClubName")} Logo`}
                     width={100}
                     height={100}
