@@ -18,6 +18,10 @@ export const routing = defineRouting({
             en: '/useful-links',
             tr: '/faydali-linkler'
         },
+        '/links':{
+            en: '/links',
+            tr: '/linkler'
+        },
         '/gallery':{
             en: '/gallery',
             tr: '/galeri'
