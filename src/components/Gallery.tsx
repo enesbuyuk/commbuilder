@@ -3,9 +3,9 @@ import { useState } from "react";
 import Image from "next/image";
 
 export default function Gallery() {
-    const [selectedImage, setSelectedImage] = useState(null);
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-    const openModal = (imageSrc) => {
+    const openModal = (imageSrc: string) => {
         setSelectedImage(imageSrc);
     };
 
