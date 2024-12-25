@@ -1,0 +1,58 @@
+[
+  {
+    "_id": "123abc456def789ghi012jkl",
+    "announcement_type": "event",
+    "announcement_title": {
+      "en": "Lorem Ipsum Dolor Sit",
+      "tr": "Lorem Ipsum Dolor Sit"
+    },
+    "announcement_description": {
+      "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras vehicula accumsan nunc.",
+      "tr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras vehicula accumsan nunc."
+    },
+    "announcement_date": "2025-01-15T09:00:00Z",
+    "announcement_url": "https://iucs.net"
+  },
+  {
+    "_id": "234bcd567efg890hij123klm",
+    "announcement_type": "event",
+    "announcement_title": {
+      "en": "Sed Ut Perspiciatis",
+      "tr": "Sed Ut Perspiciatis"
+    },
+    "announcement_description": {
+      "en": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+      "tr": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam."
+    },
+    "announcement_date": "2025-02-10T12:00:00Z",
+    "announcement_url": "https://iucs.net"
+  },
+  {
+    "_id": "345cde678fgh901ijk234lmn",
+    "announcement_type": "event",
+    "announcement_title": {
+      "en": "Nemo Enim Ipsam",
+      "tr": "Nemo Enim Ipsam"
+    },
+    "announcement_description": {
+      "en": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.",
+      "tr": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos."
+    },
+    "announcement_date": "2025-03-05T14:30:00Z",
+    "announcement_url": "https://iucs.net"
+  },
+  {
+    "_id": "456def789ghi012jkl345nop",
+    "announcement_type": "announcement",
+    "announcement_title": {
+      "en": "Ut Enim Ad Minima",
+      "tr": "Ut Enim Ad Minima"
+    },
+    "announcement_description": {
+      "en": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?",
+      "tr": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?"
+    },
+    "announcement_date": "2025-04-20T10:00:00Z",
+    "announcement_url": "https://iucs.net"
+  }
+]
