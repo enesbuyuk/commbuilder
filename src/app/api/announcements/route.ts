@@ -7,7 +7,7 @@ export async function GET(request: Request) {
         const limit = limitParam ? parseInt(limitParam) : 100; // Default limit
 
         const client = await connect;
-        const db = client.db("university-student-club");
+        const db = client.db(process.env.MONGODB_DB_NAME);
         const collection = db.collection("announcements");
 
         const cursor = collection.find().sort({ date: -1 }).limit(limit);
