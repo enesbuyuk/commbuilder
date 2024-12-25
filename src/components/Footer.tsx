@@ -24,9 +24,7 @@ export default async function Footer() {
                     <Link href="https://github.com/enesbuyuk/university-student-club-website"
                           className="text-white hover:text-secondary font-semibold ml-1 duration-300 "
                           target="_blank">University Student Club Website</Link><br/>
-                    ©{year} <Link href={process.env.NEXT_PUBLIC_SITE_URL} className="text-white hover:text-secondary font-semibold ml-1 duration-300" target="_blank">{translations.generalTranslations("title")}</Link>, {translations.generalTranslations("allRightsReserved")}
-                    <br/>
-
+                    ©{year} <Link href={`${process.env.NEXT_PUBLIC_SITE_URL}`} className="text-white hover:text-secondary font-semibold ml-1 duration-300" target="_blank">{translations.generalTranslations("title")}</Link>, {translations.generalTranslations("allRightsReserved")}
                 </p>
                 <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
 
