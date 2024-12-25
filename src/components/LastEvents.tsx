@@ -14,7 +14,7 @@ export default async function LastEvents({locale}: {locale: string}) {
     const lastEvents = await response.json()
 
     return (
-        <IndexPageSectionLayout title={translations.pageTranslations("lastEvents")} indexPageSectionId={"last-events"}>
+        <IndexPageSectionLayout title={translations.pageTranslations("lastEvents")} indexPageSectionId={"last-events"} isLastSection={true}>
             {lastEvents.map((event:Announcement) => {
                 const announcementDate = new Date(event.announcement_date);
                 const month = announcementDate.toLocaleString('en-US', {month: 'short'});

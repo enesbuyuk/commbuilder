@@ -43,7 +43,7 @@ export default async function MediumArticles() {
         console.error('Error fetching RSS feed:', error);
     }
     return (
-        <IndexPageSectionLayout title={translations.pageTranslations("ourMediumArticles")} indexPageSectionId={"medium-articles"}>
+        <IndexPageSectionLayout title={translations.pageTranslations("ourMediumArticles")} indexPageSectionId={"medium-articles"} isLastSection={false}>
             {latestPosts.map((post, index) => (
                 <div key={index}  className={"lg:w-1/2 py-8 px-12 md:px-4 sm:pb-5"}>
                     <div className="p-12 bg-white flex flex-col items-start shadow-lg rounded-lg h-full overflow-hidden">
