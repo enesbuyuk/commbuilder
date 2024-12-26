@@ -1,8 +1,10 @@
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import PageLayout from "@/components/PageLayout";
 import React from "react";
+import {getPath} from "@/i18n/routing";
 
-export async function generateMetadata() {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+    const { locale } = await params;
     const translations = {
         generalTranslations: await getTranslations("General"),
         pageTranslations: await getTranslations("JoinTheClubPage")
@@ -10,7 +12,16 @@ export async function generateMetadata() {
 
     return {
         title: translations.pageTranslations('title') + translations.generalTranslations("titleSuffix"),
-        description: translations.pageTranslations('description')
+        description: translations.pageTranslations('description'),
+        openGraph: {
+            siteName: translations.generalTranslations('title'),
+            title: translations.pageTranslations('title'),
+            description: translations.pageTranslations('description'),
+            type: 'website'
+        },
+        alternates: {
+            canonical: `/${locale}/${getPath('/join-the-club', locale)}`,
+        }
     };
 }
 
