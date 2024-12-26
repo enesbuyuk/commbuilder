@@ -57,6 +57,7 @@ export default async function MediumArticles() {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-indigo-500 inline-flex items-center"
+                            title={post.title}
                         >
                             <h3 className="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">
                                 {post.title}
@@ -72,7 +73,8 @@ export default async function MediumArticles() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-indigo-500 inline-flex items-center"
-                            >{translations.generalTranslations("readMore")}
+                                title={post.title}
+                            >{translations.pageTranslations("readMoreMediumArticle")}
                                 <svg
                                     className="w-4 h-4 ml-2"
                                     viewBox="0 0 24 24"
