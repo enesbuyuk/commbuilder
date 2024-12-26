@@ -16,7 +16,8 @@
     "events": "Etkinlikler",
     "links": "Faydalı Linkler",
     "gallery": "Galeri",
-    "about": "Hakkında",
+    "about": "Hakkımızda",
+    "team": "Takımımız",
     "contact": "İletişim",
     "faq": "SSS",
     "joinTheClub": "Kulübe Katıl"
@@ -25,15 +26,18 @@
   "IndexPage": {
     "title": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü",
     "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü'ne hoş geldiniz! Kulübümüz, bilgisayar bilimleri, teknoloji ve inovasyona ilgi duyan öğrencileri bir araya getirmeyi amaçlamaktadır. Bilgi düzeyinizi genişletmenize, becerilerinizi geliştirmenize ve kalıcı dostluklar kurmanıza yardımcı olmak için geniş bir etkinlik, etkinlik ve kaynak yelpazesi sunuyoruz. Başlangıç seviyesinde olun veya uzman olun, kulübümüzde size uygun bir yer vardır. Bugün bize katılın ve teknoloji ve inovasyonun geleceğini şekillendirme yolculuğumuzun bir parçası olun!",
+    "keywords": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü, İstanbul Üniversitesi, Bilgisayar Bilimleri Kulübü, İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü, İÜ Bilgisayar Bilimleri Kulübü, İÜ CSC, İÜ Bilgisayar Bilimleri, İÜ Bilgisayar Bilimleri Kulübü, İÜ CSC Kulübü, İÜ Bilgisayar Bilimleri Kulübü Etkinlikleri, İÜ Bilgisayar Bilimleri Kulübü Duyuruları, İÜ Bilgisayar Bilimleri Kulübü Hakkında, İÜ Bilgisayar Bilimleri Kulübü Takımı, İÜ Bilgisayar Bilimleri Kulübü Üyelik, İÜ Bilgisayar Bilimleri Kulübü İletişim, İÜ Bilgisayar Bilimleri Kulübü SSS, İÜ Bilgisayar Bilimleri Kulübü Galeri, İÜ Bilgisayar Bilimleri Kulübü Faydalı Linkler",
     "welcomeMessage": "İstanbul Üniversitesi Fen Fakültesi, Bilgisayar Bilimleri Kulübü'ne Hoşgeldiniz!",
     "ourMediumArticles": "Son Medium Makalelerimiz",
+    "readMoreMediumArticle": "Tamamını Medium'da Oku",
     "lastEvents" : "Son Etkinliklerimiz",
-    "joinToEvent" : "Etkinliğe Katıl"
+    "joinToEvent" : "Etkinliğe Katıl",
+    "endedEvent": "Etkinlik sonlandığı için katılamazsınız."
   },
 
   "AnnouncementsPage": {
     "title": "Duyurular",
-    "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü'nden en son haberler ve güncellemelerden haberdar olun! Burada yaklaşan etkinlikler, kulüp faaliyetleri, üyelik fırsatları ve daha fazlasıyla ilgili önemli duyuruları bulabilirsiniz. Hiçbir önemli bilgiyi kaçırmayın—bu sayfa, kulübümüzden gelen tüm resmi güncellemeler ve duyurular için başvuracağınız yer. Güncel kalmak için sık sık kontrol edin!"
+    "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü'nden en son haberler ve güncellemelerden haberdar olun! Burada yaklaşan etkinlikler, kulüp faaliyetleri, üyelik fırsatları ve daha fazlasıyla ilgili önemli duyuruları bulabilirsiniz."
   },
 
   "EventsPage": {
