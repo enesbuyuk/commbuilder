@@ -58,12 +58,22 @@ export default async function LastEvents({locale}: {locale: string}) {
                                     })} - {announcementDate.toLocaleDateString('en-US', {weekday: 'long'})}</div>
                                 </div>
                                 <div className="mt-auto mx-auto">
-                                    <Link
-                                        className="inline-flex items-center bg-primary hover:bg-secondaryDark text-white py-2 px-4 rounded-lg text-sm transition duration-300"
-                                        href={event.announcement_url}
-                                        target="_blank"
-                                        title={event.announcement_title[locale]}
-                                    >{translations.pageTranslations("joinToEvent")}</Link>
+                                    {new Date() > new Date(event.announcement_date) ? (
+                                        <div
+                                            className="inline-flex font-semibold items-center text-red-800 py-2 px-4 text-sm italic"
+                                            title={event.announcement_title[locale]}
+                                        >**{translations.pageTranslations("endedEvent")}
+                                        </div>
+                                    ) : (
+                                        <Link
+                                            className="inline-flex items-center bg-primary hover:bg-secondaryDark text-white py-2 px-4 rounded-lg text-sm transition duration-300"
+                                            href={event.announcement_url}
+                                            target="_blank"
+                                            title={event.announcement_title[locale]}
+                                        >
+                                            {translations.pageTranslations("joinToEvent")}
+                                        </Link>
+                                    )}
                                 </div>
                             </div>
                         </div>
