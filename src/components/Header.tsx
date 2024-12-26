@@ -12,7 +12,7 @@ export default async function Header({locale, indexHero}: {locale: string, index
     let hero = indexHero || indexHero;
 
     return (
-        <header className={`text-gray-600 body-font overflow-hidden flex flex-col place-content-between ${hero ? "h-svh" : ""} items-center`}>
+        <header className={`text-gray-600 body-font overflow-visible flex flex-col place-content-between ${hero ? "h-svh" : ""} items-center`}>
             <Navbar locale={locale}/>
             {indexHero ? (
                 <>
