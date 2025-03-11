@@ -32,7 +32,7 @@ export default async function LastEvents({locale}: {locale: string}) {
                                     width={900}
                                 />
                             </div>
-                            <div className="w-full flex flex-col p-4">
+                            <div className="w-full h-full flex flex-col p-6">
                                 <div className="flex items-center mb-4">
                                     <div className="flex-grow">
                                         <h2 className="tracking-widest text-xs font-medium text-indigo-500 mb-1">CATEGORY</h2>
@@ -48,16 +48,16 @@ export default async function LastEvents({locale}: {locale: string}) {
                                 <p className="leading-relaxed text-sm text-gray-700 mb-4 indent-3.5">
                                     {event.announcement_description[locale]}
                                 </p>
-                                <div className="flex-shrink-0 text-center border-r border-gray-200 pr-2 py-6">
+                                <div className="mt-auto mx-auto">
+                                    <div className="flex-shrink-0 text-center py-6">
                                                     <span
                                                         className="inline-block text-gray-800 text-lg font-medium">{month} {announcementDate.getDate()}, {announcementDate.getFullYear()}</span>
-                                    <div
-                                        className="text-gray-500 text-sm mt-1">{announcementDate.toLocaleTimeString([], {
-                                        hour: '2-digit',
-                                        minute: '2-digit'
-                                    })} - {announcementDate.toLocaleDateString('en-US', {weekday: 'long'})}</div>
-                                </div>
-                                <div className="mt-auto mx-auto">
+                                        <div
+                                            className="text-gray-500 text-sm mt-1">{announcementDate.toLocaleTimeString([], {
+                                            hour: '2-digit',
+                                            minute: '2-digit'
+                                        })} - {announcementDate.toLocaleDateString('en-US', {weekday: 'long'})}</div>
+                                    </div>
                                     {new Date() > new Date(event.announcement_date) ? (
                                         <div
                                             className="inline-flex font-semibold items-center text-red-800 py-2 px-4 text-sm italic"
