@@ -11,14 +11,13 @@ const LanguageSwitcher = () => {
 
     const toggleLanguage = () => {
         const newLocale = locale === "tr" ? "en" : "tr";
-        const newPath = window.location.pathname.replace(`/${locale}`, `/${newLocale}`);
-        window.location.href = newPath;
+        window.location.href = window.location.pathname.replace(`/${locale}`, `/${newLocale}`);
     };
 
     return (
         <button
             onClick={toggleLanguage}
-            className="inline-flex bg-secondaryDark rounded-lg text-medium text-white font-medium mr-5 px-2"
+            className="inline-flex bg-primary rounded-lg text-medium text-white font-medium mr-5 px-2"
         >
       <span
           className={`py-1  ${
