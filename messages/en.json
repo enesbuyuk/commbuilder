@@ -94,6 +94,7 @@
       "formTitle": "Official Club Membership",
       "formDescription": "There are a few steps to become an official club member at Istanbul University: filling out the IU Club Membership Form, obtaining a student certificate via IU AKSİS, and obtaining your disciplinary record via IU AKSİS. It is sufficient to upload these documents in the fields below."
     },
+
     "form": {
       "nameSurname": "Name & Surname",
       "email": "E-Mail",
@@ -117,5 +118,14 @@
   "NotFoundPage": {
     "title": "404 Not Found",
     "description": "The page you are looking for does not exist. Please check the URL or return to the homepage."
+  },
+
+  "AdminPage": {
+    "title": "Admin Page",
+    "description": "Admin Page",
+    "login": "Login",
+    "logout": "Logout",
+    "username": "Username",
+    "password": "Password"
   }
 }
