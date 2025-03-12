@@ -18,8 +18,15 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     return {
         title: translations.pageTranslations('title'),
         description: translations.pageTranslations('description'),
+        keywords: translations.pageTranslations('keywords').split(',').map((keyword: string) => keyword.trim()),
         openGraph: {
             siteName: translations.generalTranslations('title'),
+            title: translations.pageTranslations('title'),
+            description: translations.pageTranslations('description'),
+            type: 'website'
+        },
+        alternates: {
+            canonical: `/${locale}`,
         }
     };
 }
