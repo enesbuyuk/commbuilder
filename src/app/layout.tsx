@@ -7,7 +7,7 @@ type Props = {
 
 export async function generateMetadata() {
     return {
-        metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL!).origin,
+        metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL!),
         alternates: {
             canonical: '/',
             languages: {
