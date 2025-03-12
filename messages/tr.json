@@ -117,5 +117,14 @@
   "NotFoundPage": {
     "title": "404 Bulunamadı",
     "description": "Aradığınız sayfa bulunamadı. Lütfen tekrar deneyin veya ana sayfaya dönün."
+  },
+
+  "AdminPage": {
+    "title": "Admin Sayfası",
+    "description": "Admin Sayfası",
+    "login": "Giriş",
+    "logout": "Çıkış",
+    "username": "Kullanıcı Adı",
+    "password": "Şifre"
   }
 }
