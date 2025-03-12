@@ -7,6 +7,6 @@ export const config = {
     matcher: [
         '/',
         '/(tr|en)/:path*', // (e.g. `/pathnames` -> `/en/pathnames`)
-        '/((?!_next|api|opengraph-image|_vercel|.*\\..*).*)' // API, static fiels routes are excluded
+        '/((?!_next|api|admin|opengraph-image|_vercel|.*\\..*).*)' // API, static fiels routes are excluded
     ]
 };
