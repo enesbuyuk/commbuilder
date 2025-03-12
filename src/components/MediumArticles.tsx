@@ -59,7 +59,7 @@ export default async function MediumArticles() {
                             className="text-indigo-500 inline-flex items-center"
                             title={post.title}
                         >
-                            <h3 className="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">
+                            <h3 className="sm:text-3xl text-2xl title-font font-medium text-primary mt-4 mb-4">
                                 {post.title}
                             </h3>
                         </Link>
