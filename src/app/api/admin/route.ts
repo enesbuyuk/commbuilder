@@ -10,7 +10,7 @@ export async function POST(req: Request) {
         const { username, password } = await req.json();
 
         if (!username || !password) {
-            return NextResponse.json({ error: "Username and password is required." }, { status: 400 });
+            return NextResponse.json({ error: "Username and password required." }, { status: 400 });
         }
 
         let ip = req.headers.get("x-forwarded-for") || "";
@@ -31,7 +31,7 @@ export async function POST(req: Request) {
         }).toArray();
 
         if (recentAttempts.length >= 10) {
-            return NextResponse.json({ error: "Too many attempts, please try again later." }, { status: 429 });
+            return NextResponse.json({ error: "Too many attempts, try again later." }, { status: 429 });
         }
 
         const admin = await adminsCollection.findOne({ username });
@@ -70,7 +70,14 @@ export async function POST(req: Request) {
             status: "success",
         });
 
-        return NextResponse.json({ token, message: "Success" }, { status: 200 });
+        const response = NextResponse.json({ message: "Success" });
+
+        response.headers.set(
+            "Set-Cookie",
+            `token=${token}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=3600`
+        );
+
+        return response;
     } catch (error) {
         console.error("Error:", error);
         return NextResponse.json({ error: "Internal server error" }, { status: 500 });
