@@ -1,9 +1,9 @@
-'use client'
-import React, { useState } from "react";
-import Image from "next/image";
+'use client';
 import {useTranslations} from "next-intl";
+import React, {useState} from "react";
+import Image from "next/image";
 
-export default function AdminLogin() {
+export default function AdminSignIn() {
     const translations = {
         generalTranslations: useTranslations("General"),
         pageTranslations: useTranslations("AdminPage"),
