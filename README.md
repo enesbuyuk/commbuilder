@@ -29,73 +29,44 @@ This project is the Istanbul University Computer Science Student Club website. I
 ```plaintext
 Directory structure:
 └── enesbuyuk-university-student-club-website/
+    ├── README.md
+    ├── default.env
+    ├── docker-compose.yml
+    ├── Dockerfile
+    ├── LICENSE
+    ├── next.config.ts
+    ├── package.json
+    ├── postcss.config.mjs
+    ├── tailwind.config.ts
+    ├── tsconfig.json
+    ├── .eslintrc.json
+    ├── db/
+    │   └── university-student-club.announcements.json
     ├── messages/
     │   ├── en.json
     │   └── tr.json
-    ├── .eslintrc.json
     ├── public/
-    │   ├── uploads/
-    │   │   └── .gitkeep
     │   ├── robots.txt
-    │   └── theme/
-    │       ├── default-image.webp
-    │       └── videoplayback.webm
-    ├── next.config.ts
-    ├── package.json
-    ├── default.env
-    ├── postcss.config.mjs
-    ├── Dockerfile
-    ├── tailwind.config.ts
-    ├── LICENSE
-    ├── tsconfig.json
-    ├── README.md
-    ├── docker-compose.yml
-    ├── db/
-    │   └── university-student-club.announcements.json
+    │   ├── theme/
+    │   │   ├── default-image.webp
+    │   │   ├── videoplayback.webm
+    │   │   └── admin/
+    │   │       └── admin-login-page.webp
+    │   └── uploads/
+    │       └── .gitkeep
     └── src/
         ├── middleware.ts
-        ├── components/
-        │   ├── PageLayout.tsx
-        │   ├── IndexPageSectionLayout.tsx
-        │   ├── MediumArticles.tsx
-        │   ├── Gallery.tsx
-        │   ├── BaseLayout.tsx
-        │   ├── Header.tsx
-        │   ├── Navbar.tsx
-        │   ├── Footer.tsx
-        │   ├── Faq.tsx
-        │   ├── LanguageSwitcher.tsx
-        │   └── LastEvents.tsx
-        ├── i18n/
-        │   ├── request.ts
-        │   └── routing.ts
-        ├── utils/
-        │   └── startMongo.ts
         ├── app/
-        │   ├── api/
-        │   │   ├── events/
-        │   │   │   └── route.ts
-        │   │   └── announcements/
-        │   │       └── route.ts
-        │   ├── page.tsx
-        │   ├── Inter.ttf
         │   ├── globals.css
+        │   ├── Inter.ttf
+        │   ├── layout.tsx
+        │   ├── page.tsx
         │   ├── [locale]/
-        │   │   ├── useful-links/
-        │   │   │   └── page.tsx
-        │   │   ├── join-the-club/
-        │   │   │   └── page.tsx
-        │   │   ├── page.tsx
-        │   │   ├── gallery/
-        │   │   │   └── page.tsx
-        │   │   ├── [...rest]/
-        │   │   │   └── page.tsx
+        │   │   ├── layout.tsx
+        │   │   ├── not-found.tsx
         │   │   ├── opengraph-image.tsx
-        │   │   ├── events/
-        │   │   │   └── page.tsx
-        │   │   ├── faq/
-        │   │   │   └── page.tsx
-        │   │   ├── contact/
+        │   │   ├── page.tsx
+        │   │   ├── [...rest]/
         │   │   │   └── page.tsx
         │   │   ├── about/
         │   │   │   ├── page.tsx
@@ -103,16 +74,59 @@ Directory structure:
         │   │   │   │   └── page.tsx
         │   │   │   └── team/
         │   │   │       └── page.tsx
-        │   │   ├── layout.tsx
-        │   │   ├── not-found.tsx
-        │   │   └── announcements/
+        │   │   ├── admin/
+        │   │   │   ├── page.tsx
+        │   │   │   └── (account)/
+        │   │   │       └── sign-in/
+        │   │   │           └── page.tsx
+        │   │   ├── announcements/
+        │   │   │   └── page.tsx
+        │   │   ├── contact/
+        │   │   │   └── page.tsx
+        │   │   ├── events/
+        │   │   │   └── page.tsx
+        │   │   ├── faq/
+        │   │   │   └── page.tsx
+        │   │   ├── gallery/
+        │   │   │   └── page.tsx
+        │   │   ├── join-the-club/
+        │   │   │   └── page.tsx
+        │   │   └── useful-links/
         │   │       └── page.tsx
-        │   ├── fonts/
-        │   │   ├── GeistMonoVF.woff
-        │   │   └── GeistVF.woff
-        │   └── layout.tsx
-        └── types/
-            └── Announcement.ts
+        │   ├── api/
+        │   │   ├── admin/
+        │   │   │   ├── route.ts
+        │   │   │   └── token/
+        │   │   │       └── route.ts
+        │   │   ├── announcements/
+        │   │   │   └── route.ts
+        │   │   └── events/
+        │   │       └── route.ts
+        │   └── fonts/
+        │       ├── GeistMonoVF.woff
+        │       └── GeistVF.woff
+        ├── components/
+        │   ├── AdminSignIn.tsx
+        │   ├── BaseLayout.tsx
+        │   ├── Faq.tsx
+        │   ├── Footer.tsx
+        │   ├── Gallery.tsx
+        │   ├── Header.tsx
+        │   ├── IndexPageSectionLayout.tsx
+        │   ├── LanguageSwitcher.tsx
+        │   ├── LastEvents.tsx
+        │   ├── MediumArticles.tsx
+        │   ├── Navbar.tsx
+        │   └── PageLayout.tsx
+        ├── i18n/
+        │   ├── request.ts
+        │   └── routing.ts
+        ├── types/
+        │   ├── Admin.ts
+        │   ├── Announcement.ts
+        │   └── Attempt.ts
+        └── utils/
+            └── startMongo.ts
 ```
 
 
