@@ -3,11 +3,8 @@ import {useTranslations} from "next-intl";
 import React, {useState} from "react";
 import Image from "next/image";
 import {useRouter} from "next/navigation";
-import {getLocale} from "next-intl/server";
 
-export default function AdminSignIn() {
-    const locale = getLocale();
-
+export default function AdminSignIn({locale}:{locale:string}) {
     const translations = {
         generalTranslations: useTranslations("General"),
         pageTranslations: useTranslations("AdminPage"),
