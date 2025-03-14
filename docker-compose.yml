@@ -14,7 +14,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.site--university-student-club-website.rule=Host(`${NEXT_PUBLIC_HOST_NAME}`)"
       - "traefik.http.routers.site--university-student-club-website.entrypoints=web"
-      - "traefik.http.services.site--university-student-club-website.loadbalancer.server.port=${NEXT_PUBLIC_HOST_PORT}"
+      - "traefik.http.services.site--university-student-club-website.loadbalancer.server.port=${PORT}"
     depends_on:
       - mongodb
     networks:
