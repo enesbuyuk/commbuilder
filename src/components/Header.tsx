@@ -32,7 +32,7 @@ export default async function Header({locale, indexHero}: {locale: string, index
                         <div className="flex gap-3 sm:gap-4 items-center flex-col justify-center mt-8 sm:mt-10">
                             <Link
                                 className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-primary text-white gap-2 hover:bg-secondaryDark text-xs sm:text-sm md:text-base h-10 sm:h-12 px-4 sm:px-6 md:px-8 duration-300"
-                                href={process.env.NEXT_PUBLIC_SITE_URL + "/" + locale + getPath('/join-the-club', locale)}
+                                href={`/${locale}${getPath('/join-the-club', locale)}`}
                                 rel="noopener noreferrer"
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
