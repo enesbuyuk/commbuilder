@@ -3,14 +3,17 @@
   "version": "0.1.2",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 443",
+    "dev": "dotenv -c --  next dev",
     "build": "next build",
-    "start": "next start -p 443",
+    "start": "dotenv -c -- next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.5.8",
     "bcryptjs": "^3.0.2",
+    "cookie": "^1.0.2",
+    "dotenv": "^16.4.7",
+    "dotenv-cli": "^8.0.0",
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.465.0",
     "mongodb": "^6.11.0",
