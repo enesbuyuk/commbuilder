@@ -1,4 +1,4 @@
-import AdminSignIn from "@/components/AdminSignIn";
+import AdminSignIn from "@/components/admin/AdminSignIn";
 import {getTranslations} from "next-intl/server";
 
 export async function generateMetadata() {
