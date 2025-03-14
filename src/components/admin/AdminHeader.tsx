@@ -11,7 +11,6 @@ export default function AdminHeader({locale}:{locale:string}){
         pageTranslations: useTranslations("AdminPage")
     }
 
-    console.log(process.env.NEXT_PUBLIC_SITE_URL)
     return (
         <header className="body-font bg-primary text-white p-6 flex justify-between items-center">
             <Link
