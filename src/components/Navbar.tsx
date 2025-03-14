@@ -25,15 +25,15 @@ export default function Navbar({locale}: {locale: string}){
     }
 
     const menuItems = [
-        {href: `${process.env.NEXT_PUBLIC_SITE_URL}`, label: translations.pageTranslations("index")},
+        {href: `/`, label: translations.pageTranslations("index")},
         {href: `${process.env.NEXT_PUBLIC_MEDIUM_URL}`, label: "Medium", external: true},
-        {href: `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}${getPath('/announcements', locale)}`, label: translations.pageTranslations("announcements")},
-        {href: `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}${getPath('/events', locale)}`, label: translations.pageTranslations("events")},
-        {href: `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}${getPath('/useful-links', locale)}`, label: translations.pageTranslations("links")},
-        {href: `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}${getPath('/gallery', locale)}`, label: translations.pageTranslations("gallery")},
-        {href: `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}${getPath('/contact', locale)}`, label: translations.pageTranslations("contact")},
-        {href: `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}${getPath('/faq', locale)}`, label: translations.pageTranslations("faq")},
-    ];
+        {href: `/${locale}${getPath('/announcements', locale)}`, label: translations.pageTranslations("announcements")},
+        {href: `/${locale}${getPath('/events', locale)}`, label: translations.pageTranslations("events")},
+        {href: `/${locale}${getPath('/useful-links', locale)}`, label: translations.pageTranslations("links")},
+        {href: `/${locale}${getPath('/gallery', locale)}`, label: translations.pageTranslations("gallery")},
+        {href: `/${locale}${getPath('/contact', locale)}`, label: translations.pageTranslations("contact")},
+        {href: `/${locale}${getPath('/faq', locale)}`, label: translations.pageTranslations("faq")},
+    ]
 
     return (
         <div className="container mx-auto flex flex-wrap px-8 py-5 items-center justify-between gap-8">
@@ -109,7 +109,7 @@ export default function Navbar({locale}: {locale: string}){
                             `}>
                                 <div className="py-1">
                                     <Link
-                                        href={`${process.env.NEXT_PUBLIC_SITE_URL}/${locale}${getPath('/about', locale)}`}
+                                        href={`/${locale}${getPath('/about', locale)}`}
                                         className="block px-4 py-2 text-md font-semibold text-black hover:bg-gray-100 hover:text-primary"
                                         onClick={() => {
                                             toggleMenu();
@@ -119,7 +119,7 @@ export default function Navbar({locale}: {locale: string}){
                                         {translations.pageTranslations("about")}
                                     </Link>
                                     <Link
-                                        href={`${process.env.NEXT_PUBLIC_SITE_URL}/${locale}${getPath('/about/team', locale)}`}
+                                        href={`/${locale}${getPath('/about/team', locale)}`}
                                         className="block px-4 py-2 text-md font-semibold text-black hover:bg-gray-100 hover:text-primary"
                                         onClick={() => {
                                             toggleMenu();
@@ -135,7 +135,7 @@ export default function Navbar({locale}: {locale: string}){
                         <LanguageSwitcher/>
                         <Link
                             className="inline-flex items-center bg-primary hover:bg-secondaryDark text-gray-300 hover:text-white border-0 focus:outline-none rounded text-xl mt-4 lg:mt-0 duration-300 px-4 py-2"
-                            href={`${process.env.NEXT_PUBLIC_SITE_URL}/${locale}${getPath('/join-the-club', locale)}`}
+                            href={`/${locale}${getPath('/join-the-club', locale)}`}
                             onClick={toggleMenu}
                         >{translations.pageTranslations("joinTheClub")}
                             <svg
