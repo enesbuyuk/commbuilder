@@ -46,6 +46,35 @@ export const routing = defineRouting({
             en: '/join-the-club',
             tr: '/kulube-katil',
         },
+        // Admin panel pages
+        '/admin': '/admin',
+        '/admin/sign-in': '/admin/sign-in',
+        '/admin/sign-up': '/admin/sign-up',
+        '/admin/sign-out': '/admin/sign-out',
+        '/admin/dashboard': {
+            en: '/admin/dashboard',
+            tr: '/admin/kontrol-paneli'
+        },
+        '/admin/announcements':{
+            en: '/admin/announcements',
+            tr: '/admin/duyurular'
+        },
+        '/admin/events':{
+            en: '/admin/events',
+            tr: '/admin/etkinlikler'
+        },
+        '/admin/user-management':{
+            en: '/admin/user-management',
+            tr: '/admin/kullanici-yonetimi'
+        },
+        '/admin/settings':{
+            en: '/admin/settings',
+            tr: '/admin/ayarlar'
+        },
+        '/admin/social-media-management':{
+            en: '/admin/social-media-management',
+            tr: '/admin/sosyal-medya-yonetimi'
+        },
     }
 });
 
