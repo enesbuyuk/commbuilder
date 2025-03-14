@@ -2,8 +2,12 @@
 import {useTranslations} from "next-intl";
 import React, {useState} from "react";
 import Image from "next/image";
+import {useRouter} from "next/navigation";
+import {getLocale} from "next-intl/server";
 
 export default function AdminSignIn() {
+    const locale = getLocale();
+
     const translations = {
         generalTranslations: useTranslations("General"),
         pageTranslations: useTranslations("AdminPage"),
@@ -13,6 +17,8 @@ export default function AdminSignIn() {
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
     const [loading, setLoading] = useState(false);
+
+    const router = useRouter();
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
@@ -33,6 +39,7 @@ export default function AdminSignIn() {
 
             if (response.ok) {
                 alert("Login successful!");
+                router.push(`/${locale}/admin`);
             } else {
                 setErrorMessage(data.error || "Login failed. Please try again.");
             }
