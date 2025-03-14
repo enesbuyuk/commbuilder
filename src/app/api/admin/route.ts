@@ -28,6 +28,7 @@ export async function POST(req: Request) {
         const recentAttempts = await attemptsCollection.find({
             ip,
             timestamp: { $gte: oneHourAgo },
+            status: "failed"
         }).toArray();
 
         if (recentAttempts.length >= 10) {
@@ -60,8 +61,8 @@ export async function POST(req: Request) {
             process.exit(1);
         }
 
-        const token = jwt.sign({ id: admin._id, role: "admin" }, jwtSecret, {
-            expiresIn: "1h",
+        const token = jwt.sign({ id: admin._id, role: "admin", username: admin.username }, jwtSecret, {
+            expiresIn: "3d",
         });
 
         await attemptsCollection.insertOne({
@@ -70,7 +71,7 @@ export async function POST(req: Request) {
             status: "success",
         });
 
-        const response = NextResponse.json({ message: "Success" });
+        const response = NextResponse.json({ message: "success" });
 
         response.headers.set(
             "Set-Cookie",
