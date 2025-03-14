@@ -126,6 +126,23 @@
     "login": "Login",
     "logout": "Logout",
     "username": "Username",
-    "password": "Password"
+    "password": "Password",
+    "welcome": "Welcome",
+    "goToLink": "Go to Link",
+    "announcements": "Announcements",
+    "announcementsDesc": "You can manage announcements here.",
+    "events": "Events",
+    "eventsDesc": "You can manage events here.",
+    "userManagement": "User Management",
+    "userManagementDesc": "You can manage the users here.",
+    "socialMediaManagement": "Social Media Management",
+    "socialMediaManagementDesc": "You can manage social media links here.",
+
+    "settings": "Settings",
+    "dashboard": "Panel",
+
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "signUp": "Sign Up"
   }
 }
