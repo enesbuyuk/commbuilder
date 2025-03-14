@@ -1,32 +1,33 @@
 import createMiddleware from "next-intl/middleware";
 import { routing } from "./i18n/routing";
 import { NextRequest, NextResponse } from "next/server";
-import jwt from "jsonwebtoken";
+import { getUser } from "@/utils/user";
+import {getLocale} from "next-intl/server";
 
-// next-intl middleware
 const intlMiddleware = createMiddleware(routing);
 
-export function middleware(req: NextRequest) {
-    // firstly check internationalization middleware
+//export default createMiddleware(routing);
+
+export async function middleware(req: NextRequest) {
+    //console.log("ex url:", req.nextUrl.pathname);
+
     const intlResponse = intlMiddleware(req);
-    if (intlResponse) return intlResponse;
+    const response = intlResponse || NextResponse.next();
+    const locale = await getLocale();
+
+    //console.log("new url:", req.nextUrl.pathname);
+
+    const clientPath = req.nextUrl.pathname;
 
     // admin panel pages jwt checking middleware
-    if (req.nextUrl.pathname.startsWith("/admin")) {
-        const token = req.cookies.get("token")?.value;
-        if (!token) {
-            return NextResponse.redirect(new URL("/admin/sign-in", req.url));
-        }
-
-        try {
-            const secret = process.env.JWT_SECRET!;
-            jwt.verify(token, secret);
-        } catch (error) {
-            return NextResponse.redirect(new URL("/admin/sign-in", req.url));
+    if (clientPath.substring(3).startsWith("/admin")
+        && !clientPath.substring(3).startsWith("/admin/sign") ) {
+        const user = await getUser();
+        if (!user) {
+            return NextResponse.redirect(new URL(`/${locale}/admin/sign-in`, req.url));
         }
     }
-
-    return NextResponse.next();
+    return response;
 }
 
 export const config = {
@@ -34,6 +35,6 @@ export const config = {
         "/",
         "/(tr|en)/:path*",
         '/((?!_next|api|opengraph-image|_vercel|.*\\..*).*)', // API, static fiels routes are excluded
-        "/admin/:path*", // admin pages
+        "/(tr|en)/admin/:path*", // admin pages
     ],
 };
