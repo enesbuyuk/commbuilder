@@ -1,5 +1,5 @@
 import AdminSignIn from "@/components/admin/AdminSignIn";
-import {getTranslations} from "next-intl/server";
+import {getLocale, getTranslations} from "next-intl/server";
 
 export async function generateMetadata() {
     const translations = {
@@ -11,6 +11,9 @@ export async function generateMetadata() {
         title: translations.pageTranslations("title") + translations.generalTranslations("titleSuffix"),
     }
 }
-export default function AdminSignInPage() {
-    return <AdminSignIn/>
+export default async function AdminSignInPage() {
+    const locale = await getLocale();
+    return (
+        <AdminSignIn locale={locale}/>
+    )
 }
