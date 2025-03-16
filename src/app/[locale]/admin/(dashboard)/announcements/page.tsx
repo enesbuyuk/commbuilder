@@ -28,8 +28,7 @@ export default async function AdminAnnouncementsList({params}: { params: Promise
                 >
                     <div>
                         <Link
-                            href={process.env.NEXT_PUBLIC_SITE_URL + "/" + locale + "/admin/announcements/" + announcement._id + "/edit"}
-                            className="text-blue-500 font-medium text-md hover:underline"
+                            href={`/${locale}/admin/announcements/${announcement._id}/edit`} className="text-blue-500 font-medium text-md hover:underline"
                         >
                             {announcement.announcement_title[locale]}
                         </Link>
