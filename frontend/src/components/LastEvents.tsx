@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 import {getTranslations} from "next-intl/server";
 import {Announcement} from "@/types/Announcement";
 import IndexPageSectionLayout from "@/components/IndexPageSectionLayout";
@@ -23,19 +22,19 @@ export default async function LastEvents({locale}: {locale: string}) {
                     <div key={event._id} className="lg:w-1/3 md:w-1/2 w-full py-8 px-12 md:px-4 ">
                         <div
                             className="h-full flex flex-col items-start bg-white shadow-lg rounded-lg overflow-hidden">
-                            <div className="w-full  bg-gray-100 flex justify-center items-center">
+                            <div className="w-full  bg-gray-100 flex justify-center items-center border-gray-300 border-b-[0.2px]">
                                 <Image
                                     src={process.env.NEXT_PUBLIC_SITE_URL + "/uploads/" + event._id + ".webp"}
                                     alt={event.announcement_title[locale]}
                                     className="object-cover w-full h-full"
-                                    height={1200}
-                                    width={900}
+                                    height={1920}
+                                    width={1080}
                                 />
                             </div>
                             <div className="w-full h-full flex flex-col p-6">
                                 <div className="flex items-center mb-4">
                                     <div className="flex-grow">
-                                        <h2 className="tracking-widest text-xs font-medium text-indigo-500 mb-1">CATEGORY</h2>
+                                        <h2 className="tracking-widest text-xs font-medium text-indigo-500 mb-1">{event.event_type[locale]}</h2>
                                         <h3 className="text-lg font-medium text-gray-900 mb-2">
                                             <Link
                                                 href={event.announcement_url}

@@ -130,6 +130,23 @@
     "welcome": "Welcome",
     "goToLink": "Go to Link",
     "announcements": "Announcements",
+    "AnnouncementsPage": {
+      "Announcements": "Announcements",
+      "title": "Edit Announcement",
+      "description": "Modify and update announcements easily.",
+      "editingText": {
+        "title": "Edit Announcement Details",
+        "description1": "Use the form below to update the announcement details.",
+        "description2": "Ensure all required fields are filled before submitting.",
+        "formTitle": "Announcement Information",
+        "formDescription": "Provide the necessary details to update the announcement."
+      },
+      "form": {
+        "title": "Announcement Title",
+        "content": "Announcement Content"
+      },
+      "save": "Save Changes"
+    },
     "announcementsDesc": "You can manage announcements here.",
     "events": "Events",
     "eventsDesc": "You can manage events here.",

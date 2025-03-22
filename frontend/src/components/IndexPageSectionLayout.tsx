@@ -1,5 +1,3 @@
-import React from "react";
-
 export default async function IndexPageSectionLayout({ title, isLastSection = false, indexPageSectionId, children, }: { title: string; isLastSection: boolean; indexPageSectionId: string; children: React.ReactNode; }) {
     return (
         <section className="text-gray-600 body-font" id={indexPageSectionId}>

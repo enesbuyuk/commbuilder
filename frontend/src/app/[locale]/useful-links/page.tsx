@@ -36,7 +36,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     return (
         <PageLayout locale={locale} title={translations.pageTranslations("title")} description={translations.pageTranslations("description")} bg={"white"}>
             <div
-                className="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
+                className="flex items-center lg:w-4/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
                 <div
                     className="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-primary text-indigo-500 flex-shrink-0">
                     <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px"
@@ -46,7 +46,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                     </svg>
                 </div>
                 <div className="flex-grow sm:text-left text-center mt-6 sm:mt-0">
-                    <h2 className="text-gray-900 text-lg title-font font-medium mb-2"><a className="mt-3 text-indigo-500 inline-flex items-center"
+                    <h2 className="text-gray-900 text-xl font-medium mb-2"><a className="mt-3 text-indigo-500 inline-flex items-center"
                                                                                           href={"https://cs50.harvard.edu/x/2025/"} target="_blank">CS50’s Introduction to
                         Computer Science</a></h2>
                     <p className="leading-relaxed text-base">CS50’s Introduction to Computer Science is a
@@ -62,9 +62,9 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                 </div>
             </div>
             <div
-                className="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
+                className="flex items-center lg:w-4/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
                 <div className="flex-grow sm:text-left text-center mt-6 sm:mt-0">
-                    <h2 className="text-gray-900 text-lg title-font font-medium mb-2"><a className="mt-3 text-indigo-500 inline-flex items-center"
+                    <h2 className="text-gray-900 text-xl font-medium mb-2"><a className="mt-3 text-indigo-500 inline-flex items-center"
                                                                                          href={"https://www.edx.org/learn/computer-science/massachusetts-institute-of-technology-introduction-to-computer-science-and-programming-using-python"}
                                                                                          target="_blank">MITx: Introduction to
                         Computer Science and Programming Using Python</a></h2>
@@ -89,7 +89,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                 </div>
             </div>
             <div
-                className="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
+                className="flex items-center lg:w-4/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
                 <div
                     className="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-primary text-indigo-500 flex-shrink-0">
                     <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="55px" fill="#fff">
@@ -99,7 +99,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                     </svg>
                 </div>
                 <div className="flex-grow sm:text-left text-center mt-6 sm:mt-0">
-                    <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
+                    <h2 className="text-gray-900 text-xl font-medium mb-2">
                         <a className="mt-3 text-indigo-500 inline-flex items-center"
                            href={"https://www.awseducate.com/registration/s/registration-detail?language=en_US&promocode=EducateLP"} target="_blank">Learn cloud skills at no cost with AWS Educate</a></h2>
                     <p className="leading-relaxed text-base">Are you overwhelmed by too many choices when it comes to learning about the cloud? AWS Educate is here to help. Simplify your journey into cloud computing and AI with AWS Educate - your free, curated learning path to in-demand tech skills. Check out our free, self-paced online training resources and labs designed to help you learn and practice your cloud skills without having to create an Amazon account.</p>

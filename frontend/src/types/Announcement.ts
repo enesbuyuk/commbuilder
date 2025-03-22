@@ -7,6 +7,9 @@ export interface Announcement {
     announcement_description: {
         [key: string]: string;
     };
+    event_type: {
+        [key: string]: string;
+    }
     announcement_date: string;
     announcement_url: string;
 }
