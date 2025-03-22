@@ -43,3 +43,5 @@ next-env.d.ts
 
 # Ignore the public/uploads folder
 /public/uploads/*
+
+.fresh.yaml
