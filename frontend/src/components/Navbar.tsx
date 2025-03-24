@@ -36,7 +36,7 @@ export default function Navbar({locale}: {locale: string}){
     ]
 
     return (
-        <div className="container mx-auto flex flex-wrap px-8 py-5 items-center justify-between gap-8">
+        <div className="container mx-auto flex flex-wrap py-5 items-center justify-between gap-8">
             <Link
                 className="flex title-font font-medium items-center text-gray-900"
                 href="/"
