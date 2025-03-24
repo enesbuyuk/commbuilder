@@ -15,15 +15,9 @@ func JwtMiddleware(c *fiber.Ctx) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
-	tokenString := c.Get("Authorization")
+	tokenString := c.Cookies("token")
 	if tokenString == "" {
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"error": "Authorization token is required"})
-	}
-
-	if len(tokenString) > 7 && tokenString[:7] == "Bearer " {
-		tokenString = tokenString[7:]
-	} else {
-		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"error": "Invalid token format"})
 	}
 
 	claims, err := config.VerifyToken(tokenString)
@@ -31,8 +25,11 @@ func JwtMiddleware(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"error": "Invalid or expired token"})
 	}
 
-	userId := claims["id"].(string)
-	username := claims["username"].(string)
+	userId, ok1 := claims["id"].(string)
+	username, ok2 := claims["username"].(string)
+	if !ok1 || !ok2 {
+		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"error": "Invalid token claims"})
+	}
 
 	var user models.User
 	err = config.DB.Collection("admins").FindOne(ctx, bson.M{"_id": userId, "username": username}).Decode(&user)
@@ -44,7 +41,6 @@ func JwtMiddleware(c *fiber.Ctx) error {
 	}
 
 	user.Password = ""
-
 	c.Locals("user", user)
 
 	return c.Next()
