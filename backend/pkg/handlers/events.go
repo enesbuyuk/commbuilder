@@ -6,6 +6,7 @@ import (
 	"github.com/enesbuyuk/university-student-club-website/pkg/models"
 	"github.com/gofiber/fiber/v2"
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"strconv"
 	"time"
@@ -52,4 +53,57 @@ func PostEvents(c *fiber.Ctx) error {
 	}
 
 	return c.JSON(event)
+}
+
+func PutEvents(c *fiber.Ctx) error {
+	id := c.Params("id")
+	updateData := new(models.EventModel)
+
+	if err := c.BodyParser(updateData); err != nil {
+		return c.Status(400).JSON(fiber.Map{"error": err.Error()})
+	}
+
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+
+	objID, err := primitive.ObjectIDFromHex(id)
+	if err != nil {
+		return c.Status(400).JSON(fiber.Map{"error": "Invalid ID format"})
+	}
+
+	filter := bson.M{"_id": objID}
+	update := bson.M{"$set": updateData}
+
+	result, err := config.DB.Collection("events").UpdateOne(ctx, filter, update)
+	if err != nil {
+		return c.Status(500).JSON(fiber.Map{"error": "Could not update announcement"})
+	}
+	if result.MatchedCount == 0 {
+		return c.Status(404).JSON(fiber.Map{"error": "Event not found"})
+	}
+
+	return c.JSON(fiber.Map{"message": "Event updated successfully"})
+}
+
+func DeleteEvents(c *fiber.Ctx) error {
+	id := c.Params("id")
+
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+
+	objID, err := primitive.ObjectIDFromHex(id)
+	if err != nil {
+		return c.Status(400).JSON(fiber.Map{"error": "Invalid ID format"})
+	}
+
+	filter := bson.M{"_id": objID}
+	result, err := config.DB.Collection("events").DeleteOne(ctx, filter)
+	if err != nil {
+		return c.Status(500).JSON(fiber.Map{"error": "Could not delete announcement"})
+	}
+	if result.DeletedCount == 0 {
+		return c.Status(404).JSON(fiber.Map{"error": "Event not found"})
+	}
+
+	return c.JSON(fiber.Map{"message": "Event deleted successfully"})
 }
