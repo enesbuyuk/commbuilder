@@ -36,3 +36,20 @@ func GetEvents(c *fiber.Ctx) error {
 
 	return c.JSON(events)
 }
+
+func PostEvents(c *fiber.Ctx) error {
+	event := new(models.EventModel)
+	if err := c.BodyParser(event); err != nil {
+		return c.Status(400).JSON(fiber.Map{"error": err.Error()})
+	}
+
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+
+	_, err := config.DB.Collection("events").InsertOne(ctx, event)
+	if err != nil {
+		return c.Status(500).JSON(fiber.Map{"error": "Data could not be inserted"})
+	}
+
+	return c.JSON(event)
+}
