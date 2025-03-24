@@ -6,7 +6,8 @@ import (
 )
 
 func setupRoutes(app *fiber.App) {
+	routes.AuthRoutes(app)
 	routes.AnnouncementRoutes(app)
 	routes.EventsRoutes(app)
-	routes.AuthRoutes(app)
+	routes.UsefulLinksRoutes(app)
 }
