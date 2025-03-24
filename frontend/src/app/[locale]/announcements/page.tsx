@@ -38,7 +38,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         pageTranslations: await getTranslations("AnnouncementsPage")
     }
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/announcements`, {
+    const response = await fetch(`${process.env.BACKEND_URL}/announcements`, {
         cache: 'force-cache'
     });
 
@@ -58,18 +58,18 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                     >
                         <div className="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
                             <span className="font-semibold title-font text-gray-700">
-                                {announcement.announcement_type.charAt(0).toUpperCase() + announcement.announcement_type.slice(1)}
+                                {announcement.type[locale]}
                             </span>
                             <span className="mt-1 text-gray-500 text-sm">
-                                {new Date(announcement.announcement_date).toLocaleDateString()}
+                                {new Date(announcement.date).toLocaleDateString()}
                             </span>
                         </div>
                         <div className="md:flex-grow">
                             <h2 className="text-2xl font-medium text-gray-900 title-font mb-2">
-                                {announcement.announcement_title[locale]}
+                                {announcement.title[locale]}
                             </h2>
                             <p className="leading-relaxed">
-                                {announcement.announcement_description[locale]}
+                                {announcement.description[locale]}
                             </p>
                             <a href="#" className="text-indigo-500 inline-flex items-center mt-4">
                                 {translations.generalTranslations("learnMore")}
