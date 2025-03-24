@@ -29,9 +29,9 @@ export default function AdminHeader({locale}:{locale:string}){
             <nav>
                 <ul className="flex space-x-6">
                     <li><Link className={"border-r-2 border-white pr-2"} href={process.env.NEXT_PUBLIC_SITE_URL+"/"+locale} target="_blank" >Web Site Home</Link></li>
-                    <li><Link href={process.env.NEXT_PUBLIC_SITE_URL + "/" + locale + getPath('/admin/dashboard', locale)} className="hover:text-gray-400 duration-300">{translations.pageTranslations("dashboard")}</Link></li>
-                    <li><Link href={process.env.NEXT_PUBLIC_SITE_URL + "/" + locale + getPath('/admin/settings', locale)} className="hover:text-gray-400 duration-300">{translations.pageTranslations("settings")}</Link></li>
-                    <li><Link href={process.env.NEXT_PUBLIC_SITE_URL + "/" + locale + getPath('/admin/sign-out', locale)} className="hover:text-gray-400 duration-300">{translations.pageTranslations("signOut")}</Link></li>
+                    <li><Link href={`/${locale}${getPath('/admin/dashboard', locale)}`} className="hover:text-gray-400 duration-300">{translations.pageTranslations("dashboard")}</Link></li>
+                    <li><Link href={`/${locale}${getPath('/admin/settings', locale)}`} className="hover:text-gray-400 duration-300">{translations.pageTranslations("settings")}</Link></li>
+                    <li><Link href={`/${locale}${getPath('/admin/sign-out', locale)}`} className="hover:text-gray-400 duration-300">{translations.pageTranslations("signOut")}</Link></li>
                 </ul>
             </nav>
         </header>
