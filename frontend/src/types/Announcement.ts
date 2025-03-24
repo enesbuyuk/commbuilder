@@ -9,8 +9,5 @@ export interface Announcement {
     description: {
         [key: string]: string;
     };
-    event_type: {
-        [key: string]: string;
-    }
     date: string;
 }
