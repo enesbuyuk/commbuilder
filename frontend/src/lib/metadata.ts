@@ -8,9 +8,11 @@ export async function getMetadata(locale: string, page: string): Promise<Metadat
         getTranslations({locale, namespace:`metadata.${page}`})
     ]);
 
-    if(page.includes("--")) {
-        page = page.replace("--", "/");
+    page = page.replace("--", "/");
+    if (page === "" || page === "/" || page === "index") {
+        page = "";
     }
+
     return {
         title: pageTranslations('title') + generalTranslations("titleSuffix"),
         description: pageTranslations('description'),
