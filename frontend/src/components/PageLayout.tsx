@@ -29,7 +29,6 @@ const PageLayout: React.FC<PageLayoutProps> = ({locale='en', title,description,b
                 <section className={`text-gray-600 body-font overflow-hidden ${bg}`}>
                     <div className="flex flex-col text-center w-full bg-primary
           p-4 sm:p-6 md:p-8 lg:p-12
-          pt-10 sm:pt-14 md:pt-16 lg:pt-20
           text-white"
                     >
                         <h1 className="
@@ -57,11 +56,11 @@ const PageLayout: React.FC<PageLayoutProps> = ({locale='en', title,description,b
 
                     <div className={`
           container 
-          px-4 sm:px-6 md:px-12 lg:px-24 
-          py-8 sm:py-12 md:py-24 lg:py-36 
+          px-4 sm:px-6 md:px-12 lg:px-12 
+          py-8 sm:py-12 md:py-24 lg:py-24 
           items-center 
           mx-auto 
-          flex flex-col 
+          flex flex-col min-h-screen
           ${spaceY}`}
                     >
                         {children}
