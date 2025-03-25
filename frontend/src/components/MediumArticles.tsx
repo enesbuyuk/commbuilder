@@ -3,23 +3,13 @@ import Link from "next/link";
 import Image from "next/image";
 import {getTranslations} from "next-intl/server";
 import IndexPageSectionLayout from "@/components/IndexPageSectionLayout";
+import {Post} from "@/types/Post";
 
-interface Post {
-    title: string;
-    link: string;
-    pubDate: string;
-    description: string;
-    author: string;
-}
-
-export default async function MediumArticles() {
+export default async function MediumArticles({locale,pageName}: { locale: string, pageName: string }) {
     const rssParser = new Parser();
     let latestPosts:Post[] = [];
 
-    const translations = {
-        generalTranslations: await getTranslations("General"),
-        pageTranslations: await getTranslations("IndexPage")
-    }
+    const contentTranslations = await getTranslations({locale, namespace:`pages.${pageName}`})
 
     try {
         const feed = await rssParser.parseURL(`${process.env.NEXT_PUBLIC_MEDIUM_URL}/feed`);
@@ -43,7 +33,7 @@ export default async function MediumArticles() {
         console.error('Error fetching RSS feed:', error);
     }
     return (
-        <IndexPageSectionLayout title={translations.pageTranslations("ourMediumArticles")} indexPageSectionId={"medium-articles"} isLastSection={false}>
+        <IndexPageSectionLayout title={contentTranslations("ourMediumArticles")} indexPageSectionId={"medium-articles"} isLastSection={false}>
             {latestPosts.map((post, index) => (
                 <div key={index}  className={"lg:w-1/2 py-8 px-12 md:px-4 sm:pb-5"}>
                     <div className="p-12 bg-white flex flex-col items-start shadow-lg rounded-lg h-full overflow-hidden">
@@ -74,7 +64,7 @@ export default async function MediumArticles() {
                                 rel="noopener noreferrer"
                                 className="text-indigo-500 inline-flex items-center"
                                 title={post.title}
-                            >{translations.pageTranslations("readMoreMediumArticle")}
+                            >{contentTranslations("readMoreMediumArticle")}
                                 <svg
                                     className="w-4 h-4 ml-2"
                                     viewBox="0 0 24 24"
