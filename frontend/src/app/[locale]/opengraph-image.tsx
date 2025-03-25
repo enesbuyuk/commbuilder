@@ -2,7 +2,6 @@ import {ImageResponse} from 'next/og';
 import {getTranslations} from "next-intl/server";
 
 export const runtime = 'edge';
-export let alt : string;
 export const size = {
     width: 1200,
     height: 630,
@@ -10,13 +9,9 @@ export const size = {
 
 export const contentType = 'image/png';
 
-export default async function Image() {
-    const translations = {
-        generalTranslations: await getTranslations("General"),
-        pageTranslations: await getTranslations("IndexPage")
-    }
-
-    alt = translations.pageTranslations("description");
+export default async function Image({params}: {params: Promise<{locale: string}>}) {
+    const {locale} = await params;
+    const metadataTranslations = await getTranslations({locale, namespace:"metadata.index"});
 
     return new ImageResponse(
         (
@@ -37,10 +32,10 @@ export default async function Image() {
                     padding: '30px',
                     borderRadius: '20px',
                 }}
-            >{translations.pageTranslations('title')}
+            >{metadataTranslations('title')}
                 <br />
                 <div style={{ fontSize: '20px', textAlign: 'left'}}>
-                    {translations.pageTranslations('description')}
+                    {metadataTranslations('description')}
                 </div>
             </div>
         ),
