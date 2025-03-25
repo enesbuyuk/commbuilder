@@ -4,9 +4,7 @@ import {getTranslations} from "next-intl/server";
 
 export default async function Footer() {
     const year = (new Date()).getFullYear(); // I want to make a dynamic year because why not
-    const translations = {
-        generalTranslations: await getTranslations("General")
-    }
+    const generalTranslations = await getTranslations("general")
 
     return (
         <footer className="body-font bg-primary text-white">
@@ -14,11 +12,11 @@ export default async function Footer() {
                 <Link
                     className="flex title-font font-medium items-center md:justify-start justify-center text-white mb-4 md:mb-0"
                     href="/"
-                    title={translations.generalTranslations("universityName") + " " + translations.generalTranslations("studentClubName")}>
+                    title={generalTranslations("universityName") + " " + generalTranslations("studentClubName")}>
                     <Image
                         className={"w-auto h-auto"}
                         src="/theme/logo_footer.png"
-                           alt={translations.generalTranslations("universityName") + " " + translations.generalTranslations("studentClubName") + " Logo"} width={60}
+                           alt={generalTranslations("universityName") + " " + generalTranslations("studentClubName") + " Logo"} width={60}
                            height={60}/>
                 </Link>
                 <p className="text-md text-white sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4 ">
@@ -26,7 +24,7 @@ export default async function Footer() {
                     <Link href="https://github.com/enesbuyuk/university-student-club-website"
                           className="text-white hover:text-secondary font-semibold ml-1 duration-300 "
                           target="_blank">University Student Club Website</Link><br/>
-                    ©{year} <Link href="/" className="text-white hover:text-secondary font-semibold ml-1 duration-300" target="_blank">{translations.generalTranslations("title")}</Link>, {translations.generalTranslations("allRightsReserved")}
+                    ©{year} <Link href="/" className="text-white hover:text-secondary font-semibold ml-1 duration-300" target="_blank" title={`${generalTranslations("universityName")} ${generalTranslations("studentClubName")}`}>{generalTranslations("universityName")} {generalTranslations("studentClubName")}</Link>, {generalTranslations("allRightsReserved")}
                 </p>
                 <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
 

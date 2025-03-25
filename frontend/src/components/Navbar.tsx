@@ -19,20 +19,18 @@ export default function Navbar({locale}: {locale: string}){
         setIsAboutOpen(!isAboutOpen);
     };
 
-    const translations = {
-        generalTranslations: useTranslations("General"),
-        pageTranslations: useTranslations("Header")
-    }
+    const generalTranslations = useTranslations("general");
+    const componentTranslations = useTranslations("components.header");
 
     const menuItems = [
-        {href: `/`, label: translations.pageTranslations("index")},
+        {href: `/`, label: componentTranslations("index")},
         {href: `${process.env.NEXT_PUBLIC_MEDIUM_URL}`, label: "Medium", external: true},
-        {href: `/${locale}${getPath('/announcements', locale)}`, label: translations.pageTranslations("announcements")},
-        {href: `/${locale}${getPath('/events', locale)}`, label: translations.pageTranslations("events")},
-        {href: `/${locale}${getPath('/useful-links', locale)}`, label: translations.pageTranslations("links")},
-        {href: `/${locale}${getPath('/gallery', locale)}`, label: translations.pageTranslations("gallery")},
-        {href: `/${locale}${getPath('/contact', locale)}`, label: translations.pageTranslations("contact")},
-        {href: `/${locale}${getPath('/faq', locale)}`, label: translations.pageTranslations("faq")},
+        {href: `/${locale}${getPath('/announcements', locale)}`, label: componentTranslations("announcements")},
+        {href: `/${locale}${getPath('/events', locale)}`, label: componentTranslations("events")},
+        {href: `/${locale}${getPath('/useful-links', locale)}`, label: componentTranslations("links")},
+        {href: `/${locale}${getPath('/gallery', locale)}`, label: componentTranslations("gallery")},
+        {href: `/${locale}${getPath('/contact', locale)}`, label: componentTranslations("contact")},
+        {href: `/${locale}${getPath('/faq', locale)}`, label: componentTranslations("faq")},
     ]
 
     return (
@@ -40,11 +38,11 @@ export default function Navbar({locale}: {locale: string}){
             <Link
                 className="flex title-font font-medium items-center text-gray-900"
                 href="/"
-                title={`${translations.generalTranslations("universityName")} ${translations.generalTranslations("studentClubName")}`}
+                title={`${generalTranslations("universityName")} ${generalTranslations("studentClubName")}`}
             >
                 <Image
                     src="/theme/logo_no_bg.png"
-                    alt={`${translations.generalTranslations("universityName")} ${translations.generalTranslations("studentClubName")} Logo`}
+                    alt={`${generalTranslations("universityName")} ${generalTranslations("studentClubName")} Logo`}
                     width={100}
                     height={100}
                 />
@@ -85,7 +83,7 @@ export default function Navbar({locale}: {locale: string}){
                                     onClick={toggleAbout}
                                     className="flex items-center lg:mr-5 text-black hover:text-primary font-semibold text-lg"
                                 >
-                                    {translations.pageTranslations("about")}
+                                    {componentTranslations("about")}
                                     <ChevronDown className="ml-1 w-4 h-4" />
                                 </button>
                             </div>
@@ -116,7 +114,7 @@ export default function Navbar({locale}: {locale: string}){
                                             toggleAbout();
                                         }}
                                     >
-                                        {translations.pageTranslations("about")}
+                                        {componentTranslations("about")}
                                     </Link>
                                     <Link
                                         href={`/${locale}${getPath('/about/team', locale)}`}
@@ -125,7 +123,7 @@ export default function Navbar({locale}: {locale: string}){
                                             toggleMenu();
                                             toggleAbout();
                                         }}
-                                    >{translations.pageTranslations("team")}
+                                    >{componentTranslations("team")}
                                     </Link>
                                     <Link
                                         href={`/${locale}${getPath('/about/charter', locale)}`}
@@ -134,7 +132,7 @@ export default function Navbar({locale}: {locale: string}){
                                             toggleMenu();
                                             toggleAbout();
                                         }}
-                                    >{translations.pageTranslations("charter")}
+                                    >{componentTranslations("charter")}
                                     </Link>
                                 </div>
                             </div>
@@ -146,7 +144,7 @@ export default function Navbar({locale}: {locale: string}){
                             className="inline-flex items-center bg-primary hover:bg-secondaryDark text-gray-300 hover:text-white border-0 focus:outline-none rounded text-xl mt-4 lg:mt-0 duration-300 px-4 py-2"
                             href={`/${locale}${getPath('/join-the-club', locale)}`}
                             onClick={toggleMenu}
-                        >{translations.pageTranslations("joinTheClub")}
+                        >{componentTranslations("joinTheClub")}
                             <svg
                                 fill="none"
                                 stroke="currentColor"
