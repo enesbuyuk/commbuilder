@@ -34,6 +34,10 @@ export const routing = defineRouting({
             en: '/about/team',
             tr: '/hakkinda/takim'
         },
+        '/about/charter':{
+            en: '/about/charter',
+            tr: '/hakkinda/tuzuk'
+        },
         '/contact': {
             en: '/contact',
             tr: '/iletisim'
