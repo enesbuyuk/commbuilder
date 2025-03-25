@@ -36,7 +36,7 @@ export default function Navbar({locale}: {locale: string}){
     ]
 
     return (
-        <div className="container mx-auto flex flex-wrap py-5 items-center justify-between gap-8">
+        <div className="container mx-auto flex flex-wrap px-8 lg:px-0 py-5 items-center justify-between gap-8">
             <Link
                 className="flex title-font font-medium items-center text-gray-900"
                 href="/"
@@ -126,6 +126,15 @@ export default function Navbar({locale}: {locale: string}){
                                             toggleAbout();
                                         }}
                                     >{translations.pageTranslations("team")}
+                                    </Link>
+                                    <Link
+                                        href={`/${locale}${getPath('/about/charter', locale)}`}
+                                        className="block px-4 py-2 text-md font-semibold text-black hover:bg-gray-100 hover:text-primary"
+                                        onClick={() => {
+                                            toggleMenu();
+                                            toggleAbout();
+                                        }}
+                                    >{translations.pageTranslations("charter")}
                                     </Link>
                                 </div>
                             </div>
