@@ -164,20 +164,6 @@
     }
   },
 
-  "Header": {
-    "index": "Home",
-    "announcements" : "Announcements",
-    "events": "Events",
-    "links" : "Useful Links",
-    "gallery": "Gallery",
-    "about": "About Us",
-    "team": "Our Team",
-    "charter": "Charter of the Club",
-    "contact": "Contact",
-    "faq": "FAQ",
-    "joinTheClub": "Join the Club"
-  },
-
   "AdminPage": {
     "title": "Admin Page",
     "description": "Admin Page",
