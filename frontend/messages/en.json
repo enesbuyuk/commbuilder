@@ -1,13 +1,167 @@
 {
-  "General": {
-    "title" : "Istanbul University Computer Science Club",
+  "general": {
     "universityName": "Istanbul University",
     "studentClubName": "Computer Science Club",
-    "joinTheClub": "Join the Club",
-    "titleSuffix": " | Istanbul University Computer Science Club",
     "learnMore": "Learn More",
     "readMore": "Read More",
-    "allRightsReserved": "all rights reserved."
+    "allRightsReserved": "all rights reserved.",
+    "welcome": "Welcome",
+    "loading": "Loading...",
+    "noData": "No data available.",
+    "noResults": "No results found.",
+    "search": "Search"
+  },
+
+  "metadata": {
+    "index": {
+      "title": "Istanbul University Computer Science Club",
+      "description": "Welcome to the Istanbul University Computer Science Club! Our club is dedicated to bringing together students interested in computer sciences, technology, and innovation.",
+      "keywords": "Istanbul University, Computer Science Club, Computer Science Students, Technology Club, Programming, Coding, Software Development, AI, Machine Learning, Cybersecurity, Web Development, Hackathons, Workshops, Tech Events, University Clubs, Innovation, Student Community",
+      "author": "Istanbul University Computer Science Club",
+      "contact": "contact@enesbuyuk.com",
+      "titleSuffix": " | Istanbul University Computer Science Club"
+    },
+    "announcements": {
+      "title": "Announcements",
+      "description": "Stay updated with the latest news and updates from the Istanbul University Computer Science Club!",
+      "keywords": "Istanbul University, Computer Science Club, Announcements, Latest News, Club Updates, Student Activities, Tech News, Upcoming Events, University Notices"
+    },
+    "events": {
+      "title": "Events",
+      "description": "Learn about the events organized by the Istanbul University Computer Science Club!",
+      "keywords": "Istanbul University, Computer Science Club Events, Tech Meetups, Hackathons, Programming Contests, Coding Workshops, Guest Speakers, Webinars, Tech Seminars, AI Events, Machine Learning Conferences, Student Tech Gatherings"
+    },
+    "useful-links": {
+      "title": "Useful Links",
+      "description": "Explore useful links related to computer science, technology, and more!",
+      "keywords": "Computer Science Resources, Programming Guides, Coding Tutorials, AI Learning, Cybersecurity Tips, Web Development Resources, Software Engineering, Online Tech Courses, Student Resources, University Links"
+    },
+    "gallery": {
+      "title": "Gallery",
+      "description": "Take a look at the photos and videos from the Istanbul University Computer Science Club!",
+      "keywords": "Istanbul University, Computer Science Club Gallery, Event Photos, Tech Meetups, Hackathon Images, Club Activities, Student Workshops, Coding Sessions, University Tech Events"
+    },
+    "about": {
+      "title": "About",
+      "description": "Istanbul University Computer Science Club is a student organization operating under the Faculty of Science at Istanbul University.",
+      "keywords": "Istanbul University, Computer Science Club, About Us, Student Organization, Tech Community, Programming Club, Coding Students, University Societies, Innovation Hub"
+    },
+    "about--team": {
+      "title": "Our Team",
+      "description": "Our club team consists of two main groups responsible for managing and developing the club.",
+      "keywords": "Computer Science Club Team, Tech Leaders, Student Organization, Club Management, Project Teams, Coding Experts, AI Developers, Cybersecurity Enthusiasts, Tech Innovators"
+    },
+    "about--charter": {
+      "title": "Charter",
+      "description": "Download the charter of the Istanbul University Computer Science Club.",
+      "keywords": "Istanbul University, Computer Science Club Charter, Student Organization Rules, Club Regulations, University Guidelines, Tech Club Constitution, Student Community Charter"
+    },
+    "join-the-club": {
+      "title": "Join the Club",
+      "description": "Join the Istanbul University Computer Science Club to become part of a vibrant community of students passionate about computer sciences and technology.",
+      "keywords": "Join Computer Science Club, Become a Member, Student Tech Club, Programming Enthusiasts, Learn to Code, AI and ML Learning, Hackathons, Workshops, Student Collaboration"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions (FAQ)",
+      "description": "Frequently Asked Questions",
+      "keywords": "Istanbul University FAQ, Computer Science Club FAQ, Membership Questions, Tech Club Details, Club Events FAQ, Coding Workshops Info, Student Organizations"
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Contact us for any questions, suggestions, or feedback you may have.",
+      "keywords": "Contact Computer Science Club, University Tech Club Support, Student Help, Email Support, Tech Club Queries, Club Information, Get in Touch"
+    },
+    "not-found": {
+      "title": "404 Not Found",
+      "description": "The page you are looking for does not exist. Please check the URL or return to the homepage.",
+      "keywords": "404 Page Not Found, Error Page, Missing Page, Broken Link, Website Navigation, Return to Homepage"
+    }
+  },
+
+  "pages": {
+    "index": {
+        "welcomeMessage": "Welcome to Istanbul University Faculty of Science, Computer Science Club!",
+        "meetOurClub": "Get to Know Our Club",
+        "ourMediumArticles": "Our Recent Medium Articles",
+        "readMoreMediumArticle": "Read the Full on Medium",
+        "lastEvents": "Our Last Events",
+        "joinToEvent": "Join to Event",
+        "joinTheClub": "Join the Club",
+        "endedEvent": "You cannot participate because the event has ended."
+    },
+    "announcements": {
+        "learnMore": "Learn More"
+    },
+    "events": {
+        "joinToEvent": "Join to Event",
+        "endedEvent": "You cannot participate because the event has ended."
+    },
+    "gallery": {
+        "viewGallery": "View Gallery"
+    },
+    "about": {
+      "aboutUsTitle": "About Us",
+      "aboutUsText": "Established in 2023 under Faculty of Science at Istanbul University, Computer Science Club welcomes all students who are interested in computer technologies and wish to learn and grow in this field. As a club, we conduct activities aimed at developing both theoretical knowledge and practical skills in computer sciences. We offer a rich environment with training programs, seminars, hackathons, project work, and social events. Our goal is not only to support the individual development of students but also to build a community that contributes to technological advancements.\nWith activities suitable for participants at all levels, we aim to foster knowledge sharing and create a community where new friendships can flourish.",
+      "missionTitle": "Mission",
+      "missionText": "Our mission at Istanbul University Faculty of Science Computer Science Club is to bring together individuals interested in computer sciences and technologies, providing a platform for knowledge and experience sharing. We aim to contribute to the academic, personal, and professional development of our members by supporting the learning process through trainings, events, and projects. Ensuring equal opportunities for accessing and sharing knowledge is at the core of our mission.",
+      "visionTitle": "Vision",
+      "visionText": "To be a pioneering student community in the field of computer sciences, equipping our members with the knowledge, skills, and experiences required by modern times. By creating impactful projects in technology and innovation, we aim to make a difference not only within the university but also in society. We embrace the vision of becoming a role model community in the technology world, built on the solidarity we foster under the roof of Istanbul University.",
+      "valuesTitle": "Values",
+      "valuesText": "Knowledge sharing, collaboration, equality, innovation, and social responsibility are our core values. Through knowledge sharing and collaboration, we aim to enhance the collective knowledge of our community and contribute to the personal development of our members. With the principle of equality, we strive to create an environment where everyone can freely express their ideas. Guided by innovation and a sense of social responsibility, we aim to develop projects that benefit society and uphold social responsibility as one of the fundamental values of our community.",
+      "teamTitle": "Our Team",
+      "teamText": "Our club is managed by students of Istanbul University. Our management and supervisory boards are responsible for planning, organizing, and implementing the club's activities. Each member works in alignment with the mission and vision of our club, contributing to achieving the goals of our community. Our team consists of students from various disciplines. Each member is dedicated, experienced, and takes steps towards specialization in their field with a strong sense of responsibility. The success of our club relies heavily on teamwork, harmonious collaboration, and a shared commitment to common goals.",
+      "goToTeamPage": "Go to Team Page",
+      "joinOurJourneyTitle": "Join Our Journey",
+      "joinOurJourneyText": "Join our community of students passionate about computer sciences and technology. Whether you're a beginner or an expert, there's a place for you in our club. Take part in our events, projects, and activities to expand your knowledge, develop your skills, and build lasting friendships. Join us in shaping the future of technology and innovation!",
+      "joinUs": "Join Us"
+    },
+    "about--team": {
+      "viewTeam": "View Team"
+    },
+    "about--charter": {
+      "downloadTheCharter": "Download the Charter"
+    },
+    "useful-links": {
+      "goToLink": "Go to Link"
+    },
+    "contact": {
+      "ourContactInformation": "Our Contact Information"
+    },
+    "join-the-club": {
+      "send": "Send",
+      "joiningText": {
+        "title": "Our WhatsApp Group",
+        "description1": "There are a few easy steps you need to follow to join our club. First, you can join our WhatsApp group to stay informed about our club's events and communicate with other members.",
+        "description2": "Then, to become an official club member, you need to upload the required documents. Once you upload your documents, your registration will be complete, and you can start benefiting from all the rights and opportunities provided by our club.",
+        "buttonText": "Join WhatsApp Group",
+        "formTitle": "Official Club Membership",
+        "formDescription": "There are a few steps to become an official club member at Istanbul University: filling out the IU Club Membership Form, obtaining a student certificate via IU AKSİS, and obtaining your disciplinary record via IU AKSİS. It is sufficient to upload these documents in the fields below."
+      },
+      "form": {
+        "nameSurname": "Name & Surname",
+        "email": "E-Mail",
+        "membershipForm": "Istanbul University Club Membership Form",
+        "studentCertificate": "Istanbul University Student Certificate",
+        "disciplineReport": "Istanbul University Discipline Report"
+      },
+      "agreement": "I accept the terms of use and consent to data processing."
+    }
+  },
+
+  "components": {
+    "header": {
+        "index": "Home",
+        "announcements" : "Announcements",
+        "events": "Events",
+        "links" : "Useful Links",
+        "gallery": "Gallery",
+        "about": "About Us",
+        "team": "Our Team",
+        "charter": "Charter of the Club",
+        "contact": "Contact",
+        "faq": "FAQ",
+        "joinTheClub": "Join the Club"
+    }
   },
 
   "Header": {
@@ -18,106 +172,10 @@
     "gallery": "Gallery",
     "about": "About Us",
     "team": "Our Team",
+    "charter": "Charter of the Club",
     "contact": "Contact",
     "faq": "FAQ",
     "joinTheClub": "Join the Club"
-  },
-
-  "IndexPage": {
-    "title": "Istanbul University Computer Science Club",
-    "description": "Welcome to the Istanbul University Computer Science Club! Our club is dedicated to bringing together students interested in computer sciences, technology, and innovation. We offer a wide range of activities, events, and resources to help you expand your knowledge, develop your skills, and build lasting friendships. Whether you're a beginner or an expert, there's a place for you in our club. Join us today and be a part of our journey towards shaping the future of technology and innovation!",
-    "keywords": "Istanbul University, Computer Science Club, Computer Sciences, Technology, Innovation, Students, Events, Activities, Resources, Knowledge, Skills, Community, Join Us, Istanbul University CSC, Istanbul University Computer Science Club",
-    "welcomeMessage" : "Welcome to Istanbul University Faculty of Science, Computer Science Club!",
-    "meetOurClub": "Get to Know Our Club",
-    "ourMediumArticles": "Our Recent Medium Articles",
-    "readMoreMediumArticle": "Read the Full on Medium",
-    "lastEvents" : "Our Last Events",
-    "joinToEvent" : "Join to Event",
-    "endedEvent": "You cannot participate because the event has ended."
-  },
-
-  "AnnouncementsPage": {
-    "title": "Announcements",
-    "description" : "Stay updated with the latest news and updates from the Istanbul University Computer Science Club! Here you'll find important announcements about upcoming events, club activities, membership opportunities, and more."
-  },
-
-  "EventsPage": {
-    "title": "Events",
-    "description": "Learn about the events organized by the Istanbul University Computer Science Club! Here you'll find information about the dates, times, locations, and more for the events hosted by our club. Visit this page to find out more about our events and how you can participate!",
-    "joinToEvent" : "Join to Event"
-  },
-
-  "UsefulLinksPage": {
-    "title": "Useful Links",
-    "description": "Explore useful links related to computer science, technology, and more! Here you'll find a collection of resources that can help you expand your knowledge and stay informed about the latest trends in the tech industry. Whether you're a student, professional, or enthusiast, these links are sure to provide valuable insights and information.",
-    "goToLink": "Go to Link"
-  },
-
-  "GalleryPage": {
-    "title": "Gallery",
-    "description": "Take a look at the photos and videos from the Istanbul University Computer Science Club! Here you'll find a collection of images and videos from our events, activities, and more. Browse through our gallery to get a glimpse of what our club is all about!"
-  },
-
-  "AboutPage": {
-    "title": "About",
-    "description": "Istanbul University Computer Science Club is a student organization operating under Faculty of Science at Istanbul University. Our club aims to bring together students interested in computer sciences, facilitate the sharing of knowledge and experiences, organize events, and develop projects. We invite all students interested in the field of computer science to join our club!",
-    "aboutUsTitle": "About Us",
-    "aboutUsText": "Established in 2023 under Faculty of Science at Istanbul University, Computer Science Club welcomes all students who are interested in computer technologies and wish to learn and grow in this field. As a club, we conduct activities aimed at developing both theoretical knowledge and practical skills in computer sciences. We offer a rich environment with training programs, seminars, hackathons, project work, and social events. Our goal is not only to support the individual development of students but also to build a community that contributes to technological advancements.\nWith activities suitable for participants at all levels, we aim to foster knowledge sharing and create a community where new friendships can flourish.",
-    "missionTitle": "Mission",
-    "missionText": "Our mission at Istanbul University Faculty of Science Computer Science Club is to bring together individuals interested in computer sciences and technologies, providing a platform for knowledge and experience sharing. We aim to contribute to the academic, personal, and professional development of our members by supporting the learning process through trainings, events, and projects. Ensuring equal opportunities for accessing and sharing knowledge is at the core of our mission.",
-    "visionTitle": "Vision",
-    "visionText": "To be a pioneering student community in the field of computer sciences, equipping our members with the knowledge, skills, and experiences required by modern times. By creating impactful projects in technology and innovation, we aim to make a difference not only within the university but also in society. We embrace the vision of becoming a role model community in the technology world, built on the solidarity we foster under the roof of Istanbul University.",
-    "valuesTitle": "Values",
-    "valuesText": "Knowledge sharing, collaboration, equality, innovation, and social responsibility are our core values. Through knowledge sharing and collaboration, we aim to enhance the collective knowledge of our community and contribute to the personal development of our members. With the principle of equality, we strive to create an environment where everyone can freely express their ideas. Guided by innovation and a sense of social responsibility, we aim to develop projects that benefit society and uphold social responsibility as one of the fundamental values of our community.",
-    "teamTitle": "Our Team",
-    "teamText": "Our club is managed by students of Istanbul University. Our management and supervisory boards are responsible for planning, organizing, and implementing the club's activities. Each member works in alignment with the mission and vision of our club, contributing to achieving the goals of our community. Our team consists of students from various disciplines. Each member is dedicated, experienced, and takes steps towards specialization in their field with a strong sense of responsibility. The success of our club relies heavily on teamwork, harmonious collaboration, and a shared commitment to common goals.",
-    "goToTeamPage": "Go to Team Page",
-    "joinOurJourneyTitle": "Join Our Journey",
-    "joinOurJourneyText": "Join our community of students passionate about computer sciences and technology. Whether you're a beginner or an expert, there's a place for you in our club. Take part in our events, projects, and activities to expand your knowledge, develop your skills, and build lasting friendships. Join us in shaping the future of technology and innovation!",
-    "joinUs": "Join Us"
-  },
-
-  "TeamPage": {
-    "title": "Our Team",
-    "description": "Our club team consists of two main groups. The first group is composed of members responsible for the overall direction, development, and strategic management of our club. These members undertake long-term planning and coordination to ensure the club achieves its goals. The second group includes members who directly contribute to projects, actively participate in practical applications, and provide direct support to the club. This dynamic structure enables our club to establish a solid foundation while achieving quick and effective results in projects."
-  },
-
-  "JoinTheClubPage": {
-    "title": "Join the Club",
-    "description": "Join the Istanbul University Computer Science Club to become part of a vibrant community of students passionate about computer sciences and technology. As a member of our club, you'll have access to a wide range of activities, events, and resources that can help you expand your knowledge, develop your skills, and build lasting friendships. Whether you're a beginner or an expert, there's a place for you in our club. Join us today and be a part of our journey towards shaping the future of technology and innovation!",
-    "send": "Send",
-    "joiningText": {
-      "title": "Our WhatsApp Group",
-      "description1": "There are a few easy steps you need to follow to join our club. First, you can join our WhatsApp group to stay informed about our club's events and communicate with other members.",
-      "description2": "Then, to become an official club member, you need to upload the required documents. Once you upload your documents, your registration will be complete, and you can start benefiting from all the rights and opportunities provided by our club.",
-      "buttonText": "Join WhatsApp Group",
-      "formTitle": "Official Club Membership",
-      "formDescription": "There are a few steps to become an official club member at Istanbul University: filling out the IU Club Membership Form, obtaining a student certificate via IU AKSİS, and obtaining your disciplinary record via IU AKSİS. It is sufficient to upload these documents in the fields below."
-    },
-
-    "form": {
-      "nameSurname": "Name & Surname",
-      "email": "E-Mail",
-      "membershipForm": "Istanbul University Club Membership Form",
-      "studentCertificate": "Istanbul University Student Certificate",
-      "disciplineReport": "Istanbul University Discipline Report"
-    },
-    "agreement": "I accept the terms of use and consent to data processing."
-  },
-
-  "FaqPage": {
-    "title": "Frequently Asked Questions (FAQ)",
-    "description": "Frequently Asked Questions"
-  },
-
-  "ContactPage": {
-    "title": "Contact",
-    "description": "Contact us for any questions, suggestions, or feedback you may have. We're here to help and provide you with the information you need. Feel free to reach out to us via email, phone, or social media. We look forward to hearing from you!"
-  },
-
-  "NotFoundPage": {
-    "title": "404 Not Found",
-    "description": "The page you are looking for does not exist. Please check the URL or return to the homepage."
   },
 
   "AdminPage": {
