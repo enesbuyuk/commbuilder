@@ -4,7 +4,7 @@ import {getPath, Pathnames} from "@/i18n/routing";
 
 export async function getMetadata(locale: string, page: string): Promise<Metadata> {
     const [generalTranslations, pageTranslations] = await Promise.all([
-        getTranslations({locale, namespace:`metadata.general`}),
+        getTranslations({locale, namespace:`metadata.index`}),
         getTranslations({locale, namespace:`metadata.${page}`})
     ]);
 
