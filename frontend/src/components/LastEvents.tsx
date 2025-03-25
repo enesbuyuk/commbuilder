@@ -4,8 +4,8 @@ import {getTranslations} from "next-intl/server";
 import IndexPageSectionLayout from "@/components/IndexPageSectionLayout";
 import {Event} from "@/types/Event";
 
-export default async function LastEvents({locale}: {locale: string}) {
-    const contentTranslations =  await getTranslations("pages.index")
+export default async function LastEvents({locale, pageName}: {locale: string, pageName: string}) {
+    const contentTranslations = await getTranslations({locale, namespace:`pages.${pageName}`})
 
     const response = await fetch(`${process.env.BACKEND_URL}/events?limit=3`)
     const lastEvents:Event[] = await response.json();
