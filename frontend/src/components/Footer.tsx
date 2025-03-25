@@ -13,18 +13,20 @@ export default async function Footer() {
             <div className="container px-8 py-8 mx-auto flex items-center sm:flex-row flex-col">
                 <Link
                     className="flex title-font font-medium items-center md:justify-start justify-center text-white mb-4 md:mb-0"
-                    href={`${process.env.NEXT_PUBLIC_SITE_URL}`}
+                    href="/"
                     title={translations.generalTranslations("universityName") + " " + translations.generalTranslations("studentClubName")}>
-                    <Image src="/theme/logo_footer.png"
+                    <Image
+                        className={"w-auto h-auto"}
+                        src="/theme/logo_footer.png"
                            alt={translations.generalTranslations("universityName") + " " + translations.generalTranslations("studentClubName") + " Logo"} width={60}
-                           height={55} layout="intrinsic"/>
+                           height={60}/>
                 </Link>
                 <p className="text-md text-white sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4 ">
                     Free Software:
                     <Link href="https://github.com/enesbuyuk/university-student-club-website"
                           className="text-white hover:text-secondary font-semibold ml-1 duration-300 "
                           target="_blank">University Student Club Website</Link><br/>
-                    ©{year} <Link href={`${process.env.NEXT_PUBLIC_SITE_URL}`} className="text-white hover:text-secondary font-semibold ml-1 duration-300" target="_blank">{translations.generalTranslations("title")}</Link>, {translations.generalTranslations("allRightsReserved")}
+                    ©{year} <Link href="/" className="text-white hover:text-secondary font-semibold ml-1 duration-300" target="_blank">{translations.generalTranslations("title")}</Link>, {translations.generalTranslations("allRightsReserved")}
                 </p>
                 <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
 
