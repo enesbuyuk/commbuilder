@@ -1,40 +1,26 @@
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import PageLayout from "@/components/PageLayout";
 import Gallery from "@/components/Gallery";
-import {getPath} from "@/i18n/routing";
+import {getMetadata} from "@/lib/metadata";
+
+const pageName = "gallery";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
-    const { locale } = await params
-    const translations = {
-        generalTranslations: await getTranslations("General"),
-        pageTranslations: await getTranslations("GalleryPage")
-    }
-
-    return {
-        title: translations.pageTranslations('title') + translations.generalTranslations("titleSuffix"),
-        description: translations.pageTranslations('description'),
-        openGraph: {
-            siteName: translations.generalTranslations('title'),
-            title: translations.pageTranslations('title'),
-            description: translations.pageTranslations('description'),
-            type: 'website'
-        },
-        alternates: {
-            canonical: `/${locale}/${getPath('/gallery', locale)}`,
-        }
-    };
+    const { locale } = await params;
+    return getMetadata(locale, pageName);
 }
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
     const {locale} = await params;
     setRequestLocale(locale);
 
-    const translations = {
-        pageTranslations: await getTranslations("GalleryPage")
-    }
+    const [metadataTranslations, contentTranslations] = await Promise.all([
+        getTranslations({locale, namespace:`metadata.${pageName}`}),
+        getTranslations({locale, namespace:`pages.${pageName}`})
+    ]);
 
     return (
-        <PageLayout locale={locale} title={translations.pageTranslations("title")} description={translations.pageTranslations("description")}>
+        <PageLayout locale={locale} title={metadataTranslations("title")} description={metadataTranslations("description")}>
             <Gallery/>
         </PageLayout>
     )

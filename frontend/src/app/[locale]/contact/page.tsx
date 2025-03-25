@@ -1,52 +1,38 @@
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import Link from "next/link";
 import PageLayout from "@/components/PageLayout";
-import {getPath} from "@/i18n/routing";
+import {getMetadata} from "@/lib/metadata";
 
-export async function generateMetadata({params}: { params: Promise<{ locale: string }> }) {
-    const {locale} = await params;
-    const translations = {
-        generalTranslations: await getTranslations("General"),
-        pageTranslations: await getTranslations("ContactPage")
-    }
+const pageName = "contact";
 
-    return {
-        title: translations.pageTranslations('title') + translations.generalTranslations("titleSuffix"),
-        description: translations.pageTranslations('description'),
-        openGraph: {
-            siteName: translations.generalTranslations('title'),
-            title: translations.pageTranslations('title'),
-            description: translations.pageTranslations('description'),
-            type: 'website'
-        },
-        alternates: {
-            canonical: `/${locale}/${getPath('/contact', locale)}`,
-        }
-    };
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+    const { locale } = await params;
+    return getMetadata(locale, pageName);
 }
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
     const {locale} = await params;
     setRequestLocale(locale);
 
-    const translations = {
-        pageTranslations: await getTranslations("ContactPage")
-    }
+    const [metadataTranslations, contentTranslations] = await Promise.all([
+        getTranslations({locale, namespace:`metadata.${pageName}`}),
+        getTranslations({locale, namespace:`pages.${pageName}`})
+    ]);
 
     return (
-        <PageLayout locale={locale} title={translations.pageTranslations("title")} description={translations.pageTranslations("description")}>
+        <PageLayout locale={locale} title={metadataTranslations("title")} description={metadataTranslations("description")}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
                 <div className="w-full">
                     <iframe
                         className={"rounded-lg shadow-lg"}
                         src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d266.1054973692008!2d28.95958402053108!3d41.01125558151917!3m2!1i1024!2i768!4f13.1!2m1!1sistanbul%20%C3%BCversitesi%20fen%20fak%C3%BCltesi!5e0!3m2!1sen!2sde!4v1733314369887!5m2!1sen!2sde"
-                        width="100%" height="450" allowFullScreen={false} loading="lazy"
+                        width="100%" height="650" allowFullScreen={false} loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
 
                 <div className="w-full text-left bg-white p-12 rounded-lg shadow-lg">
-                    <h2 className="text-2xl font-semibold text-gray-800 mb-4">İletişim Bilgilerimiz</h2>
+                    <h2 className="text-2xl font-semibold text-gray-800 mb-4">{contentTranslations("ourContactInformation")}</h2>
                     <p className="text-base text-gray-700 mb-2">
                         <strong>E-posta:</strong> <Link href="mailto:info@iucs.net" title="E-posta">info@iucs.net</Link>
                     </p>

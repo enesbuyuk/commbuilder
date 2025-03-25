@@ -1,70 +1,56 @@
 import Link from "next/link";
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import PageLayout from "@/components/PageLayout";
-import {getPath} from "@/i18n/routing";
+import {getMetadata} from "@/lib/metadata";
 
-export async function generateMetadata({params}: { params: Promise<{ locale: string }> }) {
-    const {locale} = await params;
-    const translations = {
-        generalTranslations: await getTranslations("General"),
-        pageTranslations: await getTranslations("AboutPage")
-    }
+const pageName = "about";
 
-    return {
-        title: translations.pageTranslations('title') + translations.generalTranslations("titleSuffix"),
-        description: translations.pageTranslations('description'),
-        openGraph: {
-            siteName: translations.generalTranslations('title'),
-            title: translations.pageTranslations('title'),
-            description: translations.pageTranslations('description'),
-            type: 'website'
-        },
-        alternates: {
-            canonical: `/${locale}/${getPath('/about', locale)}`,
-        }
-    };
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+    const { locale } = await params;
+    return getMetadata(locale, pageName);
 }
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
     const {locale} = await params;
     setRequestLocale(locale);
 
-    const translations = {
-        pageTranslations: await getTranslations("AboutPage")
-    }
+    const [metadataTranslations, contentTranslations] = await Promise.all([
+        getTranslations({locale, namespace:`metadata.${pageName}`}),
+        getTranslations({locale, namespace:`pages.${pageName}`})
+    ]);
 
     return (
-        <PageLayout locale={locale} title={translations.pageTranslations("title")} description={translations.pageTranslations("description")} bg={"white"}>
+        <PageLayout locale={locale} title={metadataTranslations("title")} description={metadataTranslations("description")} bg={"white"}>
             <div className="text-gray-900">
-                <h2 className="text-2xl font-bold mb-4 text-secondaryDark">{translations.pageTranslations("aboutUsTitle")}</h2>
-                <p className="leading-relaxed text-base">{translations.pageTranslations("aboutUsText")}</p>
+                <h2 className="text-2xl font-bold mb-4 text-secondaryDark">{contentTranslations("aboutUsTitle")}</h2>
+                <p className="leading-relaxed text-base">{contentTranslations("aboutUsText")}</p>
             </div>
             <div className="text-gray-900">
-                <h2 className="text-2xl font-bold mb-4 text-secondaryDark">{translations.pageTranslations("missionTitle")}</h2>
-                <p className="leading-relaxed text-base">{translations.pageTranslations("missionText")}</p>
+                <h2 className="text-2xl font-bold mb-4 text-secondaryDark">{contentTranslations("missionTitle")}</h2>
+                <p className="leading-relaxed text-base">{contentTranslations("missionText")}</p>
             </div>
             <div className="text-gray-900">
-                <h2 className="text-2xl font-bold mb-4 text-secondaryDark">{translations.pageTranslations("visionTitle")}</h2>
-                <p className="leading-relaxed text-base">{translations.pageTranslations("visionText")}</p>
+                <h2 className="text-2xl font-bold mb-4 text-secondaryDark">{contentTranslations("visionTitle")}</h2>
+                <p className="leading-relaxed text-base">{contentTranslations("visionText")}</p>
             </div>
             <div className="text-gray-900">
-                <h2 className="text-2xl font-bold mb-4 text-secondaryDark">{translations.pageTranslations("valuesTitle")}</h2>
-                <p className="leading-relaxed text-base">{translations.pageTranslations("valuesText")}</p>
+                <h2 className="text-2xl font-bold mb-4 text-secondaryDark">{contentTranslations("valuesTitle")}</h2>
+                <p className="leading-relaxed text-base">{contentTranslations("valuesText")}</p>
             </div>
             <div className="text-gray-900">
-                <h2 className="text-2xl font-bold mb-4 text-secondaryDark">{translations.pageTranslations("teamTitle")}</h2>
-                <p className="leading-relaxed text-base">{translations.pageTranslations("teamText")}</p>
-                <Link href={"/about/team"} title={translations.pageTranslations("teamTitle")}
-                      className={"inline-flex m-8 bg-primary hover:bg-secondaryDark text-white px-3 py-2 rounded-lg duration-300"}>{translations.pageTranslations("goToTeamPage")}</Link>
+                <h2 className="text-2xl font-bold mb-4 text-secondaryDark">{contentTranslations("teamTitle")}</h2>
+                <p className="leading-relaxed text-base">{contentTranslations("teamText")}</p>
+                <Link href={"/about/team"} title={contentTranslations("teamTitle")}
+                      className={"inline-flex m-8 bg-primary hover:bg-secondaryDark text-white px-3 py-2 rounded-lg duration-300"}>{contentTranslations("goToTeamPage")}</Link>
             </div>
             <div className="bg-primary text-white p-6 rounded-lg text-center">
-                <h2 className="text-2xl font-bold mb-4">{translations.pageTranslations("joinOurJourneyTitle")}</h2>
-                <p className="leading-relaxed text-base mb-8">{translations.pageTranslations("joinOurJourneyText")}</p>
+                <h2 className="text-2xl font-bold mb-4">{contentTranslations("joinOurJourneyTitle")}</h2>
+                <p className="leading-relaxed text-base mb-8">{contentTranslations("joinOurJourneyText")}</p>
                 <div className="flex flex-col md:flex-row justify-center items-center gap-4">
                     <Link
                         className="bg-white text-primary font-semibold px-6 py-2 rounded-lg transition duration-300 hover:bg-secondary hover:text-white"
                         href={"/join-the-club"}
-                    >{translations.pageTranslations("joinUs")}</Link>
+                    >{contentTranslations("joinUs")}</Link>
                 </div>
             </div>
         </PageLayout>

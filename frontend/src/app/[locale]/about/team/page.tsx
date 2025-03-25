@@ -2,39 +2,26 @@ import Image from 'next/image'
 import Link from "next/link";
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import PageLayout from "@/components/PageLayout";
-import {getPath} from "@/i18n/routing";
+import {getMetadata} from "@/lib/metadata";
 
-export async function generateMetadata({params}: { params: Promise<{ locale: string }> }) {
-    const {locale} = await params;
-    const translations = {
-        generalTranslations: await getTranslations("General"),
-        pageTranslations: await getTranslations("TeamPage")
-    }
+const pageName = "about--team";
 
-    return {
-        title: translations.pageTranslations('title') + translations.generalTranslations("titleSuffix"),
-        description: translations.pageTranslations('description'),
-        openGraph: {
-            siteName: translations.generalTranslations('title'),
-            title: translations.pageTranslations('title'),
-            description: translations.pageTranslations('description'),
-            type: 'website'
-        },
-        alternates: {
-            canonical: `/${locale}/${getPath('/about/team', locale)}`,
-        }
-    };
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+    const { locale } = await params;
+    return getMetadata(locale, pageName);
 }
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
     const {locale} = await params;
     setRequestLocale(locale);
 
-    const translations = {
-        pageTranslations: await getTranslations("TeamPage")
-    }
+    const [metadataTranslations, contentTranslations] = await Promise.all([
+        getTranslations({locale, namespace:`metadata.${pageName}`}),
+        getTranslations({locale, namespace:`pages.${pageName}`})
+    ]);
+
     return (
-        <PageLayout locale={locale} title={translations.pageTranslations("title")} description={translations.pageTranslations("description")}>
+        <PageLayout locale={locale} title={metadataTranslations("title")} description={metadataTranslations("description")}>
             <div className="flex flex-wrap -m-2">
                 <div className="p-2 lg:w-1/3 md:w-1/2 w-full">
                     <div className="bg-white h-full flex items-center border-gray-200 border p-4 rounded-lg">
@@ -44,7 +31,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                         <div className="flex-grow">
                             <h2 className="text-gray-900 title-font font-medium">Arda Usta</h2>
                             <p className="text-gray-500">Yönetim Kurulu Üyesi (Kulüp Başkanı)</p>
-                            <p className={"text-gray-500"}><Link className="text-primary hover: text-secondary"
+                            <p className={"text-gray-500"}><Link className="text-primary hover:text-secondary"
                                                                  href={"mailto:ardausta@ogr.iu.edu.tr"}>ardausta@ogr.iu.edu.tr</Link>
                             </p>
                         </div>
@@ -58,7 +45,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                         <div className="flex-grow">
                             <h2 className="text-gray-900 title-font font-medium">Zehra Öztürk</h2>
                             <p className="text-gray-500">Yönetim Kurulu Üyesi (Başkan Yardımcısı)</p>
-                            <p className={"text-gray-500"}><Link className="text-primary hover: text-secondary"
+                            <p className={"text-gray-500"}><Link className="text-primary hover:text-secondary"
                                                                  href={"mailto:zehraozturk2023@ogr.iu.edu.tr"}>zehraozturk2023@ogr.iu.edu.tr</Link>
                             </p>
                         </div>
@@ -72,7 +59,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                         <div className="flex-grow">
                             <h2 className="text-gray-900 title-font font-medium">Furkan Yıldız</h2>
                             <p className="text-gray-500">Yönetim Kurulu Üyesi (Sayman)</p>
-                            <p className={"text-gray-500"}><Link className="text-primary hover: text-secondary"
+                            <p className={"text-gray-500"}><Link className="text-primary hover:text-secondary"
                                                                  href={"mailto:yldzfurkann0@gmail.com"}>yldzfurkann0@gmail.com</Link>
                             </p>
                         </div>
@@ -86,7 +73,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                         <div className="flex-grow">
                             <h2 className="text-gray-900 title-font font-medium">Selen Günel</h2>
                             <p className="text-gray-500">Yönetim Kurulu Üyesi (Yazman)</p>
-                            <p className={"text-gray-500"}><Link className="text-primary hover: text-secondary"
+                            <p className={"text-gray-500"}><Link className="text-primary hover:text-secondary"
                                                                  href={"mailto:seleng@ogr.iu.edu.tr"}>seleng@ogr.iu.edu.tr</Link>
                             </p>
                         </div>
@@ -100,7 +87,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                         <div className="flex-grow">
                             <h2 className="text-gray-900 title-font font-medium">Diyar Kamalı</h2>
                             <p className="text-gray-500">Yönetim Kurulu Üyesi</p>
-                            <p className={"text-gray-500"}><Link className="text-primary hover: text-secondary"
+                            <p className={"text-gray-500"}><Link className="text-primary hover:text-secondary"
                                                                  href={"mailto:kamalidiyar66@gmail.com"}>kamalidiyar66@gmail.com</Link>
                             </p>
                         </div>
@@ -114,7 +101,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                         <div className="flex-grow">
                             <h2 className="text-gray-900 title-font font-medium">Ramazan Özgür Altuğ</h2>
                             <p className="text-gray-500">Denetleme Kurulu (Başkan)</p>
-                            <p className={"text-gray-500"}><Link className="text-primary hover: text-secondary"
+                            <p className={"text-gray-500"}><Link className="text-primary hover:text-secondary"
                                                                  href={"mailto:ozgraltg@gmail.com"}>ozgraltg@gmail.com</Link>
                             </p>
                         </div>
@@ -128,7 +115,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                         <div className="flex-grow">
                             <h2 className="text-gray-900 title-font font-medium">Muhammet Enes Böyük</h2>
                             <p className="text-gray-500">Denetleme Kurulu Üyesi</p>
-                            <p className={"text-gray-500"}><Link className="text-primary hover: text-secondary"
+                            <p className={"text-gray-500"}><Link className="text-primary hover:text-secondary"
                                                                  href={"mailto:contact@enesbuyuk.com"}>contact@enesbuyuk.com</Link>
                             </p>
                         </div>
@@ -142,7 +129,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                         <div className="flex-grow">
                             <h2 className="text-gray-900 title-font font-medium">Süleyman Arif Uzun</h2>
                             <p className="text-gray-500">Denetleme Kurulu Üyesi</p>
-                            <p className={"text-gray-500"}><Link className="text-primary hover: text-secondary"
+                            <p className={"text-gray-500"}><Link className="text-primary hover:text-secondary"
                                                                  href={"mailto:suzunn3@gmail.com"}>suzunn3@gmail.com</Link>
                             </p>
                         </div>

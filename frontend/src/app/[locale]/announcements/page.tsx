@@ -2,41 +2,23 @@ import {getTranslations, setRequestLocale} from "next-intl/server";
 import PageLayout from "@/components/PageLayout";
 import {Announcement} from "@/types/Announcement";
 import {Suspense} from "react";
-import {getPath} from "@/i18n/routing";
-export const dynamic = 'force-dynamic'
+import {getMetadata} from "@/lib/metadata";
 
-export async function generateMetadata({params}: { params: Promise<{ locale: string }> }) {
-    const {locale} = await params;
-    const translations = {
-        generalTranslations: await getTranslations("General"),
-        pageTranslations: await getTranslations("AnnouncementsPage")
-    }
+const pageName = "announcements";
 
-    return {
-        title: translations.pageTranslations('title') + translations.generalTranslations("titleSuffix"),
-        description: translations.pageTranslations('description'),
-        openGraph: {
-            siteName: translations.generalTranslations('title'),
-            title: translations.pageTranslations('title'),
-            description: translations.pageTranslations('description'),
-            type: 'website'
-        },
-        alternates: {
-            canonical: `/${locale}/${getPath('/announcements', locale)}`,
-        }
-    };
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+    const { locale } = await params;
+    return getMetadata(locale, pageName);
 }
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
-    const { locale } = await params;
-    // Replace setRequestLocale with the appropriate method for your i18n setup
-    // For next-intl, you might use something like:
-    // import { useTranslations } from 'next-intl';
+    const {locale} = await params;
     setRequestLocale(locale);
-    const translations = {
-        generalTranslations: await getTranslations("General"),
-        pageTranslations: await getTranslations("AnnouncementsPage")
-    }
+
+    const [metadataTranslations, contentTranslations] = await Promise.all([
+        getTranslations({locale, namespace:`metadata.${pageName}`}),
+        getTranslations({locale, namespace:`pages.${pageName}`})
+    ]);
 
     const response = await fetch(`${process.env.BACKEND_URL}/announcements`, {
         cache: 'force-cache'
@@ -47,8 +29,8 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     return (
         <PageLayout
             locale={locale}
-            title={translations.pageTranslations("title")}
-            description={translations.pageTranslations("description")}
+            title={metadataTranslations("title")}
+            description={metadataTranslations("description")}
         >
             <Suspense fallback={<p>Loading feed...</p>}>
                 {announcements.map((announcement) => (
@@ -72,7 +54,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                                 {announcement.description[locale]}
                             </p>
                             <a href="#" className="text-indigo-500 inline-flex items-center mt-4">
-                                {translations.generalTranslations("learnMore")}
+                                {contentTranslations("learnMore")}
                                 <svg
                                     className="w-4 h-4 ml-2"
                                     viewBox="0 0 24 24"

@@ -1,102 +1,95 @@
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import PageLayout from "@/components/PageLayout";
-
 import Image from "next/image";
 import Link from "next/link";
-import {Announcement} from "@/types/Announcement";
+import {Event} from "@/types/Event";
 import {Suspense} from "react";
-import {getPath} from "@/i18n/routing";
-export const dynamic = 'force-dynamic'
+import {getMetadata} from "@/lib/metadata";
 
-export async function generateMetadata({params}: { params: Promise<{ locale: string }> }) {
-    const {locale} = await params;
-    const translations = {
-        generalTranslations: await getTranslations("General"),
-        pageTranslations: await getTranslations("EventsPage")
-    }
+const pageName = "events";
 
-    return {
-        title: translations.pageTranslations('title') + translations.generalTranslations("titleSuffix"),
-        description: translations.pageTranslations('description'),
-        openGraph: {
-            siteName: translations.generalTranslations('title'),
-            title: translations.pageTranslations('title'),
-            description: translations.pageTranslations('description'),
-            type: 'website'
-        },
-        alternates: {
-            canonical: `/${locale}/${getPath('/events', locale)}`,
-        }
-    };
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+    const { locale } = await params;
+    return getMetadata(locale, pageName);
 }
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
     const {locale} = await params;
     setRequestLocale(locale);
 
-    const translations = {
-        pageTranslations: await getTranslations("EventsPage")
-    }
+    const [metadataTranslations, contentTranslations] = await Promise.all([
+        getTranslations({locale, namespace:`metadata.${pageName}`}),
+        getTranslations({locale, namespace:`pages.${pageName}`})
+    ]);
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/events?limit=100`, {
+    const response = await fetch(`${process.env.BACKEND_URL}/events`, {
         cache: 'force-cache'
     });
-    const events:Announcement[] = await response.json();
+    const events:Event[] = await response.json();
 
     return (
-        <PageLayout locale={locale} title={translations.pageTranslations("title")} description={translations.pageTranslations("description")}>
+        <PageLayout locale={locale} title={metadataTranslations("title")} description={metadataTranslations("description")}>
             <div className="flex flex-wrap -mx-4 -my-8">
                 <Suspense fallback={<p>Loading feed...</p>}>
-                {events.map((event:Announcement) => {
-                    const announcementDate = new Date(event.announcement_date);
-                    const month = announcementDate.toLocaleString('en-US', {month: 'short'});
+                {events.map((event:Event) => {
+                    const eventDate = new Date(event.date);
+                    const month = eventDate.toLocaleString('en-US', {month: 'short'});
 
                     return (
                         <div key={event._id} className="py-8 px-4 lg:w-1/4 md:w-1/3 w-full">
                             <div
                                 className="h-full flex flex-col items-start bg-white shadow-lg rounded-lg overflow-hidden">
-                                <div className="w-full  bg-gray-100 flex justify-center items-center">
+                                <div className="w-full  bg-gray-100 flex justify-center items-center border-gray-300 border-b-[0.2px]">
                                     <Image
                                         src={process.env.NEXT_PUBLIC_SITE_URL + "/uploads/" + event._id + ".webp"}
-                                        alt={event.announcement_title[locale]}
+                                        alt={event.title[locale]}
                                         className="object-cover w-full h-full"
-                                        height={1200}
-                                        width={900}
+                                        height={1920}
+                                        width={1080}
                                     />
                                 </div>
                                 <div className="w-full h-full flex flex-col p-6">
                                     <div className="flex items-center mb-4">
                                         <div className="flex-grow">
-                                            <h2 className="tracking-widest text-xs font-medium text-indigo-500 mb-1">CATEGORY</h2>
+                                            <h2 className="tracking-widest text-md font-medium text-indigo-500 mb-1">{event.type[locale]}</h2>
                                             <h3 className="text-lg font-medium text-gray-900 mb-2">
                                                 <Link
-                                                    href={event.announcement_url}
+                                                    href={event.url}
                                                     target="_blank"
-                                                    title={event.announcement_title[locale]}
-                                                >{event.announcement_title[locale]}</Link>
+                                                    title={event.title[locale]}
+                                                >{event.title[locale]}</Link>
                                             </h3>
                                         </div>
                                     </div>
                                     <p className="leading-relaxed text-sm text-gray-700 mb-4 indent-3.5">
-                                        {event.announcement_description[locale]}
+                                        {event.description[locale]}
                                     </p>
                                     <div className="mt-auto mx-auto">
-                                        <div
-                                            className="flex-shrink-0 text-center py-6">
+                                        <div className="flex-shrink-0 text-center py-6">
                                                     <span
-                                                        className="inline-block text-gray-800 text-lg font-medium">{month} {announcementDate.getDate()}, {announcementDate.getFullYear()}</span>
+                                                        className="inline-block text-gray-800 text-lg font-medium">{month} {eventDate.getDate()}, {eventDate.getFullYear()}</span>
                                             <div
-                                                className="text-gray-500 text-sm mt-1">{announcementDate.toLocaleTimeString([], {
+                                                className="text-gray-500 text-sm mt-1">{eventDate.toLocaleTimeString([], {
                                                 hour: '2-digit',
                                                 minute: '2-digit'
-                                            })} - {announcementDate.toLocaleDateString('en-US', {weekday: 'long'})}</div>
+                                            })} - {eventDate.toLocaleDateString('en-US', {weekday: 'long'})}</div>
                                         </div>
-                                        <Link
-                                            className="inline-flex items-center bg-primary hover:bg-secondaryDark text-white py-2 px-4 rounded-lg text-sm transition duration-300"
-                                            href={event.announcement_url}
-                                            target="_blank"
-                                            title={event.announcement_title[locale]}
-                                        >{translations.pageTranslations("joinToEvent")}</Link>
+                                        {new Date() > new Date(event.date) ? (
+                                            <div
+                                                className="inline-flex font-semibold items-center text-red-800 py-2 px-4 text-sm italic"
+                                                title={event.title[locale]}
+                                            >**{contentTranslations("endedEvent")}
+                                            </div>
+                                        ) : (
+                                            <Link
+                                                className="inline-flex items-center bg-primary hover:bg-secondaryDark text-white py-2 px-4 rounded-lg text-sm transition duration-300"
+                                                href={event.url}
+                                                target="_blank"
+                                                title={event.title[locale]}
+                                            >
+                                                {contentTranslations("joinToEvent")}
+                                            </Link>
+                                        )}
                                     </div>
                                 </div>
                             </div>

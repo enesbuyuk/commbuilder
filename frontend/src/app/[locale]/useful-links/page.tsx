@@ -1,40 +1,25 @@
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import PageLayout from "@/components/PageLayout";
-import {getPath} from "@/i18n/routing";
+import {getMetadata} from "@/lib/metadata";
 
+const pageName = "useful-links";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
-    const translations = {
-        generalTranslations: await getTranslations("General"),
-        pageTranslations: await getTranslations("UsefulLinksPage")
-    }
-
-    return {
-        title: translations.pageTranslations('title') + translations.generalTranslations("titleSuffix"),
-        description: translations.pageTranslations('description'),
-        openGraph: {
-            siteName: translations.generalTranslations('title'),
-            title: translations.pageTranslations('title'),
-            description: translations.pageTranslations('description'),
-            type: 'website'
-        },
-        alternates: {
-            canonical: `/${locale}/${getPath('/useful-links', locale)}`,
-        }
-    }
+    return getMetadata(locale, pageName);
 }
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
     const {locale} = await params;
     setRequestLocale(locale);
 
-    const translations = {
-        pageTranslations: await getTranslations("UsefulLinksPage")
-    }
+    const [metadataTranslations, contentTranslations] = await Promise.all([
+        getTranslations({locale, namespace:`metadata.${pageName}`}),
+        getTranslations({locale, namespace:`pages.${pageName}`})
+    ]);
 
     return (
-        <PageLayout locale={locale} title={translations.pageTranslations("title")} description={translations.pageTranslations("description")} bg={"white"}>
+        <PageLayout locale={locale} title={metadataTranslations("title")} description={metadataTranslations("description")} bg={"white"}>
             <div
                 className="flex items-center lg:w-4/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
                 <div
@@ -53,7 +38,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                         challenging yet rewarding journey into coding and algorithms, wrapped in a modern,
                         quirky tech culture full of irony and creative flair.</p>
                     <a className="mt-3 text-indigo-500 inline-flex items-center"
-                       href={"https://cs50.harvard.edu/x/2025/"} target="_blank">{translations.pageTranslations("goToLink")}
+                       href={"https://cs50.harvard.edu/x/2025/"} target="_blank">{contentTranslations("goToLink")}
                         <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"
                              strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7"></path>
@@ -72,7 +57,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                         solve real-world analytical problems using Python 3.5.</p>
                     <a className="mt-3 text-indigo-500 inline-flex items-center"
                        href={"https://www.edx.org/learn/computer-science/massachusetts-institute-of-technology-introduction-to-computer-science-and-programming-using-python"}
-                       target="_blank">{translations.pageTranslations("goToLink")}
+                       target="_blank">{contentTranslations("goToLink")}
                         <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"
                              strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7"></path>
@@ -104,7 +89,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                            href={"https://www.awseducate.com/registration/s/registration-detail?language=en_US&promocode=EducateLP"} target="_blank">Learn cloud skills at no cost with AWS Educate</a></h2>
                     <p className="leading-relaxed text-base">Are you overwhelmed by too many choices when it comes to learning about the cloud? AWS Educate is here to help. Simplify your journey into cloud computing and AI with AWS Educate - your free, curated learning path to in-demand tech skills. Check out our free, self-paced online training resources and labs designed to help you learn and practice your cloud skills without having to create an Amazon account.</p>
                     <a className="mt-3 text-indigo-500 inline-flex items-center"
-                       href={"https://www.awseducate.com/registration/s/registration-detail?language=en_US&promocode=EducateLP"} target="_blank">{translations.pageTranslations("goToLink")}
+                       href={"https://www.awseducate.com/registration/s/registration-detail?language=en_US&promocode=EducateLP"} target="_blank">{contentTranslations("goToLink")}
                         <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"
                              strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7"></path>
