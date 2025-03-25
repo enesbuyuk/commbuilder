@@ -1,39 +1,25 @@
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import Faq from "@/components/Faq";
 import PageLayout from "@/components/PageLayout";
-import {getPath} from "@/i18n/routing";
+import {getMetadata} from "@/lib/metadata";
 
-export async function generateMetadata({params}: { params: Promise<{ locale: string }> }) {
-    const {locale} = await params;
-    const translations = {
-        generalTranslations: await getTranslations("General"),
-        pageTranslations: await getTranslations("FaqPage")
-    }
+const pageName = "faq";
 
-    return {
-        title: translations.pageTranslations('title') + translations.generalTranslations("titleSuffix"),
-        description: translations.pageTranslations('description'),
-        openGraph: {
-            siteName: translations.generalTranslations('title'),
-            title: translations.pageTranslations('title'),
-            description: translations.pageTranslations('description'),
-            type: 'website'
-        },
-        alternates: {
-            canonical: `/${locale}/${getPath('/faq', locale)}`,
-        }
-    };
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+    const { locale } = await params;
+    return getMetadata(locale, pageName);
 }
+
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
     const {locale} = await params;
     setRequestLocale(locale);
 
-    const translations = {
-        pageTranslations: await getTranslations("FaqPage")
-    }
+    const [metadataTranslations] = await Promise.all([
+        getTranslations({locale, namespace:`metadata.${pageName}`})
+    ]);
 
     return (
-        <PageLayout locale={locale} title={translations.pageTranslations("title")} description={translations.pageTranslations("description")} spaceY={"6"}>
+        <PageLayout locale={locale} title={metadataTranslations("title")} description={metadataTranslations("description")} spaceY={"6"}>
             <Faq locale={locale}/>
         </PageLayout>
     )

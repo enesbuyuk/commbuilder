@@ -1,37 +1,22 @@
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import PageLayout from "@/components/PageLayout";
-import React from "react";
-import {getPath} from "@/i18n/routing";
+import {getMetadata} from "@/lib/metadata";
+
+const pageName = "join-the-club";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
-    const translations = {
-        generalTranslations: await getTranslations("General"),
-        pageTranslations: await getTranslations("JoinTheClubPage")
-    }
-
-    return {
-        title: translations.pageTranslations('title') + translations.generalTranslations("titleSuffix"),
-        description: translations.pageTranslations('description'),
-        openGraph: {
-            siteName: translations.generalTranslations('title'),
-            title: translations.pageTranslations('title'),
-            description: translations.pageTranslations('description'),
-            type: 'website'
-        },
-        alternates: {
-            canonical: `/${locale}/${getPath('/join-the-club', locale)}`,
-        }
-    };
+    return getMetadata(locale, pageName);
 }
 
-export default async function Page({params}: { params: Promise<{ locale: string }> }) {
-    const { locale } = await params;
+export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
+    const {locale} = await params;
     setRequestLocale(locale);
 
-    const translations = {
-        pageTranslations: await getTranslations("JoinTheClubPage")
-    }
+    const [metadataTranslations, contentTranslations] = await Promise.all([
+        getTranslations({locale, namespace:`metadata.${pageName}`}),
+        getTranslations({locale, namespace:`pages.${pageName}`})
+    ]);
 
     const formFields = [
         {
@@ -49,17 +34,17 @@ export default async function Page({params}: { params: Promise<{ locale: string 
     ];
 
     return (
-        <PageLayout locale={locale} title={translations.pageTranslations("title")}
-                    description={translations.pageTranslations("description")}>
+        <PageLayout locale={locale} title={metadataTranslations("title")}
+                    description={metadataTranslations("description")}>
             <div className="max-w-4xl mx-auto p-4 space-y-6">
                 <div className="bg-white rounded-lg shadow-md overflow-hidden">
                     <div className="p-6 lg:p-8">
                         <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-4">
-                            {translations.pageTranslations("joiningText.title")}
+                            {contentTranslations("joiningText.title")}
                         </h2>
                         <div className="space-y-4 text-gray-600">
-                            <p className="leading-relaxed">{translations.pageTranslations("joiningText.description1")}</p>
-                            <p className="leading-relaxed">{translations.pageTranslations("joiningText.description2")}</p>
+                            <p className="leading-relaxed">{contentTranslations("joiningText.description1")}</p>
+                            <p className="leading-relaxed">{contentTranslations("joiningText.description2")}</p>
 
                         </div>
                         <div className="mt-6">
@@ -67,7 +52,7 @@ export default async function Page({params}: { params: Promise<{ locale: string 
                                 target="_blank"
                                 href="https://chat.whatsapp.com/FgyXuaO2iJrLwtnSXpKUfe"
                                 className="inline-flex items-center justify-center px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-medium rounded-lg transition-all duration-200 transform hover:scale-105"
-                            >{translations.pageTranslations("joiningText.buttonText")}
+                            >{contentTranslations("joiningText.buttonText")}
                             </a>
                         </div>
                     </div>
@@ -75,14 +60,14 @@ export default async function Page({params}: { params: Promise<{ locale: string 
 
                 <div className="bg-white rounded-lg shadow-md">
                     <div className="p-6 lg:p-8">
-                        <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-6">{translations.pageTranslations("joiningText.formTitle")}</h2>
-                        <p className="text-gray-600 mb-8 leading-relaxed">{translations.pageTranslations("joiningText.formDescription")}</p>
+                        <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-6">{contentTranslations("joiningText.formTitle")}</h2>
+                        <p className="text-gray-600 mb-8 leading-relaxed">{contentTranslations("joiningText.formDescription")}</p>
 
                         <form className="space-y-6">
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
                                     <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                                        {translations.pageTranslations("form.nameSurname")}
+                                        {contentTranslations("form.nameSurname")}
                                     </label>
                                     <input
                                         type="text"
@@ -93,7 +78,7 @@ export default async function Page({params}: { params: Promise<{ locale: string 
                                 </div>
                                 <div className="space-y-2">
                                     <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                                        {translations.pageTranslations("form.email")}
+                                        {contentTranslations("form.email")}
                                     </label>
                                     <input
                                         type="email"
@@ -108,7 +93,7 @@ export default async function Page({params}: { params: Promise<{ locale: string 
                                 {formFields.map((field) => (
                                     <div key={field.id} className="space-y-2">
                                         <label htmlFor={field.id} className="block text-sm font-medium text-gray-700">
-                                            {translations.pageTranslations(`form.${field.labelKey}`)}
+                                            {contentTranslations(`form.${field.labelKey}`)}
                                         </label>
                                         <div className="relative">
                                             <input
@@ -128,7 +113,7 @@ export default async function Page({params}: { params: Promise<{ locale: string 
                                     className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
                                 />
                                 <label htmlFor="agreement" className="text-sm text-gray-700">
-                                    {translations.pageTranslations("agreement")}
+                                    {contentTranslations("agreement")}
                                 </label>
                             </div>
 
@@ -136,7 +121,7 @@ export default async function Page({params}: { params: Promise<{ locale: string 
                                 type="submit"
                                 className="w-full bg-secondaryDark text-white font-medium py-3 px-6 rounded-lg shadow-lg hover:bg-secondary transition-all duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                             >
-                                {translations.pageTranslations("send")}
+                                {contentTranslations("send")}
                             </button>
                         </form>
                     </div>
