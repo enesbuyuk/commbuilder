@@ -11,7 +11,7 @@ export default function HomeTypewriter() {
             words={[t("slogan1"), t("slogan2"), t("slogan3")]}
             loop={true}
             cursor
-            cursorStyle="_"
+            cursorStyle="|"
             typeSpeed={70}
             deleteSpeed={50}
             delaySpeed={1000}
