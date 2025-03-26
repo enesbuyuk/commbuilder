@@ -13,13 +13,15 @@ export async function getMetadata(locale: string, page: string): Promise<Metadat
         page = "";
     }
 
+    const title = page === "" ? pageTranslations('title') : pageTranslations('title') + generalTranslations("titleSuffix");
+
     return {
-        title: pageTranslations('title') + generalTranslations("titleSuffix"),
+        title: title,
         description: pageTranslations('description'),
         keywords: pageTranslations('keywords'),
         openGraph: {
             siteName: generalTranslations('title'),
-            title: pageTranslations('title'),
+            title: title,
             description: pageTranslations('description'),
             type: 'website'
         },
