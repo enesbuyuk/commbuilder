@@ -1,36 +1,25 @@
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import Link from "next/link";
 import PageLayout from "@/components/PageLayout";
+import {getMetadata} from "@/lib/metadata";
+
+const pageName = "links";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
-    const translations = {
-        generalTranslations: await getTranslations("General"),
-        pageTranslations: await getTranslations("ContactPage")
-    }
-
-    return {
-        title: translations.pageTranslations('title') + translations.generalTranslations("titleSuffix"),
-        description: translations.pageTranslations('description'),
-        openGraph: {
-            siteName: translations.generalTranslations('title'),
-            title: translations.pageTranslations('title'),
-            description: translations.pageTranslations('description'),
-            type: 'website'
-        }
-    };
+    return getMetadata(locale, pageName);
 }
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
     const {locale} = await params;
     setRequestLocale(locale);
 
-    const translations = {
-        pageTranslations: await getTranslations("ContactPage")
-    }
+    const [metadataTranslations] = await Promise.all([
+        getTranslations({locale, namespace:`metadata.${pageName}`}),
+    ]);
 
     return (
-        <PageLayout locale={locale} title={translations.pageTranslations("title")} description={translations.pageTranslations("description")}>
+        <PageLayout locale={locale} title={metadataTranslations("title")} description={metadataTranslations("description")}>
             <div className="items-center">
                 <div className="w-full text-left bg-white p-12 rounded-lg shadow-lg">
                     <h2 className="text-2xl font-semibold text-gray-800 mb-4">İletişim Bilgilerimiz</h2>
