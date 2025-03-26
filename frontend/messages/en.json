@@ -36,6 +36,11 @@
       "description": "Explore useful links related to computer science, technology, and more!",
       "keywords": "Computer Science Resources, Programming Guides, Coding Tutorials, AI Learning, Cybersecurity Tips, Web Development Resources, Software Engineering, Online Tech Courses, Student Resources, University Links"
     },
+    "links": {
+      "title": "Links",
+      "description": "Reach our new links such as event registration, course registration, and more!",
+        "keywords": "Istanbul University, Computer Science Club Links, Event Registration, Course Registration, Student Resources, Tech Club Links, University Links, Student Community, Tech Events"
+    },
     "gallery": {
       "title": "Gallery",
       "description": "Take a look at the photos and videos from the Istanbul University Computer Science Club!",
@@ -87,7 +92,12 @@
         "lastEvents": "Our Last Events",
         "joinToEvent": "Join to Event",
         "joinTheClub": "Join the Club",
-        "endedEvent": "You cannot participate because the event has ended."
+        "endedEvent": "You cannot participate because the event has ended.",
+        "slogans": {
+        "slogan1": "We are building bridges to the future through digital innovation!",
+        "slogan2": "We are exploring our creativity in the light of technology!",
+        "slogan3": "We are unlocking the doors of the digital world and shaping tomorrow!"
+        }
     },
     "announcements": {
         "learnMore": "Learn More"
