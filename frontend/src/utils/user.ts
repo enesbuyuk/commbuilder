@@ -10,7 +10,8 @@ export async function getUser() {
             return null;
         }
 
-        const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/admin/token`, {
+        const response = await fetch(`${process.env.BACKEND_URL}/auth`, {
+            method: 'GET',
             headers: {
                 'Cookie': `token=${token}`
             },
