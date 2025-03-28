@@ -27,7 +27,7 @@ export default async function Header({locale, indexHero}: {locale: string, index
                             {generalTranslations("studentClubName")}
                         </h1>
                         <h2
-                            className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-white text-center mt-6 sm:mt-8 md:mt-12 lg:mt-16"
+                            className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-white text-center font-semibold mt-6 sm:mt-8 md:mt-12 lg:mt-16"
                         ><HomeTypewriter/>
                         </h2>
                     </div>
