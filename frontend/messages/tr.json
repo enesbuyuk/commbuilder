@@ -7,15 +7,16 @@
     "allRightsReserved": "tüm hakları saklıdır.",
     "welcome": "Hoşgeldiniz",
     "loading": "Yükleniyor...",
-    "noData": "Veri yok.",
+    "noData": "Veri mevcut değil.",
     "noResults": "Sonuç bulunamadı.",
     "search": "Ara"
   },
   "metadata": {
     "index": {
+      "siteName": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü Web Sitesi",
       "title": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü",
-      "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübüne hoş geldiniz! Kulübümüz, bilgisayar bilimleri, teknoloji ve inovasyona ilgi duyan öğrencileri bir araya getirmeye adanmıştır.",
-      "keywords": "İstanbul Üniversitesi, Bilgisayar Bilimleri Kulübü, Bilgisayar Bilimi Öğrencileri, Teknoloji Kulübü, Programlama, Kodlama, Yazılım Geliştirme, Yapay Zeka, Makine Öğrenimi, Siber Güvenlik, Web Geliştirme, Hackathonlar, Atölyeler, Teknoloji Etkinlikleri, Üniversite Kulüpleri, İnovasyon, Öğrenci Topluluğu",
+      "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü'ne hoş geldiniz! Kulübümüz, bilgisayar bilimleri, teknoloji ve inovasyonla ilgilenen öğrencileri bir araya getirmeye adanmıştır.",
+      "keywords": "İstanbul Üniversitesi, Bilgisayar Bilimleri Kulübü, Bilgisayar Bilimleri Öğrencileri, Teknoloji Kulübü, Programlama, Kodlama, Yazılım Geliştirme, Yapay Zeka, Makine Öğrenimi, Siber Güvenlik, Web Geliştirme, Hackathonlar, Atölyeler, Teknoloji Etkinlikleri, Üniversite Kulüpleri, İnovasyon, Öğrenci Topluluğu",
       "author": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü",
       "contact": "contact@enesbuyuk.com",
       "titleSuffix": " | İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü"
@@ -23,47 +24,47 @@
     "announcements": {
       "title": "Duyurular",
       "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü'nden en son haberler ve güncellemelerden haberdar olun!",
-      "keywords": "İstanbul Üniversitesi, Bilgisayar Bilimleri Kulübü, Duyurular, En Son Haberler, Kulüp Güncellemeleri, Öğrenci Etkinlikleri, Teknoloji Haberleri, Yaklaşan Etkinlikler, Üniversite Duyuruları"
+      "keywords": "İstanbul Üniversitesi, Bilgisayar Bilimleri Kulübü, Duyurular, En Son Haberler, Kulüp Güncellemeleri, Öğrenci Etkinlikleri, Teknoloji Haberleri, Yaklaşan Etkinlikler, Üniversite Bildirimleri"
     },
     "events": {
       "title": "Etkinlikler",
-      "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü tarafından düzenlenen etkinlikler hakkında bilgi edinin!",
+      "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü tarafından düzenlenen etkinlikleri öğrenin!",
       "keywords": "İstanbul Üniversitesi, Bilgisayar Bilimleri Kulübü Etkinlikleri, Teknoloji Buluşmaları, Hackathonlar, Programlama Yarışmaları, Kodlama Atölyeleri, Konuk Konuşmacılar, Webinarlar, Teknoloji Seminerleri, Yapay Zeka Etkinlikleri, Makine Öğrenimi Konferansları, Öğrenci Teknoloji Buluşmaları"
     },
     "useful-links": {
-      "title": "Faydalı Bağlantılar",
-      "description": "Bilgisayar bilimi, teknoloji ve daha fazlası ile ilgili faydalı bağlantıları keşfedin!",
-      "keywords": "Bilgisayar Bilimi Kaynakları, Programlama Rehberleri, Kodlama Eğitimleri, Yapay Zeka Öğrenimi, Siber Güvenlik İpuçları, Web Geliştirme Kaynakları, Yazılım Mühendisliği, Online Teknoloji Kursları, Öğrenci Kaynakları, Üniversite Bağlantıları"
+      "title": "Faydalı Linkler",
+      "description": "Bilgisayar bilimi, teknoloji ve daha fazlasıyla ilgili faydalı linkleri keşfedin!",
+      "keywords": "Bilgisayar Bilimi Kaynakları, Programlama Rehberleri, Kodlama Eğitimleri, Yapay Zeka Öğrenimi, Siber Güvenlik İpuçları, Web Geliştirme Kaynakları, Yazılım Mühendisliği, Online Teknoloji Kursları, Öğrenci Kaynakları, Üniversite Linkleri"
     },
     "links": {
-      "title": "Bağlantılar",
-      "description": "Etkinlik kaydı, kurs kaydı gibi yeni bağlantılarımıza ulaşın!",
-      "keywords": "İstanbul Üniversitesi, Bilgisayar Bilimleri Kulübü Bağlantıları, Etkinlik Kaydı, Kurs Kaydı, Öğrenci Kaynakları, Teknoloji Kulübü Bağlantıları, Üniversite Bağlantıları, Öğrenci Topluluğu, Teknoloji Etkinlikleri"
+      "title": "Linkler",
+      "description": "Etkinlik kaydı, ders kaydı ve daha fazlası gibi yeni linklerimize ulaşın!",
+      "keywords": "İstanbul Üniversitesi, Bilgisayar Bilimleri Kulübü Linkleri, Etkinlik Kaydı, Ders Kaydı, Öğrenci Kaynakları, Teknoloji Kulübü Linkleri, Üniversite Linkleri, Öğrenci Topluluğu, Teknoloji Etkinlikleri"
     },
     "gallery": {
       "title": "Galeri",
-      "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü'nden fotoğraf ve videolara göz atın!",
-      "keywords": "İstanbul Üniversitesi, Bilgisayar Bilimleri Kulübü Galerisi, Etkinlik Fotoğrafları, Teknoloji Buluşmaları, Hackathon Görüntüleri, Kulüp Aktiviteleri, Öğrenci Atölyeleri, Kodlama Oturumları, Üniversite Teknoloji Etkinlikleri"
+      "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü'nün fotoğraf ve videolarına göz atın!",
+      "keywords": "İstanbul Üniversitesi, Bilgisayar Bilimleri Kulübü Galerisi, Etkinlik Fotoğrafları, Teknoloji Buluşmaları, Hackathon Görüntüleri, Kulüp Etkinlikleri, Öğrenci Atölyeleri, Kodlama Seansları, Üniversite Teknoloji Etkinlikleri"
     },
     "about": {
-      "title": "Hakkımızda",
-      "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü, İstanbul Üniversitesi Fen Fakültesi bünyesinde faaliyet gösteren bir öğrenci organizasyonudur.",
+      "title": "Hakkında",
+      "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü, İstanbul Üniversitesi Fen Fakültesi bünyesinde faaliyet gösteren bir öğrenci topluluğudur.",
       "keywords": "İstanbul Üniversitesi, Bilgisayar Bilimleri Kulübü, Hakkımızda, Öğrenci Organizasyonu, Teknoloji Topluluğu, Programlama Kulübü, Kodlama Öğrencileri, Üniversite Toplulukları, İnovasyon Merkezi"
     },
     "about--team": {
       "title": "Ekibimiz",
-      "description": "Kulüp ekibimiz, kulübün yönetimi ve geliştirilmesinden sorumlu iki ana gruptan oluşmaktadır.",
+      "description": "Kulüp ekibimiz, kulübün yönetim ve geliştirilmesinden sorumlu iki ana gruptan oluşmaktadır.",
       "keywords": "Bilgisayar Bilimleri Kulübü Ekibi, Teknoloji Liderleri, Öğrenci Organizasyonu, Kulüp Yönetimi, Proje Ekipleri, Kodlama Uzmanları, Yapay Zeka Geliştiricileri, Siber Güvenlik Meraklıları, Teknoloji İnovatörleri"
     },
     "about--charter": {
       "title": "Tüzük",
       "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü tüzüğünü indirin.",
-      "keywords": "İstanbul Üniversitesi, Bilgisayar Bilimleri Kulübü Tüzüğü, Öğrenci Organizasyonu Kuralları, Kulüp Düzenlemeleri, Üniversite Yönergeleri, Teknoloji Kulübü Anayasası, Öğrenci Topluluğu Tüzüğü"
+      "keywords": "İstanbul Üniversitesi, Bilgisayar Bilimleri Kulübü Tüzüğü, Öğrenci Organizasyonu Kuralları, Kulüp Yönetmelikleri, Üniversite Yönergeleri, Teknoloji Kulübü Anayasası, Öğrenci Topluluğu Tüzüğü"
     },
     "join-the-club": {
       "title": "Kulübe Katıl",
-      "description": "Bilgisayar bilimleri ve teknolojiye tutkuyla bağlı öğrencilerin yer aldığı dinamik bir topluluğun parçası olmak için İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü'ne katılın.",
-      "keywords": "Bilgisayar Bilimleri Kulübüne Katıl, Üye Ol, Öğrenci Teknoloji Kulübü, Programlama Meraklıları, Kodlama Öğren, Yapay Zeka ve Makine Öğrenimi, Hackathonlar, Atölyeler, Öğrenci İşbirliği"
+      "description": "Bilgisayar bilimleri ve teknolojiye tutkuyla bağlı öğrencilerden oluşan dinamik bir topluluğun parçası olmak için İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü'ne katılın.",
+      "keywords": "Bilgisayar Bilimleri Kulübüne Katıl, Üye Ol, Öğrenci Teknoloji Kulübü, Programlama Tutkunları, Kodlama Öğren, Yapay Zeka ve ML Öğrenimi, Hackathonlar, Atölyeler, Öğrenci İşbirliği"
     },
     "faq": {
       "title": "Sıkça Sorulan Sorular (SSS)",
@@ -73,28 +74,33 @@
     "contact": {
       "title": "İletişim",
       "description": "Herhangi bir soru, öneri veya geri bildirim için bizimle iletişime geçin.",
-      "keywords": "Bilgisayar Bilimleri Kulübü ile İletişime Geçin, Üniversite Teknoloji Kulübü Desteği, Öğrenci Yardımı, E-Posta Desteği, Teknoloji Kulübü Soruları, Kulüp Bilgileri, İletişime Geçin"
+      "keywords": "Bilgisayar Bilimleri Kulübü İletişim, Üniversite Teknoloji Kulübü Desteği, Öğrenci Yardımı, E-Posta Desteği, Teknoloji Kulübü Sorguları, Kulüp Bilgisi, İletişime Geçin"
     },
     "not-found": {
       "title": "404 Bulunamadı",
-      "description": "Aradığınız sayfa mevcut değil. Lütfen URL'yi kontrol edin veya ana sayfaya dönün.",
+      "description": "Aradığınız sayfa mevcut değil. Lütfen URL'yi kontrol edin veya ana sayfaya geri dönün.",
       "keywords": "404 Sayfa Bulunamadı, Hata Sayfası, Eksik Sayfa, Kırık Bağlantı, Web Sitesi Navigasyonu, Ana Sayfaya Dön"
+    },
+    "admin": {
+      "title": "Yönetici Sayfası",
+      "description": "Yönetici Sayfası",
+      "keywords": "Yönetici Paneli, Kulüp Yönetimi, Yönetici Gösterge Paneli, Kullanıcı Yönetimi, Etkinlik Yönetimi, Duyuru Yönetimi"
     }
   },
   "pages": {
     "index": {
-      "welcomeMessage": "İstanbul Üniversitesi Fen Fakültesi, Bilgisayar Bilimleri Kulübüne Hoş Geldiniz!",
+      "welcomeMessage": "İstanbul Üniversitesi Fen Fakültesi, Bilgisayar Bilimleri Kulübü'ne hoş geldiniz!",
       "meetOurClub": "Kulübümüzü Tanıyın",
-      "ourMediumArticles": "Son Medium Makalelerimiz",
-      "readMoreMediumArticle": "Medium'da Devamını Oku",
+      "ourMediumArticles": "En Son Medium Makalelerimiz",
+      "readMoreMediumArticle": "Medium'da Tam Olarak Oku",
       "lastEvents": "Son Etkinliklerimiz",
       "joinToEvent": "Etkinliğe Katıl",
       "joinTheClub": "Kulübe Katıl",
       "endedEvent": "Etkinlik sona erdiği için katılamazsınız.",
       "slogans": {
-        "slogan1":"Geleceğe köprüleri dijitalle kuruyoruz!",
+        "slogan1": "Geleceğe köprüleri dijitalle inşa ediyoruz!",
         "slogan2": "Teknolojinin ışığında yaratıcılığımızı keşfediyoruz!",
-        "slogan3":"Dijital dünyanın kapılarını aralıyor, yarına yön veriyoruz!"
+        "slogan3": "Dijital dünyanın kapılarını açıyor ve yarını şekillendiriyoruz!"
       }
     },
     "announcements": {
@@ -109,28 +115,28 @@
     },
     "about": {
       "aboutUsTitle": "Hakkımızda",
-      "aboutUsText": "2023 yılında İstanbul Üniversitesi Fen Fakültesi bünyesinde kurulan Bilgisayar Bilimleri Kulübü, bilgisayar teknolojilerine ilgi duyan ve bu alanda öğrenmek ve gelişmek isteyen tüm öğrencileri ağırlamaktadır. Kulüp olarak, bilgisayar bilimlerinde hem teorik bilgiyi hem de pratik becerileri geliştirmeye yönelik etkinlikler düzenliyoruz. Eğitim programları, seminerler, hackathonlar, proje çalışmaları ve sosyal etkinliklerle zengin bir ortam sunuyoruz. Amacımız, öğrencilerin bireysel gelişimini desteklemekle kalmayıp, teknolojik gelişmelere katkıda bulunan bir topluluk oluşturmaktır.\nHer seviyeden katılımcıya uygun etkinliklerle bilgi paylaşımını teşvik edip, yeni dostlukların filizlendiği bir topluluk yaratmayı hedefliyoruz.",
+      "aboutUsText": "2023 yılında İstanbul Üniversitesi Fen Fakültesi bünyesinde kurulan Bilgisayar Bilimleri Kulübü, bilgisayar teknolojilerine ilgi duyan ve bu alanda öğrenmek ve gelişmek isteyen tüm öğrencileri ağırlamaktadır. Kulüp olarak, bilgisayar bilimlerinde hem teorik bilgiyi hem de pratik becerileri geliştirmeye yönelik faaliyetler gerçekleştiriyoruz. Eğitim programları, seminerler, hackathonlar, proje çalışmaları ve sosyal etkinliklerle zengin bir ortam sunuyoruz. Amacımız yalnızca öğrencilerin bireysel gelişimini desteklemek değil, aynı zamanda teknolojik ilerlemelere katkıda bulunan bir topluluk inşa etmektir.\nTüm seviyelerden katılımcıya uygun etkinliklerle bilgi paylaşımını teşvik etmeyi ve yeni dostlukların gelişebileceği bir topluluk oluşturmayı hedefliyoruz.",
       "missionTitle": "Misyon",
-      "missionText": "İstanbul Üniversitesi Fen Fakültesi Bilgisayar Bilimleri Kulübü olarak misyonumuz, bilgisayar bilimleri ve teknolojilere ilgi duyan bireyleri bir araya getirerek bilgi ve deneyim paylaşımına olanak tanıyan bir platform sağlamaktır. Eğitimler, etkinlikler ve projeler aracılığıyla üyelerimizin akademik, kişisel ve profesyonel gelişimine katkıda bulunmayı hedefliyoruz. Bilgiye erişim ve paylaşımda eşit fırsatların sağlanması misyonumuzun temelidir.",
+      "missionText": "İstanbul Üniversitesi Fen Fakültesi Bilgisayar Bilimleri Kulübü olarak misyonumuz, bilgisayar bilimleri ve teknolojilere ilgi duyan bireyleri bir araya getirerek bilgi ve deneyim paylaşımına olanak tanıyan bir platform sağlamaktır. Eğitimler, etkinlikler ve projeler aracılığıyla üyelerimizin akademik, kişisel ve profesyonel gelişimine katkıda bulunmayı hedefliyoruz. Bilgiye erişim ve paylaşımda eşit fırsatların sağlanması misyonumuzun temelini oluşturmaktadır.",
       "visionTitle": "Vizyon",
-      "visionText": "Bilgisayar bilimleri alanında öncü bir öğrenci topluluğu olmak, üyelerimizi modern zamanların gerektirdiği bilgi, beceri ve deneyimlerle donatmak. Teknoloji ve inovasyonda etkileyici projeler yaratarak, sadece üniversite içinde değil, toplumda da fark yaratmayı hedefliyoruz. İstanbul Üniversitesi çatısı altında oluşturduğumuz dayanışma ile teknoloji dünyasında örnek bir topluluk olma vizyonunu benimsiyoruz.",
+      "visionText": "Bilgisayar bilimleri alanında öncü bir öğrenci topluluğu olmak, üyelerimizi modern zamanların gerektirdiği bilgi, beceri ve deneyimlerle donatmak hedefimizdir. Teknoloji ve inovasyonda etkili projeler yaratarak, yalnızca üniversite içinde değil toplumda da fark yaratmayı amaçlıyoruz. İstanbul Üniversitesi çatısı altında geliştirdiğimiz dayanışma ile teknoloji dünyasında örnek teşkil eden bir topluluk olma vizyonunu benimsiyoruz.",
       "valuesTitle": "Değerler",
-      "valuesText": "Bilgi paylaşımı, işbirliği, eşitlik, inovasyon ve sosyal sorumluluk temel değerlerimizdir. Bilgi paylaşımı ve işbirliği yoluyla topluluğumuzun ortak bilgisini artırmayı ve üyelerimizin kişisel gelişimine katkıda bulunmayı amaçlıyoruz. Eşitlik ilkesine bağlı kalarak, herkesin fikirlerini özgürce ifade edebileceği bir ortam yaratmaya çalışıyoruz. İnovasyon ve sosyal sorumluluk bilinciyle, topluma fayda sağlayan projeler geliştirmeyi ve sosyal sorumluluğu topluluğumuzun temel değerlerinden biri olarak korumayı hedefliyoruz.",
+      "valuesText": "Bilgi paylaşımı, iş birliği, eşitlik, yenilikçilik ve sosyal sorumluluk temel değerlerimizdir. Bilgi paylaşımı ve iş birliği ile topluluğumuzun ortak bilgisini artırmayı ve üyelerimizin kişisel gelişimine katkıda bulunmayı hedefliyoruz. Eşitlik ilkesiyle, herkesin fikirlerini özgürce ifade edebileceği bir ortam yaratmaya çalışıyoruz. Yenilikçilik ve sosyal sorumluluk bilinciyle, topluma fayda sağlayan projeler geliştirmeyi ve sosyal sorumluluğu temel değerlerimiz arasında tutmayı amaçlıyoruz.",
       "teamTitle": "Ekibimiz",
-      "teamText": "Kulübümüz, İstanbul Üniversitesi öğrencileri tarafından yönetilmektedir. Yönetim ve denetim kurullarımız, kulübün etkinliklerini planlamaktan, düzenlemekten ve uygulamaktan sorumludur. Her üye, kulübümüzün misyonu ve vizyonu doğrultusunda çalışarak topluluğumuzun hedeflerine ulaşılmasına katkıda bulunmaktadır. Ekibimiz, çeşitli disiplinlerden öğrencilerden oluşmaktadır. Her üye, özverili, deneyimli olup, kendi alanında uzmanlaşma yolunda sorumluluk bilinciyle adım atmaktadır. Kulübümüzün başarısı, büyük ölçüde ekip çalışması, uyumlu işbirliği ve ortak hedeflere bağlılık üzerine inşa edilmiştir.",
-      "goToTeamPage": "Ekibimiz Sayfasına Git",
+      "teamText": "Kulübümüz İstanbul Üniversitesi öğrencileri tarafından yönetilmektedir. Yönetim ve denetim kurullarımız, kulübün faaliyetlerini planlamak, organize etmek ve uygulamaktan sorumludur. Her üye, kulübümüzün misyonu ve vizyonuyla uyumlu çalışarak topluluğumuzun hedeflerine ulaşılmasına katkıda bulunmaktadır. Ekibimiz, çeşitli disiplinlerden öğrencilerden oluşmaktadır. Her üye, özverili, deneyimli ve alanında uzmanlaşma yolunda kararlı olup, sorumluluk bilinciyle hareket etmektedir. Kulübümüzün başarısı büyük ölçüde takım çalışması, uyumlu iş birliği ve ortak hedeflere bağlılığa dayanmaktadır.",
+      "goToTeamPage": "Takım Sayfasına Git",
       "joinOurJourneyTitle": "Yolculuğumuza Katılın",
-      "joinOurJourneyText": "Bilgisayar bilimleri ve teknolojiye tutkuyla bağlı öğrenciler topluluğumuza katılın. İster yeni başlayan ister uzman olun, kulübümüzde sizin için yer var. Bilginizi genişletmek, becerilerinizi geliştirmek ve kalıcı dostluklar kurmak için etkinliklerimize, projelerimize ve faaliyetlerimize katılın. Teknoloji ve inovasyonun geleceğini şekillendirmede bize katılın!",
+      "joinOurJourneyText": "Bilgisayar bilimleri ve teknolojiye tutkulu öğrencilerden oluşan topluluğumuza katılın. İster yeni başlayan olun, ister uzman, kulübümüzde size yer var. Bilginizi genişletmek, becerilerinizi geliştirmek ve kalıcı dostluklar kurmak için etkinliklerimize, projelerimize ve faaliyetlerimize katılın. Teknoloji ve inovasyonun geleceğini şekillendirmemizde bize katılın!",
       "joinUs": "Bize Katılın"
     },
     "about--team": {
-      "viewTeam": "Ekibi Görüntüle"
+      "viewTeam": "Takımı Görüntüle"
     },
     "about--charter": {
       "downloadTheCharter": "Tüzüğü İndir"
     },
     "useful-links": {
-      "goToLink": "Bağlantıya Git"
+      "goToLink": "Linke Git"
     },
     "contact": {
       "ourContactInformation": "İletişim Bilgilerimiz"
@@ -139,20 +145,61 @@
       "send": "Gönder",
       "joiningText": {
         "title": "WhatsApp Grubumuz",
-        "description1": "Kulübümüze katılmak için izlemeniz gereken birkaç kolay adım var. İlk olarak, kulübümüzün etkinliklerinden haberdar olmak ve diğer üyelerle iletişim kurmak için WhatsApp grubumuza katılabilirsiniz.",
-        "description2": "Daha sonra, resmi bir kulüp üyesi olabilmek için gerekli belgeleri yüklemeniz gerekmektedir. Belgelerinizi yükledikten sonra kaydınız tamamlanacak ve kulübümüzün sunduğu tüm hak ve fırsatlardan yararlanmaya başlayabilirsiniz.",
+        "description1": "Kulübümüze katılmak için takip etmeniz gereken birkaç kolay adım var. Öncelikle, kulüp etkinliklerimizden haberdar olmak ve diğer üyelerle iletişim kurmak için WhatsApp grubumuza katılabilirsiniz.",
+        "description2": "Daha sonra, resmi kulüp üyesi olmak için gerekli belgeleri yüklemeniz gerekmektedir. Belgelerinizi yükledikten sonra kaydınız tamamlanacak ve kulübümüzün sunduğu tüm hak ve fırsatlardan yararlanmaya başlayabileceksiniz.",
         "buttonText": "WhatsApp Grubuna Katıl",
         "formTitle": "Resmi Kulüp Üyeliği",
-        "formDescription": "İstanbul Üniversitesi'nde resmi kulüp üyesi olabilmek için birkaç adım bulunmaktadır: IU Kulüp Üyelik Formunu doldurmak, IU AKSİS üzerinden öğrenci belgesi almak ve disiplin kaydınızı almak. Aşağıdaki alanlara bu belgeleri yüklemeniz yeterlidir."
+        "formDescription": "İstanbul Üniversitesi'nde resmi kulüp üyesi olmak için birkaç adım bulunmaktadır: IU Kulüp Üyelik Formunu doldurmak, IU AKSİS aracılığıyla öğrenci belgesi almak ve disiplin kaydınızı temin etmek. Bu belgeleri aşağıdaki alanlara yüklemeniz yeterlidir."
       },
       "form": {
-        "nameSurname": "Adı Soyadı",
+        "nameSurname": "Ad & Soyad",
         "email": "E-Posta",
         "membershipForm": "İstanbul Üniversitesi Kulüp Üyelik Formu",
         "studentCertificate": "İstanbul Üniversitesi Öğrenci Belgesi",
         "disciplineReport": "İstanbul Üniversitesi Disiplin Kaydı"
       },
-      "agreement": "Kullanım şartlarını kabul ediyor ve veri işlenmesine onay veriyorum."
+      "agreement": "Kullanım şartlarını kabul ediyor ve veri işleme konusunda onay veriyorum."
+    },
+    "admin": {
+      "title": "Yönetici Sayfası",
+      "description": "Yönetici Sayfası",
+      "keywords": "Yönetici Paneli, Kulüp Yönetimi, Yönetici Gösterge Paneli, Kullanıcı Yönetimi, Etkinlik Yönetimi, Duyuru Yönetimi",
+      "login": "Giriş Yap",
+      "logout": "Çıkış Yap",
+      "username": "Kullanıcı Adı",
+      "password": "Şifre",
+      "welcome": "Hoşgeldiniz",
+      "goToLink": "Linke Git",
+      "announcements": "Duyurular",
+      "AnnouncementsPage": {
+        "Announcements": "Duyurular",
+        "title": "Duyuruyu Düzenle",
+        "description": "Duyuruları kolayca düzenleyip güncelleyin.",
+        "editingText": {
+          "title": "Duyuru Detaylarını Düzenle",
+          "description1": "Duyuru detaylarını güncellemek için aşağıdaki formu kullanın.",
+          "description2": "Göndermeden önce tüm gerekli alanların doldurulduğundan emin olun.",
+          "formTitle": "Duyuru Bilgileri",
+          "formDescription": "Duyuruyu güncellemek için gerekli detayları sağlayın."
+        },
+        "form": {
+          "title": "Duyuru Başlığı",
+          "content": "Duyuru İçeriği"
+        },
+        "save": "Değişiklikleri Kaydet"
+      },
+      "announcementsDesc": "Duyuruları buradan yönetebilirsiniz.",
+      "events": "Etkinlikler",
+      "eventsDesc": "Etkinlikleri buradan yönetebilirsiniz.",
+      "userManagement": "Kullanıcı Yönetimi",
+      "userManagementDesc": "Kullanıcıları buradan yönetebilirsiniz.",
+      "socialMediaManagement": "Sosyal Medya Yönetimi",
+      "socialMediaManagementDesc": "Sosyal medya linklerini buradan yönetebilirsiniz.",
+      "settings": "Ayarlar",
+      "dashboard": "Panel",
+      "signIn": "Oturum Aç",
+      "signOut": "Oturumu Kapat",
+      "signUp": "Kayıt Ol"
     }
   },
   "components": {
@@ -160,54 +207,14 @@
       "index": "Ana Sayfa",
       "announcements": "Duyurular",
       "events": "Etkinlikler",
-      "links": "Faydalı Bağlantılar",
+      "links": "Faydalı Linkler",
       "gallery": "Galeri",
       "about": "Hakkımızda",
-      "team": "Ekibimiz",
-      "charter": "Kulüp Tüzüğü",
+      "about--team": "Ekibimiz",
+      "about--charter": "Kulüp Tüzüğü",
       "contact": "İletişim",
       "faq": "SSS",
       "joinTheClub": "Kulübe Katıl"
     }
-  },
-  "AdminPage": {
-    "title": "Yönetici Sayfası",
-    "description": "Yönetici Sayfası",
-    "login": "Giriş Yap",
-    "logout": "Çıkış Yap",
-    "username": "Kullanıcı Adı",
-    "password": "Şifre",
-    "welcome": "Hoşgeldiniz",
-    "goToLink": "Bağlantıya Git",
-    "announcements": "Duyurular",
-    "AnnouncementsPage": {
-      "Announcements": "Duyurular",
-      "title": "Duyuruyu Düzenle",
-      "description": "Duyuruları kolayca düzenleyip güncelleyin.",
-      "editingText": {
-        "title": "Duyuru Detaylarını Düzenle",
-        "description1": "Duyuru detaylarını güncellemek için aşağıdaki formu kullanın.",
-        "description2": "Göndermeden önce tüm gerekli alanların doldurulduğundan emin olun.",
-        "formTitle": "Duyuru Bilgileri",
-        "formDescription": "Duyuruyu güncellemek için gerekli bilgileri sağlayın."
-      },
-      "form": {
-        "title": "Duyuru Başlığı",
-        "content": "Duyuru İçeriği"
-      },
-      "save": "Değişiklikleri Kaydet"
-    },
-    "announcementsDesc": "Duyuruları burada yönetebilirsiniz.",
-    "events": "Etkinlikler",
-    "eventsDesc": "Etkinlikleri burada yönetebilirsiniz.",
-    "userManagement": "Kullanıcı Yönetimi",
-    "userManagementDesc": "Kullanıcıları burada yönetebilirsiniz.",
-    "socialMediaManagement": "Sosyal Medya Yönetimi",
-    "socialMediaManagementDesc": "Sosyal medya bağlantılarını burada yönetebilirsiniz.",
-    "settings": "Ayarlar",
-    "dashboard": "Panel",
-    "signIn": "Oturum Aç",
-    "signOut": "Oturumu Kapat",
-    "signUp": "Kayıt Ol"
   }
 }

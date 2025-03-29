@@ -14,6 +14,7 @@
 
   "metadata": {
     "index": {
+      "siteName": "Istanbul University Computer Science Club Web Site",
       "title": "Istanbul University Computer Science Club",
       "description": "Welcome to the Istanbul University Computer Science Club! Our club is dedicated to bringing together students interested in computer sciences, technology, and innovation.",
       "keywords": "Istanbul University, Computer Science Club, Computer Science Students, Technology Club, Programming, Coding, Software Development, AI, Machine Learning, Cybersecurity, Web Development, Hackathons, Workshops, Tech Events, University Clubs, Innovation, Student Community",
@@ -80,6 +81,11 @@
       "title": "404 Not Found",
       "description": "The page you are looking for does not exist. Please check the URL or return to the homepage.",
       "keywords": "404 Page Not Found, Error Page, Missing Page, Broken Link, Website Navigation, Return to Homepage"
+    },
+    "admin": {
+      "title": "Admin Page",
+      "description": "Admin Page",
+      "keywords": "Admin Panel, Club Management, Admin Dashboard, User Management, Event Management, Announcement Management"
     }
   },
 
@@ -155,6 +161,49 @@
         "disciplineReport": "Istanbul University Discipline Report"
       },
       "agreement": "I accept the terms of use and consent to data processing."
+    },
+    "admin": {
+      "title": "Admin Page",
+      "description": "Admin Page",
+      "keywords": "Admin Panel, Club Management, Admin Dashboard, User Management, Event Management, Announcement Management",
+      "login": "Login",
+      "logout": "Logout",
+      "username": "Username",
+      "password": "Password",
+      "welcome": "Welcome",
+      "goToLink": "Go to Link",
+      "announcements": "Announcements",
+      "AnnouncementsPage": {
+        "Announcements": "Announcements",
+        "title": "Edit Announcement",
+        "description": "Modify and update announcements easily.",
+        "editingText": {
+          "title": "Edit Announcement Details",
+          "description1": "Use the form below to update the announcement details.",
+          "description2": "Ensure all required fields are filled before submitting.",
+          "formTitle": "Announcement Information",
+          "formDescription": "Provide the necessary details to update the announcement."
+        },
+        "form": {
+          "title": "Announcement Title",
+          "content": "Announcement Content"
+        },
+        "save": "Save Changes"
+      },
+      "announcementsDesc": "You can manage announcements here.",
+      "events": "Events",
+      "eventsDesc": "You can manage events here.",
+      "userManagement": "User Management",
+      "userManagementDesc": "You can manage the users here.",
+      "socialMediaManagement": "Social Media Management",
+      "socialMediaManagementDesc": "You can manage social media links here.",
+
+      "settings": "Settings",
+      "dashboard": "Panel",
+
+      "signIn": "Sign In",
+      "signOut": "Sign Out",
+      "signUp": "Sign Up"
     }
   },
 
@@ -166,54 +215,11 @@
         "links" : "Useful Links",
         "gallery": "Gallery",
         "about": "About Us",
-        "team": "Our Team",
-        "charter": "Charter of the Club",
+        "about--team": "Our Team",
+        "about--charter": "Charter of the Club",
         "contact": "Contact",
         "faq": "FAQ",
         "joinTheClub": "Join the Club"
     }
-  },
-
-  "AdminPage": {
-    "title": "Admin Page",
-    "description": "Admin Page",
-    "login": "Login",
-    "logout": "Logout",
-    "username": "Username",
-    "password": "Password",
-    "welcome": "Welcome",
-    "goToLink": "Go to Link",
-    "announcements": "Announcements",
-    "AnnouncementsPage": {
-      "Announcements": "Announcements",
-      "title": "Edit Announcement",
-      "description": "Modify and update announcements easily.",
-      "editingText": {
-        "title": "Edit Announcement Details",
-        "description1": "Use the form below to update the announcement details.",
-        "description2": "Ensure all required fields are filled before submitting.",
-        "formTitle": "Announcement Information",
-        "formDescription": "Provide the necessary details to update the announcement."
-      },
-      "form": {
-        "title": "Announcement Title",
-        "content": "Announcement Content"
-      },
-      "save": "Save Changes"
-    },
-    "announcementsDesc": "You can manage announcements here.",
-    "events": "Events",
-    "eventsDesc": "You can manage events here.",
-    "userManagement": "User Management",
-    "userManagementDesc": "You can manage the users here.",
-    "socialMediaManagement": "Social Media Management",
-    "socialMediaManagementDesc": "You can manage social media links here.",
-
-    "settings": "Settings",
-    "dashboard": "Panel",
-
-    "signIn": "Sign In",
-    "signOut": "Sign Out",
-    "signUp": "Sign Up"
   }
 }
