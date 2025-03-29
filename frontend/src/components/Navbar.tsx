@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import {Menu, X, ChevronDown, ChevronUp} from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
@@ -55,13 +55,14 @@ export default function Navbar({locale}: {locale: string}) {
                 <ul className="flex flex-col lg:flex-row items-center">
                     {menuItems.map(({ href, label, external }) => (
                         <li key={href} className="my-2 lg:my-0 lg:mr-5">
-                            <Link href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined} className={`font-semibold text-lg ${isIndex?'text-white hover:text-gray-400' :'text-white hover:text-gray-400 lg:text-primary lg:hover:text-secondaryDark'}  duration-300`} onClick={toggleMenu}>{label}</Link>
+                            <Link href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined} className={`font-semibold text-lg ${isIndex?'text-white hover:text-gray-400' :'text-white hover:text-gray-400 lg:text-primary lg:hover:text-secondaryDark'} duration-300`} onClick={toggleMenu}>{label}</Link>
                         </li>
                     ))}
 
                     <li className="relative">
-                        <button onClick={toggleAbout} className="flex items-center font-semibold text-lg text-white hover:text-gray-400">
-                            {componentTranslations('about')} <ChevronDown className="ml-1 w-4 h-4" />
+                        <button onClick={toggleAbout} className={`flex items-center font-semibold text-lg ${isIndex?'text-white hover:text-gray-400' :'text-white hover:text-gray-400 lg:text-primary lg:hover:text-secondaryDark'} duration-300`}>
+                            {componentTranslations('about')}
+                            {isAboutOpen ? <ChevronUp className="ml-1 w-4 h-4" /> : <ChevronDown className="ml-1 w-4 h-4" />}
                         </button>
                         {isAboutOpen && (
                             <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
