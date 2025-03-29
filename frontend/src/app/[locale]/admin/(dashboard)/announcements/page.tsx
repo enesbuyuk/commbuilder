@@ -2,15 +2,15 @@ import {getTranslations, setRequestLocale} from "next-intl/server";
 import {Announcement} from "@/types/Announcement";
 import Link from "next/link";
 
+const pageName = "admin";
+
 export default async function AdminAnnouncementsList({params}: { params: Promise<{ locale: string }> }) {
     const {locale} = await params;
     setRequestLocale(locale);
-    const translations = {
-        generalTranslations: await getTranslations("General"),
-        pageTranslations: await getTranslations("AdminPage")
-    }
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/announcements`);
+    const contentTranslations = await getTranslations({locale, namespace:`pages.${pageName}`})
+
+    const response = await fetch(`${process.env.BACKEND_URL}/announcements`);
 
     const announcements: Announcement[] = await response.json();
 
@@ -18,7 +18,7 @@ export default async function AdminAnnouncementsList({params}: { params: Promise
         <div className="justify-items-center display-block">
             <h1
                 className="text-center text-primary uppercase tracking-widest font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl pb-2 sm:pb-4 md:pb-6 lg:pb-8"
-            >{translations.pageTranslations("announcements")}</h1>
+            >{contentTranslations("announcements")}</h1>
             {announcements.map((announcement) => (
                 <div
                     key={announcement._id}
@@ -30,7 +30,7 @@ export default async function AdminAnnouncementsList({params}: { params: Promise
                                 href={`/${locale}/admin/announcements/${announcement._id}/edit`}
                                 className="text-blue-500 font-medium text-md hover:underline"
                             >
-                                {announcement.announcement_title[locale]}
+                                {announcement.title[locale]}
                             </Link>
                             <div className="flex items-center gap-2">
                                 <Link href={`/${locale}/admin/announcements/${announcement._id}/edit`}>
@@ -46,12 +46,11 @@ export default async function AdminAnnouncementsList({params}: { params: Promise
                             </div>
                         </div>
                         <p className="text-sm text-gray-500 mt-1">
-                            {announcement.announcement_description[locale]}
+                            {announcement.description[locale]}
                         </p>
                     </div>
                 </div>
             ))}
         </div>
     );
-
 }
