@@ -1,6 +1,6 @@
 import {getTranslations} from "next-intl/server";
 import { redirect } from 'next/navigation';
-import {getUser} from "@/utils/user";
+import {getUser} from "@/lib/utils/user";
 import Link from "next/link";
 import {getPath, Pathnames} from "@/i18n/routing";
 
