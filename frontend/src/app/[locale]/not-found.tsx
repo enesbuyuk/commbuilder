@@ -1,18 +1,17 @@
 import PageLayout from '@/components/PageLayout';
-import {getTranslations, setRequestLocale} from "next-intl/server";
+import {getLocale, getTranslations} from "next-intl/server";
 
-export default async function notFound({ params }: { params: Promise<{ locale: string }> }) {
-    // why is this not working?
-    // const {locale} = await params;
+const pageName = "not-found";
+
+export default async function notFound() {
+    const locale = await getLocale();
     // setRequestLocale(locale);
 
-    const translations = {
-        pageTranslations: await getTranslations("NotFoundPage")
-    }
+    const metadataTranslations = await getTranslations({locale, namespace:`metadata.${pageName}`});
 
     return (
-        <PageLayout locale={"en"} title={translations.pageTranslations('title')} description={translations.pageTranslations("description")}>
-            <p className="max-w-[460px]">{translations.pageTranslations('description')}</p>
+        <PageLayout locale={"en"} title={metadataTranslations('title')} description={metadataTranslations("description")}>
+            <p className="max-w-[900px]">{metadataTranslations('description')}</p>
         </PageLayout>
     );
 }
