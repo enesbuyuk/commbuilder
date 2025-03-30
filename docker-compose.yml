@@ -44,6 +44,7 @@ services:
     tty: true
     volumes:
       - ./frontend:/app
+      - ./frontend/public:/public
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.frontend.rule=Host(`${SITE_HOSTNAME:-localhost}`)"
