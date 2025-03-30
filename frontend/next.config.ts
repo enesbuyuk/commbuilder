@@ -5,13 +5,7 @@ const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
     trailingSlash: false,
-    images: {
-        remotePatterns: [
-            {
-                hostname: process.env.NEXT_PUBLIC_HOST_NAME!,
-            }
-        ],
-    }
+    output: 'standalone'
 };
 
 export default withNextIntl(nextConfig);
