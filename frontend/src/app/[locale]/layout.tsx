@@ -5,6 +5,8 @@ import React from "react";
 import {NextIntlClientProvider} from "next-intl";
 import Footer from "@/components/Footer";
 
+export const dynamic = 'force-dynamic'
+
 export function generateStaticParams() {
     return routing.locales.map((locale) => ({ locale }));
 }
