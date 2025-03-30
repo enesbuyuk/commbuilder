@@ -19,7 +19,7 @@ export async function handleLogin(formData: FormData) {
 
         (await cookies()).set("token", token, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
+            //secure: process.env.NODE_ENV === "production",
             path: "/",
             maxAge: 60 * 60 * 24 * 7,
         });
