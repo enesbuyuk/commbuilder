@@ -56,7 +56,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({locale='en', title,description,b
 
                     <div className={`
           container 
-          px-4 sm:px-6 md:px-12 lg:px-12 
+          px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12
           py-8 sm:py-12 md:py-24 lg:py-24 
           items-center 
           mx-auto 
