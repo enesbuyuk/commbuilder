@@ -1,4 +1,4 @@
-![img.png](img.png)
+![docs/images/homepage-screenshot.png](docs/images/homepage-screenshot.png)
 
 
 
@@ -32,101 +32,150 @@ Directory structure:
     ├── README.md
     ├── default.env
     ├── docker-compose.yml
-    ├── Dockerfile
     ├── LICENSE
-    ├── next.config.ts
-    ├── package.json
-    ├── postcss.config.mjs
-    ├── tailwind.config.ts
-    ├── tsconfig.json
-    ├── .eslintrc.json
-    ├── db/
-    │   └── university-student-club.announcements.json
-    ├── messages/
-    │   ├── en.json
-    │   └── tr.json
-    ├── public/
-    │   ├── robots.txt
-    │   ├── theme/
-    │   │   ├── default-image.webp
-    │   │   ├── videoplayback.webm
-    │   │   └── admin/
-    │   │       └── admin-login-page.webp
-    │   └── uploads/
-    │       └── .gitkeep
-    └── src/
-        ├── middleware.ts
-        ├── app/
-        │   ├── globals.css
-        │   ├── Inter.ttf
-        │   ├── layout.tsx
-        │   ├── page.tsx
-        │   ├── [locale]/
-        │   │   ├── layout.tsx
-        │   │   ├── not-found.tsx
-        │   │   ├── opengraph-image.tsx
-        │   │   ├── page.tsx
-        │   │   ├── [...rest]/
-        │   │   │   └── page.tsx
-        │   │   ├── about/
-        │   │   │   ├── page.tsx
-        │   │   │   ├── charter/
-        │   │   │   │   └── page.tsx
-        │   │   │   └── team/
-        │   │   │       └── page.tsx
-        │   │   ├── admin/
-        │   │   │   ├── page.tsx
-        │   │   │   └── (account)/
-        │   │   │       └── sign-in/
-        │   │   │           └── page.tsx
-        │   │   ├── announcements/
-        │   │   │   └── page.tsx
-        │   │   ├── contact/
-        │   │   │   └── page.tsx
-        │   │   ├── events/
-        │   │   │   └── page.tsx
-        │   │   ├── faq/
-        │   │   │   └── page.tsx
-        │   │   ├── gallery/
-        │   │   │   └── page.tsx
-        │   │   ├── join-the-club/
-        │   │   │   └── page.tsx
-        │   │   └── useful-links/
-        │   │       └── page.tsx
-        │   ├── api/
-        │   │   ├── admin/
-        │   │   │   ├── route.ts
-        │   │   │   └── token/
-        │   │   │       └── route.ts
-        │   │   ├── announcements/
-        │   │   │   └── route.ts
-        │   │   └── events/
-        │   │       └── route.ts
-        │   └── fonts/
-        │       ├── GeistMonoVF.woff
-        │       └── GeistVF.woff
-        ├── components/
-        │   ├── AdminSignIn.tsx
-        │   ├── BaseLayout.tsx
-        │   ├── Faq.tsx
-        │   ├── Footer.tsx
-        │   ├── Gallery.tsx
-        │   ├── Header.tsx
-        │   ├── IndexPageSectionLayout.tsx
-        │   ├── LanguageSwitcher.tsx
-        │   ├── LastEvents.tsx
-        │   ├── MediumArticles.tsx
-        │   ├── Navbar.tsx
-        │   └── PageLayout.tsx
-        ├── i18n/
-        │   ├── request.ts
-        │   └── routing.ts
-        ├── types/
-        │   ├── Admin.ts
-        │   ├── Announcement.ts
-        │   └── Attempt.ts
-        └── utils/
-            └── startMongo.ts
+    ├── backend/
+    │   ├── Dockerfile
+    │   ├── go.mod
+    │   ├── go.sum
+    │   ├── main.go
+    │   └── pkg/
+    │       ├── config/
+    │       │   ├── database.go
+    │       │   ├── environment.go
+    │       │   └── jwt.go
+    │       ├── handlers/
+    │       │   ├── announcements.go
+    │       │   ├── auth.go
+    │       │   ├── events.go
+    │       │   └── useful_links.go
+    │       ├── middleware/
+    │       │   └── jwt.go
+    │       ├── models/
+    │       │   ├── announcement.go
+    │       │   ├── event.go
+    │       │   ├── useful_links.go
+    │       │   └── user.go
+    │       ├── routes/
+    │       │   ├── announcements.go
+    │       │   ├── auth.go
+    │       │   ├── events.go
+    │       │   └── useful_links.go
+    │       ├── server/
+    │       │   ├── setup_middleware.go
+    │       │   ├── setup_routes.go
+    │       │   └── setup_server.go
+    │       └── services/
+    │           └── hashCompare.go
+    └── frontend/
+        ├── Dockerfile
+        ├── next.config.ts
+        ├── package.json
+        ├── pnpm-lock.yaml
+        ├── pnpm-workspace.yaml
+        ├── postcss.config.mjs
+        ├── tailwind.config.ts
+        ├── tsconfig.json
+        ├── .dockerignore
+        ├── .eslintrc.json
+        ├── db/
+        │   └── university-student-club.announcements.json
+        ├── messages/
+        │   ├── en.json
+        │   └── tr.json
+        ├── public/
+        │   ├── robots.txt
+        │   ├── theme/
+        │   │   ├── background.webm
+        │   │   ├── default-image.webp
+        │   │   └── admin/
+        │   │       └── admin-login-page.webp
+        │   └── uploads/
+        │       └── .gitkeep
+        └── src/
+            ├── middleware.ts
+            ├── app/
+            │   ├── globals.css
+            │   ├── Inter.ttf
+            │   ├── layout.tsx
+            │   ├── page.tsx
+            │   ├── [locale]/
+            │   │   ├── layout.tsx
+            │   │   ├── not-found.tsx
+            │   │   ├── opengraph-image.tsx
+            │   │   ├── page.tsx
+            │   │   ├── [...rest]/
+            │   │   │   └── page.tsx
+            │   │   ├── about/
+            │   │   │   ├── page.tsx
+            │   │   │   ├── charter/
+            │   │   │   │   └── page.tsx
+            │   │   │   └── team/
+            │   │   │       └── page.tsx
+            │   │   ├── admin/
+            │   │   │   ├── (account)/
+            │   │   │   │   ├── sign-in/
+            │   │   │   │   │   └── page.tsx
+            │   │   │   │   └── sign-out/
+            │   │   │   │       └── route.ts
+            │   │   │   └── (dashboard)/
+            │   │   │       ├── layout.tsx
+            │   │   │       ├── page.tsx
+            │   │   │       └── announcements/
+            │   │   │           ├── page.tsx
+            │   │   │           └── [id]/
+            │   │   │               ├── edit/
+            │   │   │               │   └── page.tsx
+            │   │   │               └── remove/
+            │   │   │                   └── page.tsx
+            │   │   ├── announcements/
+            │   │   │   └── page.tsx
+            │   │   ├── contact/
+            │   │   │   └── page.tsx
+            │   │   ├── events/
+            │   │   │   └── page.tsx
+            │   │   ├── faq/
+            │   │   │   └── page.tsx
+            │   │   ├── gallery/
+            │   │   │   └── page.tsx
+            │   │   ├── join-the-club/
+            │   │   │   └── page.tsx
+            │   │   ├── links/
+            │   │   │   └── page.tsx
+            │   │   └── useful-links/
+            │   │       └── page.tsx
+            │   └── fonts/
+            │       ├── GeistMonoVF.woff
+            │       └── GeistVF.woff
+            ├── components/
+            │   ├── Faq.tsx
+            │   ├── Footer.tsx
+            │   ├── Gallery.tsx
+            │   ├── Header.tsx
+            │   ├── HomeTypewriter.tsx
+            │   ├── IndexPageSectionLayout.tsx
+            │   ├── LanguageSwitcher.tsx
+            │   ├── LastEvents.tsx
+            │   ├── MediumArticles.tsx
+            │   ├── Navbar.tsx
+            │   ├── PageLayout.tsx
+            │   └── admin/
+            │       └── AdminHeader.tsx
+            ├── i18n/
+            │   ├── request.ts
+            │   └── routing.ts
+            ├── lib/
+            │   ├── metadata.ts
+            │   ├── auth/
+            │   │   └── auth.ts
+            │   └── utils/
+            │       └── user.ts
+            └── types/
+                ├── Admin.ts
+                ├── Announcement.ts
+                ├── Attempt.ts
+                ├── Event.ts
+                ├── Post.ts
+                └── User.ts
 ```
 
 
