@@ -24,7 +24,7 @@ func main() {
 
 	app := server.SetupServer()
 
-	if err := app.Listen(":" + os.Getenv("BE_PORT")); err != nil {
+	if err := app.Listen(":" + os.Getenv("BACKEND_PORT")); err != nil {
 		log.Fatal(err)
 	}
 }
