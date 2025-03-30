@@ -1,45 +1,83 @@
 services:
-  site--university-student-club-website:
-    container_name: "site--university-student-club-website"
-    restart: unless-stopped
+  backend:
+    image: "student-club-web-backend:latest"
+    container_name: "student-club-web-backend"
+    environment:
+      - BACKEND_PORT=${BACKEND_PORT}
+      - JWT_SECRET=${JWT_SECRET}
+      - MONGODB_HOST=${MONGODB_HOST}
+      - MONGODB_PORT=${MONGODB_PORT}
+      - MONGODB_USERNAME=${MONGODB_USERNAME}
+      - MONGODB_PASSWORD=${MONGODB_PASSWORD}
+      - MONGODB_DATABASE=${MONGODB_DATABASE}
+    restart: always
     build:
-      context: ./
+      context: ./backend
       dockerfile: Dockerfile
     tty: true
     volumes:
-      - ./:/app
-      - /app/node_modules
-      - /app/.next
+      - ./backend:/app
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    networks:
+      - student-club-web-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:${BACKEND_PORT}/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  frontend:
+    image: "student-club-web-frontend:latest"
+    container_name: "student-club-web-frontend"
+    environment:
+      - SITE_HOSTNAME=${SITE_HOSTNAME}
+      - BACKEND_URL=${BACKEND_URL}
+      - PORT=${PORT}
+      - NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL}
+      - NEXT_PUBLIC_MEDIUM_URL=${NEXT_PUBLIC_MEDIUM_URL}
+    restart: always
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    tty: true
+    volumes:
+      - ./frontend:/app
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.site--university-student-club-website.rule=Host(`${NEXT_PUBLIC_HOST_NAME}`)"
-      - "traefik.http.routers.site--university-student-club-website.entrypoints=web"
-      - "traefik.http.services.site--university-student-club-website.loadbalancer.server.port=${PORT}"
+      - "traefik.http.routers.frontend.rule=Host(`${SITE_HOSTNAME:-localhost}`)"
+      - "traefik.http.routers.frontend.entrypoints=web"
+      - "traefik.http.services.frontend.loadbalancer.server.port=${PORT}"
     depends_on:
-      - mongodb
+      - backend
     networks:
-      - network--university-student-club-website
+      - student-club-web-network
 
   mongodb:
-    image: mongo:7.0
+    image: mongo:8.0
     restart: unless-stopped
     container_name: mongodb
     environment:
-      MONGO_INITDB_ROOT_USERNAME: "${MONGO_INITDB_ROOT_USERNAME:-root}"
-      MONGO_INITDB_ROOT_PASSWORD: "${MONGO_INITDB_ROOT_PASSWORD:-example}"
+      MONGO_INITDB_ROOT_USERNAME: "${MONGODB_USERNAME}"
+      MONGO_INITDB_ROOT_PASSWORD: "${MONGODB_PASSWORD}"
     ports:
-      - "27017:27017"
+      - "27017:${MONGODB_PORT}"
     command: [ "mongod", "--bind_ip_all" ]
     volumes:
       - mongodb-data:/data/db
     networks:
-      - network--university-student-club-website
+      - student-club-web-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.runCommand({ ping: 1 })"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 volumes:
   mongodb-data:
     driver: local
 
 networks:
-  network--university-student-club-website:
-    name: simple_network
-    external: true
+  student-club-web-network:
+    driver: bridge
