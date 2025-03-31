@@ -1,10 +1,8 @@
 ![docs/images/homepage-screenshot.png](docs/images/homepage-screenshot.png)
 
+# Student Club Web
 
-
-# University Student Club Website
-
-This project is the Istanbul University Computer Science Student Club website. It is designed to provide students with information about the club and facilitate participation in club activities.
+Student Club Web is an open-source website template that enables student clubs to easily create and manage their digital presence. Although it was initially developed for the Istanbul University Computer Science Club (IÜ CS), the project is designed to be flexible and customizable, making it suitable for all university clubs. The platform aims to encourage student participation in club activities, provide an efficient way to share announcements, and enhance the club's digital identity with a modern solution.
 
 ## Table of Contents
 
@@ -189,20 +187,32 @@ Directory structure:
 - Gallery
 - Team page
 - Contact form
+- Admin Panel
 
 ## Technologies Used
 
-- TypeScript
-- JavaScript
-- React
-- Next.js
-- Tailwind CSS
-- npm
-- Docker
+- **Next.js:** A powerful React framework for building static and server-rendered applications. Next.js optimizes performance, provides automatic code splitting, and enhances SEO, making it the ideal choice for building a fast, scalable website.
+
+- **React:** A JavaScript library for building user interfaces. React allows the creation of reusable UI components, ensuring that the frontend of the site is dynamic, responsive, and efficient.
+
+- **TypeScript:** A statically typed superset of JavaScript, TypeScript enhances the development process by adding type safety to the project. This improves code quality and reduces the likelihood of runtime errors.
+
+- **Tailwind CSS** CSS: A utility-first CSS framework that allows rapid UI development by using pre-defined classes. Tailwind CSS helps maintain a consistent design throughout the website and significantly reduces the amount of custom CSS code needed.
+
+- **Go Fiber:** A fast and lightweight web framework for building backend services with Go (Golang). Go Fiber is designed to be simple and highly performant, providing a minimalistic API that allows quick routing and efficient handling of HTTP requests. It is especially well-suited for building RESTful APIs and high-performance web applications.
+
+- **MongoDB:** A flexible and scalable NoSQL database. MongoDB stores data in JSON-like documents and is often used in projects requiring high read/write performance, especially for large datasets.
+
+- **pnpm:** A fast, disk space-efficient package manager for JavaScript. pnpm ensures faster installation times and better dependency management compared to npm, and it optimizes disk usage by storing dependencies in a global store.
+
+- **Docker:** A platform for developing, shipping, and running applications in containers. Docker ensures the application runs consistently across different environments, making it easier to deploy and scale the application.
+
+- **Traefik:** A modern reverse proxy and load balancer. Traefik is used to manage microservices and route traffic between different services. With automatic configuration and dynamic routing features, it makes it easy to manage traffic between services within your application.
+
 
 ## Getting Started
 
-First, rename the `default.env` file to `.env` and fill in the variables according to your setup.
+Firstly, rename the `default.env` file to `.env` and fill in the variables according to your setup.
 
 ### Prerequisites
 
@@ -215,24 +225,24 @@ Make sure you have Node.js and npm installed on your machine.
 To start with Docker, use:
 
 ```bash
-docker compose up
+docker compose up --build
 ```
 
 #### Manual Installation
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/enesbuyuk/university-student-club-website.git
+git clone https://github.com/enesbuyuk/student-club-web.git
 ```
 
 2. Navigate to the project directory:
 ```bash
-cd university-student-club-website
+cd student-club-web
 ```
 
 3. Install the dependencies:
 ```bash
-npm install
+pnpm install
 ```
 
 ### Development Server
@@ -240,13 +250,7 @@ npm install
 Run the development server with one of these commands:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
 ### Production Deployment
@@ -256,13 +260,7 @@ bun dev
 Build the project with one of these commands:
 
 ```bash
-npm run build
-# or
-yarn build
-# or
 pnpm build
-# or
-bun build
 ```
 
 #### Starting the Production Server
@@ -270,13 +268,7 @@ bun build
 Start the production server with one of these commands:
 
 ```bash
-npm run start
-# or
-yarn start
-# or
 pnpm start
-# or
-bun start
 ```
 
 ## Demo
