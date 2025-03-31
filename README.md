@@ -2,7 +2,7 @@
 
 # Student Club Web
 
-Student Club Web is an open-source website template that enables student clubs to easily create and manage their digital presence. Although it was initially developed for the Istanbul University Computer Science Club (IÜ CS), the project is designed to be flexible and customizable, making it suitable for all university clubs. The platform aims to encourage student participation in club activities, provide an efficient way to share announcements, and enhance the club's digital identity with a modern solution.
+Student Club Web is an open-source website template that enables student clubs to easily create and manage their digital presence. Although it was initially developed for the Istanbul University Computer Science Club (IU CSC), the project is designed to be flexible and customizable, making it suitable for all university clubs. The platform aims to encourage student participation in club activities, provide an efficient way to share announcements, and enhance the club's digital identity with a modern solution.
 
 ## Table of Contents
 
