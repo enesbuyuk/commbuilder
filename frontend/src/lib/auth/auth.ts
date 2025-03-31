@@ -22,6 +22,7 @@ export async function handleLogin(formData: FormData) {
             //secure: process.env.NODE_ENV === "production",
             path: "/",
             maxAge: 60 * 60 * 24 * 7,
+            domain: process.env.SITE_HOSTNAME
         });
 
         redirect(`/admin`);
