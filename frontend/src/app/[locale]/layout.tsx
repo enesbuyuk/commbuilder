@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
             type: "website",
         },
         alternates:{
-            canonical: process.env.NEXT_PUBLIC_SITE_URL,
+            canonical: process.env.NEXT_PUBLIC_SITE_URL+`/${locale}`,
             languages: {
                 en: process.env.NEXT_PUBLIC_SITE_URL + "/en",
                 tr: process.env.NEXT_PUBLIC_SITE_URL + "/tr",
