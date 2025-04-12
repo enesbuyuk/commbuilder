@@ -234,11 +234,9 @@ cd student-club-web
 
 #### 1. Run the installation script to set up the environment variables
 ```bash
-chmod +x install.sh; ./install.sh
+chmod +x setup_env.sh; ./setup_env.sh
 ```
 This will automatically create the `.env` file and set the required environment variables.
-
----
 
 ### Using Docker
 
@@ -269,8 +267,6 @@ cd student-club-web
 pnpm install
 ```
 
----
-
 ### Development Server
 
 To start the development server, use the following command:
@@ -278,8 +274,6 @@ To start the development server, use the following command:
 ```bash
 pnpm dev
 ```
-
----
 
 ### Production Deployment
 
