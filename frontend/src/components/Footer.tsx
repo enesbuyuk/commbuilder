@@ -21,9 +21,9 @@ export default async function Footer() {
                 </Link>
                 <p className="text-md text-white sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4 ">
                     Free Software:
-                    <Link href="https://github.com/enesbuyuk/university-student-club-website"
+                    <Link href="https://github.com/enesbuyuk/student-club-web"
                           className="text-white hover:text-secondary font-semibold ml-1 duration-300 "
-                          target="_blank">University Student Club Website</Link><br/>
+                          target="_blank">Student Club Web</Link><br/>
                     ©{year} <Link href="/" className="text-white hover:text-secondary font-semibold ml-1 duration-300" target="_blank" title={`${generalTranslations("universityName")} ${generalTranslations("studentClubName")}`}>{generalTranslations("universityName")} {generalTranslations("studentClubName")}</Link>, {generalTranslations("allRightsReserved")}
                 </p>
                 <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
