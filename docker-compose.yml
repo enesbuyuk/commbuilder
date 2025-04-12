@@ -15,7 +15,7 @@ services:
     labels:
       "traefik.enable": 'true'
       "traefik.http.routers.traefik.entrypoints": "web"
-      "traefik.http.routers.traefik.rule": "Host(`localhost.local`)"
+      "traefik.http.routers.traefik.rule": "Host(`${TRAEFIK_DASHBOARD_HOSTNAME:-traefik.localhost}`)"
       "traefik.http.routers.traefik.service": "api@internal"
       "traefik.http.middlewares.traefik-dashboard-auth.basicauth.users": "${TRAEFIK_DASHBOARD_USERNAME}:${TRAEFIK_DASHBOARD_PASSWORD}"
       "traefik.http.routers.traefik.middlewares": "traefik-dashboard-auth"
