@@ -1,4 +1,27 @@
 services:
+  traefik:
+    image: traefik:v3.3.5
+    restart: always
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    command:
+      - --api=true
+      - --api.dashboard=true
+      - --providers.docker.exposedbydefault=false
+      - --entrypoints.web.address=:80
+    labels:
+      "traefik.enable": 'true'
+      "traefik.http.routers.traefik.entrypoints": "web"
+      "traefik.http.routers.traefik.rule": "Host(`localhost.local`)"
+      "traefik.http.routers.traefik.service": "api@internal"
+      "traefik.http.middlewares.traefik-dashboard-auth.basicauth.users": "${TRAEFIK_DASHBOARD_USERNAME}:${TRAEFIK_DASHBOARD_PASSWORD}"
+      "traefik.http.routers.traefik.middlewares": "traefik-dashboard-auth"
+    networks:
+      - student-club-web-network
+
   backend:
     image: "student-club-web-backend:latest"
     container_name: "student-club-web-backend"
@@ -18,8 +41,8 @@ services:
     volumes:
       - ./backend:/app
     depends_on:
-      mongodb:
-        condition: service_healthy
+      - traefik
+      - mongodb
     networks:
       - student-club-web-network
     healthcheck:
