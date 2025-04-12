@@ -4,13 +4,14 @@
 
 Student Club Web is an open-source website template that enables student clubs to easily create and manage their digital presence. Although it was initially developed for the Istanbul University Computer Science Club (IU CSC), the project is designed to be flexible and customizable, making it suitable for all university clubs. The platform aims to encourage student participation in club activities, provide an efficient way to share announcements, and enhance the club's digital identity with a modern solution.
 
+---
+
 ## Table of Contents
 
 - [Directory Structure](#directory-structure)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
   - [Installation](#installation)
     - [Using Docker](#using-docker)
     - [Manual Installation](#manual-installation)
@@ -21,6 +22,8 @@ Student Club Web is an open-source website template that enables student clubs t
     - [Demo](#demo)
 - [Contributing](#contributing)
 - [License](#license)
+
+---
 
 ## Directory Structure
 
@@ -175,6 +178,7 @@ Directory structure:
                 └── User.ts
 ```
 
+---
 
 ## Features
 
@@ -187,6 +191,8 @@ Directory structure:
 - Team page
 - Contact form
 - Admin Panel
+
+---
 
 ## Technologies Used
 
@@ -208,55 +214,78 @@ Directory structure:
 
 - **Traefik:** A modern reverse proxy and load balancer. Traefik is used to manage microservices and route traffic between different services. With automatic configuration and dynamic routing features, it makes it easy to manage traffic between services within your application.
 
+---
 
 ## Getting Started
 
-Firstly, rename the `default.env` file to `.env` and fill in the variables according to your setup.
+To get started with the Student Club Web project, follow these steps:
 
-### Prerequisites
+### 1. Clone the repository
+```bash
+git clone https://github.com/enesbuyuk/student-club-web.git
+```
 
-Make sure you have Node.js and npm installed on your machine.
+### 2. Navigate to the project directory
+```bash
+cd student-club-web
+```
 
 ### Installation
 
-#### Using Docker
+#### 1. Run the installation script to set up the environment variables
+```bash
+chmod +x install.sh; ./install.sh
+```
+This will automatically create the `.env` file and set the required environment variables.
 
-To start with Docker, use:
+---
+
+### Using Docker
+
+To run the project using Docker, use the following command:
 
 ```bash
 docker compose up --build
 ```
 
-#### Manual Installation
+---
 
-1. Clone the repository:
+### Manual Installation
+
+If you prefer to set up the project manually, follow these steps:
+
+#### 1. Clone the repository
 ```bash
 git clone https://github.com/enesbuyuk/student-club-web.git
 ```
 
-2. Navigate to the project directory:
+#### 2. Navigate to the project directory
 ```bash
 cd student-club-web
 ```
 
-3. Install the dependencies:
+#### 3. Install the dependencies
 ```bash
 pnpm install
 ```
 
+---
+
 ### Development Server
 
-Run the development server with one of these commands:
+To start the development server, use the following command:
 
 ```bash
 pnpm dev
 ```
 
+---
+
 ### Production Deployment
 
 #### Building the Project
 
-Build the project with one of these commands:
+To build the project for production, use the following command:
 
 ```bash
 pnpm build
@@ -264,19 +293,25 @@ pnpm build
 
 #### Starting the Production Server
 
-Start the production server with one of these commands:
+To start the production server, use the following command:
 
 ```bash
 pnpm start
 ```
 
+---
+
 ## Demo
 
 Visit the live demo at [iucs.net](https://iucs.net/)
 
+---
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a pull request.
+
+---
 
 ## License
 
