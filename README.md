@@ -26,7 +26,7 @@ Student Club Web is an open-source website template that enables student clubs t
 
 ```plaintext
 Directory structure:
-└── enesbuyuk-university-student-club-website/
+└── enesbuyuk-student-club-web/
     ├── README.md
     ├── default.env
     ├── docker-compose.yml
@@ -64,6 +64,11 @@ Directory structure:
     │       │   └── setup_server.go
     │       └── services/
     │           └── hashCompare.go
+    ├── docs/
+    │   ├── examples/
+    │   │   └── db/
+    │   │       └── university-student-club.announcements.json
+    │   └── images/
     └── frontend/
         ├── Dockerfile
         ├── next.config.ts
@@ -75,8 +80,6 @@ Directory structure:
         ├── tsconfig.json
         ├── .dockerignore
         ├── .eslintrc.json
-        ├── db/
-        │   └── university-student-club.announcements.json
         ├── messages/
         │   ├── en.json
         │   └── tr.json
@@ -93,57 +96,53 @@ Directory structure:
             ├── middleware.ts
             ├── app/
             │   ├── globals.css
-            │   ├── Inter.ttf
             │   ├── layout.tsx
             │   ├── page.tsx
-            │   ├── [locale]/
-            │   │   ├── layout.tsx
-            │   │   ├── not-found.tsx
-            │   │   ├── opengraph-image.tsx
-            │   │   ├── page.tsx
-            │   │   ├── [...rest]/
-            │   │   │   └── page.tsx
-            │   │   ├── about/
-            │   │   │   ├── page.tsx
-            │   │   │   ├── charter/
-            │   │   │   │   └── page.tsx
-            │   │   │   └── team/
-            │   │   │       └── page.tsx
-            │   │   ├── admin/
-            │   │   │   ├── (account)/
-            │   │   │   │   ├── sign-in/
-            │   │   │   │   │   └── page.tsx
-            │   │   │   │   └── sign-out/
-            │   │   │   │       └── route.ts
-            │   │   │   └── (dashboard)/
-            │   │   │       ├── layout.tsx
-            │   │   │       ├── page.tsx
-            │   │   │       └── announcements/
-            │   │   │           ├── page.tsx
-            │   │   │           └── [id]/
-            │   │   │               ├── edit/
-            │   │   │               │   └── page.tsx
-            │   │   │               └── remove/
-            │   │   │                   └── page.tsx
-            │   │   ├── announcements/
-            │   │   │   └── page.tsx
-            │   │   ├── contact/
-            │   │   │   └── page.tsx
-            │   │   ├── events/
-            │   │   │   └── page.tsx
-            │   │   ├── faq/
-            │   │   │   └── page.tsx
-            │   │   ├── gallery/
-            │   │   │   └── page.tsx
-            │   │   ├── join-the-club/
-            │   │   │   └── page.tsx
-            │   │   ├── links/
-            │   │   │   └── page.tsx
-            │   │   └── useful-links/
-            │   │       └── page.tsx
-            │   └── fonts/
-            │       ├── GeistMonoVF.woff
-            │       └── GeistVF.woff
+            │   └── [locale]/
+            │       ├── layout.tsx
+            │       ├── not-found.tsx
+            │       ├── opengraph-image.tsx
+            │       ├── page.tsx
+            │       ├── [...rest]/
+            │       │   └── page.tsx
+            │       ├── about/
+            │       │   ├── page.tsx
+            │       │   ├── charter/
+            │       │   │   └── page.tsx
+            │       │   └── team/
+            │       │       └── page.tsx
+            │       ├── admin/
+            │       │   ├── (account)/
+            │       │   │   ├── sign-in/
+            │       │   │   │   └── page.tsx
+            │       │   │   └── sign-out/
+            │       │   │       └── route.ts
+            │       │   └── (dashboard)/
+            │       │       ├── layout.tsx
+            │       │       ├── page.tsx
+            │       │       └── announcements/
+            │       │           ├── page.tsx
+            │       │           └── [id]/
+            │       │               ├── edit/
+            │       │               │   └── page.tsx
+            │       │               └── remove/
+            │       │                   └── page.tsx
+            │       ├── announcements/
+            │       │   └── page.tsx
+            │       ├── contact/
+            │       │   └── page.tsx
+            │       ├── events/
+            │       │   └── page.tsx
+            │       ├── faq/
+            │       │   └── page.tsx
+            │       ├── gallery/
+            │       │   └── page.tsx
+            │       ├── join-the-club/
+            │       │   └── page.tsx
+            │       ├── links/
+            │       │   └── page.tsx
+            │       └── useful-links/
+            │           └── page.tsx
             ├── components/
             │   ├── Faq.tsx
             │   ├── Footer.tsx
