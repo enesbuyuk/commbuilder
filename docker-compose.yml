@@ -1,24 +1,39 @@
 services:
   traefik:
-    image: traefik:v3.3.5
-    restart: always
+    image: traefik:v3.4
+    container_name: traefik
+    restart: unless-stopped
     ports:
       - "80:80"
+      - "443:443"
       - "8080:8080"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
     command:
-      - --api=true
-      - --api.dashboard=true
-      - --providers.docker.exposedbydefault=false
-      - --entrypoints.web.address=:80
+      - "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--entryPoints.web.address=:80"
+      #- "--providers.docker.exposedbydefault=false"
+      - "--entryPoints.websecure.address=:443"
+      - "--certificatesresolvers.myresolver.acme.httpchallenge=true"
+      - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web"
+      - "--certificatesresolvers.myresolver.acme.dnschallenge=true"
+      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
+      - "--certificatesresolvers.myresolver.acme.caserver=https://acme-v02.api.letsencrypt.org/directory"
+      #- "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
+      - "--certificatesresolvers.myresolver.acme.email=contact@enesbuyuk.com"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
     labels:
-      "traefik.enable": 'true'
-      "traefik.http.routers.traefik.entrypoints": "web"
-      "traefik.http.routers.traefik.rule": "Host(`${TRAEFIK_DASHBOARD_HOSTNAME:-traefik.localhost}`)"
-      "traefik.http.routers.traefik.service": "api@internal"
-      "traefik.http.middlewares.traefik-dashboard-auth.basicauth.users": "${TRAEFIK_DASHBOARD_USERNAME}:${TRAEFIK_DASHBOARD_PASSWORD}"
-      "traefik.http.routers.traefik.middlewares": "traefik-dashboard-auth"
+      - "traefik.enable=true"
+      - "traefik.http.routers.dashboard.rule=Host(`${TRAEFIK_DASHBOARD_HOSTNAME}`)"
+      - "traefik.http.routers.dashboard.entrypoints=websecure"
+      - "traefik.http.routers.dashboard.tls=true"
+      - "traefik.http.routers.dashboard.tls.certresolver=myresolver"
+      - "traefik.http.routers.dashboard.service=api@internal"
+      - "traefik.http.routers.dashboard.middlewares=authtraefik"
+      - "traefik.http.middlewares.authtraefik.basicauth.users=${TRAEFIK_DASHBOARD_USERNAME}:${TRAEFIK_DASHBOARD_PASSWORD}"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "./letsencrypt:/letsencrypt"
     networks:
       - student-club-web-network
 
