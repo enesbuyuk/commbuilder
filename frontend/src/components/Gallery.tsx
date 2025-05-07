@@ -36,13 +36,13 @@ export default function Gallery() {
                             src={"/theme/default-image.webp"}
                         />
                     </div>
-                    <div className="col-span-2 cursor-pointer" onClick={() => openModal("/theme/default-image.webp")}>
+                    <div className="col-span-2 cursor-pointer" onClick={() => openModal("/uploads/gallery/1716286964629.jpg")}>
                         <Image
                             width={600}
                             height={600}
                             alt="gallery"
                             className="w-full h-full object-cover object-center"
-                            src={"/theme/default-image.webp"}
+                            src={"/uploads/gallery/1716286964629.jpg"}
                         />
                     </div>
                 </div>
