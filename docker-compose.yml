@@ -9,7 +9,7 @@ services:
       - "8080:8080"
     command:
       - "--log.level=DEBUG"
-      - "--api.insecure=true"
+      - "--api=true"
       - "--providers.docker=true"
       - "--entryPoints.web.address=:80"
       #- "--providers.docker.exposedbydefault=false"
@@ -26,9 +26,9 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.dashboard.rule=Host(`${TRAEFIK_DASHBOARD_HOSTNAME}`)"
       - "traefik.http.routers.dashboard.entrypoints=websecure"
+      - "traefik.http.routers.dashboard.service=api@internal"
       - "traefik.http.routers.dashboard.tls=true"
       - "traefik.http.routers.dashboard.tls.certresolver=myresolver"
-      - "traefik.http.routers.dashboard.service=api@internal"
       - "traefik.http.routers.dashboard.middlewares=authtraefik"
       - "traefik.http.middlewares.authtraefik.basicauth.users=${TRAEFIK_DASHBOARD_USERNAME}:${TRAEFIK_DASHBOARD_PASSWORD}"
     volumes:
@@ -88,9 +88,30 @@ services:
       - ./frontend/public:/public
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.frontend.rule=Host(`${SITE_HOSTNAME:-localhost}`)"
-      - "traefik.http.routers.frontend.entrypoints=web"
-      - "traefik.http.services.frontend.loadbalancer.server.port=${PORT}"
+
+      # HTTP Router (for HTTP -> HTTPS)
+      - "traefik.http.routers.site-http.rule=Host(`${SITE_HOSTNAME:-localhost}`)"
+      - "traefik.http.routers.site-http.entrypoints=web"
+      - "traefik.http.routers.site-http.middlewares=redirect-to-https"
+
+      # HTTPS Router (HTTPS)
+      - "traefik.http.routers.site.rule=Host(`${SITE_HOSTNAME:-localhost}`)"
+      - "traefik.http.routers.site.entrypoints=websecure"
+      - "traefik.http.routers.site.service=wordpress"
+      - "traefik.http.routers.site.tls=true"
+      - "traefik.http.routers.site.tls.certresolver=myresolver"
+
+      # Service
+      - "traefik.http.services.site.loadbalancer.server.port=${PORT}"
+      - "traefik.http.services.site.loadbalancer.passhostheader=true"
+
+      # Middleware: HTTPS redirection
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true"
+
+      # Middleware: Compression
+      - "traefik.http.routers.site.middlewares=compress"
+      - "traefik.http.middlewares.compress.compress=true"
     depends_on:
       - backend
     networks:
