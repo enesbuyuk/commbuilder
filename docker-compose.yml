@@ -12,16 +12,17 @@ services:
       - "--api=true"
       - "--providers.docker=true"
       - "--entryPoints.web.address=:80"
-      #- "--providers.docker.exposedbydefault=false"
       - "--entryPoints.websecure.address=:443"
-      - "--certificatesresolvers.myresolver.acme.httpchallenge=true"
-      - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web"
+
       - "--certificatesresolvers.myresolver.acme.dnschallenge=true"
-      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
-      - "--certificatesresolvers.myresolver.acme.caserver=https://acme-v02.api.letsencrypt.org/directory"
-      #- "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
-      - "--certificatesresolvers.myresolver.acme.email=contact@enesbuyuk.com"
+      - "--certificatesresolvers.myresolver.acme.dnschallenge.provider=cloudflare"
+      - "--certificatesresolvers.myresolver.acme.email=${ACME_EMAIL}"
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+
+      - "--certificatesresolvers.myresolver.acme.httpchallenge=false"
+      - "--certificatesresolvers.myresolver.acme.tlschallenge=false"
+    environment:
+      - CF_DNS_API_TOKEN=${CF_DNS_API_TOKEN}
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.dashboard.rule=Host(`${TRAEFIK_DASHBOARD_HOSTNAME}`)"
@@ -37,7 +38,7 @@ services:
     networks:
       - student-club-web-network
 
-  backend:
+  student-club-web-backend:
     image: "student-club-web-backend:latest"
     container_name: "student-club-web-backend"
     environment:
@@ -66,7 +67,7 @@ services:
       timeout: 5s
       retries: 5
 
-  frontend:
+  student-club-web-frontend:
     image: "student-club-web-frontend:latest"
     container_name: "student-club-web-frontend"
     environment:
@@ -89,31 +90,31 @@ services:
     labels:
       - "traefik.enable=true"
 
-      # HTTP Router (for HTTP -> HTTPS)
-      - "traefik.http.routers.site-http.rule=Host(`${SITE_HOSTNAME:-localhost}`)"
-      - "traefik.http.routers.site-http.entrypoints=web"
-      - "traefik.http.routers.site-http.middlewares=redirect-to-https"
+      # HTTP Router
+      - "traefik.http.routers.student-club-web-frontend-http.rule=Host(`${SITE_HOSTNAME:-localhost}`)"
+      - "traefik.http.routers.student-club-web-frontend-http.entrypoints=web"
+      - "traefik.http.routers.student-club-web-frontend-http.middlewares=student-club-web-frontend-redirect-to-https"
 
-      # HTTPS Router (HTTPS)
-      - "traefik.http.routers.site.rule=Host(`${SITE_HOSTNAME:-localhost}`)"
-      - "traefik.http.routers.site.entrypoints=websecure"
-      - "traefik.http.routers.site.service=wordpress"
-      - "traefik.http.routers.site.tls=true"
-      - "traefik.http.routers.site.tls.certresolver=myresolver"
+      # HTTPS Router
+      - "traefik.http.routers.student-club-web-frontend.rule=Host(`${SITE_HOSTNAME:-localhost}`)"
+      - "traefik.http.routers.student-club-web-frontend.entrypoints=websecure"
+      - "traefik.http.routers.student-club-web-frontend.service=student-club-web-frontend"
+      - "traefik.http.routers.student-club-web-frontend.tls=true"
+      - "traefik.http.routers.student-club-web-frontend.tls.certresolver=myresolver"
 
       # Service
-      - "traefik.http.services.site.loadbalancer.server.port=${PORT}"
-      - "traefik.http.services.site.loadbalancer.passhostheader=true"
+      - "traefik.http.services.student-club-web-frontend.loadbalancer.server.port=${PORT}"
+      - "traefik.http.services.student-club-web-frontend.loadbalancer.passhostheader=true"
 
       # Middleware: HTTPS redirection
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true"
+      - "traefik.http.middlewares.student-club-web-frontend-redirect-to-https.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.student-club-web-frontend-redirect-to-https.redirectscheme.permanent=true"
 
       # Middleware: Compression
-      - "traefik.http.routers.site.middlewares=compress"
-      - "traefik.http.middlewares.compress.compress=true"
+      - "traefik.http.routers.student-club-web-frontend.middlewares=student-club-web-frontend-compress"
+      - "traefik.http.middlewares.student-club-web-frontend-compress.compress=true"
     depends_on:
-      - backend
+      - student-club-web-backend
     networks:
       - student-club-web-network
 
