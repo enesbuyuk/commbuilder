@@ -9,13 +9,9 @@ const intlMiddleware = createMiddleware(routing);
 //export default createMiddleware(routing);
 
 export async function middleware(req: NextRequest) {
-    //console.log("ex url:", req.nextUrl.pathname);
-
     const intlResponse = intlMiddleware(req);
     const response = intlResponse || NextResponse.next();
     const locale = await getLocale();
-
-    //console.log("new url:", req.nextUrl.pathname);
 
     const clientPath = req.nextUrl.pathname;
 
@@ -27,6 +23,16 @@ export async function middleware(req: NextRequest) {
             return NextResponse.redirect(new URL(`/${locale}/admin/sign-in`, req.url));
         }
     }
+    const headers = new Headers(req.headers);
+    headers.set("x-is-home", "false");
+
+    if(req.nextUrl.pathname.substring(3).length == 0) {
+        // https://medium.com/@beecodeguy/access-current-pathname-in-server-components-next-js-app-router-81686d2ed60f
+
+        response.headers.set("x-is-home", "true");
+        console.log("-----middlewre--->"+headers.get("x-is-home"));
+    }
+
     return response;
 }
 

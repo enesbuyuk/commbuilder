@@ -162,6 +162,9 @@
       },
       "agreement": "I accept the terms of use and consent to data processing."
     },
+    "links": {
+      "goToOurWebsite": "Go to Our Website"
+    },
     "admin": {
       "title": "Admin Page",
       "description": "Admin Page",

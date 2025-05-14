@@ -35,7 +35,7 @@ export default async function MediumArticles({locale,pageName}: { locale: string
     return (
         <IndexPageSectionLayout title={contentTranslations("ourMediumArticles")} indexPageSectionId={"medium-articles"} isLastSection={false}>
             {latestPosts.map((post, index) => (
-                <div key={index}  className={"lg:w-1/2 py-8 px-12 md:px-4 sm:pb-5"}>
+                <div key={index} className={"xl:w-1/3 lg:w-1/2 py-8 px-12 md:px-4 sm:pb-5"}>
                     <div className="p-12 bg-white flex flex-col items-start shadow-lg rounded-lg h-full overflow-hidden">
                         {/*<div className="w-full bg-gray-100 flex justify-center items-center"bg-whitebg-whitebg-whitebg-white>*/}
                         <span

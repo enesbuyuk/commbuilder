@@ -1,7 +1,5 @@
 import {getTranslations, setRequestLocale} from "next-intl/server";
-import PageLayout from "@/components/PageLayout";
 import React from "react";
-import {getPath} from "@/i18n/routing";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string,id:string }> }) {
     const { locale } = await params;

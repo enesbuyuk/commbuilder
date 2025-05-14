@@ -38,7 +38,7 @@
     },
     "links": {
       "title": "Linkler",
-      "description": "Etkinlik kaydı, ders kaydı ve daha fazlası gibi yeni linklerimize ulaşın!",
+      "description": "Etkinlik kaydı, kurs kaydı ve daha fazlası gibi yeni linklerimize ulaşın!",
       "keywords": "İstanbul Üniversitesi, Bilgisayar Bilimleri Kulübü Linkleri, Etkinlik Kaydı, Ders Kaydı, Öğrenci Kaynakları, Teknoloji Kulübü Linkleri, Üniversite Linkleri, Öğrenci Topluluğu, Teknoloji Etkinlikleri"
     },
     "gallery": {
@@ -159,6 +159,9 @@
         "disciplineReport": "İstanbul Üniversitesi Disiplin Kaydı"
       },
       "agreement": "Kullanım şartlarını kabul ediyor ve veri işleme konusunda onay veriyorum."
+    },
+    "links": {
+      "goToOurWebsite": "Websitemize Git"
     },
     "admin": {
       "title": "Yönetici Sayfası",

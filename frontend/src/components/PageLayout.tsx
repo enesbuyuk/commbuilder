@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from "@/components/Header";
 
 interface PageLayoutProps {
     locale: string; // will be used to set the locale for the page
@@ -22,10 +21,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({locale='en', title,description,b
         spaceY = " space-y-" + spaceY
     }
 
-    return (
-        <>
-            <Header locale={locale} indexHero={false}/>
-            <main>
+    return (<main>
                 <section className={`text-gray-600 body-font overflow-hidden ${bg}`}>
                     <div className="flex flex-col text-center w-full bg-primary
           p-4 sm:p-6 md:p-8 lg:p-12
@@ -66,10 +62,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({locale='en', title,description,b
                         {children}
                     </div>
                 </section>
-            </main>
-        </>
-
-    );
+            </main>);
 };
 
 export default PageLayout;
