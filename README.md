@@ -34,12 +34,15 @@ Directory structure:
     ├── default.env
     ├── docker-compose.yml
     ├── LICENSE
+    ├── setup_env.sh
     ├── backend/
     │   ├── Dockerfile
     │   ├── go.mod
     │   ├── go.sum
-    │   ├── main.go
-    │   └── pkg/
+    │   ├── cmd/
+    │   │   └── server/
+    │   │       └── main.go
+    │   └── internal/
     │       ├── config/
     │       │   ├── database.go
     │       │   ├── environment.go
@@ -48,18 +51,24 @@ Directory structure:
     │       │   ├── announcements.go
     │       │   ├── auth.go
     │       │   ├── events.go
+    │       │   ├── links.go
+    │       │   ├── teams.go
     │       │   └── useful_links.go
     │       ├── middleware/
     │       │   └── jwt.go
     │       ├── models/
     │       │   ├── announcement.go
     │       │   ├── event.go
+    │       │   ├── link.go
+    │       │   ├── team.go
     │       │   ├── useful_links.go
     │       │   └── user.go
     │       ├── routes/
     │       │   ├── announcements.go
     │       │   ├── auth.go
     │       │   ├── events.go
+    │       │   ├── links.go
+    │       │   ├── teams.go
     │       │   └── useful_links.go
     │       ├── server/
     │       │   ├── setup_middleware.go
@@ -91,8 +100,9 @@ Directory structure:
         │   ├── theme/
         │   │   ├── background.webm
         │   │   ├── default-image.webp
-        │   │   └── admin/
-        │   │       └── admin-login-page.webp
+        │   │   ├── admin/
+        │   │   │   └── admin-login-page.webp
+        │   │   └── icons/
         │   └── uploads/
         │       └── .gitkeep
         └── src/
@@ -105,46 +115,50 @@ Directory structure:
             │       ├── layout.tsx
             │       ├── not-found.tsx
             │       ├── opengraph-image.tsx
-            │       ├── page.tsx
-            │       ├── [...rest]/
-            │       │   └── page.tsx
-            │       ├── about/
-            │       │   ├── page.tsx
-            │       │   ├── charter/
-            │       │   │   └── page.tsx
-            │       │   └── team/
+            │       ├── (bare)/
+            │       │   ├── layout.tsx
+            │       │   └── links/
             │       │       └── page.tsx
-            │       ├── admin/
-            │       │   ├── (account)/
-            │       │   │   ├── sign-in/
+            │       ├── (default)/
+            │       │   ├── layout.tsx
+            │       │   ├── page.tsx
+            │       │   ├── about/
+            │       │   │   ├── page.tsx
+            │       │   │   ├── charter/
             │       │   │   │   └── page.tsx
-            │       │   │   └── sign-out/
-            │       │   │       └── route.ts
-            │       │   └── (dashboard)/
-            │       │       ├── layout.tsx
-            │       │       ├── page.tsx
-            │       │       └── announcements/
-            │       │           ├── page.tsx
-            │       │           └── [id]/
-            │       │               ├── edit/
-            │       │               │   └── page.tsx
-            │       │               └── remove/
-            │       │                   └── page.tsx
-            │       ├── announcements/
-            │       │   └── page.tsx
-            │       ├── contact/
-            │       │   └── page.tsx
-            │       ├── events/
-            │       │   └── page.tsx
-            │       ├── faq/
-            │       │   └── page.tsx
-            │       ├── gallery/
-            │       │   └── page.tsx
-            │       ├── join-the-club/
-            │       │   └── page.tsx
-            │       ├── links/
-            │       │   └── page.tsx
-            │       └── useful-links/
+            │       │   │   └── team/
+            │       │   │       └── page.tsx
+            │       │   ├── admin/
+            │       │   │   ├── (account)/
+            │       │   │   │   ├── sign-in/
+            │       │   │   │   │   └── page.tsx
+            │       │   │   │   └── sign-out/
+            │       │   │   │       └── route.ts
+            │       │   │   └── (dashboard)/
+            │       │   │       ├── layout.tsx
+            │       │   │       ├── page.tsx
+            │       │   │       └── announcements/
+            │       │   │           ├── page.tsx
+            │       │   │           └── [id]/
+            │       │   │               ├── edit/
+            │       │   │               │   └── page.tsx
+            │       │   │               └── remove/
+            │       │   │                   └── page.tsx
+            │       │   ├── announcements/
+            │       │   │   └── page.tsx
+            │       │   ├── contact/
+            │       │   │   └── page.tsx
+            │       │   ├── events/
+            │       │   │   └── page.tsx
+            │       │   ├── faq/
+            │       │   │   └── page.tsx
+            │       │   ├── gallery/
+            │       │   │   └── page.tsx
+            │       │   ├── join-the-club/
+            │       │   │   └── page.tsx
+            │       │   └── useful-links/
+            │       │       └── page.tsx
+            │       └── [...rest]/
             │           └── page.tsx
             ├── components/
             │   ├── Faq.tsx
@@ -158,6 +172,8 @@ Directory structure:
             │   ├── MediumArticles.tsx
             │   ├── Navbar.tsx
             │   ├── PageLayout.tsx
+            │   ├── Team.MemberCard.tsx
+            │   ├── Team.PeriodSelector.tsx
             │   └── admin/
             │       └── AdminHeader.tsx
             ├── i18n/
@@ -174,7 +190,9 @@ Directory structure:
                 ├── Announcement.ts
                 ├── Attempt.ts
                 ├── Event.ts
+                ├── Link.ts
                 ├── Post.ts
+                ├── Team.ts
                 └── User.ts
 ```
 
