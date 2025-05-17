@@ -19,7 +19,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     ]);
 
     return (
-        <PageLayout locale={locale} title={metadataTranslations("title")} description={metadataTranslations("description")} bg={"white"}>
+        <PageLayout title={metadataTranslations("title")} description={metadataTranslations("description")} bg={"white"}>
             <div
                 className="flex items-center lg:w-4/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
                 <div

@@ -20,7 +20,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     ]);
 
     return (
-        <PageLayout locale={locale} title={metadataTranslations("title")} description={metadataTranslations("description")} bg={"white"}>
+        <PageLayout title={metadataTranslations("title")} description={metadataTranslations("description")} bg={"white"}>
             <div className="flex flex-col md:flex-row justify-center items-center gap-4">
                 <Link
                     target="_blank"

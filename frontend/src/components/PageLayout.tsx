@@ -1,7 +1,6 @@
 import React from 'react';
 
 interface PageLayoutProps {
-    locale: string; // will be used to set the locale for the page
     title: string;
     description: string;
     bg?: string;
@@ -9,7 +8,7 @@ interface PageLayoutProps {
     children: React.ReactNode;
 }
 
-const PageLayout: React.FC<PageLayoutProps> = ({locale='en', title,description,bg = '',spaceY = '', children}) => {
+const PageLayout: React.FC<PageLayoutProps> = ({title,description,bg = '',spaceY = '', children}) => {
     if (bg === "white") {
         bg = " bg-white"
     } else {

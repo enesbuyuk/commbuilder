@@ -20,7 +20,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     ]);
 
     return (
-        <PageLayout locale={locale} title={metadataTranslations("title")} description={metadataTranslations("description")} bg={"white"}>
+        <PageLayout title={metadataTranslations("title")} description={metadataTranslations("description")} bg={"white"}>
             <div className="text-gray-900">
                 <h2 className="text-2xl font-bold mb-4 text-secondaryDark">{contentTranslations("aboutUsTitle")}</h2>
                 <p className="leading-relaxed text-base">{contentTranslations("aboutUsText")}</p>

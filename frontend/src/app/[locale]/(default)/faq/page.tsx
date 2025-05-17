@@ -19,7 +19,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     ]);
 
     return (
-        <PageLayout locale={locale} title={metadataTranslations("title")} description={metadataTranslations("description")} spaceY={"6"}>
+        <PageLayout title={metadataTranslations("title")} description={metadataTranslations("description")} spaceY={"6"}>
             <Faq locale={locale}/>
         </PageLayout>
     )

@@ -26,7 +26,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     ]);
 
     return (
-        <PageLayout locale={locale} title={metadataTranslations('title')} description={metadataTranslations('description')}>
+        <PageLayout title={metadataTranslations('title')} description={metadataTranslations('description')}>
             <PeriodSelector teams={teams} />
         </PageLayout>
     );

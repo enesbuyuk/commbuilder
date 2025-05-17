@@ -10,7 +10,7 @@ export default async function notFound() {
     const metadataTranslations = await getTranslations({locale, namespace:`metadata.${pageName}`});
 
     return (
-        <PageLayout locale={"en"} title={metadataTranslations('title')} description={metadataTranslations("description")}>
+        <PageLayout title={metadataTranslations('title')} description={metadataTranslations("description")}>
             <p className="max-w-[900px]">{metadataTranslations('description')}</p>
         </PageLayout>
     );
