@@ -27,11 +27,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     const announcements: Announcement[] = await response.json();
 
     return (
-        <PageLayout
-            locale={locale}
-            title={metadataTranslations("title")}
-            description={metadataTranslations("description")}
-        >
+        <PageLayout title={metadataTranslations("title")} description={metadataTranslations("description")}>
             <Suspense fallback={<p>Loading feed...</p>}>
                 {announcements.map((announcement) => (
                     <div
