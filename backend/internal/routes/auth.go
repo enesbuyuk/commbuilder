@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"github.com/enesbuyuk/university-student-club-website/pkg/handlers"
+	"github.com/enesbuyuk/university-student-club-website/internal/handlers"
 	"github.com/gofiber/fiber/v2"
 )
 

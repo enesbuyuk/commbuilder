@@ -2,8 +2,8 @@ package handlers
 
 import (
 	"context"
-	"github.com/enesbuyuk/university-student-club-website/pkg/config"
-	"github.com/enesbuyuk/university-student-club-website/pkg/models"
+	"github.com/enesbuyuk/university-student-club-website/internal/config"
+	"github.com/enesbuyuk/university-student-club-website/internal/models"
 	"github.com/gofiber/fiber/v2"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"

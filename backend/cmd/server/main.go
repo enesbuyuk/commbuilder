@@ -2,8 +2,8 @@ package main
 
 import (
 	"context"
-	"github.com/enesbuyuk/university-student-club-website/pkg/config"
-	"github.com/enesbuyuk/university-student-club-website/pkg/server"
+	"github.com/enesbuyuk/university-student-club-website/internal/config"
+	"github.com/enesbuyuk/university-student-club-website/internal/server"
 	"log"
 	"os"
 	"time"
