@@ -29,7 +29,7 @@ export default function Navbar({locale}: {locale: string}) {
         { href: `${process.env.NEXT_PUBLIC_MEDIUM_URL}`, label: 'Medium', external: true },
         { href: `/${locale}${getPath('/announcements', locale)}`, label: componentTranslations('announcements') },
         { href: `/${locale}${getPath('/events', locale)}`, label: componentTranslations('events') },
-        { href: `/${locale}${getPath('/useful-links', locale)}`, label: componentTranslations('links') },
+        { href: `/${locale}${getPath('/useful-links', locale)}`, label: componentTranslations('usefulLinks') },
         { href: `/${locale}${getPath('/gallery', locale)}`, label: componentTranslations('gallery') },
         { href: `/${locale}${getPath('/contact', locale)}`, label: componentTranslations('contact') },
         { href: `/${locale}${getPath('/faq', locale)}`, label: componentTranslations('faq') },
@@ -53,36 +53,46 @@ export default function Navbar({locale}: {locale: string}) {
 
             <nav className={`flex-grow fixed inset-0 bg-primary z-40 flex flex-col items-center justify-between lg:static lg:flex-row lg:bg-transparent transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} lg:translate-x-0 py-5 lg:py-0`}>
                 <ul className="flex flex-col lg:flex-row items-center">
-                    {menuItems.map(({ href, label, external }) => (
-                        <li key={href} className="my-2 lg:my-0 lg:mr-5">
-                            <Link href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined} className={`font-semibold text-lg ${isIndex?'text-white hover:text-gray-400' :'text-white hover:text-gray-400 lg:text-primary lg:hover:text-secondaryDark'} duration-300`} onClick={toggleMenu}>{label}</Link>
-                        </li>
-                    ))}
+                    {menuItems.map(({ href, label, external }, index) => {
+                        const isLastItem = (index === menuItems.length - 2);
 
-                    <li className="relative">
-                        <button onClick={toggleAbout} className={`flex items-center font-semibold text-lg ${isIndex?'text-white hover:text-gray-400' :'text-white hover:text-gray-400 lg:text-primary lg:hover:text-secondaryDark'} duration-300`}>
-                            {componentTranslations('about')}
-                            {isAboutOpen ? <ChevronUp className="ml-1 w-4 h-4" /> : <ChevronDown className="ml-1 w-4 h-4" />}
-                        </button>
-                        {isAboutOpen && (
-                            <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
-                                {['about', 'about--team', 'about--charter'].map((key) => {
-                                    const formattedKey = key.replace('--', '/');
-                                    return (
-                                        <li key={key}>
-                                            <Link
-                                                href={`/${locale}${getPath(`/${formattedKey}` as Pathnames, locale)}`}
-                                                className="block px-4 py-2 text-md font-semibold text-black hover:bg-gray-100"
-                                                onClick={toggleMenu}
-                                            >
-                                                {componentTranslations(key)}
-                                            </Link>
-                                        </li>
-                                    );
-                                })}
-                            </ul>
-                        )}
-                    </li>
+                        return(
+                            <React.Fragment key={href}>
+                            {isLastItem &&
+                                <li className="relative my-2 lg:my-0 lg:mr-5">
+                                    <button onClick={toggleAbout} className={`flex items-center font-semibold text-lg ${isIndex?'text-white hover:text-gray-400' :'text-white hover:text-gray-400 lg:text-primary lg:hover:text-secondaryDark'} duration-300`}>
+                                        {componentTranslations('about')}
+                                        {isAboutOpen ? <ChevronUp className="ml-1 w-4 h-4" /> : <ChevronDown className="ml-1 w-4 h-4" />}
+                                    </button>
+                                    {isAboutOpen && (
+                                        <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
+                                            {['about', 'about--team', 'about--charter', 'links'].map((key) => {
+                                                const formattedKey = key.replace('--', '/');
+                                                return (
+                                                    <li key={key}>
+                                                        <Link
+                                                            href={`/${locale}${getPath(`/${formattedKey}` as Pathnames, locale)}`}
+                                                            className="block px-4 py-2 text-md font-semibold text-black hover:bg-gray-100"
+                                                            onClick={toggleMenu}
+                                                        >
+                                                            {componentTranslations(key)}
+                                                        </Link>
+                                                    </li>
+                                                );
+                                            })}
+                                        </ul>
+                                    )}
+                                </li>
+                        }
+                            <li key={href} className="my-2 lg:my-0 lg:mr-5">
+                                <Link href={href} target={external ? '_blank' : undefined}
+                                  rel={external ? 'noopener noreferrer' : undefined}
+                                  className={`font-semibold text-lg ${isIndex ? 'text-white hover:text-gray-400' : 'text-white hover:text-gray-400 lg:text-primary lg:hover:text-secondaryDark'} duration-300`}
+                                  onClick={toggleMenu}>{label}</Link>
+                            </li>
+                            </React.Fragment>
+                        );
+                    })}
                 </ul>
 
                 <div className="flex flex-col lg:flex-row items-center">
