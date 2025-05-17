@@ -27,10 +27,9 @@ export default async function Page({params}: { params: Promise<{ locale: string 
 
     return (
         <main className="text-center px-4 py-8 bg-gradient-to-b from-[#272727] to-black text-white flex flex-col items-center justify-center min-h-screen">
-            <div className={"absolute top-20 right-20"}>
-                <LanguageSwitcher/>
+            <div className="fixed top-4 right-4 z-50 sm:top-4 sm:right-4 xs:top-2 xs:right-2">
+                <LanguageSwitcher />
             </div>
-
 
             <Image
                 src="/theme/logo.png"
