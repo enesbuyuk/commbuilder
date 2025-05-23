@@ -1,0 +1,50 @@
+.gradient-background {
+    width: 100%;
+    background: linear-gradient(
+            45deg,
+            #99326b,
+            #753257,
+            #7C5AED,
+            #2074D5,
+            #003181,
+            #330066
+    );
+    background-size: 400% 400%;
+    animation: gradientAnimation 25s ease-in-out infinite;
+    will-change: background-position;
+}
+
+@keyframes gradientAnimation {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.overlay {
+    background: radial-gradient(circle at 50% 50%, rgba(200, 200, 200, 0.1), transparent 80%);
+    transition: background 0.5s ease-out;
+    will-change: background;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate3d(-50%, -50%, 0);
+    background: radial-gradient(circle, rgba(244,255,255,0.25) 0%, transparent 60%);
+    width: 3rem;
+    height: 3rem;
+    animation: rippleEffect 1.5s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+    will-change: transform, opacity;
+}
+
+@keyframes rippleEffect {
+    from {
+        transform: translate3d(-50%, -50%, 0) scale(0);
+        opacity: 1;
+    }
+    to {
+        transform: translate3d(-50%, -50%, 0) scale(5);
+        opacity: 0;
+    }
+}
