@@ -1,4 +1,4 @@
-module github.com/enesbuyuk/university-student-club-website
+module github.com/enesbuyuk/commbuildersite
 
 go 1.23.0
 

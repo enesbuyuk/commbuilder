@@ -99,7 +99,7 @@ done
 
 # Ask user for MongoDB Database name
 while true; do
-    read -p "Enter MongoDB Database name (e.g. student-club-web): " MONGODB_DATABASE
+    read -p "Enter MongoDB Database name (e.g. commbuilder): " MONGODB_DATABASE
     validate_non_empty "$MONGODB_DATABASE" && break
 done
 

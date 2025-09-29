@@ -327,4 +327,4 @@ Contributions are welcome! Please feel free to submit a pull request.
 
 ## License
 
-This project is licensed under GPL-3.0 License. See the [LICENSE](https://github.com/enesbuyuk/university-commbuildersite?tab=GPL-3.0-1-ov-file) file for details.
+This project is licensed under GPL-3.0 License. See the [LICENSE](https://github.com/enesbuyuk/commbuildersite?tab=GPL-3.0-1-ov-file) file for details.

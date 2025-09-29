@@ -1,7 +1,7 @@
 package server
 
 import (
-	"github.com/enesbuyuk/university-student-club-website/internal/routes"
+	"github.com/enesbuyuk/commbuildersite/internal/routes"
 	"github.com/gofiber/fiber/v2"
 )
 

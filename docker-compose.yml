@@ -36,11 +36,11 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
       - "./letsencrypt:/letsencrypt"
     networks:
-      - student-club-web-network
+      - commbuilder-network
 
-  student-club-web-backend:
-    image: "student-club-web-backend:latest"
-    container_name: "student-club-web-backend"
+  commbuilder-backend:
+    image: "commbuilder-backend:latest"
+    container_name: "commbuilder-backend"
     environment:
       - BACKEND_PORT=${BACKEND_PORT}
       - JWT_SECRET=${JWT_SECRET}
@@ -60,16 +60,16 @@ services:
       - traefik
       - mongodb
     networks:
-      - student-club-web-network
+      - commbuilder-network
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:${BACKEND_PORT}/health"]
       interval: 10s
       timeout: 5s
       retries: 5
 
-  student-club-web-frontend:
-    image: "student-club-web-frontend:latest"
-    container_name: "student-club-web-frontend"
+  commbuilder-frontend:
+    image: "commbuilder-frontend:latest"
+    container_name: "commbuilder-frontend"
     environment:
       - SITE_HOSTNAME=${SITE_HOSTNAME}
       - BACKEND_URL=${BACKEND_URL}
@@ -91,32 +91,32 @@ services:
       - "traefik.enable=true"
 
       # HTTP Router
-      - "traefik.http.routers.student-club-web-frontend-http.rule=Host(`${SITE_HOSTNAME:-localhost}`)"
-      - "traefik.http.routers.student-club-web-frontend-http.entrypoints=web"
-      - "traefik.http.routers.student-club-web-frontend-http.middlewares=student-club-web-frontend-redirect-to-https"
+      - "traefik.http.routers.commbuilder-frontend-http.rule=Host(`${SITE_HOSTNAME:-localhost}`)"
+      - "traefik.http.routers.commbuilder-frontend-http.entrypoints=web"
+      - "traefik.http.routers.commbuilder-frontend-http.middlewares=commbuilder-frontend-redirect-to-https"
 
       # HTTPS Router
-      - "traefik.http.routers.student-club-web-frontend.rule=Host(`${SITE_HOSTNAME:-localhost}`)"
-      - "traefik.http.routers.student-club-web-frontend.entrypoints=websecure"
-      - "traefik.http.routers.student-club-web-frontend.service=student-club-web-frontend"
-      - "traefik.http.routers.student-club-web-frontend.tls=true"
-      - "traefik.http.routers.student-club-web-frontend.tls.certresolver=myresolver"
+      - "traefik.http.routers.commbuilder-frontend.rule=Host(`${SITE_HOSTNAME:-localhost}`)"
+      - "traefik.http.routers.commbuilder-frontend.entrypoints=websecure"
+      - "traefik.http.routers.commbuilder-frontend.service=commbuilder-frontend"
+      - "traefik.http.routers.commbuilder-frontend.tls=true"
+      - "traefik.http.routers.commbuilder-frontend.tls.certresolver=myresolver"
 
       # Service
-      - "traefik.http.services.student-club-web-frontend.loadbalancer.server.port=${PORT}"
-      - "traefik.http.services.student-club-web-frontend.loadbalancer.passhostheader=true"
+      - "traefik.http.services.commbuilder-frontend.loadbalancer.server.port=${PORT}"
+      - "traefik.http.services.commbuilder-frontend.loadbalancer.passhostheader=true"
 
       # Middleware: HTTPS redirection
-      - "traefik.http.middlewares.student-club-web-frontend-redirect-to-https.redirectscheme.scheme=https"
-      - "traefik.http.middlewares.student-club-web-frontend-redirect-to-https.redirectscheme.permanent=true"
+      - "traefik.http.middlewares.commbuilder-frontend-redirect-to-https.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.commbuilder-frontend-redirect-to-https.redirectscheme.permanent=true"
 
       # Middleware: Compression
-      - "traefik.http.routers.student-club-web-frontend.middlewares=student-club-web-frontend-compress"
-      - "traefik.http.middlewares.student-club-web-frontend-compress.compress=true"
+      - "traefik.http.routers.commbuilder-frontend.middlewares=commbuilder-frontend-compress"
+      - "traefik.http.middlewares.commbuilder-frontend-compress.compress=true"
     depends_on: 
-      - student-club-web-backend
+      - commbuilder-backend
     networks:
-      - student-club-web-network
+      - commbuilder-network
 
   mongodb:
     image: mongo:8.0
@@ -131,7 +131,7 @@ services:
     volumes:
       - mongodb-data:/data/db
     networks:
-      - student-club-web-network
+      - commbuilder-network
     healthcheck:
       test: ["CMD", "mongosh", "--eval", "db.runCommand({ ping: 1 })"]
       interval: 10s
@@ -143,7 +143,7 @@ volumes:
     driver: local
 
 networks:
-  student-club-web-network:
+  commbuilder-network:
     driver: bridge
     ### if you want to use your docker network
     #external: true

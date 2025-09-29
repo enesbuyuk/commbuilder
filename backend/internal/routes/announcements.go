@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"github.com/enesbuyuk/university-student-club-website/internal/handlers"
-	"github.com/enesbuyuk/university-student-club-website/internal/middleware"
+	"github.com/enesbuyuk/commbuildersite/internal/handlers"
+	"github.com/enesbuyuk/commbuildersite/internal/middleware"
 	"github.com/gofiber/fiber/v2"
 )
 

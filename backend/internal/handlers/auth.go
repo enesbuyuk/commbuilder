@@ -3,13 +3,14 @@ package handlers
 import (
 	"context"
 	"errors"
-	"github.com/enesbuyuk/university-student-club-website/internal/config"
-	"github.com/enesbuyuk/university-student-club-website/internal/models"
+	"time"
+
+	"github.com/enesbuyuk/commbuildersite/internal/config"
+	"github.com/enesbuyuk/commbuildersite/internal/models"
 	"github.com/gofiber/fiber/v2"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"golang.org/x/crypto/bcrypt"
-	"time"
 )
 
 func GetAuth(c *fiber.Ctx) error {

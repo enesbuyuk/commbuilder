@@ -2,14 +2,15 @@ package handlers
 
 import (
 	"context"
-	"github.com/enesbuyuk/university-student-club-website/internal/config"
-	"github.com/enesbuyuk/university-student-club-website/internal/models"
+	"strconv"
+	"time"
+
+	"github.com/enesbuyuk/commbuildersite/internal/config"
+	"github.com/enesbuyuk/commbuildersite/internal/models"
 	"github.com/gofiber/fiber/v2"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"strconv"
-	"time"
 )
 
 func GetLinks(c *fiber.Ctx) error {
