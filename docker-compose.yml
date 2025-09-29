@@ -89,9 +89,9 @@ services:
       - commbuilder-network
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:${BACKEND_PORT}/health"]
-      interval: 10s
+      interval: 1m
       timeout: 5s
-      retries: 5
+      retries: 4
 
   commbuilder-frontend:
     image: "commbuilder-frontend:latest"

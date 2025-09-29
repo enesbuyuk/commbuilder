@@ -29,6 +29,7 @@ export async function handleLogin(formData: FormData) {
     httpOnly: true,
     path: "/",
     maxAge: 60 * 60 * 24 * 7,
+    domain: process.env.SITE_HOSTNAME,
     // secure: process.env.NODE_ENV === "production",
     // domain: process.env.SITE_HOSTNAME // local testlerde kaldır
   });
