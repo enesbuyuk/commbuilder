@@ -1,43 +1,38 @@
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function handler(
-  request: NextRequest,
-  { params }: { params: Promise<{ endpoint: string[] }> }
-) {
-  const resolvedParams = await params;
-  const endpoint = resolvedParams?.endpoint;
+async function proxy(req: NextRequest, params: any) {
+  const endpointParam = params?.endpoint;
+  const endpoint = Array.isArray(endpointParam) ? endpointParam : [endpointParam];
 
   if (!endpoint || endpoint.length === 0) {
-    return new Response(JSON.stringify({ error: "No endpoint specified" }), { status: 400 });
+    return NextResponse.json({ error: "No endpoint specified" }, { status: 400 });
   }
 
   const backendPath = endpoint.join("/");
 
-  const body = ["POST", "PUT", "PATCH"].includes(request.method || "")
-    ? await request.text()
+  const body = ["POST", "PUT", "PATCH"].includes(req.method || "")
+    ? await req.text()
     : undefined;
 
-  // Headers
   const headers: Record<string, string> = {
-    "Content-Type": request.headers.get("content-type") || "application/json",
+    "Content-Type": req.headers.get("content-type") || "application/json",
     "Authorization": `Bearer ${process.env.BACKEND_API_TOKEN || ""}`,
   };
 
-  const incomingCookie = request.headers.get("cookie");
-  if (incomingCookie) headers["Cookie"] = incomingCookie;
+  const tokenCookie = req.headers.get("cookie");
+  if (tokenCookie) headers["Cookie"] = tokenCookie;
 
-  // Fetch backend
   const backendUrl = new URL(`${process.env.BACKEND_URL}/${backendPath}`);
-  backendUrl.search = request.nextUrl.search || "";
+  backendUrl.search = req.nextUrl.search || "";
 
   const response = await fetch(backendUrl.toString(), {
-    method: request.method,
+    method: req.method,
     headers,
     body,
   });
 
+  let data;
   const text = await response.text();
-  let data: any;
   try {
     data = JSON.parse(text);
   } catch {
@@ -46,16 +41,12 @@ export async function handler(
 
   const payload = Array.isArray(data) ? data : { ...data, source: "proxied-through-nextjs" };
 
-  return new Response(JSON.stringify(payload), {
-    headers: { "Content-Type": "application/json" },
-    status: response.status,
-  });
+  return NextResponse.json(payload, { status: response.status });
 }
 
-// Tüm HTTP metodları
-export const GET = handler;
-export const POST = handler;
-export const PUT = handler;
-export const PATCH = handler;
-export const DELETE = handler;
-export const OPTIONS = handler;
+export const GET = (req: NextRequest, ctx: any) => proxy(req, ctx.params);
+export const POST = (req: NextRequest, ctx: any) => proxy(req, ctx.params);
+export const PUT = (req: NextRequest, ctx: any) => proxy(req, ctx.params);
+export const PATCH = (req: NextRequest, ctx: any) => proxy(req, ctx.params);
+export const DELETE = (req: NextRequest, ctx: any) => proxy(req, ctx.params);
+export const OPTIONS = (req: NextRequest, ctx: any) => proxy(req, ctx.params);

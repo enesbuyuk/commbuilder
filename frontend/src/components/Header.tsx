@@ -19,7 +19,6 @@ export default async function Header({isHome=false}: {isHome?: boolean}) {
         if (response.ok) {
             const data = await response.json();
             indexHeroSetting = data.value;
-            console.log("indexHeroSetting-----", indexHeroSetting);
         }
     }
     return (

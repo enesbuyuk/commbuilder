@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "dotenvx run -f ../.env -- next dev",
+    "dev-build": "dotenvx run -f ../.env -- next build",
+    "dev-start": "dotenvx run -f ../.env -- next start",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

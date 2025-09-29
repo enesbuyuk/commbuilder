@@ -70,7 +70,7 @@ export default function Navbar({locale}: {locale: string}) {
                                                 return (
                                                     <li key={key}>
                                                         <Link
-                                                            href={"/"+formattedKey} 
+                                                            href={"/" + formattedKey as any}
                                                             className="block px-4 py-2 text-md font-semibold text-black hover:bg-gray-100"
                                                             onClick={toggleMenu}
                                                         >
@@ -84,7 +84,7 @@ export default function Navbar({locale}: {locale: string}) {
                                 </li>
                         }
                             <li key={href} className="my-2 lg:my-0 lg:mr-5">
-                                <Link href={href} target={external ? '_blank' : undefined}
+                                <Link href={href as any} target={external ? '_blank' : undefined}
                                   rel={external ? 'noopener noreferrer' : undefined}
                                   className={`font-semibold text-lg ${isIndex ? 'text-white hover:text-gray-400' : 'text-white hover:text-gray-400 lg:text-primary lg:hover:text-secondaryDark'} duration-300`}
                                   onClick={toggleMenu}>{label}</Link>
