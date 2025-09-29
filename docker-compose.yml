@@ -56,6 +56,32 @@ services:
     tty: true
     volumes:
       - ./backend:/app
+    labels:
+      - "traefik.enable=true"
+
+      # HTTP Router
+      - "traefik.http.routers.commbuilder-backend-http.rule=Host(`${BACKEND_HOSTNAME:-localhost}`)"
+      - "traefik.http.routers.commbuilder-backend-http.entrypoints=web"
+      - "traefik.http.routers.commbuilder-backend-http.middlewares=commbuilder-backend-redirect-to-https"
+
+      # HTTPS Router
+      - "traefik.http.routers.commbuilder-backend.rule=Host(`${BACKEND_HOSTNAME:-localhost}`)"
+      - "traefik.http.routers.commbuilder-backend.entrypoints=websecure"
+      - "traefik.http.routers.commbuilder-backend.service=commbuilder-backend"
+      - "traefik.http.routers.commbuilder-backend.tls=true"
+      - "traefik.http.routers.commbuilder-backend.tls.certresolver=myresolver"
+
+      # Service
+      - "traefik.http.services.commbuilder-backend.loadbalancer.server.port=${BACKEND_PORT}"
+      - "traefik.http.services.commbuilder-backend.loadbalancer.passhostheader=true"
+
+      # Middleware: HTTPS redirection
+      - "traefik.http.middlewares.commbuilder-backend-redirect-to-https.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.commbuilder-backend-redirect-to-https.redirectscheme.permanent=true"
+
+      # Middleware: Compression
+      - "traefik.http.routers.commbuilder-backend.middlewares=commbuilder-backend-compress"
+      - "traefik.http.middlewares.commbuilder-backend-compress.compress=true"
     depends_on:
       - traefik
       - mongodb
