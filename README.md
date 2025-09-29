@@ -1,8 +1,8 @@
 ![docs/images/homepage-screenshot.png](docs/images/homepage-screenshot.png)
 
-# Student Club Web
+# CommBuilder
 
-Student Club Web is an open-source website template that enables student clubs to easily create and manage their digital presence. Although it was initially developed for the Istanbul University Computer Science Club (IU CSC), the project is designed to be flexible and customizable, making it suitable for all university clubs. The platform aims to encourage student participation in club activities, provide an efficient way to share announcements, and enhance the club's digital identity with a modern solution.
+CommBuilder is an open-source website template that enables communities to easily create and manage their digital presence. Although it was initially developed for the Istanbul University Computer Science Club (IU CSC), the project is designed to be flexible and customizable, making it suitable for all types of communities. The platform aims to encourage participation in community activities, provide an efficient way to share announcements, and enhance the community's digital identity with a modern solution.
 
 ---
 
@@ -29,7 +29,7 @@ Student Club Web is an open-source website template that enables student clubs t
 
 ```plaintext
 Directory structure:
-└── enesbuyuk-student-club-web/
+└── enesbuyuk-commbuilder/
     ├── README.md
     ├── default.env
     ├── docker-compose.yml
@@ -236,16 +236,16 @@ Directory structure:
 
 ## Getting Started
 
-To get started with the Student Club Web project, follow these steps:
+To get started with the CommBuilder project, follow these steps:
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/enesbuyuk/student-club-web.git
+git clone https://github.com/enesbuyuk/commbuilder.git
 ```
 
 ### 2. Navigate to the project directory
 ```bash
-cd student-club-web
+cd commbuilder
 ```
 
 ### Installation
@@ -272,12 +272,12 @@ If you prefer to set up the project manually, follow these steps:
 
 #### 1. Clone the repository
 ```bash
-git clone https://github.com/enesbuyuk/student-club-web.git
+git clone https://github.com/enesbuyuk/commbuilder.git
 ```
 
 #### 2. Navigate to the project directory
 ```bash
-cd student-club-web
+cd commbuilder
 ```
 
 #### 3. Install the dependencies
@@ -327,4 +327,4 @@ Contributions are welcome! Please feel free to submit a pull request.
 
 ## License
 
-This project is licensed under GPL-3.0 License. See the [LICENSE](https://github.com/enesbuyuk/university-student-club-website?tab=GPL-3.0-1-ov-file) file for details.
+This project is licensed under GPL-3.0 License. See the [LICENSE](https://github.com/enesbuyuk/university-commbuildersite?tab=GPL-3.0-1-ov-file) file for details.
