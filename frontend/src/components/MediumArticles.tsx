@@ -1,11 +1,12 @@
 import Parser from 'rss-parser';
 import Link from "next/link";
 import Image from "next/image";
-import {getTranslations} from "next-intl/server";
+import {getLocale, getTranslations} from "next-intl/server";
 import IndexPageSectionLayout from "@/components/IndexPageSectionLayout";
 import {Post} from "@/types/Post";
 
-export default async function MediumArticles({locale,pageName}: { locale: string, pageName: string }) {
+export default async function MediumArticles({pageName}: { pageName: string }) {
+    const locale = await getLocale();
     const rssParser = new Parser();
     let latestPosts:Post[] = [];
 

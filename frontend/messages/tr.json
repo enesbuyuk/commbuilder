@@ -92,9 +92,9 @@
     "index": {
       "welcomeMessage": "İstanbul Üniversitesi Fen Fakültesi, Bilgisayar Bilimleri Kulübü'ne hoş geldiniz!",
       "meetOurClub": "Kulübümüzü Tanıyın",
-      "ourMediumArticles": "En Son Medium Makalelerimiz",
-      "readMoreMediumArticle": "Medium'da Tam Olarak Oku",
-      "lastEvents": "Son Etkinliklerimiz",
+      "ourMediumArticles": "Son Makaleler",
+      "readMoreMediumArticle": "Medium'da Oku",
+      "lastEvents": "Son Etkinlikler",
       "joinToEvent": "Etkinliğe Katıl",
       "joinTheClub": "Kulübe Katıl",
       "endedEvent": "Etkinlik sona erdiği için katılamazsınız.",

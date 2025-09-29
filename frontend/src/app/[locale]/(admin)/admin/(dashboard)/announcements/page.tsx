@@ -10,7 +10,7 @@ export default async function AdminAnnouncementsList({params}: { params: Promise
 
     const contentTranslations = await getTranslations({locale, namespace:`pages.${pageName}`})
 
-    const response = await fetch(`${process.env.BACKEND_URL}/announcements`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/external/announcements`);
 
     const announcements: Announcement[] = await response.json();
 

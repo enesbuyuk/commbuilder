@@ -12,7 +12,6 @@
     "search": "Search",
     "indexHero": "gradient"
   },
-
   "metadata": {
     "index": {
       "siteName": "Istanbul University Computer Science Club Web Site",
@@ -94,9 +93,9 @@
     "index": {
         "welcomeMessage": "Welcome to Istanbul University Faculty of Science, Computer Science Club!",
         "meetOurClub": "Get to Know Our Club",
-        "ourMediumArticles": "Our Recent Medium Articles",
-        "readMoreMediumArticle": "Read the Full on Medium",
-        "lastEvents": "Our Last Events",
+        "ourMediumArticles": "Latest Articles",
+        "readMoreMediumArticle": "Read on Medium",
+        "lastEvents": "Latest Events",
         "joinToEvent": "Join to Event",
         "joinTheClub": "Join the Club",
         "endedEvent": "You cannot participate because the event has ended.",

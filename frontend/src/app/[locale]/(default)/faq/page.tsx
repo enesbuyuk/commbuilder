@@ -1,22 +1,20 @@
-import {getTranslations, setRequestLocale} from "next-intl/server";
+import {getTranslations, getLocale} from "next-intl/server";
 import Faq from "@/components/Faq";
 import PageLayout from "@/components/PageLayout";
 import {getMetadata} from "@/lib/metadata";
 
 const pageName = "faq";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
-    const { locale } = await params;
-    return getMetadata(locale, pageName);
+export async function generateMetadata() {
+    return getMetadata(pageName);
 }
 
-export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
-    const {locale} = await params;
-    setRequestLocale(locale);
-
+export default async function Page() {
     const [metadataTranslations] = await Promise.all([
-        getTranslations({locale, namespace:`metadata.${pageName}`})
+        getTranslations(`metadata.${pageName}`),
     ]);
+
+    const locale = await getLocale()
 
     return (
         <PageLayout title={metadataTranslations("title")} description={metadataTranslations("description")} spaceY={"6"}>

@@ -1,22 +1,18 @@
-import {getTranslations, setRequestLocale} from "next-intl/server";
+import {getTranslations} from "next-intl/server";
 import Link from "next/link";
 import PageLayout from "@/components/PageLayout";
 import {getMetadata} from "@/lib/metadata";
 
 const pageName = "contact";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
-    const { locale } = await params;
-    return getMetadata(locale, pageName);
+export async function generateMetadata() {
+    return getMetadata(pageName);
 }
 
-export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
-    const {locale} = await params;
-    setRequestLocale(locale);
-
+export default async function Page() {
     const [metadataTranslations, contentTranslations] = await Promise.all([
-        getTranslations({locale, namespace:`metadata.${pageName}`}),
-        getTranslations({locale, namespace:`pages.${pageName}`})
+        getTranslations(`metadata.${pageName}`),
+        getTranslations(`pages.${pageName}`)
     ]);
 
     return (

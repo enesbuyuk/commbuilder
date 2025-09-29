@@ -1,4 +1,4 @@
-import {getTranslations, setRequestLocale} from "next-intl/server";
+import {getTranslations, getLocale} from "next-intl/server";
 import Link from "next/link";
 import Image from "next/image";
 import {getMetadata} from "@/lib/metadata";
@@ -7,22 +7,20 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const pageName = "links";
 
-export async function generateMetadata({params}: { params: Promise<{ locale: string }> }) {
-    const {locale} = await params;
-    return getMetadata(locale, pageName);
+export async function generateMetadata() {
+    return getMetadata(pageName);
 }
 
-export default async function Page({params}: { params: Promise<{ locale: string }> }) {
-    const {locale} = await params;
-    setRequestLocale(locale);
-
+export default async function Page() {
     const [generalTranslations, metadataTranslations, contentTranslations] = await Promise.all([
-        getTranslations({locale, namespace: "general"}),
-        getTranslations({locale, namespace: `metadata.${pageName}`}),
-        getTranslations({locale, namespace: `pages.${pageName}`})
+        getTranslations("general"),
+        getTranslations(`metadata.${pageName}`),
+        getTranslations(`pages.${pageName}`)
     ]);
+    
+    const locale = await getLocale();
 
-    const response = await fetch(`${process.env.BACKEND_URL}/links`)
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/external/links`)
     const links: LinkType[] = await response.json();
 
     return (

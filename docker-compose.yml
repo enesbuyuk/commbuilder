@@ -113,7 +113,7 @@ services:
       # Middleware: Compression
       - "traefik.http.routers.student-club-web-frontend.middlewares=student-club-web-frontend-compress"
       - "traefik.http.middlewares.student-club-web-frontend-compress.compress=true"
-    depends_on:
+    depends_on: 
       - student-club-web-backend
     networks:
       - student-club-web-network

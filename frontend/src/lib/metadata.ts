@@ -1,8 +1,10 @@
 import { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import {getPath, Pathnames} from "@/i18n/routing";
 
-export async function getMetadata(locale: string, page: string): Promise<Metadata> {
+export async function getMetadata(page: string): Promise<Metadata> {
+
+    const locale = await getLocale() || "en";
     const pageTranslations = await getTranslations({
         locale,
         namespace: `metadata.${page}`

@@ -1,14 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import {getTranslations} from "next-intl/server";
+import {getLocale, getTranslations} from "next-intl/server";
 import IndexPageSectionLayout from "@/components/IndexPageSectionLayout";
 import {Event} from "@/types/Event";
 
-export default async function LastEvents({locale, pageName}: {locale: string, pageName: string}) {
-    const contentTranslations = await getTranslations({locale, namespace:`pages.${pageName}`})
+export default async function LastEvents({pageName}: {pageName: string}) {
+    const locale = await getLocale();
+    const contentTranslations = await getTranslations(`pages.${pageName}`)
 
-    const response = await fetch(`${process.env.BACKEND_URL}/events?limit=3`)
-    const lastEvents:Event[] = await response.json();
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/external/events?limit=3`);
+    const json = await response.json();
+    const lastEvents: Event[] = Array.isArray(json) ? json : json.data || [];
 
     return (
         <IndexPageSectionLayout title={contentTranslations("lastEvents")} indexPageSectionId={"last-events"} isLastSection={true}>

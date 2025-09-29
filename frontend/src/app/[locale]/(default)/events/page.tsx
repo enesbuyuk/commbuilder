@@ -1,4 +1,4 @@
-import {getTranslations, setRequestLocale} from "next-intl/server";
+import {getTranslations, getLocale} from "next-intl/server";
 import PageLayout from "@/components/PageLayout";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,24 +8,23 @@ import {getMetadata} from "@/lib/metadata";
 
 const pageName = "events";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
-    const { locale } = await params;
-    return getMetadata(locale, pageName);
+export async function generateMetadata() {
+    return getMetadata(pageName);
 }
 
-export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
-    const {locale} = await params;
-    setRequestLocale(locale);
-
+export default async function Page() {
     const [metadataTranslations, contentTranslations] = await Promise.all([
-        getTranslations({locale, namespace:`metadata.${pageName}`}),
-        getTranslations({locale, namespace:`pages.${pageName}`})
+        getTranslations(`metadata.${pageName}`),
+        getTranslations(`pages.${pageName}`)
     ]);
 
-    const response = await fetch(`${process.env.BACKEND_URL}/events`, {
-        cache: 'force-cache'
+    const locale = await getLocale();
+
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/external/events`, {
+    cache: 'no-store'
     });
-    const events:Event[] = await response.json();
+    const json = await response.json();
+    const events: Event[] = Array.isArray(json) ? json : json.data || [];
 
     return (
         <PageLayout title={metadataTranslations("title")} description={metadataTranslations("description")}>
