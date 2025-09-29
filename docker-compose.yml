@@ -88,7 +88,7 @@ services:
     networks:
       - commbuilder-network
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:${BACKEND_PORT}/health"]
+      test: ["CMD", "sh", "-c", "curl -f -H 'Authorization: Bearer ${BACKEND_API_TOKEN}' http://localhost:${BACKEND_PORT}/health || exit 1"]
       interval: 1m
       timeout: 5s
       retries: 4
