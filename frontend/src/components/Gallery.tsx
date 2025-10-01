@@ -18,13 +18,13 @@ export default function Gallery() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
 
                 <div className="grid grid-cols-2 gap-2">
-                    <div className="col-span-1 cursor-pointer" onClick={() => openModal("/uploads/gallery/1716286964729.jpg")}>
+                    <div className="col-span-1 cursor-pointer" onClick={() => openModal(`${process.env.NEXT_PUBLIC_BUCKET}/uploads/gallery/1716286964729.jpg`)}>
                         <Image
                             width={600}
                             height={600}
                             alt="gallery"
                             className="w-full object-cover h-full object-center"
-                            src={"/uploads/gallery/1716286964729.jpg"}
+                            src={`${process.env.NEXT_PUBLIC_BUCKET}/uploads/gallery/1716286964729.jpg`}
                         />
                     </div>
                     <div className="col-span-1 cursor-pointer" onClick={() => openModal("/theme/default-image.webp")}>
@@ -36,25 +36,25 @@ export default function Gallery() {
                             src={"/theme/default-image.webp"}
                         />
                     </div>
-                    <div className="col-span-2 cursor-pointer" onClick={() => openModal("/uploads/gallery/1716286964629.jpg")}>
+                    <div className="col-span-2 cursor-pointer" onClick={() => openModal(`${process.env.NEXT_PUBLIC_BUCKET}/uploads/gallery/1716286964629.jpg`)}>
                         <Image
                             width={600}
                             height={600}
                             alt="gallery"
                             className="w-full h-full object-cover object-center"
-                            src={"/uploads/gallery/1716286964629.jpg"}
+                            src={`${process.env.NEXT_PUBLIC_BUCKET}/uploads/gallery/1716286964629.jpg`}
                         />
                     </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-2">
-                    <div className="col-span-2 cursor-pointer" onClick={() => openModal("/uploads/gallery/1732968174829.jpg")}>
+                    <div className="col-span-2 cursor-pointer" onClick={() => openModal(`${process.env.NEXT_PUBLIC_BUCKET}/uploads/gallery/1732968174829.jpg`)}>
                         <Image
                             width={600}
                             height={600}
                             alt="gallery"
                             className="w-full h-full object-cover object-center"
-                            src={"/uploads/gallery/1732968174829.jpg"}
+                            src={`${process.env.NEXT_PUBLIC_BUCKET}/uploads/gallery/1732968174829.jpg`}
                         />
                     </div>
                     <div className="col-span-1 cursor-pointer" onClick={() => openModal("/theme/default-image.webp")}>
