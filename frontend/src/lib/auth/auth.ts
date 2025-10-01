@@ -2,8 +2,10 @@
 
 import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { getLocale } from "next-intl/server";
 
 export async function handleLogin(formData: FormData) {
+  const locale = await getLocale() || "en";
   const username = formData.get("username") as string;
   const password = formData.get("password") as string;
 
@@ -33,5 +35,5 @@ export async function handleLogin(formData: FormData) {
     // secure: process.env.NODE_ENV === "production",
   });
 
-  redirect("/admin");
+  redirect(`/${locale}/admin`);
 }
