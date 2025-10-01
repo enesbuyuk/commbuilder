@@ -59,7 +59,7 @@ export default async function LastEvents({pageName}: {pageName: string}) {
                                     </div>
                                     {new Date() > new Date(event.date) ? (
                                         <div
-                                            className="inline-flex font-semibold items-center text-red-800 py-2 px-4 text-sm italic"
+                                            className="inline-flex font-semibold items-center text-gray-500 py-2 px-4 text-sm italic"
                                             title={event.title[locale]}
                                         >**{contentTranslations("endedEvent")}
                                         </div>
