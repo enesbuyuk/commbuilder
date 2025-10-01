@@ -1,40 +1,37 @@
-import Parser from 'rss-parser';
+import IndexPageSectionLayout from "@/components/IndexPageSectionLayout";
+import { getLocale, getTranslations } from "next-intl/server";
 import Link from "next/link";
 import Image from "next/image";
-import {getLocale, getTranslations} from "next-intl/server";
-import IndexPageSectionLayout from "@/components/IndexPageSectionLayout";
-import {Post} from "@/types/Post";
+import { Post } from "@/types/Post";
 
-export default async function MediumArticles({pageName}: { pageName: string }) {
-    const locale = await getLocale();
-    const rssParser = new Parser();
-    let latestPosts:Post[] = [];
+export default async function MediumArticles({ pageName }: { pageName: string }) {
+  const locale = await getLocale();
+  const contentTranslations = await getTranslations({ locale, namespace: `pages.${pageName}` });
 
-    const contentTranslations = await getTranslations({locale, namespace:`pages.${pageName}`})
+  // cache for 1 hour
+  const res = await fetch(`${process.env.NEXT_PUBLIC_MEDIUM_URL}/feed`, {
+    next: { revalidate: 3600 } 
+  });
+  const xml = await res.text();
 
-    try {
-        const feed = await rssParser.parseURL(`${process.env.NEXT_PUBLIC_MEDIUM_URL}/feed`);
-        latestPosts = feed.items.slice(0, 10).map(item => {
-            const rawDescription = item['content:encoded'] || item.description || 'No description available';
-            const cleanDescription = rawDescription && typeof rawDescription === 'string'
-                ? rawDescription.replace(/(<([^>]+)>)/gi, '')
-                    .substring(0, 300)
-                    .replace(/\s+\S*$/, ' ...')
-                : 'No description available';
+  const Parser = (await import('rss-parser')).default;
+  const parser = new Parser();
+  const feed = await parser.parseString(xml);
 
-            return {
-                title: item.title || "Untitled",
-                link: item.link || "#",
-                pubDate: item.pubDate || "Unknown Date",
-                author: item.creator || item.author || "Unknown",
-                description: cleanDescription
-            };
-        });
-    } catch (error) {
-        console.error('Error fetching RSS feed:', error);
-    }
-    return (
-        <IndexPageSectionLayout title={contentTranslations("ourMediumArticles")} indexPageSectionId={"medium-articles"} isLastSection={false}>
+  const latestPosts: Post[] = feed.items.slice(0, 10).map(item => {
+    const rawDescription = item['content:encoded'] || item.description || 'No description available';
+    const cleanDescription = rawDescription.replace(/(<([^>]+)>)/gi, '').substring(0, 300).replace(/\s+\S*$/, ' ...');
+    return {
+      title: item.title || "Untitled",
+      link: item.link || "#",
+      pubDate: item.pubDate || "Unknown Date",
+      author: item.creator || item.author || "Unknown",
+      description: cleanDescription
+    };
+  });
+
+  return (
+    <IndexPageSectionLayout title={contentTranslations("ourMediumArticles")} indexPageSectionId={"medium-articles"} isLastSection={false}>
             {latestPosts.map((post, index) => (
                 <div key={index} className={"xl:w-1/3 lg:w-1/2 py-8 px-12 md:px-4 sm:pb-5"}>
                     <div className="p-12 bg-white flex flex-col items-start shadow-lg rounded-lg h-full overflow-hidden">
@@ -103,6 +100,6 @@ export default async function MediumArticles({pageName}: { pageName: string }) {
                     </div>
                 </div>
             ))}
-        </IndexPageSectionLayout>
-    );
+    </IndexPageSectionLayout>
+  );
 }
