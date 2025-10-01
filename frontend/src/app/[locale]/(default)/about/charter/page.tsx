@@ -21,7 +21,7 @@ export default async function Page() {
                 <Link
                     target="_blank"
                     className="bg-primary hover:bg-secondaryDark text-gray-300 hover:text-white text-lg font-semibold px-6 py-2 rounded-lg transition duration-300"
-                    href={"/uploads/iucs-tuzuk-charter.pdf"}
+                    href={`${process.env.NEXT_PUBLIC_BUCKET}/uploads/iucs-tuzuk-charter.pdf`}
                 >{contentTranslations("downloadTheCharter")}</Link>
             </div>
         </PageLayout>

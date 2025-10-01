@@ -97,12 +97,6 @@ services:
   commbuilder-frontend:
     image: "commbuilder-frontend:latest"
     container_name: "commbuilder-frontend"
-    environment:
-      - SITE_HOSTNAME=${SITE_HOSTNAME}
-      - BACKEND_URL=${BACKEND_URL}
-      - PORT=${PORT}
-      - NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL}
-      - NEXT_PUBLIC_MEDIUM_URL=${NEXT_PUBLIC_MEDIUM_URL}
     restart: always
     build:
       context: ./frontend
@@ -110,6 +104,11 @@ services:
       args:
         NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL}
         NEXT_PUBLIC_MEDIUM_URL: ${NEXT_PUBLIC_MEDIUM_URL}
+        NEXT_PUBLIC_BUCKET: ${NEXT_PUBLIC_BUCKET}
+    environment:
+      - BACKEND_URL=${BACKEND_URL}
+      - BACKEND_API_TOKEN=${BACKEND_API_TOKEN}
+      - PORT=${PORT}
     tty: true
     volumes:
       - ./frontend:/app

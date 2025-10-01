@@ -1,144 +1,70 @@
 #!/bin/bash
 
-echo "##############################################"
-echo "# This script will generate the .env file.  #"
-echo "##############################################"
+ENV_FILE=".env"
 
-# Function to validate URL format
-validate_url() {
-    if [[ ! "$1" =~ ^https?:// ]]; then
-        echo "Invalid URL format. Please enter a valid URL (e.g., https://example.com)."
-        return 1
-    fi
-    return 0
-}
+echo "Creating .env file interactively..."
 
-# Function to validate if input is non-empty
-validate_non_empty() {
-    if [ -z "$1" ]; then
-        echo "This field cannot be empty. Please provide a valid value."
-        return 1
-    fi
-    return 0
-}
+read -p "Traefik Dashboard Hostname (e.g., panel.enesbuyuk.com): " TRAEFIK_DASHBOARD_HOSTNAME
+read -p "Traefik Dashboard Username: " TRAEFIK_DASHBOARD_USERNAME
+read -p "Traefik Dashboard Password (bcrypt recommended): " TRAEFIK_DASHBOARD_PASSWORD
+read -p "ACME Email: " ACME_EMAIL
+read -p "Cloudflare DNS API Token: " CF_DNS_API_TOKEN
 
-# Function to validate bcrypt password (basic check for length)
-validate_bcrypt() {
-    if [[ ! "$1" =~ ^\$2[ayb]\$.{56}$ ]]; then
-        echo "Invalid bcrypt password format. Please provide a valid bcrypt hashed password."
-        return 1
-    fi
-    return 0
-}
+read -p "Frontend Port (default 80): " PORT
+PORT=${PORT:-80}
+read -p "NEXT_PUBLIC_SITE_URL: " NEXT_PUBLIC_SITE_URL
+read -p "NEXT_PUBLIC_MEDIUM_URL: " NEXT_PUBLIC_MEDIUM_URL
+read -p "NEXT_PUBLIC_BUCKET (leave empty if not using): " NEXT_PUBLIC_BUCKET
 
-# Ask user for Traefik Dashboard Hostname
-while true; do
-    read -p "Enter Traefik Dashboard Hostname (e.g. panel.enesbuyuk.com): " TRAEFIK_DASHBOARD_HOSTNAME
-    validate_non_empty "$TRAEFIK_DASHBOARD_HOSTNAME" && break
-done
+read -p "Backend URL (default http://commbuilder-backend:444): " BACKEND_URL
+BACKEND_URL=${BACKEND_URL:-http://commbuilder-backend:444}
+read -p "Backend Port (default 444): " BACKEND_PORT
+BACKEND_PORT=${BACKEND_PORT:-444}
+read -p "Backend API Token: " BACKEND_API_TOKEN
 
-# Ask user for Traefik Dashboard Username
-while true; do
-    read -p "Enter Traefik Dashboard Username (e.g. admin): " TRAEFIK_DASHBOARD_USERNAME
-    validate_non_empty "$TRAEFIK_DASHBOARD_USERNAME" && break
-done
+read -p "MongoDB Host (default mongodb): " MONGODB_HOST
+MONGODB_HOST=${MONGODB_HOST:-mongodb}
+read -p "MongoDB Port: " MONGODB_PORT
+read -p "MongoDB Username (default root): " MONGODB_USERNAME
+MONGODB_USERNAME=${MONGODB_USERNAME:-root}
+read -p "MongoDB Password: " MONGODB_PASSWORD
+read -p "MongoDB Database (default commbuilder): " MONGODB_DATABASE
+MONGODB_DATABASE=${MONGODB_DATABASE:-commbuilder}
 
-# Ask user for Traefik Dashboard Password
-while true; do
-    read -p "Enter Traefik Dashboard Password (bcrypt hashed password!): " TRAEFIK_DASHBOARD_PASSWORD
-    validate_bcrypt "$TRAEFIK_DASHBOARD_PASSWORD" && break
-done
+read -p "JWT Secret Key: " JWT_SECRET
 
-# Ask user for Frontend Site Hostname
-while true; do
-    read -p "Enter Frontend Site Hostname (e.g. iucs.net): " SITE_HOSTNAME
-    validate_non_empty "$SITE_HOSTNAME" && break
-done
-
-# Ask user for Frontend Site URL
-while true; do
-    read -p "Enter Frontend Site URL (e.g. https://iucs.net): " NEXT_PUBLIC_SITE_URL
-    validate_url "$NEXT_PUBLIC_SITE_URL" && break
-done
-
-# Ask user for Medium URL
-while true; do
-    read -p "Enter Medium URL (e.g. https://medium.iucs.net): " NEXT_PUBLIC_MEDIUM_URL
-    validate_url "$NEXT_PUBLIC_MEDIUM_URL" && break
-done
-
-# Ask user for Backend URL
-while true; do
-    read -p "Enter Backend URL (e.g. http://backend:444): " BACKEND_URL
-    validate_url "$BACKEND_URL" && break
-done
-
-# Ask user for MongoDB Host
-while true; do
-    read -p "Enter MongoDB Host (e.g. mongodb): " MONGODB_HOST
-    validate_non_empty "$MONGODB_HOST" && break
-done
-
-# Ask user for MongoDB Port
-while true; do
-    read -p "Enter MongoDB Port (e.g. 27017): " MONGODB_PORT
-    validate_non_empty "$MONGODB_PORT" && break
-done
-
-# Ask user for MongoDB Username
-while true; do
-    read -p "Enter MongoDB Username (e.g. root): " MONGODB_USERNAME
-    validate_non_empty "$MONGODB_USERNAME" && break
-done
-
-# Ask user for MongoDB Password
-while true; do
-    read -p "Enter MongoDB Password (e.g. password123): " MONGODB_PASSWORD
-    validate_non_empty "$MONGODB_PASSWORD" && break
-done
-
-# Ask user for MongoDB Database name
-while true; do
-    read -p "Enter MongoDB Database name (e.g. commbuilder): " MONGODB_DATABASE
-    validate_non_empty "$MONGODB_DATABASE" && break
-done
-
-# Ask user for JWT Secret Key
-while true; do
-    read -p "Enter JWT Secret Key (e.g. your-jwt-secret-key): " JWT_SECRET
-    validate_non_empty "$JWT_SECRET" && break
-done
-
-# Generate the .env file
-cat <<EOL > .env
+cat > $ENV_FILE <<EOL
 ##############################################
 # Change the name of this file to .env
 ##############################################
 
 # Traefik Configuration
-TRAEFIK_DASHBOARD_HOSTNAME=${TRAEFIK_DASHBOARD_HOSTNAME}
-TRAEFIK_DASHBOARD_USERNAME=${TRAEFIK_DASHBOARD_USERNAME}
-TRAEFIK_DASHBOARD_PASSWORD="${TRAEFIK_DASHBOARD_PASSWORD}"
+TRAEFIK_DASHBOARD_HOSTNAME="$TRAEFIK_DASHBOARD_HOSTNAME"
+TRAEFIK_DASHBOARD_USERNAME="$TRAEFIK_DASHBOARD_USERNAME"
+TRAEFIK_DASHBOARD_PASSWORD="$TRAEFIK_DASHBOARD_PASSWORD"
+ACME_EMAIL="$ACME_EMAIL"
+CF_DNS_API_TOKEN="$CF_DNS_API_TOKEN"
 
 # Frontend Configuration
-SITE_HOSTNAME=${SITE_HOSTNAME}
-PORT=80
-NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL}
-NEXT_PUBLIC_MEDIUM_URL=${NEXT_PUBLIC_MEDIUM_URL}
+PORT=$PORT
+NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
+NEXT_PUBLIC_MEDIUM_URL=$NEXT_PUBLIC_MEDIUM_URL
+NEXT_PUBLIC_BUCKET="$NEXT_PUBLIC_BUCKET"
 
 # Backend Server Configuration
-BACKEND_URL=${BACKEND_URL}
-BACKEND_PORT=444
+BACKEND_URL="$BACKEND_URL"
+BACKEND_PORT=$BACKEND_PORT
+BACKEND_API_TOKEN="$BACKEND_API_TOKEN"
 
 # Database configuration
-MONGODB_HOST=${MONGODB_HOST}
-MONGODB_PORT=${MONGODB_PORT}
-MONGODB_USERNAME=${MONGODB_USERNAME}
-MONGODB_PASSWORD=${MONGODB_PASSWORD}
-MONGODB_DATABASE=${MONGODB_DATABASE}
+MONGODB_HOST="$MONGODB_HOST"
+MONGODB_PORT="$MONGODB_PORT"
+MONGODB_USERNAME="$MONGODB_USERNAME"
+MONGODB_PASSWORD="$MONGODB_PASSWORD"
+MONGODB_DATABASE="$MONGODB_DATABASE"
 
 # Authentication
-JWT_SECRET=${JWT_SECRET}
+JWT_SECRET="$JWT_SECRET"
 EOL
 
-echo ".env file has been successfully created."
+echo ".env file created successfully!"

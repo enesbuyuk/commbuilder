@@ -40,7 +40,7 @@ export default async function Page() {
                                 className="h-full flex flex-col items-start bg-white shadow-lg rounded-lg overflow-hidden">
                                 <div className="w-full  bg-gray-100 flex justify-center items-center border-gray-300 border-b-[0.2px]">
                                     <Image
-                                        src={`/uploads/${event._id}.webp`}
+                                        src={`${process.env.NEXT_PUBLIC_BUCKET}/uploads/${event._id}.webp`}
                                         alt={event.title[locale]}
                                         className="object-cover w-full h-full"
                                         height={1920}
