@@ -1,6 +1,6 @@
 "use server";
 
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 
 export async function handleLogin(formData: FormData) {
@@ -20,18 +20,17 @@ export async function handleLogin(formData: FormData) {
 
   const json = await response.json();
 
-  // token json.token içinde
   const token = json.token;
 
-  // cookies() async, await ile al
+  const headerStore = await headers();
   const cookieStore = await cookies();
+
   cookieStore.set("token", token, {
     httpOnly: true,
     path: "/",
     maxAge: 60 * 60 * 24 * 7,
-    domain: process.env.SITE_HOSTNAME,
+    domain: headerStore.get("host") || "localhost",
     // secure: process.env.NODE_ENV === "production",
-    // domain: process.env.SITE_HOSTNAME // local testlerde kaldır
   });
 
   redirect("/admin");
