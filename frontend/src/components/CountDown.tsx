@@ -2,10 +2,6 @@ import { getLocale } from "next-intl/server";
 import CountDownClient from "./CountDownClient";
 import { Event } from "@/types/Event";
 
-type Props = {
-  locale: string;
-};
-
 export default async function CountDown() {
   const locale = await getLocale();
 
