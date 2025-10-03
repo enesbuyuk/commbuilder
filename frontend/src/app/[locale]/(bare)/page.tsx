@@ -11,8 +11,8 @@ export default async function Page() {
         <>
             <Header isHome={true}/>
             <main className="flex flex-col items-center justify-center w-full overflow-hidden">
-                <MediumArticles pageName={pageName}/>
                 <LastEvents pageName={pageName}/>
+                <MediumArticles pageName={pageName}/>
             </main>
             <Footer/>
         </>

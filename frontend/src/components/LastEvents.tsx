@@ -13,7 +13,7 @@ export default async function LastEvents({pageName}: {pageName: string}) {
     const lastEvents: Event[] = Array.isArray(json) ? json : json.data || [];
 
     return (
-        <IndexPageSectionLayout title={contentTranslations("lastEvents")} indexPageSectionId={"last-events"} isLastSection={true}>
+        <IndexPageSectionLayout title={contentTranslations("lastEvents")} indexPageSectionId={"last-events"} isLastSection={false}>
             {lastEvents.map((event:Event) => {
                 const eventDate = new Date(event.date);
                 const month = eventDate.toLocaleString('en-US', {month: 'short'});
