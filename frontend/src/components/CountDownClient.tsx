@@ -18,7 +18,7 @@ export default function CountDownClient({ event, locale = "en" }: Props) {
     const now = new Date();
     const diff = eventDate.getTime() - now.getTime();
     // disabled for local testing
-    //if (diff <= 0) return null;
+    if (diff <= 0) return null;
     return {
       days: Math.floor(diff / (1000 * 60 * 60 * 24)),
       hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
