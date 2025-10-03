@@ -220,6 +220,14 @@
       "contact": "İletişim",
       "faq": "SSS",
       "joinTheClub": "Kulübe Katıl"
+    },
+    "countDown": {
+      "eventStarted": "Etkinlik Başladı!",
+      "joinTheEvent": "Etkinliğe Katıl",
+      "days": "Gün",
+      "hours": "Saat",
+      "minutes": "Dakika",
+      "seconds": "Saniye"
     }
   }
 }

@@ -224,6 +224,14 @@
         "contact": "Contact",
         "faq": "FAQ",
         "joinTheClub": "Join the Club"
+    },
+    "countDown": {
+      "eventStarted": "Event Started!",
+      "joinTheEvent": "Join The Event",
+      "days": "Days",
+      "hours": "Hours",
+      "minutes": "Minutes",
+      "seconds": "Seconds"
     }
   }
 }
