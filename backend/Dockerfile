@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM golang:tip-alpine3.21 AS builder
+FROM golang:1.25.1-alpine3.22 AS builder
 WORKDIR /app
 
 COPY go.mod ./
