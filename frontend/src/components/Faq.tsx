@@ -29,7 +29,7 @@ export default function Faq({locale}: {locale: string}) {
                 setFaqs(Array.isArray(data) ? data : []);
             } catch (err) {
                 console.error("Error fetching FAQs:", err);
-                setError("FAQ'lar yüklenirken bir hata oluştu.");
+                setError("An error occurred while loading FAQs.");
             } finally {
                 setLoading(false);
             }
