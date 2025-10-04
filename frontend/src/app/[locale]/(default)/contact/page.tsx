@@ -111,13 +111,14 @@ export default async function Page() {
                     {/* Email Section */}
                     {contacts.find(c => c.key === 'email') && (() => {
                         const emailData = contacts.find(c => c.key === 'email')?.data;
+                        const emailName = emailData?.name?.[locale] || emailData?.name?.en || 'Email';
                         const emailValue = emailData?.value?.[locale] || emailData?.value?.en || '';
                         return (
                             <p className="text-base text-gray-700 mb-2">
-                                <strong>E-posta:</strong>{' '}
+                                <strong>{emailName}:</strong>{' '}
                                 <Link 
                                     href={`mailto:${emailValue}`}
-                                    title="E-posta"
+                                    title={emailName}
                                     className="hover:text-primary transition-colors"
                                 >
                                     {emailValue}
@@ -144,7 +145,7 @@ export default async function Page() {
                             </p>
                         );
                     })()}
-                    
+
                     {/* Social Media Icons */}
                     <div className="flex flex-wrap justify-center gap-4 p-4">
                         {contacts
