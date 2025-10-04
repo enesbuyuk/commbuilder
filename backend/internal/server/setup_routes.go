@@ -14,5 +14,6 @@ func setupRoutes(app *fiber.App) {
 	routes.TeamsRoutes(app)
 	routes.GalleryRoutes(app)
 	routes.ContactRoutes(app)
+	routes.FaqRoutes(app)
 	routes.SettingRoutes(app)
 }
