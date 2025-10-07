@@ -109,7 +109,14 @@
     },
     "events": {
       "joinToEvent": "Etkinliğe Katıl",
-      "endedEvent": "Etkinlik sona erdiği için katılamazsınız."
+      "endedEvent": "Etkinlik sona erdiği için katılamazsınız.",
+      "viewDetails": "Detayları Gör",
+      "notFound": "Etkinlik bulunamadı",
+      "backToEvents": "Etkinliklere Dön",
+      "speakers": "Konuşmacılar",
+      "schedule": "Program",
+      "eventEnded": "Bu etkinlik sona erdi",
+      "joinEvent": "Etkinliğe Katıl"
     },
     "gallery": {
       "viewGallery": "Galeriyi Görüntüle"

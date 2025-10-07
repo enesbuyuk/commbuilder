@@ -40,7 +40,7 @@
     "links": {
       "title": "Links",
       "description": "Reach our new links such as event registration, course registration, and more!",
-        "keywords": "Istanbul University, Computer Science Club Links, Event Registration, Course Registration, Student Resources, Tech Club Links, University Links, Student Community, Tech Events"
+      "keywords": "Istanbul University, Computer Science Club Links, Event Registration, Course Registration, Student Resources, Tech Club Links, University Links, Student Community, Tech Events"
     },
     "gallery": {
       "title": "Gallery",
@@ -88,32 +88,38 @@
       "keywords": "Admin Panel, Club Management, Admin Dashboard, User Management, Event Management, Announcement Management"
     }
   },
-
   "pages": {
     "index": {
-        "welcomeMessage": "Welcome to Istanbul University Faculty of Science, Computer Science Club!",
-        "meetOurClub": "Get to Know Our Club",
-        "ourMediumArticles": "Latest Articles",
-        "readMoreMediumArticle": "Read on Medium",
-        "lastEvents": "Latest Events",
-        "joinToEvent": "Join to Event",
-        "joinTheClub": "Join the Club",
-        "endedEvent": "You cannot participate because the event has ended.",
-        "slogans": {
+      "welcomeMessage": "Welcome to Istanbul University Faculty of Science, Computer Science Club!",
+      "meetOurClub": "Get to Know Our Club",
+      "ourMediumArticles": "Latest Articles",
+      "readMoreMediumArticle": "Read on Medium",
+      "lastEvents": "Latest Events",
+      "joinToEvent": "Join to Event",
+      "joinTheClub": "Join the Club",
+      "endedEvent": "You cannot participate because the event has ended.",
+      "slogans": {
         "slogan1": "We are building bridges to the future through digital innovation!",
         "slogan2": "We are exploring our creativity in the light of technology!",
         "slogan3": "We are unlocking the doors of the digital world and shaping tomorrow!"
-        }
+      }
     },
     "announcements": {
-        "learnMore": "Learn More"
+      "learnMore": "Learn More"
     },
     "events": {
-        "joinToEvent": "Join to Event",
-        "endedEvent": "You cannot participate because the event has ended."
+      "joinToEvent": "Join to Event",
+      "endedEvent": "You cannot participate because the event has ended.",
+      "viewDetails": "View Details",
+      "notFound": "Event not found",
+      "backToEvents": "Back to Events",
+      "speakers": "Speakers",
+      "schedule": "Schedule",
+      "eventEnded": "This event has ended",
+      "joinEvent": "Join the Event"
     },
     "gallery": {
-        "viewGallery": "View Gallery"
+      "viewGallery": "View Gallery"
     },
     "about": {
       "aboutUsTitle": "About Us",
@@ -200,30 +206,27 @@
       "userManagementDesc": "You can manage the users here.",
       "socialMediaManagement": "Social Media Management",
       "socialMediaManagementDesc": "You can manage social media links here.",
-
       "settings": "Settings",
       "dashboard": "Panel",
-
       "signIn": "Sign In",
       "signOut": "Sign Out",
       "signUp": "Sign Up"
     }
   },
-
   "components": {
     "header": {
-        "index": "Home",
-        "announcements" : "Announcements",
-        "events": "Events",
-        "links" : "Links",
-        "usefulLinks": "Useful Links",
-        "gallery": "Gallery",
-        "about": "About Us",
-        "about--team": "Our Team",
-        "about--charter": "Charter of the Club",
-        "contact": "Contact",
-        "faq": "FAQ",
-        "joinTheClub": "Join the Club"
+      "index": "Home",
+      "announcements": "Announcements",
+      "events": "Events",
+      "links": "Links",
+      "usefulLinks": "Useful Links",
+      "gallery": "Gallery",
+      "about": "About Us",
+      "about--team": "Our Team",
+      "about--charter": "Charter of the Club",
+      "contact": "Contact",
+      "faq": "FAQ",
+      "joinTheClub": "Join the Club"
     },
     "countDown": {
       "eventStarted": "Event Started!",

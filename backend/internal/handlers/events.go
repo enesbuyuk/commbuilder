@@ -39,6 +39,26 @@ func GetEvents(c *fiber.Ctx) error {
 	return c.JSON(events)
 }
 
+func GetEventByID(c *fiber.Ctx) error {
+	id := c.Params("id")
+
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+
+	objID, err := primitive.ObjectIDFromHex(id)
+	if err != nil {
+		return c.Status(400).JSON(fiber.Map{"error": "Invalid ID format"})
+	}
+
+	var event models.EventModel
+	err = config.DB.Collection("events").FindOne(ctx, bson.M{"_id": objID}).Decode(&event)
+	if err != nil {
+		return c.Status(404).JSON(fiber.Map{"error": "Event not found"})
+	}
+
+	return c.JSON(event)
+}
+
 func PostEvents(c *fiber.Ctx) error {
 	event := new(models.EventModel)
 	if err := c.BodyParser(event); err != nil {

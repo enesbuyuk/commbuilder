@@ -1,5 +1,5 @@
-import {createNavigation} from 'next-intl/navigation';
-import {defineRouting} from 'next-intl/routing';
+import { createNavigation } from 'next-intl/navigation';
+import { defineRouting } from 'next-intl/routing';
 
 export const routing = defineRouting({
     locales: ['en', 'tr'] as const,
@@ -10,19 +10,24 @@ export const routing = defineRouting({
             en: '/announcements',
             tr: '/duyurular'
         },
-        '/events':{
+        '/events': {
             en: '/events',
             tr: '/etkinlikler'
         },
-        '/useful-links':{
+
+        '/events/[id]': {
+            en: '/events/[id]',
+            tr: '/etkinlikler/[id]'
+        },
+        '/useful-links': {
             en: '/useful-links',
             tr: '/faydali-linkler'
         },
-        '/links':{
+        '/links': {
             en: '/links',
             tr: '/linkler'
         },
-        '/gallery':{
+        '/gallery': {
             en: '/gallery',
             tr: '/galeri'
         },
@@ -30,11 +35,11 @@ export const routing = defineRouting({
             en: '/about',
             tr: '/hakkinda'
         },
-        '/about/team':{
+        '/about/team': {
             en: '/about/team',
             tr: '/hakkinda/takim'
         },
-        '/about/charter':{
+        '/about/charter': {
             en: '/about/charter',
             tr: '/hakkinda/tuzuk'
         },
@@ -59,23 +64,23 @@ export const routing = defineRouting({
             en: '/admin/dashboard',
             tr: '/admin/kontrol-paneli'
         },
-        '/admin/announcements':{
+        '/admin/announcements': {
             en: '/admin/announcements',
             tr: '/admin/duyurular'
         },
-        '/admin/events':{
+        '/admin/events': {
             en: '/admin/events',
             tr: '/admin/etkinlikler'
         },
-        '/admin/user-management':{
+        '/admin/user-management': {
             en: '/admin/user-management',
             tr: '/admin/kullanici-yonetimi'
         },
-        '/admin/settings':{
+        '/admin/settings': {
             en: '/admin/settings',
             tr: '/admin/ayarlar'
         },
-        '/admin/social-media-management':{
+        '/admin/social-media-management': {
             en: '/admin/social-media-management',
             tr: '/admin/sosyal-medya-yonetimi'
         },
@@ -85,7 +90,7 @@ export const routing = defineRouting({
 export type Pathnames = Extract<keyof typeof routing.pathnames, string>;
 export type locale = (typeof routing.locales)[number];
 
-export const {Link, getPathname, redirect, usePathname, useRouter} =
+export const { Link, getPathname, redirect, usePathname, useRouter } =
     createNavigation(routing)
 
 export function getPath(pathname: Pathnames, locale: string): string {
