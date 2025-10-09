@@ -34,7 +34,7 @@ export default async function Header({isHome=false}: {isHome?: boolean}) {
 
     const IndexHeroMap: Record<string, React.FC> = {
         "default": IndexHero,
-        "countdown": CountDown,
+        "countdown": () => <CountDown eventId="" />,
     };
 
     const IndexBackgroundMap: Record<string, React.FC<{children: React.ReactNode}>> = {

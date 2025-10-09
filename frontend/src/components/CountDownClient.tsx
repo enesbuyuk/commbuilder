@@ -18,7 +18,15 @@ export default function CountDownClient({ event, locale = "en" }: Props) {
     const now = new Date();
     const diff = eventDate.getTime() - now.getTime();
     // disabled for local testing
-    if (diff <= 0) return null;
+    //if (diff <= 0) return null;
+    if (diff <= 0) {
+      return {
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      }
+    }
     return {
       days: Math.floor(diff / (1000 * 60 * 60 * 24)),
       hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
@@ -29,6 +37,7 @@ export default function CountDownClient({ event, locale = "en" }: Props) {
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
   const [showStarted, setShowStarted] = useState(false);
+  const [eventEnded, setEventEnded] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -36,7 +45,10 @@ export default function CountDownClient({ event, locale = "en" }: Props) {
 
       if (timeLeft && !newTimeLeft) {
         setShowStarted(true);
-        setTimeout(() => setShowStarted(false), 30000);
+        setTimeout(() => {
+          setShowStarted(false);
+          setEventEnded(true);
+        }, 30000);
       }
 
       setTimeLeft(newTimeLeft);
@@ -52,26 +64,48 @@ export default function CountDownClient({ event, locale = "en" }: Props) {
   const title = event.title[locale];
   const link = event.url;
 
+  if (eventEnded) {
+    return (
+      <div className="relative z-10 w-full max-w-4xl p-6 md:p-10 text-center mx-auto">
+        <div className="backdrop-blur-sm bg-white/10 rounded-3xl p-8 border border-white/20 shadow-2xl">
+          <div className="text-6xl mb-6">✨</div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-4 drop-shadow-2xl">
+            {componentTranslations("endedEventMessage")}
+          </h1>
+        </div>
+      </div>
+    );
+  }
+
   if (!timeLeft && !showStarted) {
     return <IndexHero />;
   }
 
   if (showStarted) {
     return (
-      <div className="relative z-10 w-full max-w-4xl p-6 md:p-10 text-center">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-6 drop-shadow-lg">
-          {componentTranslations("eventStarted")}
-        </h1>
+      <div className="relative z-10 w-full max-w-4xl p-6 md:p-10 text-center mx-auto">
+        <div className="animate-bounce">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 bg-clip-text text-transparent mb-6 drop-shadow-2xl">
+            {componentTranslations("eventStarted")}
+          </h1>
+          <div className="text-6xl mb-4">🎉</div>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="relative z-10 w-full max-w-4xl p-6 md:p-10 text-center">
-      <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-6 drop-shadow-lg">
-        {title}
-      </h1>
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mb-8">
+    <div className="relative z-10 w-full max-w-5xl p-6 md:p-10 text-center mx-auto">
+      {/* Event Title with gradient */}
+      <div className="mb-8 sm:mb-12">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white bg-clip-text text-transparent mb-4 drop-shadow-2xl leading-tight">
+          {title}
+        </h1>
+        <div className="h-1 w-32 mx-auto bg-gradient-to-r from-orange-400 to-pink-500 rounded-full"></div>
+      </div>
+
+      {/* Countdown Timer */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6 mb-10 sm:mb-12">
         {timeLeft && (
           <>
             <TimeBox label={componentTranslations("days")} value={timeLeft.days} />
@@ -82,19 +116,39 @@ export default function CountDownClient({ event, locale = "en" }: Props) {
         )}
       </div>
 
-      <p className="text-white/80 text-base sm:text-lg mb-8 px-4 sm:px-0">
+      {/* Event Description */}
+      <p className="text-white/90 text-base sm:text-lg md:text-xl mb-10 px-4 sm:px-8 leading-relaxed backdrop-blur-sm bg-white/5 rounded-2xl py-4 border border-white/10">
         {event.description[locale]}
       </p>
 
-      <a
-        href={link}
-        title={componentTranslations("joinTheEvent")}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-lg transition-all duration-200 text-base sm:text-lg"
-      >
-        {componentTranslations("joinTheEvent")}
-      </a>
+      {/* CTA Button - Conditionally render based on countdown state */}
+      {timeLeft && (timeLeft.days > 0 || timeLeft.hours > 0 || timeLeft.minutes > 0 || timeLeft.seconds > 0) ? (
+        <a
+          href={link}
+          title={componentTranslations("joinTheEvent")}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-pink-600 hover:from-orange-600 hover:to-pink-700 text-white font-bold px-8 sm:px-10 py-4 sm:py-5 rounded-2xl shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 text-base sm:text-lg transform hover:scale-105 hover:-translate-y-1"
+        >
+          {componentTranslations("joinTheEvent")}
+          <svg 
+            className="w-5 h-5 transition-transform group-hover:translate-x-1" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      ) : (
+        <div className="backdrop-blur-sm bg-white/10 rounded-3xl px-8 py-4 border border-white/20 shadow-xl">
+          <div className="flex items-center justify-center gap-3">
+            <p className="text-white/90 text-base sm:text-lg font-semibold">
+              {componentTranslations("endedEvent")}
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -106,11 +160,23 @@ type TimeBoxProps = {
 
 function TimeBox({ label, value }: TimeBoxProps) {
   return (
-    <div className="flex flex-col items-center justify-center bg-white/20 rounded-2xl p-3 sm:p-4 border border-white/30">
-      <span className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg">
-        {value}
-      </span>
-      <span className="mt-1 sm:mt-2 text-white text-base sm:text-lg font-medium">{label}</span>
+    <div className="group relative">
+      {/* Glow effect */}
+      <div className="absolute -inset-0.5 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-300"></div>
+      
+      {/* Main card */}
+      <div className="relative flex flex-col items-center justify-center backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-transparent">
+        {/* Value */}
+        <span className="text-4xl sm:text-5xl md:text-6xl font-black bg-gradient-to-br from-white to-white/80 bg-clip-text text-transparent drop-shadow-2xl tracking-tight cursor-default">
+          {String(value).padStart(2, '0')}
+        </span>
+        
+        {/* Separator line */}
+        <div className="h-0.5 w-12 my-2 bg-gradient-to-r from-transparent via-white/50 to-transparent"></div>
+        
+        {/* Label */}
+        <span className="text-white/90 text-xs sm:text-sm md:text-base font-semibold uppercase tracking-wider">{label}</span>
+      </div>
     </div>
   );
 }

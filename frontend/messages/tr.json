@@ -231,6 +231,7 @@
     "countDown": {
       "eventStarted": "Etkinlik Başladı!",
       "joinTheEvent": "Etkinliğe Katıl",
+      "endedEvent": "Bu etkinlik sona erdi",
       "days": "Gün",
       "hours": "Saat",
       "minutes": "Dakika",

@@ -231,6 +231,7 @@
     "countDown": {
       "eventStarted": "Event Started!",
       "joinTheEvent": "Join The Event",
+      "endedEvent": "This event has ended",
       "days": "Days",
       "hours": "Hours",
       "minutes": "Minutes",
