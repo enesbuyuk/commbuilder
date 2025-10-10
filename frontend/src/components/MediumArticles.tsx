@@ -83,7 +83,7 @@ export default async function MediumArticles({ pageName }: { pageName: string })
                         <div className="inline-flex items-center">
                             <Image
                                 alt="author"
-                                src={"/theme/default-profile-photo.png"}
+                                src={`${process.env.NEXT_PUBLIC_BUCKET}/theme/default-profile-photo.png`}
                                 width={100}
                                 height={100}
                                 className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"

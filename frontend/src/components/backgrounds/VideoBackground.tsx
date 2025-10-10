@@ -5,7 +5,7 @@ export default function VideoBackground({ children }: { children: React.ReactNod
         <>
             {children}
             <video
-                src="/theme/background.webm"
+                src={`${process.env.NEXT_PUBLIC_BUCKET}/theme/background.webm`}
                 autoPlay
                 muted
                 loop

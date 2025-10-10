@@ -90,7 +90,7 @@ services:
       - commbuilder-network
     healthcheck:
       test: ["CMD", "sh", "-c", "curl -f http://localhost:${BACKEND_PORT}/livez || exit 1"]
-      interval: 1m
+      interval: 15s
       timeout: 5s
       retries: 4
 

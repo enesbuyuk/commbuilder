@@ -20,7 +20,7 @@ export default async function Page() {
             <div className="w-full max-w-md p-6">
                 <Image
                     className="rounded-lg shadow-lg"
-                    src="/theme/admin/admin-login-page.webp"
+                    src={`${process.env.NEXT_PUBLIC_BUCKET}/theme/admin/admin-login-page.webp`}
                     alt="Admin Login"
                     width={800}
                     height={600}
