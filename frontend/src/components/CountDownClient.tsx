@@ -59,6 +59,7 @@ export default function CountDownClient({ event, locale = "en" }: Props) {
     }, 1000);
 
     return () => clearInterval(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const title = event.title[locale];

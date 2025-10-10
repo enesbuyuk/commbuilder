@@ -17,8 +17,11 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
+            set -e  # Exit on any error
             cd ${{ secrets.SERVER_PROJECT_PATH }}
             git fetch origin main
             git reset --hard origin/main
-            docker compose down
-            docker compose up mongodb traefik commbuilder-backend --build -d
+            docker compose build mongodb traefik commbuilder-backend            
+            docker compose up -d mongodb traefik commbuilder-backend
+            docker image prune -f
+            docker compose ps
