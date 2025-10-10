@@ -19,9 +19,14 @@ jobs:
           script: |
             set -e  # Exit on any error
             cd ${{ secrets.SERVER_PROJECT_PATH }}
+
+            git config --global --add safe.directory ${{ secrets.SERVER_PROJECT_PATH }}
+
             git fetch origin main
             git reset --hard origin/main
+
             docker compose build mongodb traefik commbuilder-backend            
             docker compose up -d mongodb traefik commbuilder-backend
+
             docker image prune -f
             docker compose ps
