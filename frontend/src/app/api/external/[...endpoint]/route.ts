@@ -44,9 +44,9 @@ async function proxy(req: NextRequest, params: any) {
   return NextResponse.json(payload, { status: response.status });
 }
 
-export const GET = (req: NextRequest, ctx: any) => proxy(req, ctx.params);
-export const POST = (req: NextRequest, ctx: any) => proxy(req, ctx.params);
-export const PUT = (req: NextRequest, ctx: any) => proxy(req, ctx.params);
-export const PATCH = (req: NextRequest, ctx: any) => proxy(req, ctx.params);
-export const DELETE = (req: NextRequest, ctx: any) => proxy(req, ctx.params);
-export const OPTIONS = (req: NextRequest, ctx: any) => proxy(req, ctx.params);
+export const GET = (req: NextRequest, ctx: { params: any }) => proxy(req, ctx);
+export const POST = (req: NextRequest, ctx: { params: any }) => proxy(req, ctx);
+export const PUT = (req: NextRequest, ctx: { params: any }) => proxy(req, ctx);
+export const PATCH = (req: NextRequest, ctx: { params: any }) => proxy(req, ctx);
+export const DELETE = (req: NextRequest, ctx: { params: any }) => proxy(req, ctx);
+export const OPTIONS = (req: NextRequest, ctx: { params: any }) => proxy(req, ctx);
