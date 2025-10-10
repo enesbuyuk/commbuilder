@@ -15,7 +15,7 @@ export default async function Footer() {
                     title={generalTranslations("universityName") + " " + generalTranslations("studentClubName")}>
                     <Image
                         className={"w-auto h-auto"}
-                        src="/theme/logo_footer.png"
+                        src={`${process.env.NEXT_PUBLIC_BUCKET}/theme/logo_footer.png`}
                            alt={generalTranslations("universityName") + " " + generalTranslations("studentClubName") + " Logo"} width={60}
                            height={60}/>
                 </Link>

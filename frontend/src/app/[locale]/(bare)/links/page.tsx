@@ -30,7 +30,7 @@ export default async function Page() {
             </div>
 
             <Image
-                src="/theme/logo.png"
+                src={`${process.env.NEXT_PUBLIC_BUCKET}/theme/logo.png`}
                 alt={generalTranslations("studentClubName") + " " + generalTranslations("universityName")}
                 className="w-36 h-36 mx-auto rounded-full mb-4"
                 width={144}
@@ -53,7 +53,7 @@ export default async function Page() {
                             >
                         <span className="absolute left-6">
                             <Image
-                                src={`/theme/icons/${link.icon}.svg`}
+                                src={`${process.env.NEXT_PUBLIC_BUCKET}/theme/icons/${link.icon}.svg`}
                                 alt={link.title[locale]}
                                 width={36}
                                 height={36}
@@ -77,7 +77,7 @@ export default async function Page() {
                     >
                         <span className="absolute left-6">
                             <Image
-                                src="/theme/icons/globe.svg"
+                                src={`${process.env.NEXT_PUBLIC_BUCKET}/theme/icons/globe.svg`}
                                 alt={contentTranslations("goToOurWebsite")}
                                 width={36}
                                 height={36}

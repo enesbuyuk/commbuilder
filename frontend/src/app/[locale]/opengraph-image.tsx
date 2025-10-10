@@ -17,7 +17,7 @@ export default async function Image({params}: {params: Promise<{locale: string}>
         (
             <div
                 style={{
-                    backgroundImage: `url("${process.env.NEXT_PUBLIC_SITE_URL}/theme/default-og-image.jpg")`,
+                    backgroundImage: `url("${process.env.NEXT_PUBLIC_BUCKET}/theme/default-og-image.jpg")`,
                     backgroundSize: 'cover',
                     fontSize: '48px',
                     color: '#FFFFFF',
