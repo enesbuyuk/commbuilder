@@ -21,7 +21,7 @@ export default async function AdminHeader({locale}:{locale:string}){
                 title={`${generalTranslations("universityName")} ${generalTranslations("studentClubName")}`}
             >
                 <Image
-                    src={`${process.env.NEXT_PUBLIC_BUCKET}/theme/logo_footer.png`}
+                    src={`${process.env.NEXT_PUBLIC_BUCKET}/theme/logo_without_text.png`}
                     alt={`${generalTranslations("universityName")} ${generalTranslations("studentClubName")} Logo`}
                     width={70}
                     height={70}

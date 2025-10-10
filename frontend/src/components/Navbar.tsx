@@ -38,7 +38,7 @@ export default function Navbar({locale}: {locale: string}) {
         <div className="w-11/12 mx-auto flex flex-wrap px-8 lg:px-4 py-4 items-center justify-between gap-8">
             <Link href="/" title={`${generalTranslations('universityName')} ${generalTranslations('studentClubName')}`}>
                 <Image
-                    src={isIndex ? `${process.env.NEXT_PUBLIC_BUCKET}/theme/logo_footer.png` : `${process.env.NEXT_PUBLIC_BUCKET}/theme/logo_no_bg.png`}
+                    src={isIndex ? `${process.env.NEXT_PUBLIC_BUCKET}/theme/logo_without_text.png` : `${process.env.NEXT_PUBLIC_BUCKET}/theme/logo_no_bg.png`}
                     alt={`${generalTranslations('universityName')} Logo`}
                     width={isIndex ? 90 : 75}
                     height={isIndex ? 90 : 75}
