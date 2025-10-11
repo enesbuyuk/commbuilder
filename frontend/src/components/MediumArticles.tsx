@@ -37,7 +37,7 @@ export default async function MediumArticles({ pageName }: { pageName: string })
                     <div className="p-12 bg-white flex flex-col items-start shadow-lg rounded-lg h-full overflow-hidden">
                         {/*<div className="w-full bg-gray-100 flex justify-center items-center"bg-whitebg-whitebg-whitebg-white>*/}
                         <span
-                            className="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">
+                            className="inline-block py-1 px-2 rounded-sm bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">
                                     ARTICLE
                                 </span>
                         <Link
@@ -86,9 +86,9 @@ export default async function MediumArticles({ pageName }: { pageName: string })
                                 src={`${process.env.NEXT_PUBLIC_BUCKET}/theme/default-profile-photo.png`}
                                 width={100}
                                 height={100}
-                                className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"
+                                className="w-12 h-12 rounded-full shrink-0 object-cover object-center"
                             />
-                            <span className="flex-grow flex flex-col pl-4">
+                            <span className="grow flex flex-col pl-4">
                                         <span className="title-font font-medium text-gray-900">
                                             {post.author}
                                         </span>

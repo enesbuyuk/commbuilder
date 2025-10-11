@@ -50,7 +50,7 @@ export default function Navbar({locale}: {locale: string}) {
                 {isMenuOpen ? <X size={52} color={`#FFF`}/> : <Menu size={52} className={`text-${isIndex?`white`:`primary`}`} />}
             </button>
 
-            <nav className={`flex-grow fixed inset-0 bg-primary z-40 flex flex-col items-center justify-between lg:static lg:flex-row lg:bg-transparent transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} lg:translate-x-0 py-5 lg:py-0`}>
+            <nav className={`grow fixed inset-0 bg-primary z-40 flex flex-col items-center justify-between lg:static lg:flex-row lg:bg-transparent transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} lg:translate-x-0 py-5 lg:py-0`}>
                 <ul className="flex flex-col lg:flex-row items-center">
                     {menuItems.map(({ href, label, external }, index) => {
                         const isLastItem = (index === menuItems.length - 2);

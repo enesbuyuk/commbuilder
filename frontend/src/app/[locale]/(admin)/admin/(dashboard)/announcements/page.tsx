@@ -22,7 +22,7 @@ export default async function AdminAnnouncementsList({params}: { params: Promise
             {announcements.map((announcement) => (
                 <div
                     key={announcement._id}
-                    className="w-2/3 mb-3 bg-white shadow-sm rounded-lg p-2 border border-gray-300 hover:shadow-md transition flex justify-between items-center"
+                    className="w-2/3 mb-3 bg-white shadow-xs rounded-lg p-2 border border-gray-300 hover:shadow-md transition flex justify-between items-center"
                 >
                     <div className="flex flex-col w-full">
                         <div className="flex justify-between items-center">

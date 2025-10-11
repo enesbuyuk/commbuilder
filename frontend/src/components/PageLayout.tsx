@@ -11,7 +11,11 @@ interface PageLayoutProps {
 const PageLayout: React.FC<PageLayoutProps> = ({title,description,bg = '',spaceY = '', children}) => {
     if (bg === "white") {
         bg = " bg-white"
-    } else {
+    } else if (bg === "dark") {
+        bg = " bg-primary"
+    }
+
+    else {
         bg = ""
     }
     if (spaceY == "") {

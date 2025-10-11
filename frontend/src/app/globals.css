@@ -1,11 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+@import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+}
+
+
+@theme {
+  --color-primary: #1a1a1a;
+  --color-secondary: #8f8f8f;
+  --color-secondary-dark: #2a2938;
 }
 
 @media (prefers-color-scheme: light) {

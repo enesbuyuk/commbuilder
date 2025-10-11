@@ -100,7 +100,7 @@ export default function Gallery() {
                                 }}
                             />
                             {title ? (
-                                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent text-white text-xs md:text-sm px-3 py-2 truncate">
+                                <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/70 to-transparent text-white text-xs md:text-sm px-3 py-2 truncate">
                                     {title}
                                 </div>
                             ) : null}
@@ -111,7 +111,7 @@ export default function Gallery() {
 
             {selectedImage && (
                 <div
-                    className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-85"
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity/85"
                     onClick={closeModal}
                 >
                     <div className="relative" onClick={(e) => e.stopPropagation()}>

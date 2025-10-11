@@ -112,11 +112,14 @@
       "endedEvent": "You cannot participate because the event has ended.",
       "viewDetails": "View Details",
       "notFound": "Event not found",
+      "notFoundDescription": "This event could not be found or may have been removed.",
       "backToEvents": "Back to Events",
       "speakers": "Speakers",
       "schedule": "Schedule",
       "eventEnded": "This event has ended",
-      "joinEvent": "Join the Event"
+      "joinEvent": "Join the Event",
+      "eventDate": "Event Date",
+      "eventDescription": "Event Description"
     },
     "gallery": {
       "viewGallery": "View Gallery"

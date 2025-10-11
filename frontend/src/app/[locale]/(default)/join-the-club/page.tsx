@@ -106,7 +106,7 @@ export default async function Page() {
                                 <input
                                     type="checkbox"
                                     id="agreement"
-                                    className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                                    className="w-4 h-4 text-indigo-600 border-gray-300 rounded-sm focus:ring-indigo-500"
                                 />
                                 <label htmlFor="agreement" className="text-sm text-gray-700">
                                     {contentTranslations("agreement")}

@@ -16,7 +16,7 @@ export default function PeriodSelector({ teams }: { teams: Team[] }) {
                     <button
                         key={team.period}
                         onClick={() => setSelectedPeriod(team.period)}
-                        className={`px-4 py-2 border rounded ${
+                        className={`px-4 py-2 border rounded-sm ${
                             selectedPeriod === team.period ? 'bg-gray-200' : 'hover:bg-gray-100'
                         }`}
                     >
