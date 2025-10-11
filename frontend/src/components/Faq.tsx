@@ -61,7 +61,7 @@ export default function Faq({locale}: {locale: string}) {
                 const answer = faq.answer?.[locale] || faq.answer?.en || '';
                 
                 return (
-                    <div key={faq._id} className="bg-white rounded shadow-md w-full">
+                    <div key={faq._id} className="bg-white rounded-sm shadow-md w-full">
                         <div
                             className="cursor-pointer p-4 flex justify-between items-center"
                             onClick={() => toggleFAQ(index)}

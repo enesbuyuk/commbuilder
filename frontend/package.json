@@ -3,34 +3,41 @@
   "version": "0.2",
   "private": true,
   "scripts": {
-    "dev": "dotenvx run -f ../.env -- next dev",
+    "dev": "dotenvx run -f ../.env -- next dev --turbopack",
     "dev-build": "dotenvx run -f ../.env -- next build",
     "dev-start": "dotenvx run -f ../.env -- next start",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "standalone": "next build && cp -r public/ .next/standalone && cp -r .next/static .next/standalone/.next"
   },
   "dependencies": {
-    "@dotenvx/dotenvx": "^1.39.0",
-    "lucide-react": "^0.465.0",
-    "next": "15.2.4",
-    "next-intl": "^3.25.1",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "@dotenvx/dotenvx": "^1.51.0",
+    "lucide-react": "^0.545.0",
+    "next": "15.5.4",
+    "next-intl": "^4.3.12",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
     "react-simple-typewriter": "^5.0.1",
     "rss-parser": "^3.13.0"
   },
   "devDependencies": {
-    "@types/jsonwebtoken": "^9.0.9",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8.57.1",
-    "eslint-config-next": "15.0.3",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "@eslint/eslintrc": "^3.3.1",
+    "@tailwindcss/postcss": "^4.1.14",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.1",
+    "eslint": "^9.37.0",
+    "eslint-config-next": "15.5.4",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.14",
+    "typescript": "^5.9.3"
   },
-  "packageManager": "pnpm@10.7.0"
+  "packageManager": "pnpm@10.7.0",
+  "pnpm": {
+    "overrides": {
+      "@types/react": "19.2.2",
+      "@types/react-dom": "19.2.1"
+    }
+  }
 }

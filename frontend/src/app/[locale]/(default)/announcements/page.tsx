@@ -32,7 +32,7 @@ export default async function Page() {
                         key={announcement._id}
                         className="bg-white px-6 py-8 rounded-lg shadow-lg flex flex-wrap md:flex-nowrap w-full"
                     >
-                        <div className="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+                        <div className="md:w-64 md:mb-0 mb-6 shrink-0 flex flex-col">
                             <span className="font-semibold title-font text-gray-700">
                                 {announcement.type[locale]}
                             </span>
@@ -40,7 +40,7 @@ export default async function Page() {
                                 {new Date(announcement.date).toLocaleDateString()}
                             </span>
                         </div>
-                        <div className="md:flex-grow">
+                        <div className="md:grow">
                             <h2 className="text-2xl font-medium text-gray-900 title-font mb-2">
                                 {announcement.title[locale]}
                             </h2>

@@ -112,11 +112,14 @@
       "endedEvent": "Etkinlik sona erdiği için katılamazsınız.",
       "viewDetails": "Detayları Gör",
       "notFound": "Etkinlik bulunamadı",
+      "notFoundDescription": "Bu etkinlik bulunamadı veya kaldırılmış olabilir.",
       "backToEvents": "Etkinliklere Dön",
       "speakers": "Konuşmacılar",
       "schedule": "Program",
       "eventEnded": "Bu etkinlik sona erdi",
-      "joinEvent": "Etkinliğe Katıl"
+      "joinEvent": "Etkinliğe Katıl",
+      "eventDate": "Etkinlik Tarihi",
+      "eventDescription": "Etkinlik Açıklaması"
     },
     "gallery": {
       "viewGallery": "Galeriyi Görüntüle"

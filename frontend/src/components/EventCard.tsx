@@ -33,7 +33,7 @@ export default async function EventCard({ event }: EventCardProps) {
             <div className="w-full h-full flex flex-col p-6">
                 {/* Event Type and Title */}
                 <div className="flex items-center mb-4">
-                    <div className="flex-grow">
+                    <div className="grow">
                         <h2 className="tracking-widest text-md font-medium text-indigo-500 mb-1">
                             {event.type[locale] || event.type.en}
                         </h2>
@@ -58,7 +58,7 @@ export default async function EventCard({ event }: EventCardProps) {
 
                 {/* Event Date and Action Button */}
                 <div className="mt-auto mx-auto w-full">
-                    <div className="flex-shrink-0 text-center py-6">
+                    <div className="shrink-0 text-center py-6">
                         <span className="inline-block text-gray-800 text-lg font-medium">
                             {month} {eventDate.getDate()}, {eventDate.getFullYear()}
                         </span>
