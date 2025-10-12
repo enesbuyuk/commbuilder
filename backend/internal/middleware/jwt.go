@@ -9,6 +9,7 @@ import (
 	"github.com/enesbuyuk/commbuildersite/internal/models"
 	"github.com/gofiber/fiber/v2"
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
@@ -32,8 +33,13 @@ func JwtMiddleware(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"error": "Invalid token claims"})
 	}
 
+	objectId, err := primitive.ObjectIDFromHex(userId)
+	if err != nil {
+		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"error": "Invalid user ID format"})
+	}
+
 	var user models.User
-	err = config.DB.Collection("admins").FindOne(ctx, bson.M{"_id": userId, "username": username}).Decode(&user)
+	err = config.DB.Collection("admins").FindOne(ctx, bson.M{"_id": objectId, "username": username}).Decode(&user)
 	if err != nil {
 		if errors.Is(err, mongo.ErrNoDocuments) {
 			return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"error": "User not found"})
