@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/enesbuyuk/commbuildersite/internal/config"
+	"github.com/enesbuyuk/commbuildersite/internal/scripts"
 	"github.com/enesbuyuk/commbuildersite/internal/server"
 )
 
@@ -22,6 +23,8 @@ func main() {
 			log.Println("Database disconnected successfully")
 		}
 	}()
+
+	scripts.RunAll()
 
 	app := server.SetupServer()
 
