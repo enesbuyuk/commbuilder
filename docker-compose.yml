@@ -1,7 +1,6 @@
 services:
   traefik:
     image: traefik:v3.4
-    container_name: traefik
     restart: unless-stopped
     ports:
       - "80:80"
@@ -40,16 +39,8 @@ services:
 
   commbuilder-backend:
     image: "commbuilder-backend:latest"
-    container_name: "commbuilder-backend"
-    environment:
-      - BACKEND_PORT=${BACKEND_PORT}
-      - BACKEND_API_TOKEN=${BACKEND_API_TOKEN}
-      - JWT_SECRET=${JWT_SECRET}
-      - MONGODB_HOST=${MONGODB_HOST}
-      - MONGODB_PORT=${MONGODB_PORT}
-      - MONGODB_USERNAME=${MONGODB_USERNAME}
-      - MONGODB_PASSWORD=${MONGODB_PASSWORD}
-      - MONGODB_DATABASE=${MONGODB_DATABASE}
+    env_file:
+      - ./.env
     restart: always
     build:
       context: ./backend
@@ -96,7 +87,6 @@ services:
 
   commbuilder-frontend:
     image: "commbuilder-frontend:latest"
-    container_name: "commbuilder-frontend"
     restart: always
     build:
       context: ./frontend
@@ -147,7 +137,6 @@ services:
   mongodb:
     image: mongo:8.0
     restart: unless-stopped
-    container_name: mongodb
     environment:
       MONGO_INITDB_ROOT_USERNAME: "${MONGODB_USERNAME}"
       MONGO_INITDB_ROOT_PASSWORD: "${MONGODB_PASSWORD}"
@@ -171,6 +160,7 @@ volumes:
 networks:
   commbuilder-network:
     driver: bridge
+    name: commbuilder-netowork
     ### if you want to use your docker network
     #external: true
     #name: your-docker-network-name
