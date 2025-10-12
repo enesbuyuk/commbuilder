@@ -8,11 +8,16 @@ import FocusMode from "@/components/FocusMode";
 const pageName = "index";
 
 let focus_mode = "default";
-const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/external/settings/focus_mode`);
 
-if (response.ok) {
-    const data = await response.json();
-    focus_mode = data.value;
+try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/external/settings/focus_mode`);
+
+    if (response.ok) {
+        const data = await response.json();
+        focus_mode = data.value;
+    }
+} catch (error) {
+    console.warn('Failed to fetch focus_mode setting, using default:', error);
 }
 
 export default async function Page() {
