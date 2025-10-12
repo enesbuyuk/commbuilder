@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "dotenvx run -f ../.env -- next dev --turbopack",
+    "dev-prebuild": "dotenvx run -f ../.env -- node ./scripts/fetchTranslations.js",
     "dev-build": "dotenvx run -f ../.env -- next build",
     "dev-start": "dotenvx run -f ../.env -- next start",
-    "prebuild": "dotenvx run -f ../.env -- node ./scripts/fetchTranslations.js",
+    "prebuild": "node ./scripts/fetchTranslations.js",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
