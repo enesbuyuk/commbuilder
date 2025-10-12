@@ -22,7 +22,7 @@ async function fetchTranslations() {
     }
 
     fs.writeFileSync(
-      `./messages/${locale}-new.json`,
+      `./messages/${locale}.json`,
       JSON.stringify(data, null, 2)
     );
 
@@ -30,4 +30,8 @@ async function fetchTranslations() {
   }
 }
 
-fetchTranslations().catch(console.error);
+if (process.env.SYNC_TRANSLATIONS === "1") {
+  fetchTranslations().catch(console.error);
+} else {
+  console.log("[Fetch Translations] SYNC_TRANSLATIONS not set to 1, skipping fetch");
+}
