@@ -16,4 +16,5 @@ func setupRoutes(app *fiber.App) {
 	routes.ContactRoutes(app)
 	routes.FaqRoutes(app)
 	routes.SettingRoutes(app)
+	routes.LanguageRoutes(app)
 }

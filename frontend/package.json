@@ -2,10 +2,12 @@
   "name": "commbuilder",
   "version": "0.2",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "dotenvx run -f ../.env -- next dev --turbopack",
     "dev-build": "dotenvx run -f ../.env -- next build",
     "dev-start": "dotenvx run -f ../.env -- next start",
+    "prebuild": "dotenvx run -f ../.env -- node ./scripts/fetchTranslations.js",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
