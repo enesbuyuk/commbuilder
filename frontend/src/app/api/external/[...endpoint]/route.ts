@@ -1,18 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const BACKEND_URL = process.env.BACKEND_URL!;
+const BACKEND_URL = process.env.BACKEND_URL;
 const BACKEND_API_TOKEN = process.env.BACKEND_API_TOKEN;
 
 const ALLOWED_HEADERS = ['content-type', 'accept', 'content-length'];
 
-async function proxyHandler(
-  req: NextRequest,
-  context: { params: Promise<{ endpoint: string[] }> }
-) {
-  try {
-    const { endpoint } = await context.params;
-    const backendPath = endpoint.join("/");
+async function proxy(req: NextRequest, { params }: { params: { endpoint: string[] } }) {
+  if (!BACKEND_URL) {
+    return NextResponse.json({ error: "BACKEND_URL not defined" }, { status: 500 });
+  }
 
+  try {
+    const backendPath = params.endpoint?.join("/") || "";
     const targetUrl = `${BACKEND_URL}/${backendPath}${req.nextUrl.search}`;
 
     // Forward allowed headers
@@ -22,7 +21,7 @@ async function proxyHandler(
       if (val) headers[h] = val;
     });
 
-    // Forward token cookie if present
+    // Forward cookie token if present
     const cookie = req.headers.get("cookie");
     if (cookie) {
       const match = cookie.match(/token=[^;]+/);
@@ -34,59 +33,49 @@ async function proxyHandler(
       headers['authorization'] = `Bearer ${BACKEND_API_TOKEN}`;
     }
 
-    // Prepare fetch options
-    const fetchOptions: RequestInit = {
-      method: req.method,
-      headers,
-      signal: AbortSignal.timeout(30000),
-    };
-
-    // Handle body for non-GET/HEAD requests
+    // Body handling
+    let body: BodyInit | undefined;
     if (!['GET', 'HEAD'].includes(req.method)) {
-      // Edge Request body needs to be read via .text() or .json()
-      fetchOptions.body = await req.text();
+      body = await req.text();
     }
 
-    // Fetch backend
-    const response = await fetch(targetUrl, fetchOptions);
+    const response = await fetch(targetUrl, {
+      method: req.method,
+      headers,
+      body,
+    });
 
-    // Return response to client
+    // Build response headers
     const resHeaders = new Headers(response.headers);
-    return new NextResponse(response.body, {
+    resHeaders.set('Access-Control-Allow-Origin', '*');
+    resHeaders.set('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
+    resHeaders.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+    const respBody = await response.arrayBuffer();
+    return new NextResponse(respBody, {
       status: response.status,
-      statusText: response.statusText,
       headers: resHeaders,
     });
 
-  } catch (error) {
-    console.error('[PROXY_ERROR]', error);
-
-    if (error instanceof Error) {
-      if (error.name === 'AbortError' || error.name === 'TimeoutError') {
-        return NextResponse.json({ error: "Request timeout", details: error.message }, { status: 504 });
-      }
-      if (error.message.includes('fetch failed')) {
-        return NextResponse.json({ error: "Cannot connect to backend", details: error.message, backend: BACKEND_URL }, { status: 502 });
-      }
-      return NextResponse.json({ error: "Proxy request failed", details: error.message, type: error.name }, { status: 500 });
-    }
-
-    return NextResponse.json({ error: "Unknown proxy error", details: String(error) }, { status: 500 });
+  } catch (err) {
+    console.error('[PROXY_ERROR]', err);
+    return NextResponse.json({ error: "Proxy failed", details: String(err) }, { status: 500 });
   }
 }
 
-// Export all HTTP methods
-export const GET = proxyHandler;
-export const POST = proxyHandler;
-export const PUT = proxyHandler;
-export const PATCH = proxyHandler;
-export const DELETE = proxyHandler;
+// Export all methods
+export const GET = proxy;
+export const POST = proxy;
+export const PUT = proxy;
+export const PATCH = proxy;
+export const DELETE = proxy;
 
-// Handle OPTIONS (CORS preflight)
+// OPTIONS for CORS preflight
 export async function OPTIONS() {
   return new NextResponse(null, {
     status: 204,
     headers: {
+      'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, DELETE, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type, Authorization',
     },
