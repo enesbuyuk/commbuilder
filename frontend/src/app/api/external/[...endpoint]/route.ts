@@ -12,11 +12,32 @@ async function handler(
     const targetUrl = new URL(backendPath, process.env.BACKEND_URL);
     targetUrl.search = req.nextUrl.search;
 
-    const headers = new Headers(req.headers);
-    headers.delete("host");
-    headers.delete("x-forwarded-for");
-    headers.delete("x-forwarded-proto");
 
+    // Only forward safe headers
+    const headers = new Headers();
+    
+    // Whitelist specific headers if needed
+    const contentType = req.headers.get("content-type");
+    if (contentType) {
+      headers.set("content-type", contentType);
+    }
+
+    const accept = req.headers.get("accept");
+    if (accept) {
+      headers.set("accept", accept);
+    }
+
+    // Only forward specific cookie (token)
+    const cookieHeader = req.headers.get("cookie");
+    if (cookieHeader) {
+      const cookies = cookieHeader.split(';').map(c => c.trim());
+      const tokenCookie = cookies.find(c => c.startsWith('token='));
+      if (tokenCookie) {
+        headers.set("cookie", tokenCookie);
+      }
+    }
+
+    // Add API token for backend authentication
     if (process.env.BACKEND_API_TOKEN) {
       headers.set("Authorization", `Bearer ${process.env.BACKEND_API_TOKEN}`);
     }
@@ -25,7 +46,8 @@ async function handler(
       method: req.method,
       headers,
       body: req.body,
-    });
+      duplex: 'half',
+    } as RequestInit);
 
     return new NextResponse(response.body, {
       status: response.status,
