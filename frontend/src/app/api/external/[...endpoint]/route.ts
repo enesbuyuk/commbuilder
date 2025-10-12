@@ -5,12 +5,16 @@ const BACKEND_API_TOKEN = process.env.BACKEND_API_TOKEN;
 
 const ALLOWED_HEADERS = ['content-type', 'accept', 'content-length'];
 
-async function proxy(req: NextRequest, { params }: { params: { endpoint: string[] } }) {
+async function proxy(
+  req: NextRequest, 
+  context: { params: Promise<{ endpoint: string[] }> }
+) {
   if (!BACKEND_URL) {
     return NextResponse.json({ error: "BACKEND_URL not defined" }, { status: 500 });
   }
 
   try {
+    const params = await context.params;
     const backendPath = params.endpoint?.join("/") || "";
     const targetUrl = `${BACKEND_URL}/${backendPath}${req.nextUrl.search}`;
 
