@@ -54,8 +54,8 @@ jobs:
             git fetch origin main
             git reset --hard origin/main
 
-            docker compose build mongodb traefik commbuilder-backend            
-            docker compose up -d mongodb traefik commbuilder-backend
+            docker compose build commbuilder-backend            
+            docker compose up -d commbuilder-backend
 
             docker image prune -f
             docker compose ps
