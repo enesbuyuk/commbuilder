@@ -160,7 +160,7 @@ volumes:
 networks:
   commbuilder-network:
     driver: bridge
-    name: commbuilder-netowork
+    name: commbuilder-network
     ### if you want to use your docker network
     #external: true
     #name: your-docker-network-name
