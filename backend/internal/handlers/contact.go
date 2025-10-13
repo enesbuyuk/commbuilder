@@ -11,7 +11,29 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
-// GetContact retrieves a single contact entry by key from the database.
+func GetContacts(c *fiber.Ctx) error {
+	var contacts []models.ContactModel
+
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+
+	cursor, err := config.DB.Collection("contact").Find(ctx, bson.M{})
+	if err != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+			"error": "Failed to retrieve contacts",
+		})
+	}
+	defer cursor.Close(ctx)
+
+	if err := cursor.All(ctx, &contacts); err != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+			"error": "Failed to parse contacts",
+		})
+	}
+
+	return c.JSON(contacts)
+}
+
 func GetContact(c *fiber.Ctx) error {
 	key := c.Params("key")
 	var contact models.ContactModel
