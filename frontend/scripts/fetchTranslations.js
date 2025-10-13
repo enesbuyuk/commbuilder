@@ -30,8 +30,8 @@ async function fetchTranslations() {
   }
 }
 
-if (process.env.SYNC_TRANSLATIONS === "1") {
+if (process.env.PREBUILD === "1") {
   fetchTranslations().catch(console.error);
 } else {
-  console.log("[Fetch Translations] SYNC_TRANSLATIONS not set to 1, skipping fetch");
+  console.log("[Fetch Translations] PREBUILD not set to 1, skipping fetch");
 }
