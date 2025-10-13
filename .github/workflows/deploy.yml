@@ -6,11 +6,12 @@ on:
       - main
 
 jobs:
-  deploy:
+  deploy-iucs:
     runs-on: ubuntu-latest
+    name: Deploy to iucs.net
 
     steps:
-      - name: Deploy to server via SSH
+      - name: Deploy to server via SSH [iucs.net]
         uses: appleboy/ssh-action@v1.2.2
         with:
           host: ${{ secrets.SERVER_IP }}
@@ -18,10 +19,37 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             export DOCKER_BUILDKIT=1
-            set -e  # Exit on any error
+            set -e
             cd ${{ secrets.SERVER_PROJECT_PATH }}
 
             git config --global --add safe.directory ${{ secrets.SERVER_PROJECT_PATH }}
+
+            git fetch origin main
+            git reset --hard origin/main
+
+            docker compose build mongodb traefik commbuilder-backend            
+            docker compose up -d mongodb traefik commbuilder-backend
+
+            docker image prune -f
+            docker compose ps
+
+  deploy-awscc:
+    runs-on: ubuntu-latest
+    name: Deploy to awscc.iucs.net
+
+    steps:
+      - name: Deploy to server via SSH [awscc.iucs.net]
+        uses: appleboy/ssh-action@v1.2.2
+        with:
+          host: ${{ secrets.AWSCC_SERVER_IP }}
+          username: ${{ secrets.AWSCC_SERVER_USER }}
+          key: ${{ secrets.AWSCC_SERVER_SSH_KEY }}
+          script: |
+            export DOCKER_BUILDKIT=1
+            set -e
+            cd ${{ secrets.AWSCC_SERVER_PROJECT_PATH }}
+
+            git config --global --add safe.directory ${{ secrets.AWSCC_SERVER_PROJECT_PATH }}
 
             git fetch origin main
             git reset --hard origin/main
