@@ -4,9 +4,9 @@ import path from "path";
 async function fetchFavicon() {
   try {
     const faviconUrl = `${process.env.NEXT_PUBLIC_BUCKET}/theme/favicon.ico`;
-    
     console.log(`[Fetch Favicon] Fetching from: ${faviconUrl}`);
-    
+    const res = await fetch(faviconUrl);
+
     if (res.status !== 200) {
       console.error(`[Fetch Favicon] Failed to fetch favicon: ${res.status} ${res.statusText}`);
       return;
