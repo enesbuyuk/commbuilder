@@ -74,9 +74,6 @@ services:
       # Middleware: Compression
       - "traefik.http.routers.commbuilder-backend.middlewares=commbuilder-backend-compress"
       - "traefik.http.middlewares.commbuilder-backend-compress.compress=true"
-    depends_on:
-      - traefik
-      - mongodb
     networks:
       - commbuilder-network
     healthcheck:
@@ -129,8 +126,6 @@ services:
       # Middleware: Compression
       - "traefik.http.routers.commbuilder-frontend.middlewares=commbuilder-frontend-compress"
       - "traefik.http.middlewares.commbuilder-frontend-compress.compress=true"
-    depends_on: 
-      - commbuilder-backend
     networks:
       - commbuilder-network
 
