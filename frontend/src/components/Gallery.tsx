@@ -86,17 +86,17 @@ export default function Gallery() {
                         <div
                             key={item._id}
                             className={`relative w-full cursor-pointer rounded-lg overflow-hidden bg-gray-200 hover:opacity-90 transition-opacity duration-200 ${cols} ${rows}`}
-                            onClick={() => openModal(item.imageUrl)}
+                            onClick={() => openModal(`${process.env.NEXT_PUBLIC_BUCKET}/uploads/gallery/${item._id}.webp`)}
                             title={title}
                         >
                             <Image
-                                src={item.imageUrl}
+                                src={`${process.env.NEXT_PUBLIC_BUCKET}/uploads/gallery/${item._id}.webp`}
                                 alt={title || "gallery"}
                                 fill
                                 sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                                 className="object-cover w-full h-full"
                                 onError={(e) => {
-                                    console.error('Image failed to load:', item.imageUrl);
+                                    console.error('Image failed to load:', `${process.env.NEXT_PUBLIC_BUCKET}/uploads/gallery/${item._id}.webp`);
                                 }}
                             />
                             {title ? (
