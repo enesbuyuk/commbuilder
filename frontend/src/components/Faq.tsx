@@ -20,10 +20,7 @@ export default function Faq({locale}: {locale: string}) {
     useEffect(() => {
         const fetchFaqs = async () => {
             try {
-                const res = await fetch(
-                    `${process.env.NEXT_PUBLIC_SITE_URL}/api/external/faq`,
-                    { cache: "no-store" }
-                );
+                const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/external/faq`);
                 if (!res.ok) throw new Error("Failed to fetch FAQs");
                 const data = await res.json();
                 setFaqs(Array.isArray(data) ? data : []);
