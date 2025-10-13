@@ -55,10 +55,11 @@ jobs:
             git reset --hard origin/main
 
             sed "s/commbuilder-backend/commbuilder-backend-awscc/g" docker-compose.yml > docker-compose.override.yml
-            
-            docker compose build -f docker-compose.override.yml commbuilder-backend-awscc
-            docker compose -f docker-compose.override.yml up -d commbuilder-backend-awscc
 
+            mv docker-compose.override.yml docker-compose.yml
+
+            docker compose build commbuilder-backend-awscc
+            docker compose up -d commbuilder-backend-awscc
 
             docker image prune -f
             docker compose ps
