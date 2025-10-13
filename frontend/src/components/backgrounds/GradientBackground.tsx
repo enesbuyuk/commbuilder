@@ -32,7 +32,7 @@ export default function GradientBackground({ children }: { children: React.React
     }, []);
 
     return (
-        <div className="flex overflow-hidden h-svh w-full justify-center">
+        <div className="flex overflow-hidden w-full justify-center">
             <div className="absolute inset-0 -z-10 gradient-background"></div>
             <div className="flex flex-col justify-around">{children}</div>
         </div>

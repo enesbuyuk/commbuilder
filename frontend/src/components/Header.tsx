@@ -57,7 +57,7 @@ export default async function Header({ page = "", children }: HeaderProps) {
     const BackgroundComponent = IndexBackgroundMap[indexBackground] || VideoBackground;
 
     return (
-        <header className={`text-gray-600 body-font overflow-visible flex flex-col place-content-between ${page === "home" ? "h-svh" : ""} items-center`}>
+        <header className={`text-gray-600 body-font overflow-visible flex flex-col place-content-between ${page === "home" || page === "event" ? "h-svh" : ""} items-center`}>
             <Navbar page={page} />
             {page === "home" ? (
                 <BackgroundComponent>
