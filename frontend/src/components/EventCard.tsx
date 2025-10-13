@@ -69,7 +69,7 @@ export default async function EventCard({ event }: EventCardProps) {
 
                     {/* View Details Button */}
                     <Link
-                        href={{ pathname: "/events/[id]", params: { id: event._id } }}
+                        href={{ pathname: "/event/[id]", params: { id: event._id } }}
                         className="inline-flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 px-4 rounded-lg text-sm transition duration-300 w-full mb-4"
                     >
                         {contentTranslations("viewDetails")}

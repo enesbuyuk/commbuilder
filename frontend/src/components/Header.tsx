@@ -8,14 +8,25 @@ import { getLocale, getTranslations } from "next-intl/server";
 
 const pageName = "index";
 
-export default async function Header({isHome=false}: {isHome?: boolean}) {
+interface HeaderProps {
+    page?: string;
+    children?: React.ReactNode;
+}
+
+export default async function Header({ page = "", children }: HeaderProps) {
     const generalTranslations = await getTranslations('general');
 
     const locale = await getLocale();
 
     let indexBackground = "video";
-    if (isHome){
+    if (page === "home") {
         const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/external/settings/index_background`);
+        if (response.ok) {
+            const data = await response.json();
+            indexBackground = data.value;
+        }
+    } else if (page === "event") {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/external/settings/event_background`);
         if (response.ok) {
             const data = await response.json();
             indexBackground = data.value;
@@ -23,7 +34,7 @@ export default async function Header({isHome=false}: {isHome?: boolean}) {
     }
 
     let indexHeroSetting = "index_hero";
-    if (isHome){
+    if (page === "home") {
         const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/external/settings/index_hero`);
 
         if (response.ok) {
@@ -37,7 +48,7 @@ export default async function Header({isHome=false}: {isHome?: boolean}) {
         "countdown": () => <CountDown eventId="" />,
     };
 
-    const IndexBackgroundMap: Record<string, React.FC<{children: React.ReactNode}>> = {
+    const IndexBackgroundMap: Record<string, React.FC<{ children: React.ReactNode }>> = {
         "video": VideoBackground,
         "gradient": GradientBackground,
     };
@@ -46,11 +57,15 @@ export default async function Header({isHome=false}: {isHome?: boolean}) {
     const BackgroundComponent = IndexBackgroundMap[indexBackground] || VideoBackground;
 
     return (
-        <header className={`text-gray-600 body-font overflow-visible flex flex-col place-content-between ${isHome ? "h-svh" : ""} items-center`}>
-            <Navbar locale={locale}/>
-            {isHome ? (
+        <header className={`text-gray-600 body-font overflow-visible flex flex-col place-content-between ${page === "home" ? "h-svh" : ""} items-center`}>
+            <Navbar page={page} />
+            {page === "home" ? (
                 <BackgroundComponent>
                     <HeroComponent />
+                </BackgroundComponent>
+            ) : page === "event" ? (
+                <BackgroundComponent>
+                    {children}
                 </BackgroundComponent>
             ) : null}
         </header>

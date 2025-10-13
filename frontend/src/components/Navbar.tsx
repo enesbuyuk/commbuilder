@@ -7,9 +7,10 @@ import {Link} from '@/i18n/routing';
 import { usePathname } from 'next/navigation';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 
-export default function Navbar({locale}: {locale: string}) {
+export default function Navbar({page}: {page: string}) {
     const pathname = usePathname();
-    const isIndex = (pathname.replace(/\/$/, '').match(/\//g) || []).length < 2;
+    const isIndex = page === "home" || page === "index" || page === "event";
+    //const isIndex = (pathname.replace(/\/$/, '').match(/\//g) || []).length < 2;
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isAboutOpen, setIsAboutOpen] = useState(false);
 

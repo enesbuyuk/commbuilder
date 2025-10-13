@@ -27,6 +27,11 @@
       "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü'nden en son haberler ve güncellemelerden haberdar olun!",
       "keywords": "İstanbul Üniversitesi, Bilgisayar Bilimleri Kulübü, Duyurular, En Son Haberler, Kulüp Güncellemeleri, Öğrenci Etkinlikleri, Teknoloji Haberleri, Yaklaşan Etkinlikler, Üniversite Bildirimleri"
     },
+    "event-details": {
+      "title": "Etkinlik Detayları",
+      "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü tarafından düzenlenen etkinlikler hakkında detaylı bilgi edinin!",
+      "keywords": "İstanbul Üniversitesi, Bilgisayar Bilimleri Kulübü Etkinlik Detayları, Teknoloji Buluşmaları, Hackathonlar, Programlama Yarışmaları, Kodlama Atölyeleri, Konuk Konuşmacılar, Webinarlar, Teknoloji Seminerleri, Yapay Zeka Etkinlikleri, Makine Öğrenimi Konferansları, Öğrenci Teknoloji Buluşmaları"
+    },
     "events": {
       "title": "Etkinlikler",
       "description": "İstanbul Üniversitesi Bilgisayar Bilimleri Kulübü tarafından düzenlenen etkinlikleri öğrenin!",
@@ -119,7 +124,8 @@
       "eventEnded": "Bu etkinlik sona erdi",
       "joinEvent": "Etkinliğe Katıl",
       "eventDate": "Etkinlik Tarihi",
-      "eventDescription": "Etkinlik Açıklaması"
+      "eventDescription": "Etkinlik Açıklaması",
+      "share": "Paylaş"
     },
     "gallery": {
       "viewGallery": "Galeriyi Görüntüle"

@@ -10,7 +10,7 @@ const pageName = "index";
 export default async function Page() {
     return (
         <>
-            <Header isHome={true} />
+            <Header page={"home"} />
             <main className="flex flex-col items-center justify-center w-full overflow-hidden">
                 <FocusMode/>
                 <LastEvents pageName={pageName} />

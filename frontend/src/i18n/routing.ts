@@ -15,9 +15,9 @@ export const routing = defineRouting({
             tr: '/etkinlikler'
         },
 
-        '/events/[id]': {
-            en: '/events/[id]',
-            tr: '/etkinlikler/[id]'
+        '/event/[id]': {
+            en: '/event/[id]',
+            tr: '/etkinlik/[id]'
         },
         '/useful-links': {
             en: '/useful-links',

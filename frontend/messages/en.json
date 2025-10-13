@@ -32,6 +32,11 @@
       "description": "Learn about the events organized by the Istanbul University Computer Science Club!",
       "keywords": "Istanbul University, Computer Science Club Events, Tech Meetups, Hackathons, Programming Contests, Coding Workshops, Guest Speakers, Webinars, Tech Seminars, AI Events, Machine Learning Conferences, Student Tech Gatherings"
     },
+    "event-details": {
+      "title": "Event Details",
+      "description": "Get detailed information about the events organized by the Istanbul University Computer Science Club!",
+      "keywords": "Istanbul University, Computer Science Club Event Details, Tech Meetups, Hackathons, Programming Contests, Coding Workshops, Guest Speakers, Webinars, Tech Seminars, AI Events, Machine Learning Conferences, Student Tech Gatherings"
+    },
     "useful-links": {
       "title": "Useful Links",
       "description": "Explore useful links related to computer science, technology, and more!",
@@ -119,7 +124,8 @@
       "eventEnded": "This event has ended",
       "joinEvent": "Join the Event",
       "eventDate": "Event Date",
-      "eventDescription": "Event Description"
+      "eventDescription": "Event Description",
+      "share": "Share"
     },
     "gallery": {
       "viewGallery": "View Gallery"

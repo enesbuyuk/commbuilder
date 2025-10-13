@@ -17,7 +17,7 @@ const LanguageSwitcher = () => {
     return (
         <button
             onClick={toggleLanguage}
-            className="inline-flex bg-primary rounded-lg text-medium text-white font-medium mr-5 px-2"
+            className="inline-flex bg-primary rounded-lg text-medium text-white font-medium mr-5 px-2 hover:cursor-pointer hover:bg-secondaryDark duration-300"
         >
       <span
           className={`py-1  ${

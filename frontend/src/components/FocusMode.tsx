@@ -26,5 +26,5 @@ if (!event_data || event_data.length === 0) {
 
 const event = event_data[0];
 
-redirect(`/events/${event._id}`);
+redirect(`/event/${event._id}`);
 }
