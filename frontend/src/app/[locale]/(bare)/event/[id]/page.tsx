@@ -182,39 +182,40 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
                     {/* Event Card */}
                     <div className="backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden border border-white/10 mb-12">
                         {/* Hero Image */}
-                        <div className="relative h-[500px] md:h-[600px] w-full overflow-hidden group">
+                        <div className="relative aspect-video w-full overflow-hidden group">
                             <Image
                                 src={process.env.NEXT_PUBLIC_BUCKET + "/uploads/" + event._id + ".webp"}
                                 alt={event.title[locale] || event.title.en}
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                priority
                             />
                             {/* Gradient Overlay */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
 
                             {/* Event Type Badge */}
                             {event.type && (
-                                <div className="absolute top-6 right-6">
-                                    <span className="backdrop-blur-xl bg-gradient-to-r from-orange-500/90 to-pink-600/90 text-white px-6 py-3 rounded-full text-sm font-bold shadow-2xl border border-white/20 animate-pulse">
+                                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 md:top-6 md:right-6">
+                                    <span className="backdrop-blur-xl bg-gradient-to-r from-orange-500/90 to-pink-600/90 text-white px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full text-xs sm:text-sm font-bold shadow-2xl border border-white/20 animate-pulse">
                                         {event.type[locale] || event.type.en}
                                     </span>
                                 </div>
                             )}
 
                             {/* Event Title Overlay */}
-                            <div className="absolute bottom-0 left-0 right-0 p-8">
-                                <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 drop-shadow-2xl leading-tight">
+                            <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 md:p-6 lg:p-8">
+                                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-white mb-1 sm:mb-2 md:mb-4 drop-shadow-2xl leading-tight">
                                     {event.title[locale] || event.title.en}
                                 </h1>
                             </div>
                         </div>
 
                         {/* Event Content */}
-                        <div className="p-8 md:p-12">
+                        <div className="p-4 sm:p-6 md:p-8 lg:p-12">
                             {/* Event Date */}
-                            <div className="flex items-center gap-4 mb-8 backdrop-blur-sm bg-white/5 rounded-2xl p-6 border border-white/10">
-                                <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-pink-600 shadow-lg">
-                                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8 backdrop-blur-sm bg-white/5 rounded-2xl p-4 md:p-6 border border-white/10">
+                                <div className="flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-pink-600 shadow-lg">
+                                    <svg className="w-6 h-6 md:w-8 md:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                     </svg>
                                 </div>
