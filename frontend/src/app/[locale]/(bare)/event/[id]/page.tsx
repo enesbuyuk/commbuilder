@@ -182,9 +182,9 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
                     {/* Event Card */}
                     <div className="backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden border border-white/10 mb-12">
                         {/* Hero Image */}
-                        <div className="relative h-100 w-full overflow-hidden group">
+                        <div className="relative h-[500px] md:h-[600px] w-full overflow-hidden group">
                             <Image
-                                src={process.env.NEXT_PUBLIC_BUCKET + "/uploads/" + event._id + ".webp" || "/theme/default-image.webp"}
+                                src={process.env.NEXT_PUBLIC_BUCKET + "/uploads/" + event._id + ".webp"}
                                 alt={event.title[locale] || event.title.en}
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-110"
