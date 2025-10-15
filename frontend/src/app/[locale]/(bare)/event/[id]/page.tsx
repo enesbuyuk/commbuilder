@@ -6,6 +6,7 @@ import CountDown from "@/components/CountDown";
 import { getMetadata } from "@/lib/metadata";
 import { Link } from "@/i18n/routing";
 import Header from "@/components/Header";
+import SpeakerAvatar from "@/components/SpeakerAvatar";
 
 const pageName = "event-details";
 
@@ -254,11 +255,10 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
                                                 style={{ animationDelay: `${index * 100}ms` }}
                                             >
                                                 <div className="flex items-start gap-4">
-                                                    <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-pink-600 shadow-lg shrink-0">
-                                                        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                                            <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-                                                        </svg>
-                                                    </div>
+                                                    <SpeakerAvatar 
+                                                        speakerId={speaker._id} 
+                                                        speakerName={speaker.name[locale] || speaker.name.en}
+                                                    />
                                                     <div className="flex-1">
                                                         <h3 className="font-bold text-xl text-white mb-1 group-hover:text-orange-400 transition-colors">
                                                             {speaker.name[locale] || speaker.name.en}
