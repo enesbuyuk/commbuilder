@@ -23,7 +23,12 @@ export default async function CountDown({eventId=""}: {eventId: string}) {
       return <div className="text-center p-10">No event found</div>;
     }
 
-    return <CountDownClient event={event} locale={locale} />;
+    return (
+      <div className="flex-1 flex items-center justify-center w-full">
+        <CountDownClient event={event} locale={locale} />
+      </div>
+    )
+    
   } catch (error) {
     return <div className="text-center p-10">Error fetching event data</div>;
   }
