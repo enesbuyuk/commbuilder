@@ -32,7 +32,7 @@ Directory structure:
 └── enesbuyuk-commbuilder/
     ├── README.md
     ├── default.env
-    ├── docker-compose.yml
+    ├── compose.yml
     ├── LICENSE
     ├── setup_env.sh
     ├── backend/
